@@ -1,0 +1,18 @@
+{
+  "name": "witrino-panel",
+  "private": true,
+  "scripts": {
+    "refresh": "lerna bootstrap",
+    "wapp:dev": "cd ./packages/panel-witrino && npm run dev",
+    "wapp:build": "cd ./packages/panel-witrino && npm run build",
+    "wapp:test": "cd ./packages/panel-witrino && npm run test",
+    "test": "lerna exec -- npm run test",
+    "lint": "lerna exec -- npm run lint"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^5.2.0"
+  }
+}

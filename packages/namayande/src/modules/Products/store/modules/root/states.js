@@ -1,0 +1,25 @@
+const state = () => ({
+  user: {
+    create_at: null,
+    create_id: null,
+    email: null,
+    father_name: null,
+    fullname: null,
+    id: 1,
+    image_avatar: null,
+    ip: null,
+    isactive: 1,
+    isdelete: 0,
+    isview: null,
+    jensiat: null,
+    mobile: null,
+    money_deposit: 0,
+    na_no: null,
+    password: null,
+    phone: null,
+    roles: [],
+    update_at: null,
+    update_id: null,
+  },
+});
+export default state;

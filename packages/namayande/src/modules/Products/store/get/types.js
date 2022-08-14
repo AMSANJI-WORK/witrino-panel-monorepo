@@ -1,0 +1,3 @@
+export const GET_A_USER_ASYNC = "GET_A_USER_ASYNC";
+export const GET_A_USER_SUCCESS = "GET_A_USER_SUCCESS";
+export const GET_A_USER_FAILURE = "GET_A_USER_FAILURE";

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "target": "ESNext",
+    "paths": {
+      "@shared/*": ["./packages/shared/src/*"],
+      "@auth/*": ["./packages/auth/src/*"],
+      "@admin/*": ["./packages/admin/src/*"],
+      "@witrino/*": ["./packages/panel-witrino/src/*"],
+      "@namayande/*": ["./packages/namayande/src/*"],
+      "@edtehadieh/*": ["./packages/edtehadieh/src/*"]
+    }
+  },
+  "include": ["./**/*.js", "./**/*.vue", "./**/*.json", "./**/*.scss"],
+  "exclude": ["node_modules"]
+}

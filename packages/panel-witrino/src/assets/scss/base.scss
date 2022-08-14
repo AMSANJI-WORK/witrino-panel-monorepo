@@ -1,0 +1,44 @@
+$small: 960px;
+@import "./font.scss";
+
+.v-application p {
+  margin-bottom: 0px !important;
+}
+.v-application,
+body {
+  letter-spacing: 0px !important;
+  font-family: Vazir !important;
+  overflow: hidden;
+}
+.v-application [class*="text-"] {
+  color: #36405a;
+  font-family: Vazir !important;
+  letter-spacing: 0px !important;
+}
+.v-application .line-height {
+  line-height: 1.8rem;
+}
+.v-application .cursor-pointer {
+  cursor: pointer;
+}
+.v-btn,
+.v-tab {
+  letter-spacing: normal !important;
+}
+
+.dir-right {
+  direction: rtl !important;
+}
+
+.Vue-Toastification__toast-body {
+  font-family: Vazir !important;
+}
+
+@media screen and (max-width: $small) {
+  .v-application,
+  main {
+    padding: 0px !important;
+  }
+}
+$red: #f55861;
+$secondary: #c7c7c7;
