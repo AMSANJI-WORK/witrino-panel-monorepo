@@ -12,7 +12,7 @@ import AdminLayout from "@applets/admin/src/layouts/Defualt.vue";
 import EdtehadiehLayout from "@applets/edtehadieh/src/layouts/Defualt.vue";
 import NamayandeLayout from "@applets/namayande/src/layouts/Defualt.vue";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
-import { profilePrevPath } from "@shared/modules/Profile/middlewares";
+import { profilePrevPath } from "@packages/profile/middlewares";
 export default {
   beforeRouteEnter(to, from, next) {
     if (
