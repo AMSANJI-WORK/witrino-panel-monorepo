@@ -1,10 +1,10 @@
 import Cookies from "js-cookie";
-export default [
+export const ProfileRoutes =  [
   {
     path: "/profile/:userId",
     name: "profile",
     redirect: "/profile/:userId/preview",
-    component: () => import("@shared/modules/Profile/views/index.vue"),
+    component: () => import("@packages/profile/views/index.vue"),
     meta: {
       breadCrumb: [
         {
@@ -18,7 +18,7 @@ export default [
       {
         path: "preview",
         name: "profile-preview",
-        component: () => import("@shared/modules/Profile/views/Preview.vue"),
+        component: () => import("@packages/profile/views/Preview.vue"),
         meta: {
           breadCrumb: [
             {
@@ -35,7 +35,7 @@ export default [
       {
         path: "edit",
         name: "profile-edit",
-        component: () => import("@shared/modules/Profile/views/Edit.vue"),
+        component: () => import("@packages/profile/views/Edit.vue"),
         meta: {
           breadCrumb: [
             {

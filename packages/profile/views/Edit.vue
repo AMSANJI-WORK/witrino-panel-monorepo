@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ModifyForm from "@shared/modules/Profile/components/EditForm.vue";
+import ModifyForm from "@packages/profile/components/EditForm.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 
 export default {
