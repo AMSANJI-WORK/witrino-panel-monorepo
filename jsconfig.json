@@ -6,6 +6,7 @@
     "paths": {
       "@applets/*": ["applets/*"],
       "@shared/*": ["packages/shared/src/*"],
+      "@packages/*": ["packages/*"],
       "@packages/admin/*": ["packages/admin/*"],
       "@witrino/*": ["apps/panel-witrino/src/*"]
     }

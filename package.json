@@ -9,6 +9,8 @@
     "wapp:build": "cd ./apps/panel-witrino && npm run build"
   },
   "workspaces": [
+    "packages/admin/*",
+    "config/*",
     "packages/*",
     "applets/*",
     "apps/*"

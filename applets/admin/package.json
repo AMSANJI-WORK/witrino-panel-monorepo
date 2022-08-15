@@ -10,6 +10,7 @@
   "dependencies": {
     "roles": "*",
     "users": "*",
+    "profile":"*",
     "shared": "*"
   }
 }

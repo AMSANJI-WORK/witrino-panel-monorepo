@@ -1,5 +1,5 @@
 {
-  "name": "edtehadieh",
+  "name": "profile",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -8,7 +8,6 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
-    "profile":"*",
     "shared": "*"
   }
 }
