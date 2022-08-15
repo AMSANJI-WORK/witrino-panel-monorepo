@@ -4,9 +4,9 @@
     "baseUrl": ".",
     "target": "ESNext",
     "paths": {
-      "@packages/admin/*": ["packages/admin/*"],
-      "@shared/*": ["shared/src/*"],
       "@applets/*": ["applets/*"],
+      "@shared/*": ["packages/shared/src/*"],
+      "@packages/admin/*": ["packages/admin/*"],
       "@witrino/*": ["apps/panel-witrino/src/*"]
     }
   },
