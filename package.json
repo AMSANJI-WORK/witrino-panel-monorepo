@@ -10,7 +10,10 @@
     "lint": "lerna exec -- npm run lint"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "applets/*",
+    "modules/*",
+    "apps/*"
   ],
   "devDependencies": {
     "lerna": "^5.2.0"

@@ -4,11 +4,12 @@ import { getClientConfiguration } from "../../config";
 export default getClientConfiguration({
   resolve: {
     alias: {
-      "@edtehadieh": fileURLToPath(new URL("./src", import.meta.url)),
-      "@shared": path.resolve(__dirname, "../shared/src"),
-      "@admin": path.resolve(__dirname, "../admin/src"),
+      "@admin": fileURLToPath(new URL("./src", import.meta.url)),
       "@auth": path.resolve(__dirname, "../auth/src"),
+      "@edtehadieh": path.resolve(__dirname, "../edtehadieh/src"),
       "@namayande": path.resolve(__dirname, "../namayande/src"),
+      "@shared": path.resolve(__dirname, "../../packages/shared/src"),
+      "@witrino": path.resolve(__dirname, "../../apps/panel-witrino/src"),
     },
   },
 });
