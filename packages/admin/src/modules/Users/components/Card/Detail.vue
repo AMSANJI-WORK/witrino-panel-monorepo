@@ -15,7 +15,7 @@
       </v-label>
     </v-col>
     <v-col cols="12" md="6" class="py-1">
-      <v-label label="جنسیت" :labelValue="user.jensiat">
+      <v-label label="جنسیت" :labelValue="user.jensiat | gender">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1">mdi-gender-male</v-icon>
         </template>
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import UserMixin from "../mixins/modify";
 import moment from "moment-jalaali";
+import UserMixin from "@admin/modules/Users/mixins/modify";
 import VLabel from "@shared/components/Reusable/VLabel.vue";
 export default {
   mixins: [UserMixin],
@@ -56,6 +56,9 @@ export default {
     VLabel,
   },
   filters: {
+    gender(value) {
+      return value?.includes("w") ? "خانم" : "آقا";
+    },
     hireDate(value) {
       return moment(value).format("jYYYY/jMM/jDD");
     },

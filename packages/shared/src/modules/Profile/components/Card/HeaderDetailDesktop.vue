@@ -4,7 +4,7 @@
       <img :src="require('@shared/assets/image/png/card-branch-avatar.png')" />
     </v-avatar>
     <v-sheet>
-      <h4 class="font-weight-regular mb-5">{{ user.full_name }}</h4>
+      <h4 class="font-weight-medium mb-5">{{ user.full_name }}</h4>
 
       <v-btn dark color="light-blue" class="rounded-lg">
         <witrino-page />

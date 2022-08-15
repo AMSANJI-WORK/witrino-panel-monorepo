@@ -92,6 +92,22 @@
           </template>
         </v-text-field>
       </v-col>
+      <v-col cols="12" sm="6" class="pb-0">
+        <v-select
+          class="rounded-lg"
+          :items="genders"
+          v-model="editableUser.jensiat"
+          :rules="[rules.required]"
+          :loading="fromLoading"
+          dense
+          outlined
+        >
+          <template #label>
+            <v-icon class="ml-1">mdi-gender-male</v-icon>
+            <span>جنسیت</span>
+          </template>
+        </v-select>
+      </v-col>
       <v-col cols="12" class="d-flex justify-end pb-8">
         <v-btn
           dark
@@ -129,7 +145,16 @@ export default {
   },
   mixins: [FormMixin, ProfileMixin],
   data: () => ({
-    showPass: false,
+    genders: [
+      {
+        value: "woman",
+        text: "زن",
+      },
+      {
+        value: "man",
+        text: "مرد",
+      },
+    ],
   }),
   computed: {
     validateFrom() {

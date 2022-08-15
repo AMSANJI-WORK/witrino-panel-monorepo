@@ -181,11 +181,11 @@ export default {
     showPass: false,
     genders: [
       {
-        value: 0,
+        value: "woman",
         text: "زن",
       },
       {
-        value: 1,
+        value: "man",
         text: "مرد",
       },
     ],

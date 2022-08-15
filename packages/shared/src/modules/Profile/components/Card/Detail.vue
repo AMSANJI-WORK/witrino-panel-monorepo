@@ -48,9 +48,9 @@
 </template>
 
 <script>
-import VLabel from "@shared/components/Reusable/VLabel.vue";
 import { mapGetters } from "vuex";
 import moment from "moment-jalaali";
+import VLabel from "@shared/components/Reusable/VLabel.vue";
 export default {
   components: {
     VLabel,

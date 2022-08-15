@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import CardHeaderDetailDesktop from "./CardHeaderDetailDesktop.vue";
-import CardHeaderDetailMoblie from "./CardHeaderDetailMoblie.vue";
+
+import CardHeaderDetailDesktop from "./HeaderDetailDesktop.vue";
+import CardHeaderDetailMoblie from "./HeaderDetailMoblie.vue";
 export default {
   components: {
     CardHeaderDetailDesktop,

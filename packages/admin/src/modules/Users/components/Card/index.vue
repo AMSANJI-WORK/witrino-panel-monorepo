@@ -8,8 +8,8 @@
 
 <script>
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import CardDetail from "./CardDetail.vue";
-import CardHeader from "./CardHeader.vue";
+import CardDetail from "./Detail.vue";
+import CardHeader from "./Header.vue";
 export default {
   components: {
     CardDetail,

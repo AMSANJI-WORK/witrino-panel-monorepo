@@ -23,7 +23,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.getUser(payload);
-      commit(`admin/user/${userTypes.SET_USER}`, data.data.data[0], {
+      commit(`admin/user/${userTypes.SET_USER}`, data.data[0], {
         root: true,
       });
       commit(userTypes.GET_ONE_USER_SUCCESS, data);

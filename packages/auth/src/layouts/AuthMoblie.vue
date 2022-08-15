@@ -6,7 +6,7 @@
       </v-col>
     </header>
     <v-main class="grey lighten-4">
-      <v-sheet elevation="0" class="transparent d-flex align-center my-10">
+      <v-sheet elevation="0" class="transparent d-flex align-center mx-sm-15 my-10">
         <v-container>
           <v-slide-x-transition>
             <router-view />

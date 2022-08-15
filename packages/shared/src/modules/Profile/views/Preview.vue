@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import Card from "@shared/modules/Profile/components/Card.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import { userTypes } from "@admin/modules/Users/store/types";
-import { mapActions } from "vuex";
 import Cookies from "js-cookie";
+import { mapActions } from "vuex";
+import { userTypes } from "@admin/modules/Users/store/types";
+import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import Card from "@shared/modules/Profile/components/Card/index.vue";
 export default {
   components: {
     SectionDivider,

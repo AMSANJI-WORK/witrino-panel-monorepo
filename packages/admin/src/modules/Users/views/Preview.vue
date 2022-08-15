@@ -3,7 +3,7 @@
     <section-divider
       title-class="text-subtitle-2"
       bind-class="mb-5 mt-3"
-      title="پروفایل کاربری"
+      title="جزئیات اطلاعات کاربر"
       cardTitleClass="px-0"
     >
     </section-divider>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Card from "../components/Card.vue";
+import Card from "../components/Card/index.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
   components: {

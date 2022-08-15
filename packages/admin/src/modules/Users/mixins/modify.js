@@ -51,9 +51,6 @@ const UserMixin = {
     }),
     setUserInfo() {
       Object.assign(this.editableUser, this.user);
-      this.editableUser.jensiat == "man"
-        ? (this.editableUser.jensiat = 1)
-        : (this.editableUser.jensiat = 0);
     },
     getUserInfo() {
       if (this.targetUserId)
