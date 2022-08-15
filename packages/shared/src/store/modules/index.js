@@ -1,6 +1,6 @@
 import loading from "./loading";
 import message from "./message";
-import profile from "@shared/modules/Profile/store";
+import profile from "@packages/profile/store";
 export default {
   message,
   loading,
