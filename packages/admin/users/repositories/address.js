@@ -1,21 +1,19 @@
-const source = "User";
-import UserAddressRepository from "./address";
 import userClient from "@witrino/repositories/clients/user";
+const source = "UserAddress";
 export default {
-  ...UserAddressRepository,
-  getUser(payload) {
+  getUserAddress(payload) {
     return userClient.post(`${source}/Get${source}`, payload);
   },
-  createUser(payload) {
+  createUserAddress(payload) {
     return userClient.post(`${source}/Create${source}`, payload);
   },
-  updateUser(id, payload) {
+  updateUserAddress(id, payload) {
     return userClient.put(`${source}/Update${source}/${id}`, payload);
   },
-  deleteUser(id) {
+  deleteUserAddress(id) {
     return userClient.delete(`${source}/Delete${source}/${id}`);
   },
-  disableUser(id, payload) {
+  disableUserAddress(id, payload) {
     return userClient.patch(`${source}/IsDelete${source}/${id}`, payload);
   },
 };

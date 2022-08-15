@@ -232,6 +232,8 @@ export default {
 <style lang="scss" scoped>
 :deep(.v-text-field--outlined > .v-input__control > .v-input__slot) {
   background: #f6f6f6;
-  font-size: 13px;
+}
+:deep(.v-input--is-focused .v-input__slot) {
+  background: #fff !important;
 }
 </style>
