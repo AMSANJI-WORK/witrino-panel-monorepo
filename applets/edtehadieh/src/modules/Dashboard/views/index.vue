@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DefualtLayout from "@edtehadieh/layouts/Defualt.vue";
+import DefualtLayout from "@applets/edtehadieh/src/layouts/Defualt.vue";
 export default {
     components: {
         DefualtLayout,

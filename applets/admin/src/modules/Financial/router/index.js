@@ -3,12 +3,12 @@ export default [
     path: "/admin/financial",
     name: "admin-financial",
     redirect: "/admin/financial/list",
-    component: () => import("@admin/modules/Financial/views/index.vue"),
+    component: () => import("@applets/admin/src/modules/Financial/views/index.vue"),
     children: [
       {
         path: "list",
         name: "admin-financial-list-page",
-        component: () => import("@admin/modules/Financial/views/List.vue"),
+        component: () => import("@applets/admin/src/modules/Financial/views/List.vue"),
         meta: {
           breadCrumb: [
             {
@@ -30,7 +30,7 @@ export default [
           {
             path: ":id/detail",
             name: "admin-financial-detail-page",
-            component: () => import("@admin/modules/Financial/views/Detail.vue"),
+            component: () => import("@applets/admin/src/modules/Financial/views/Detail.vue"),
             meta: {
               breadCrumb: [
                 {
@@ -58,13 +58,13 @@ export default [
         path: "transaction/list",
         name: "admin-financial-transaction-list-page",
         component: () =>
-          import("@admin/modules/Financial/views/Transaction/List.vue"),
+          import("@applets/admin/src/modules/Financial/views/Transaction/List.vue"),
         children: [
           {
             path: ":id/detail",
             name: "admin-financial-transaction-detail-page",
             component: () =>
-              import("@admin/modules/Financial/views/Transaction/Detail.vue"),
+              import("@applets/admin/src/modules/Financial/views/Transaction/Detail.vue"),
             meta: {
               breadCrumb: [
                 {

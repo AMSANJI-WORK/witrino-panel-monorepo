@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import OtpForm from "@auth/components/Form/Otp.vue";
+import OtpForm from "@applets/auth/src/components/Form/Otp.vue";
 export default {
   components: {
     OtpForm,

@@ -2,7 +2,7 @@ export default [
   {
     name: "edtehadieh-financial",
     path: "/edtehadieh/financial",
-    component: () => import("@edtehadieh/modules/Financial/views/index.vue"),
+    component: () => import("@applets/edtehadieh/src/modules/Financial/views/index.vue"),
     meta: {
       breadCrumb: [
         {

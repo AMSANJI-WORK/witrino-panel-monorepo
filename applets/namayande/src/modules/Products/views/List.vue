@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import List from "@namayande/modules/Products/components/List.vue";
+import List from "@applets/namayande/src/modules/Products/components/List.vue";
 export default {
   components: {
     List,

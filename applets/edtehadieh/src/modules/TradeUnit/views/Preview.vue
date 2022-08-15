@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BranchDetail from "@edtehadieh/modules/TradeUnit/components/Detail/index.vue";
+import BranchDetail from "@applets/edtehadieh/src/modules/TradeUnit/components/Detail/index.vue";
 export default {
     components: {
         BranchDetail,

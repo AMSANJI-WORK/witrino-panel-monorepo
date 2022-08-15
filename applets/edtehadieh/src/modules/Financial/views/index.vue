@@ -9,7 +9,7 @@
   </v-sheet>
 </template>
 <script>
-import DataTable from "@edtehadieh/modules/Financial/components/DataTable.vue";
+import DataTable from "@applets/edtehadieh/src/modules/Financial/components/DataTable.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
   components: {

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import From from "@namayande/modules/Products/components/ModifyFrom.vue";
+import From from "@applets/namayande/src/modules/Products/components/ModifyFrom.vue";
 export default {
     components: {
         From,

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import CardLoaction from "@admin/modules/Branchs/components/Detail/CardLoaction.vue";
-import CardButtonGroup from "@admin/modules/Branchs/components/Detail/CardButtonGroup.vue";
-import CardButtonGroupMobile from "@admin/modules/Branchs/components/Detail/CardButtonGroupMobile.vue";
-import CardInfo from "@admin/modules/Branchs/components/Detail/CardInfo.vue";
+import CardLoaction from "@applets/admin/src/modules/Branchs/components/Detail/CardLoaction.vue";
+import CardButtonGroup from "@applets/admin/src/modules/Branchs/components/Detail/CardButtonGroup.vue";
+import CardButtonGroupMobile from "@applets/admin/src/modules/Branchs/components/Detail/CardButtonGroupMobile.vue";
+import CardInfo from "@applets/admin/src/modules/Branchs/components/Detail/CardInfo.vue";
 export default {
     components: {
         CardButtonGroupMobile,

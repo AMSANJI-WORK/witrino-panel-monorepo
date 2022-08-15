@@ -3,12 +3,12 @@ export default [
         path: "/edtehadieh/inspector",
         name: "inspector",
         redirect: "/edtehadieh/inspector/list",
-        component: () => import("@edtehadieh/modules/Inspector/views/index.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Inspector/views/index.vue"),
         children: [
             {
                 path: "/edtehadieh/inspector/list",
                 name: "inspector-list-page",
-                component: () => import("@edtehadieh/modules/Inspector/views/List.vue"),
+                component: () => import("@applets/edtehadieh/src/modules/Inspector/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: "/edtehadieh/inspector/:id/preview",
                 name: "inspector-preview-page",
-                component: () => import("@edtehadieh/modules/Inspector/views/Preview.vue"),
+                component: () => import("@applets/edtehadieh/src/modules/Inspector/views/Preview.vue"),
                 meta: {
                     breadCrumb: [
                         {

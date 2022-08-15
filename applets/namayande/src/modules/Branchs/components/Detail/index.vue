@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import DetailTabs from "@namayande/modules/Branchs/components/Detail/Tabs.vue";
-import DetailCard from "@namayande/modules/Branchs/components/Detail/Card.vue";
+import DetailTabs from "@applets/namayande/src/modules/Branchs/components/Detail/Tabs.vue";
+import DetailCard from "@applets/namayande/src/modules/Branchs/components/Detail/Card.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
     components: {

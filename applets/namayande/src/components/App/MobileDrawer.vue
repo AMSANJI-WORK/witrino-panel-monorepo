@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import navigation from "@namayande/constants/data";
+import navigation from "@applets/namayande/src/constants/data";
 export default {
   components: {
-    ContentDrawer: () => import("@namayande/components/Reusable/ContentDrawer.vue"),
+    ContentDrawer: () => import("@applets/namayande/src/components/Reusable/ContentDrawer.vue"),
   },
   data() {
     return { navigation };

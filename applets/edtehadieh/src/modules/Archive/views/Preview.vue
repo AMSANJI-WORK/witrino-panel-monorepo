@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ArchiveDetail from "@edtehadieh/modules/Archive/components/Preview.vue";
+import ArchiveDetail from "@applets/edtehadieh/src/modules/Archive/components/Preview.vue";
 export default {
   components: {
     ArchiveDetail,

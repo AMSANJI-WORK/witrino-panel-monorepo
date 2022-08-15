@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import ArchiveDataTable from "@edtehadieh/modules/Inspector/components/DataTable/Archive.vue";
-import MessageDataTable from "@edtehadieh/modules/Inspector/components/DataTable/Message.vue";
-import InspectorRecordDataTable from "@edtehadieh/modules/Inspector/components/DataTable/InspectorRecord.vue";
+import ArchiveDataTable from "@applets/edtehadieh/src/modules/Inspector/components/DataTable/Archive.vue";
+import MessageDataTable from "@applets/edtehadieh/src/modules/Inspector/components/DataTable/Message.vue";
+import InspectorRecordDataTable from "@applets/edtehadieh/src/modules/Inspector/components/DataTable/InspectorRecord.vue";
 export default {
   components: {
     ArchiveDataTable,

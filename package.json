@@ -3,11 +3,10 @@
   "private": true,
   "scripts": {
     "refresh": "lerna bootstrap",
-    "wapp:dev": "cd ./packages/panel-witrino && npm run dev",
-    "wapp:build": "cd ./packages/panel-witrino && npm run build",
-    "wapp:test": "cd ./packages/panel-witrino && npm run test",
     "test": "lerna exec -- npm run test",
-    "lint": "lerna exec -- npm run lint"
+    "wapp:dev": "cd ./apps/panel-witrino && npm run dev",
+    "wapp:test": "cd ./apps/panel-witrino && npm run test",
+    "wapp:build": "cd ./apps/panel-witrino && npm run build"
   },
   "workspaces": [
     "packages/*",

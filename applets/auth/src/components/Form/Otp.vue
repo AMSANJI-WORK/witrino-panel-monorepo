@@ -43,15 +43,15 @@
 </template>
 
 <script>
-import Timer from "@auth/components/Timer.vue";
+import Timer from "@applets/auth/src/components/Timer.vue";
 import { createNamespacedHelpers } from "vuex";
-import BtnSubmit from "@auth/components/BtnSubmit.vue";
+import BtnSubmit from "@applets/auth/src/components/BtnSubmit.vue";
 const { mapActions, mapState } = createNamespacedHelpers("auth/otp");
 
 import {
   AUTH_OTP_VALIDATE_ASYNC,
   AUTH_OTP_RESEND_ASYNC,
-} from "@auth/store/modules/otp/types";
+} from "@applets/auth/src/store/modules/otp/types";
 import FormMixin from "@shared/mixins/form";
 
 import Cookies from "js-cookie";

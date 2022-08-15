@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import DetailTabs from "@edtehadieh/modules/TradeUnit/components/Detail/Tabs.vue";
-import DetailCard from "@edtehadieh/modules/TradeUnit/components/Detail/Card.vue";
+import DetailTabs from "@applets/edtehadieh/src/modules/TradeUnit/components/Detail/Tabs.vue";
+import DetailCard from "@applets/edtehadieh/src/modules/TradeUnit/components/Detail/Card.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
     components: {

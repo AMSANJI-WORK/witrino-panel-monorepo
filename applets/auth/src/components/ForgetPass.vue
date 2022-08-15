@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ForgetPassForm from "@auth/components/Form/ForgetPass.vue";
+import ForgetPassForm from "@applets/auth/src/components/Form/ForgetPass.vue";
 
 export default {
   components: {

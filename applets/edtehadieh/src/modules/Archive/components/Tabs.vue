@@ -48,9 +48,9 @@
 </template>
 
 <script>
-import DocsDataTable from "@edtehadieh/modules/Archive/components/DataTable/Docs.vue";
-import CircularDataTable from "@edtehadieh/modules/Archive/components/DataTable/Circular.vue";
-import UnitDataTable from "@edtehadieh/modules/Archive/components/DataTable/Unit.vue";
+import DocsDataTable from "@applets/edtehadieh/src/modules/Archive/components/DataTable/Docs.vue";
+import CircularDataTable from "@applets/edtehadieh/src/modules/Archive/components/DataTable/Circular.vue";
+import UnitDataTable from "@applets/edtehadieh/src/modules/Archive/components/DataTable/Unit.vue";
 export default {
   components: {
     DocsDataTable,

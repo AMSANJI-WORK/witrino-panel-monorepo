@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import boxTopData from "@edtehadieh/modules/Dashboard/mock/boxTop";
+import boxTopData from "@applets/edtehadieh/src/modules/Dashboard/mock/boxTop";
 import ProjectIcons from "@shared/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import NotificationProduct from "@shared/components/NotificationProduct.vue";
-import LocationList from "@edtehadieh/modules/Dashboard/components/LocationList.vue";
+import LocationList from "@applets/edtehadieh/src/modules/Dashboard/components/LocationList.vue";
 export default {
   components: {
     ProjectIcons,

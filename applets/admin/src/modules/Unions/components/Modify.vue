@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import From from "@admin/modules/Unions/components/ModifyFrom.vue";
+import From from "@applets/admin/src/modules/Unions/components/ModifyFrom.vue";
 export default {
     components: {
         From,

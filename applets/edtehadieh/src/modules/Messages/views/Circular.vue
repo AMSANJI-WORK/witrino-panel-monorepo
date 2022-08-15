@@ -12,7 +12,7 @@
 
 <script>
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import CircularForm from "@edtehadieh/modules/Messages/components/Circular/Form.vue";
+import CircularForm from "@applets/edtehadieh/src/modules/Messages/components/Circular/Form.vue";
 export default {
   components: { SectionDivider, CircularForm },
 };

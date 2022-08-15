@@ -136,8 +136,8 @@
 <script>
 import FormMixin from "@shared/mixins/form";
 import ProfileMixin from "@shared/modules/Profile/mixins/edit";
-import ModifyAvatar from "@admin/modules/Users/components/ModifyFormAvatar.vue";
-import LocationList from "@admin/modules/Users/components/LocationList.vue";
+import ModifyAvatar from "@packages/admin/users/components/ModifyFormAvatar.vue";
+import LocationList from "@packages/admin/users/components/LocationList.vue";
 export default {
   components: {
     LocationList,

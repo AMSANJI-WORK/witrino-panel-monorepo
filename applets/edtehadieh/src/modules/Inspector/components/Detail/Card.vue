@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import CardButtonGroup from "@edtehadieh/modules/Inspector/components/Detail/CardButtonGroup.vue";
-import CardButtonGroupMobile from "@edtehadieh/modules/Inspector/components/Detail/CardButtonGroupMobile.vue";
-import CardInfo from "@edtehadieh/modules/Inspector/components/Detail/CardInfo.vue";
+import CardButtonGroup from "@applets/edtehadieh/src/modules/Inspector/components/Detail/CardButtonGroup.vue";
+import CardButtonGroupMobile from "@applets/edtehadieh/src/modules/Inspector/components/Detail/CardButtonGroupMobile.vue";
+import CardInfo from "@applets/edtehadieh/src/modules/Inspector/components/Detail/CardInfo.vue";
 export default {
   components: {
     CardButtonGroupMobile,

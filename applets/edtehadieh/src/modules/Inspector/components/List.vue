@@ -13,7 +13,7 @@
 
 <script>
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import DataTable from "@edtehadieh/modules/Inspector/components/DataTable/InspectorList.vue";
+import DataTable from "@applets/edtehadieh/src/modules/Inspector/components/DataTable/InspectorList.vue";
 export default {
   components: {
     SectionDivider,

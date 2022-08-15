@@ -3,12 +3,12 @@ export default [
     path: "/edtehadieh/tradeunit",
     name: "tradeunit",
     redirect: "/edtehadieh/tradeunit/list",
-    component: () => import("@edtehadieh/modules/TradeUnit/views/index.vue"),
+    component: () => import("@applets/edtehadieh/src/modules/TradeUnit/views/index.vue"),
     children: [
       {
         path: "list",
         name: "tradeunit-list-page",
-        component: () => import("@edtehadieh/modules/TradeUnit/views/List.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/TradeUnit/views/List.vue"),
         meta: {
           breadCrumb: [
             {
@@ -30,7 +30,7 @@ export default [
       {
         path: ":id/detail",
         name: "tradeunit-detail-page",
-        component: () => import("@edtehadieh/modules/TradeUnit/views/Preview.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/TradeUnit/views/Preview.vue"),
         meta: {
           breadCrumb: [
             {

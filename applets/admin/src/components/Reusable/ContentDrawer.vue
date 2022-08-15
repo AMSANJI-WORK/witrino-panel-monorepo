@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import menuItems from "@admin/constants/menu";
+import menuItems from "@applets/admin/src/constants/menu";
 import WLogo from "@shared/components/Icons/Admin/Logo.vue";
 export default {
   components: { WLogo },

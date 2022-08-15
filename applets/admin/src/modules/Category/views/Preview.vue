@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BranchDetail from "@admin/modules/Branchs/components/Detail";
+import BranchDetail from "@applets/admin/src/modules/Branchs/components/Detail";
 export default {
     components: {
         BranchDetail,

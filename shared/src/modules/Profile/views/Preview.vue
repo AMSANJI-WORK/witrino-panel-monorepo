@@ -20,7 +20,7 @@
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import { userTypes } from "@admin/modules/Users/store/types";
+import { userTypes } from "@packages/admin/users/store/types";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import Card from "@shared/modules/Profile/components/Card/index.vue";
 export default {

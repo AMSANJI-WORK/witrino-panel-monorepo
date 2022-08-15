@@ -3,12 +3,12 @@ export default [
     path: "/namayande/stock",
     name: "stock",
     redirect: "/namayande/stock/supply",
-    component: () => import("@namayande/modules/Stock/views/index.vue"),
+    component: () => import("@applets/namayande/src/modules/Stock/views/index.vue"),
     children: [
       {
         path: "inventory",
         name: "stock-inventory-page",
-        component: () => import("@namayande/modules/Stock/views/Inventory.vue"),
+        component: () => import("@applets/namayande/src/modules/Stock/views/Inventory.vue"),
         meta: {
           breadCrumb: [
             {
@@ -34,7 +34,7 @@ export default [
       {
         path: "supply",
         name: "stock-supply-page",
-        component: () => import("@namayande/modules/Stock/views/Supply.vue"),
+        component: () => import("@applets/namayande/src/modules/Stock/views/Supply.vue"),
         meta: {
           breadCrumb: [
             {
@@ -61,7 +61,7 @@ export default [
         path: "input-output-product",
         name: "stock-input-output-product-page",
         component: () =>
-          import("@namayande/modules/Stock/views/InOutProduct.vue"),
+          import("@applets/namayande/src/modules/Stock/views/InOutProduct.vue"),
         meta: {
           breadCrumb: [
             {

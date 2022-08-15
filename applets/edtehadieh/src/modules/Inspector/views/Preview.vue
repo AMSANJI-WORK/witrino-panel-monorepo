@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import InspectorDetail from "@edtehadieh/modules/Inspector/components/Detail/index.vue";
+import InspectorDetail from "@applets/edtehadieh/src/modules/Inspector/components/Detail/index.vue";
 export default {
     components: {
         InspectorDetail,

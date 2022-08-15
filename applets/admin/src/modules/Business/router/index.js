@@ -3,12 +3,12 @@ export default [
         path: "/admin/business",
         name: "business",
         redirect: "/admin/business/list",
-        component: () => import("@admin/modules/Business/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Business/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "business-list-page",
-                component: () => import("@admin/modules/Business/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Business/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/edit",
                 name: "business-edit-page",
-                component: () => import("@admin/modules/Business/views/Edit.vue"),
+                component: () => import("@applets/admin/src/modules/Business/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "create",
                 name: "business-create-page",
-                component: () => import("@admin/modules/Business/views/Create.vue"),
+                component: () => import("@applets/admin/src/modules/Business/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

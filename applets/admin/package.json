@@ -8,6 +8,8 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
+    "roles": "*",
+    "users": "*",
     "shared": "*"
   }
 }

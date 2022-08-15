@@ -40,7 +40,7 @@
 import FormMixin from "@shared/mixins/form";
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("admin/role");
-import { roleTypes } from "@admin/modules/Roles/store/types";
+import { roleTypes } from "@packages/admin/roles/store/types";
 export default {
   mixins: [FormMixin],
   props: {

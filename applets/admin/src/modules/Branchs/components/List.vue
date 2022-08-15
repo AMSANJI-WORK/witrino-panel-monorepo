@@ -21,9 +21,9 @@
 <script>
 import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import LocationList from "@admin/modules/Branchs/components/LocationList.vue";
-import DataTable from "@admin/modules/Branchs/components/DataTable/BranchList.vue";
-import boxTopData from "@admin/modules/Branchs/mock/boxTop";
+import LocationList from "@applets/admin/src/modules/Branchs/components/LocationList.vue";
+import DataTable from "@applets/admin/src/modules/Branchs/components/DataTable/BranchList.vue";
+import boxTopData from "@applets/admin/src/modules/Branchs/mock/boxTop";
 export default {
   components: {
     DashboardProjectIcons,

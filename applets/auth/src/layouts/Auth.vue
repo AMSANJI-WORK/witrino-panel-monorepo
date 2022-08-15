@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import WAuthTitle from "@auth/components/WAuthTitle.vue";
+import WAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
 import logo from "@shared/components/Icons/Auth/Logo.vue";
 import auth from "@shared/components/Icons/Auth/Auth.svg";
 import AuthMobile from "@shared/components/Icons/Auth/AuthMobile.vue";

@@ -25,8 +25,8 @@
 <script>
 import { mapActions } from "vuex";
 import FormMixin from "@shared/mixins/form";
-import { authTypes } from "@auth/store/type";
-import BtnSubmit from "@auth/components/BtnSubmit.vue";
+import { authTypes } from "@applets/auth/src/store/type";
+import BtnSubmit from "@applets/auth/src/components/BtnSubmit.vue";
 export default {
   components: {
     BtnSubmit,

@@ -23,7 +23,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.getRole(payload);
-      commit(`admin/role/${roleTypes.SET_ROLE}`, data.data.data[0], {
+      commit(`admin/role/${roleTypes.SET_ROLE}`, data.data[0], {
         root: true,
       });
       commit(roleTypes.GET_ONE_ROLE_SUCCESS, data);

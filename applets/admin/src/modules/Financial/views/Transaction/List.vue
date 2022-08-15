@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import List from "@admin/modules/Financial/components/Transaction/List.vue";
+import List from "@applets/admin/src/modules/Financial/components/Transaction/List.vue";
 export default {
     components: {
         List,

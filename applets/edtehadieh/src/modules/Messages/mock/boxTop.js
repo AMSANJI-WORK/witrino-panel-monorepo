@@ -1,6 +1,6 @@
-import AllMessage from "@edtehadieh/modules/Messages/components/Icons/AllMessage.vue";
-import SentMessage from "@edtehadieh/modules/Messages/components/Icons/SentMessage.vue";
-import UnreadMessage from "@edtehadieh/modules/Messages/components/Icons/UnreadMessage.vue";
+import AllMessage from "@applets/edtehadieh/src/modules/Messages/components/Icons/AllMessage.vue";
+import SentMessage from "@applets/edtehadieh/src/modules/Messages/components/Icons/SentMessage.vue";
+import UnreadMessage from "@applets/edtehadieh/src/modules/Messages/components/Icons/UnreadMessage.vue";
 
 export default [
   {

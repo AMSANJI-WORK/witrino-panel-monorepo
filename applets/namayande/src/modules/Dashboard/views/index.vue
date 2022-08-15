@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DefualtLayout from "@namayande/layouts/Defualt.vue";
+import DefualtLayout from "@applets/namayande/src/layouts/Defualt.vue";
 export default {
     components: {
         DefualtLayout,

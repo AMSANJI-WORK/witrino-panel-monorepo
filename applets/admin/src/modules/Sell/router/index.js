@@ -3,12 +3,12 @@ export default [
         path: "/admin/sell",
         name: "sell",
         redirect: "/admin/sell/list",
-        component: () => import("@admin/modules/Sell/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Sell/views/index.vue"),
         children: [
             {
                 path: "/admin/sell/list",
                 name: "sell-list-page",
-                component: () => import("@admin/modules/Sell/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Sell/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             // {
             //     path: "/admin/sell/:id/edit",
             //     name: "sell-edit-page",
-            //     component: () => import("@admin/modules/Sell/views/Edit.vue"),
+            //     component: () => import("@applets/admin/src/modules/Sell/views/Edit.vue"),
             //     meta: {
             //         breadCrumb: [
             //             {
@@ -55,7 +55,7 @@ export default [
             // {
             //     path: "/admin/sell/create",
             //     name: "sell-create-page",
-            //     component: () => import("@admin/modules/Sell/views/Create.vue"),
+            //     component: () => import("@applets/admin/src/modules/Sell/views/Create.vue"),
             //     meta: {
             //         breadCrumb: [
             //             {

@@ -3,12 +3,12 @@ export default [
         path: "/admin/plan",
         name: "plan",
         redirect: "/admin/plan/list",
-        component: () => import("@admin/modules/Plans/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Plans/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "plan-list-page",
-                component: () => import("@admin/modules/Plans/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Plans/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/edit",
                 name: "plan-edit-page",
-                component: () => import("@admin/modules/Plans/views/Edit.vue"),
+                component: () => import("@applets/admin/src/modules/Plans/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "create",
                 name: "plan-create-page",
-                component: () => import("@admin/modules/Plans/views/Create.vue"),
+                component: () => import("@applets/admin/src/modules/Plans/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

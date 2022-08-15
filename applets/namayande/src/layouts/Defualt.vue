@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import AppHeader from "@namayande/components/App/Header.vue";
-import AppDrawer from "@namayande/components/App/Drawer.vue";
-import AppMobileDrawer from "@namayande/components/App/MobileDrawer.vue";
+import AppHeader from "@applets/namayande/src/components/App/Header.vue";
+import AppDrawer from "@applets/namayande/src/components/App/Drawer.vue";
+import AppMobileDrawer from "@applets/namayande/src/components/App/MobileDrawer.vue";
 import AppBreadcrumbs from "@shared/components/App/Breadcrumbs.vue";
-import MobileSubHeader from "@namayande/components/App/MobileSubHeader.vue";
+import MobileSubHeader from "@applets/namayande/src/components/App/MobileSubHeader.vue";
 
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 

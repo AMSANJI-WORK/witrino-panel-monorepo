@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import navigation from "@admin/constants/data";
+import navigation from "@applets/admin/src/constants/data";
 export default {
   components: {
-    ContentDrawer: () => import("@admin/components/Reusable/ContentDrawer.vue"),
+    ContentDrawer: () => import("@applets/admin/src/components/Reusable/ContentDrawer.vue"),
   },
   data() {
     return { navigation };

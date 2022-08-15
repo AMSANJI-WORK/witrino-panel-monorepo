@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import DetailTabs from "@admin/modules/Branchs/components/Detail/Tabs.vue";
-import DetailCard from "@admin/modules/Branchs/components/Detail/Card.vue";
+import DetailTabs from "@applets/admin/src/modules/Branchs/components/Detail/Tabs.vue";
+import DetailCard from "@applets/admin/src/modules/Branchs/components/Detail/Card.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
     components: {

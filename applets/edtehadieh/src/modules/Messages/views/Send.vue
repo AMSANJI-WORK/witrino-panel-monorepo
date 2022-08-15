@@ -12,7 +12,7 @@
 
 <script>
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import SendForm from "@edtehadieh/modules/Messages/components/Send/Form.vue";
+import SendForm from "@applets/edtehadieh/src/modules/Messages/components/Send/Form.vue";
 
 export default {
   components: { SectionDivider, SendForm },

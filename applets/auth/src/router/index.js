@@ -1,36 +1,36 @@
-import { clearToken } from "@auth/middleware";
+import { clearToken } from "@applets/auth/src/middleware";
 
 export const AuthRoutes = [
   {
     path: "/auth",
     name: "auth",
     redirect: "/auth/authorize",
-    component: () => import("@auth/views/index.vue"),
+    component: () => import("@applets/auth/src/views/index.vue"),
     children: [
       {
         path: "authorize",
         name: "authorize",
-        component: () => import("@auth/views/Auth.vue"),
+        component: () => import("@applets/auth/src/views/Auth.vue"),
       },
       {
         path: "otp",
         name: "otp",
-        component: () => import("@auth/views/Otp.vue"),
+        component: () => import("@applets/auth/src/views/Otp.vue"),
       },
       {
         path: "forget-pass",
         name: "forget-pass",
-        component: () => import("@auth/views/ForgetPass.vue"),
+        component: () => import("@applets/auth/src/views/ForgetPass.vue"),
       },
       {
         path: "set-pass",
         name: "set-pass",
-        component: () => import("@auth/views/SetPass.vue"),
+        component: () => import("@applets/auth/src/views/SetPass.vue"),
       },
       {
         path: "logout",
         name: "logout",
-        component: () => import("@auth/views/index.vue"),
+        component: () => import("@applets/auth/src/views/index.vue"),
         beforeEnter: clearToken,
       },
     ],

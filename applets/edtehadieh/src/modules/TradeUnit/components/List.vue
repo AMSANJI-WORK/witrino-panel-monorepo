@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import boxTopData from "@edtehadieh/modules/TradeUnit/mock/boxTop";
-import ProjectIcons from "@edtehadieh/modules/TradeUnit/components/ProjectIcons.vue";
+import boxTopData from "@applets/edtehadieh/src/modules/TradeUnit/mock/boxTop";
+import ProjectIcons from "@applets/edtehadieh/src/modules/TradeUnit/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import LocationList from "@edtehadieh/modules/TradeUnit/components/LocationList.vue";
-import DataTable from "@edtehadieh/modules/TradeUnit/components/DataTable/UnitList.vue";
+import LocationList from "@applets/edtehadieh/src/modules/TradeUnit/components/LocationList.vue";
+import DataTable from "@applets/edtehadieh/src/modules/TradeUnit/components/DataTable/UnitList.vue";
 export default {
   components: {
     SectionDivider,

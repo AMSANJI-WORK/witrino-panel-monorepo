@@ -3,12 +3,12 @@ export default [
     path: "/edtehadieh/archive",
     name: "archive",
     redirect: "/edtehadieh/archive/list",
-    component: () => import("@edtehadieh/modules/Archive/views/index.vue"),
+    component: () => import("@applets/edtehadieh/src/modules/Archive/views/index.vue"),
     children: [
       {
         path: "list",
         name: "archive-list-page",
-        component: () => import("@edtehadieh/modules/Archive/views/List.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Archive/views/List.vue"),
         meta: {
           breadCrumb: [
             {
@@ -30,7 +30,7 @@ export default [
       {
         path: ":id/detail",
         name: "archive-detail-page",
-        component: () => import("@edtehadieh/modules/Archive/views/Preview.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Archive/views/Preview.vue"),
         meta: {
           breadCrumb: [
             {
@@ -55,7 +55,7 @@ export default [
       {
         path: ":id/edit",
         name: "archive-edit-page",
-        component: () => import("@edtehadieh/modules/Archive/views/Edit.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Archive/views/Edit.vue"),
         meta: {
           breadCrumb: [
             {
@@ -80,7 +80,7 @@ export default [
       {
         path: "create",
         name: "archive-create-page",
-        component: () => import("@edtehadieh/modules/Archive/views/Create.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Archive/views/Create.vue"),
         meta: {
           breadCrumb: [
             {

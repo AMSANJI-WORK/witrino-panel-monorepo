@@ -1,15 +1,15 @@
-import DashboardRoutes from "@namayande/modules/Dashboard/router";
-import ProductsRoutes from "@namayande/modules/Products/router";
-import SellRoutes from "@namayande/modules/Sell/router";
-import StockRoutes from "@namayande/modules/Stock/router";
-import FinancialRoutes from "@namayande/modules/Financial/router";
-import BranchsRoutes from "@namayande/modules/Branchs/router";
+import DashboardRoutes from "@applets/namayande/src/modules/Dashboard/router";
+import ProductsRoutes from "@applets/namayande/src/modules/Products/router";
+import SellRoutes from "@applets/namayande/src/modules/Sell/router";
+import StockRoutes from "@applets/namayande/src/modules/Stock/router";
+import FinancialRoutes from "@applets/namayande/src/modules/Financial/router";
+import BranchsRoutes from "@applets/namayande/src/modules/Branchs/router";
 
 export const NamayandePanelRoutes = [
   {
     path: "/namayande",
     redirect: "/namayande/home",
-    component: () => import("@namayande/modules/Dashboard/views/index.vue"),
+    component: () => import("@applets/namayande/src/modules/Dashboard/views/index.vue"),
     meta: {
       breadCrumb: [
         {

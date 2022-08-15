@@ -1,6 +1,6 @@
 import Vue from "vue";
 import router from "@witrino/router";
-import { authTypes } from "@auth/store/type";
+import { authTypes } from "@applets/auth/src/store/type";
 import RepositoryFactory from "@witrino/repositories/factory";
 const authRepository = RepositoryFactory.get("auth");
 

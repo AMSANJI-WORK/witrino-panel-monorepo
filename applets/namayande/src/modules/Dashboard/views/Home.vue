@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import boxTopData from "@namayande/modules/Dashboard/mock/boxTop";
+import boxTopData from "@applets/namayande/src/modules/Dashboard/mock/boxTop";
 import ProjectIcons from "@shared/components/ProjectIcons.vue";
-import Banner from "@namayande/modules/Dashboard/components/Banner.vue";
+import Banner from "@applets/namayande/src/modules/Dashboard/components/Banner.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import NotificationProduct from "@shared/components/NotificationProduct.vue";
 export default {

@@ -5,11 +5,9 @@ export default getClientConfiguration({
   resolve: {
     alias: {
       "@witrino": fileURLToPath(new URL("./src", import.meta.url)),
-      "@shared": path.resolve(__dirname, "../../packages/shared/src"),
-      "@admin": path.resolve(__dirname, "../../applets/admin/src"),
-      "@auth": path.resolve(__dirname, "../../applets/auth/src"),
-      "@edtehadieh": path.resolve(__dirname, "../../applets/edtehadieh/src"),
-      "@namayande": path.resolve(__dirname, "../../applets/namayande/src"),
+      "@shared": path.resolve(__dirname, "../../shared/src"),
+      "@applets": path.resolve(__dirname, "../../applets"),
+      "@packages/admin": path.resolve(__dirname, "../../packages/admin"),
     },
   },
 });

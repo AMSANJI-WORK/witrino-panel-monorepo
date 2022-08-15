@@ -12,8 +12,8 @@
 
 <script>
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import LocationList from "@admin/modules/Branchs/components/LocationList.vue";
-import DataTable from "@admin/modules/Branchs/components/DataTable/BranchList.vue";
+import LocationList from "@applets/admin/src/modules/Branchs/components/LocationList.vue";
+import DataTable from "@applets/admin/src/modules/Branchs/components/DataTable/BranchList.vue";
 export default {
     components: {
         SectionDivider,

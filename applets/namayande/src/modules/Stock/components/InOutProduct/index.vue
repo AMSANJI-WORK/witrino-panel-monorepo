@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import Chart from "@namayande/modules/Stock/components/InOutProduct/Chart.vue";
-import DataTable from "@namayande/modules/Stock/components/InOutProduct/DataTable.vue";
+import Chart from "@applets/namayande/src/modules/Stock/components/InOutProduct/Chart.vue";
+import DataTable from "@applets/namayande/src/modules/Stock/components/InOutProduct/DataTable.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
     components: { Chart, DataTable, SectionDivider },

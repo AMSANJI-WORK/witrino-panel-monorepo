@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import boxTopData from "@edtehadieh/modules/Messages/mock/boxTop";
-import ProjectIcons from "@edtehadieh/modules/Messages/components/ProjectIcons.vue";
-import DataTable from "@edtehadieh/modules/Messages/components/All/DataTable.vue";
+import boxTopData from "@applets/edtehadieh/src/modules/Messages/mock/boxTop";
+import ProjectIcons from "@applets/edtehadieh/src/modules/Messages/components/ProjectIcons.vue";
+import DataTable from "@applets/edtehadieh/src/modules/Messages/components/All/DataTable.vue";
 import SectionDivider from '@shared/components/Reusable/SectionDivider.vue';
 export default {
   components: {

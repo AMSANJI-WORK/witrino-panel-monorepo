@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import List from "@namayande/modules/Financial/components/Transaction/List.vue";
+import List from "@applets/namayande/src/modules/Financial/components/Transaction/List.vue";
 export default {
     components: {
         List,

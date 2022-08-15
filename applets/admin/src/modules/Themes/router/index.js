@@ -3,12 +3,12 @@ export default [
         path: "/admin/theme",
         name: "theme",
         redirect: "/admin/theme/list",
-        component: () => import("@admin/modules/Themes/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Themes/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "theme-list-page",
-                component: () => import("@admin/modules/Themes/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Themes/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/edit",
                 name: "theme-edit-page",
-                component: () => import("@admin/modules/Themes/views/Edit.vue"),
+                component: () => import("@applets/admin/src/modules/Themes/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "create",
                 name: "theme-create-page",
-                component: () => import("@admin/modules/Themes/views/Create.vue"),
+                component: () => import("@applets/admin/src/modules/Themes/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

@@ -2,7 +2,7 @@ export default [
   {
     path: "/namayande/home",
     name: "home",
-    component: () => import("@namayande/modules/Dashboard/views/Home.vue"),
+    component: () => import("@applets/namayande/src/modules/Dashboard/views/Home.vue"),
     meta: {
       breadCrumb: [
         {

@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import AppHeader from "@edtehadieh/components/App/Header.vue";
-import AppDrawer from "@edtehadieh/components/App/Drawer.vue";
-import AppMobileDrawer from "@edtehadieh/components/App/MobileDrawer.vue";
+import AppHeader from "@applets/edtehadieh/src/components/App/Header.vue";
+import AppDrawer from "@applets/edtehadieh/src/components/App/Drawer.vue";
+import AppMobileDrawer from "@applets/edtehadieh/src/components/App/MobileDrawer.vue";
 import AppBreadcrumbs from "@shared/components/App/Breadcrumbs.vue";
-import MobileSubHeader from "@edtehadieh/components/App/MobileSubHeader.vue";
+import MobileSubHeader from "@applets/edtehadieh/src/components/App/MobileSubHeader.vue";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 
 export default {

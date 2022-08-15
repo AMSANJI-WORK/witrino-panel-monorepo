@@ -1,5 +1,5 @@
 import UserClient from "@witrino/repositories/clients/user";
-import PermissionRepistory from "@admin/modules/Roles/repositories/permission";
+import PermissionRepistory from "./permission";
 
 const source = "Role";
 export default {

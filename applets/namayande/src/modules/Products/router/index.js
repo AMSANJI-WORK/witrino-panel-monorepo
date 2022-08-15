@@ -3,12 +3,12 @@ export default [
         path: "/namayande/product",
         name: "product",
         redirect: "/namayande/product/list",
-        component: () => import("@namayande/modules/Products/views/index.vue"),
+        component: () => import("@applets/namayande/src/modules/Products/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "product-list-page",
-                component: () => import("@namayande/modules/Products/views/List.vue"),
+                component: () => import("@applets/namayande/src/modules/Products/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/edit",
                 name: "product-edit-page",
-                component: () => import("@namayande/modules/Products/views/Edit.vue"),
+                component: () => import("@applets/namayande/src/modules/Products/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "create",
                 name: "product-create-page",
-                component: () => import("@namayande/modules/Products/views/Create.vue"),
+                component: () => import("@applets/namayande/src/modules/Products/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

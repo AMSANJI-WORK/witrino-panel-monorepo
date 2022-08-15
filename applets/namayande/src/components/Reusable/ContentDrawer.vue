@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import menuItems from "@namayande/constants/menu";
+import menuItems from "@applets/namayande/src/constants/menu";
 export default {
   props: {
     rounded: {

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ForgetPass from "@auth/components/ForgetPass.vue";
+import ForgetPass from "@applets/auth/src/components/ForgetPass.vue";
 export default {
   components: {
     ForgetPass,

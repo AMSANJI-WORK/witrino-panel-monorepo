@@ -3,12 +3,12 @@ export default [
         path: "/admin/product",
         name: "admin-product",
         redirect: "/admin/product/list",
-        component: () => import("@admin/modules/Products/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Products/views/index.vue"),
         children: [
             {
                 path: "/admin/product/list",
                 name: "admin-product-list-page",
-                component: () => import("@admin/modules/Products/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Products/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: "/admin/product/:id/edit",
                 name: "admin-product-edit-page",
-                component: () => import("@admin/modules/Products/views/Edit.vue"),
+                component: () => import("@applets/admin/src/modules/Products/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "/admin/product/create",
                 name: "admin-product-create-page",
-                component: () => import("@admin/modules/Products/views/Create.vue"),
+                component: () => import("@applets/admin/src/modules/Products/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

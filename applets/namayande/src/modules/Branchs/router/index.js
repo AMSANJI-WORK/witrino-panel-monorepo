@@ -3,12 +3,12 @@ export default [
         name: "branch",
         path: "/namayande/branch",
         redirect: "/namayande/branch/list",
-        component: () => import("@namayande/modules/Branchs/views/index.vue"),
+        component: () => import("@applets/namayande/src/modules/Branchs/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "branch-list-page",
-                component: () => import("@namayande/modules/Branchs/views/List.vue"),
+                component: () => import("@applets/namayande/src/modules/Branchs/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/detail",
                 name: "branch-detail-page",
-                component: () => import("@namayande/modules/Branchs/views/Preview.vue"),
+                component: () => import("@applets/namayande/src/modules/Branchs/views/Preview.vue"),
                 meta: {
                     breadCrumb: [
                         {

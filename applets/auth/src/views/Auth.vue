@@ -25,7 +25,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import Tabs from "@auth/components/Tabs.vue";
+import Tabs from "@applets/auth/src/components/Tabs.vue";
 const { mapActions } = createNamespacedHelpers("auth");
 export default {
   components: {

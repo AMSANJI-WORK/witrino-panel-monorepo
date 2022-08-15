@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import AuthLayout from "@auth/layouts/Auth.vue";
-import AuthMoblieLayout from "@auth/layouts/AuthMoblie.vue";
+import AuthLayout from "@applets/auth/src/layouts/Auth.vue";
+import AuthMoblieLayout from "@applets/auth/src/layouts/AuthMoblie.vue";
 export default {
   components: {
     AuthLayout,

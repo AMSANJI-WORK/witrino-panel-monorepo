@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import boxTopData from "@edtehadieh/modules/Messages/mock/boxTop";
-import ProjectIcons from "@edtehadieh/modules/Messages/components/ProjectIcons.vue";
+import boxTopData from "@applets/edtehadieh/src/modules/Messages/mock/boxTop";
+import ProjectIcons from "@applets/edtehadieh/src/modules/Messages/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import DataTable from "@edtehadieh/modules/Messages/components/Unread/DataTable.vue";
+import DataTable from "@applets/edtehadieh/src/modules/Messages/components/Unread/DataTable.vue";
 export default {
   components: {
     ProjectIcons,

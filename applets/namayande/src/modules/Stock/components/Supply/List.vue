@@ -15,7 +15,7 @@
 import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import DataTable from "../Supply/DataTable.vue";
-import boxTopData from "@namayande/modules/Stock/mock/boxTop";
+import boxTopData from "@applets/namayande/src/modules/Stock/mock/boxTop";
 export default {
   data() {
     return {

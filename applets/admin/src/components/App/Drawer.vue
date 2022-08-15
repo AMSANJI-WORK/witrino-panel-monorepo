@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import menuItems from "@admin/constants/menu";
+import menuItems from "@applets/admin/src/constants/menu";
 export default {
-  components: { ContentDrawer: () => import("@admin/components/Reusable/ContentDrawer.vue") },
+  components: { ContentDrawer: () => import("@applets/admin/src/components/Reusable/ContentDrawer.vue") },
   data() {
     return {
       items: menuItems,

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import SetPass from "@auth/components/Form/SetPass.vue";
+import SetPass from "@applets/auth/src/components/Form/SetPass.vue";
 
 export default {
   components: {

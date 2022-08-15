@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import From from "@admin/modules/Sell/components/ModifyFrom.vue";
+import From from "@applets/admin/src/modules/Sell/components/ModifyFrom.vue";
 export default {
     components: {
         From,

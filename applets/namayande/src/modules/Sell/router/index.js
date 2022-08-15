@@ -3,12 +3,12 @@ export default [
         path: "/namayande/sell",
         name: "sell",
         redirect: "/namayande/sell/list",
-        component: () => import("@namayande/modules/Sell/views/index.vue"),
+        component: () => import("@applets/namayande/src/modules/Sell/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "sell-list-page",
-                component: () => import("@namayande/modules/Sell/views/List.vue"),
+                component: () => import("@applets/namayande/src/modules/Sell/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -31,7 +31,7 @@ export default [
             // {
             //     path: "/namayande/sell/:id/edit",
             //     name: "sell-edit-page",
-            //     component: () => import("@namayande/modules/Sell/views/Edit.vue"),
+            //     component: () => import("@applets/namayande/src/modules/Sell/views/Edit.vue"),
             //     meta: {
             //         breadCrumb: [
             //             {
@@ -56,7 +56,7 @@ export default [
             // {
             //     path: "/namayande/sell/create",
             //     name: "sell-create-page",
-            //     component: () => import("@namayande/modules/Sell/views/Create.vue"),
+            //     component: () => import("@applets/namayande/src/modules/Sell/views/Create.vue"),
             //     meta: {
             //         breadCrumb: [
             //             {

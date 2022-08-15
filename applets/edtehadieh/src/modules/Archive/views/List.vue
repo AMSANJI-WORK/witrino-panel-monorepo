@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Tabs from "@edtehadieh/modules/Archive/components/Tabs.vue";
+import Tabs from "@applets/edtehadieh/src/modules/Archive/components/Tabs.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
   components: {

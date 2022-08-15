@@ -2,7 +2,7 @@ export default [
   {
     path: "/admin/home",
     name: "admin-home",
-    component: () => import("@admin/modules/Dashboard/views/Home.vue"),
+    component: () => import("@applets/admin/src/modules/Dashboard/views/Home.vue"),
     meta: {
       breadCrumb: [
         {

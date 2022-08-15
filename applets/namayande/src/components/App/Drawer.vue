@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import menuItems from "@namayande/constants/menu";
+import menuItems from "@applets/namayande/src/constants/menu";
 export default {
   components: {
-    ContentDrawer: () => import("@namayande/components/Reusable/ContentDrawer.vue"),
+    ContentDrawer: () => import("@applets/namayande/src/components/Reusable/ContentDrawer.vue"),
   },
   data() {
     return {

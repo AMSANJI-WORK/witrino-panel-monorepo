@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import SetPass from "@auth/components/SetPass.vue";
+import SetPass from "@applets/auth/src/components/SetPass.vue";
 export default {
   components: {
     SetPass,

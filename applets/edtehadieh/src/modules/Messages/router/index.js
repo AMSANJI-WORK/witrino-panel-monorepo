@@ -3,12 +3,12 @@ export default [
     path: "/edtehadieh/messages",
     name: "messages",
     redirect: "/edtehadieh/messages/all",
-    component: () => import("@edtehadieh/modules/Messages/views/index.vue"),
+    component: () => import("@applets/edtehadieh/src/modules/Messages/views/index.vue"),
     children: [
       {
         path: "all",
         name: "messages-all-page",
-        component: () => import("@edtehadieh/modules/Messages/views/All.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Messages/views/All.vue"),
         meta: {
           breadCrumb: [
             {
@@ -33,7 +33,7 @@ export default [
       {
         path: "unread",
         name: "messages-unread-page",
-        component: () => import("@edtehadieh/modules/Messages/views/Unread.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Unread.vue"),
         meta: {
           breadCrumb: [
             {
@@ -58,7 +58,7 @@ export default [
       {
         path: "sent",
         name: "messages-sent-page",
-        component: () => import("@edtehadieh/modules/Messages/views/Sent.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Sent.vue"),
         meta: {
           breadCrumb: [
             {
@@ -83,7 +83,7 @@ export default [
       {
         path: ":id/detail",
         name: "messages-detail-page",
-        component: () => import("@edtehadieh/modules/Messages/views/Preview.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Preview.vue"),
         meta: {
           breadCrumb: [
             {
@@ -108,7 +108,7 @@ export default [
       {
         path: "send",
         name: "messages-send-page",
-        component: () => import("@edtehadieh/modules/Messages/views/Send.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Send.vue"),
         meta: {
           breadCrumb: [
             {
@@ -133,7 +133,7 @@ export default [
       {
         path: "circular",
         name: "messages-circular-page",
-        component: () => import("@edtehadieh/modules/Messages/views/Circular.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Circular.vue"),
         meta: {
           breadCrumb: [
             {

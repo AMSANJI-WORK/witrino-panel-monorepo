@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import menuItems from "@edtehadieh/constants/menu";
+import menuItems from "@applets/edtehadieh/src/constants/menu";
 export default {
   components: {
-    ContentDrawer: () => import("@edtehadieh/components/Reusable/ContentDrawer.vue"),
+    ContentDrawer: () => import("@applets/edtehadieh/src/components/Reusable/ContentDrawer.vue"),
   },
   data() {
     return {

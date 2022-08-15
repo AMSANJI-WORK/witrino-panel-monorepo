@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import boxTopData from "@admin/modules/Dashboard/mock/boxTop";
+import boxTopData from "@applets/admin/src/modules/Dashboard/mock/boxTop";
 import ProjectIcons from "@shared/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import NotificationProduct from "@shared/components/NotificationProduct.vue";

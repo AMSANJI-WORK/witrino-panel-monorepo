@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import InOutProduct from "@namayande/modules/Stock/components/InOutProduct/index.vue";
+import InOutProduct from "@applets/namayande/src/modules/Stock/components/InOutProduct/index.vue";
 export default {
     components: {
         InOutProduct,

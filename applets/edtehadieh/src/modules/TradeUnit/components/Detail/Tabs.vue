@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import ArchiveDataTable from "@edtehadieh/modules/TradeUnit/components/DataTable/Archive.vue";
-import InspectionRecordDataTable from "@edtehadieh/modules/TradeUnit/components/DataTable/InspectionRecord.vue";
-import ComplaintsDataTable from "@edtehadieh/modules/TradeUnit/components/DataTable/Complaints.vue";
+import ArchiveDataTable from "@applets/edtehadieh/src/modules/TradeUnit/components/DataTable/Archive.vue";
+import InspectionRecordDataTable from "@applets/edtehadieh/src/modules/TradeUnit/components/DataTable/InspectionRecord.vue";
+import ComplaintsDataTable from "@applets/edtehadieh/src/modules/TradeUnit/components/DataTable/Complaints.vue";
 export default {
   components: {
     ArchiveDataTable,

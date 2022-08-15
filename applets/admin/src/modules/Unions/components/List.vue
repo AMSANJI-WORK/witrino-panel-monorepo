@@ -27,7 +27,7 @@
 <script>
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
-import boxTopData from "@admin/modules/Unions/mock/boxTop";
+import boxTopData from "@applets/admin/src/modules/Unions/mock/boxTop";
 import DataTable from "./DataTable.vue";
 export default {
   components: {

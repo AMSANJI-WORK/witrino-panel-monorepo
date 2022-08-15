@@ -2,7 +2,7 @@ export default [
     {
         path: "/edtehadieh/home",
         name: "edtehadieh-home",
-        component: () => import("@edtehadieh/modules/Dashboard/views/Home.vue"),
+        component: () => import("@applets/edtehadieh/src/modules/Dashboard/views/Home.vue"),
         meta: {
             breadCrumb: [
                 {

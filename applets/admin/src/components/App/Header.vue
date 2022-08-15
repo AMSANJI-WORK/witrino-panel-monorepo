@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import navigation from "@admin/constants/data";
+import navigation from "@applets/admin/src/constants/data";
 import LogoHeader from "@shared/components/Icons/Admin/LogoHeader.vue";
 import AppHeader from "@shared/components/App/Header.vue";
 

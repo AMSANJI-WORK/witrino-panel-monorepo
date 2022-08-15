@@ -3,12 +3,12 @@ export default [
         path: "/admin/operator",
         name: "operator",
         redirect: "/admin/operator/list",
-        component: () => import("@admin/modules/Operator/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Operator/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "operator-list-page",
-                component: () => import("@admin/modules/Operator/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Operator/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/edit",
                 name: "operator-edit-page",
-                component: () => import("@admin/modules/Operator/views/Edit.vue"),
+                component: () => import("@applets/admin/src/modules/Operator/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "create",
                 name: "operator-create-page",
-                component: () => import("@admin/modules/Operator/views/Create.vue"),
+                component: () => import("@applets/admin/src/modules/Operator/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

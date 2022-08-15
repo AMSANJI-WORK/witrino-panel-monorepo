@@ -3,12 +3,12 @@ export default [
         path: "/branch",
         name: "branch",
         redirect: "/branch/list",
-        component: () => import("@admin/modules/Branchs/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Branchs/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "admin-branch-list-page",
-                component: () => import("@admin/modules/Branchs/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Branchs/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/detail",
                 name: "admin-branch-detail-page",
-                component: () => import("@admin/modules/Branchs/views/Preview.vue"),
+                component: () => import("@applets/admin/src/modules/Branchs/views/Preview.vue"),
                 meta: {
                     breadCrumb: [
                         {

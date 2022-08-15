@@ -3,12 +3,12 @@ export default [
         path: "/admin/service",
         name: "service",
         redirect: "/admin/service/list",
-        component: () => import("@admin/modules/Service/views/index.vue"),
+        component: () => import("@applets/admin/src/modules/Service/views/index.vue"),
         children: [
             {
                 path: "list",
                 name: "service-list-page",
-                component: () => import("@admin/modules/Service/views/List.vue"),
+                component: () => import("@applets/admin/src/modules/Service/views/List.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -30,7 +30,7 @@ export default [
             {
                 path: ":id/edit",
                 name: "service-edit-page",
-                component: () => import("@admin/modules/Service/views/Edit.vue"),
+                component: () => import("@applets/admin/src/modules/Service/views/Edit.vue"),
                 meta: {
                     breadCrumb: [
                         {
@@ -55,7 +55,7 @@ export default [
             {
                 path: "create",
                 name: "service-create-page",
-                component: () => import("@admin/modules/Service/views/Create.vue"),
+                component: () => import("@applets/admin/src/modules/Service/views/Create.vue"),
                 meta: {
                     breadCrumb: [
                         {

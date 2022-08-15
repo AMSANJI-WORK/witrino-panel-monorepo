@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import boxTopData from "@edtehadieh/modules/Complaint/mock/boxTop";
-import ProjectIcons from "@edtehadieh/modules/Complaint/components/ProjectIcons.vue";
+import boxTopData from "@applets/edtehadieh/src/modules/Complaint/mock/boxTop";
+import ProjectIcons from "@applets/edtehadieh/src/modules/Complaint/components/ProjectIcons.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import DataTable from "@edtehadieh/modules/Complaint/components/DataTable.vue";
+import DataTable from "@applets/edtehadieh/src/modules/Complaint/components/DataTable.vue";
 export default {
   components: {
     SectionDivider,

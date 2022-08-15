@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Modify from "@namayande/modules/Sell/components/Modify.vue";
+import Modify from "@applets/namayande/src/modules/Sell/components/Modify.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 
 export default {

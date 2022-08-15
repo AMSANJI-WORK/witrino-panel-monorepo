@@ -25,7 +25,7 @@
 import Logo from "@shared/components/Icons/Edtehadieh/Logo.vue";
 import AppHeader from "@shared/components/App/Header.vue";
 
-import navigation from "@edtehadieh/constants/data";
+import navigation from "@applets/edtehadieh/src/constants/data";
 import Cookies from "js-cookie";
 export default {
   components: {

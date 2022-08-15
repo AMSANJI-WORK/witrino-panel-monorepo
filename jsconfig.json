@@ -4,12 +4,10 @@
     "baseUrl": ".",
     "target": "ESNext",
     "paths": {
-      "@shared/*": ["./packages/shared/src/*"],
-      "@auth/*": ["./packages/auth/src/*"],
-      "@admin/*": ["./packages/admin/src/*"],
-      "@witrino/*": ["./packages/panel-witrino/src/*"],
-      "@namayande/*": ["./packages/namayande/src/*"],
-      "@edtehadieh/*": ["./packages/edtehadieh/src/*"]
+      "@packages/admin/*": ["packages/admin/*"],
+      "@shared/*": ["shared/src/*"],
+      "@applets/*": ["applets/*"],
+      "@witrino/*": ["apps/panel-witrino/src/*"]
     }
   },
   "include": ["./**/*.js", "./**/*.vue", "./**/*.json", "./**/*.scss"],

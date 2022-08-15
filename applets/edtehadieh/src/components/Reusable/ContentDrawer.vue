@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import menuItems from "@edtehadieh/constants/menu";
+import menuItems from "@applets/edtehadieh/src/constants/menu";
 export default {
   props: {
     rounded: {

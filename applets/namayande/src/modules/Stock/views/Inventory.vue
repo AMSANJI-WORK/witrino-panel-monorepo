@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Inventory from "@namayande/modules/Stock/components/Inventory.vue";
+import Inventory from "@applets/namayande/src/modules/Stock/components/Inventory.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 export default {
     components: { Inventory, SectionDivider },

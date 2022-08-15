@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import LoginForm from "@auth/components/Form/Login.vue";
-import RegisterFrom from "@auth/components/Form/Register.vue";
+import LoginForm from "@applets/auth/src/components/Form/Login.vue";
+import RegisterFrom from "@applets/auth/src/components/Form/Register.vue";
 export default {
   components: {
     LoginForm,

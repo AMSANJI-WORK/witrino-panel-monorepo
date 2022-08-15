@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BranchDetail from "@namayande/modules/Branchs/components/Detail/index.vue";
+import BranchDetail from "@applets/namayande/src/modules/Branchs/components/Detail/index.vue";
 export default {
     components: {
         BranchDetail,

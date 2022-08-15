@@ -1,5 +1,5 @@
-import user from "@admin/modules/Users/repositories";
-import role from "@admin/modules/Roles/repositories";
+import user from "@packages/admin/users/repositories";
+import role from "@packages/admin/roles/repositories";
 export default {
   ...role,
   ...user,

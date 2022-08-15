@@ -2,7 +2,7 @@
 // import moment from "moment-jalaali";
 
 import { mapActions, mapGetters } from "vuex";
-import { userTypes } from "@admin/modules/Users/store/types";
+import { userTypes } from "@packages/admin/users/store/types";
 import Cookies from "js-cookie";
 const ProfileMixin = {
   data: () => ({

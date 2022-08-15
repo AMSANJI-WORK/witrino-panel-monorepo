@@ -1,6 +1,6 @@
-import WProjectBlueIcon from "@admin/components/Icons/WProjectBlue.vue";
-import WProjectGreenIcon from "@admin/components/Icons/WProjectGreen.vue";
-import WProjectYellowIcon from "@admin/components/Icons/WProjectYellow.vue";
+import WProjectBlueIcon from "@applets/admin/src/components/Icons/WProjectBlue.vue";
+import WProjectGreenIcon from "@applets/admin/src/components/Icons/WProjectGreen.vue";
+import WProjectYellowIcon from "@applets/admin/src/components/Icons/WProjectYellow.vue";
 export default [
   {
     number: 1,

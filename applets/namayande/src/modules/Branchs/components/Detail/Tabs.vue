@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import ComplaintsDataTable from "@namayande/modules/Branchs/components/DataTable/Complaints.vue";
-import OrderDataTable from "@namayande/modules/Branchs/components/DataTable/Order.vue";
-import StockDataTable from "@namayande/modules/Branchs/components/DataTable/Stock.vue";
+import ComplaintsDataTable from "@applets/namayande/src/modules/Branchs/components/DataTable/Complaints.vue";
+import OrderDataTable from "@applets/namayande/src/modules/Branchs/components/DataTable/Order.vue";
+import StockDataTable from "@applets/namayande/src/modules/Branchs/components/DataTable/Stock.vue";
 export default {
     components: {
         ComplaintsDataTable,

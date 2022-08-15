@@ -1,4 +1,4 @@
-import { getMutations } from "@edtehadieh/modules/Profile/store/get";
+import { getMutations } from "@applets/edtehadieh/src/modules/Profile/store/get";
 
 export default {
   ...getMutations,

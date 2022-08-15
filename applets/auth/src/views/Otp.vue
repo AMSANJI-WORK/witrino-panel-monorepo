@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Otp from "@auth/components/Otp.vue";
+import Otp from "@applets/auth/src/components/Otp.vue";
 export default {
   components: {
     Otp,

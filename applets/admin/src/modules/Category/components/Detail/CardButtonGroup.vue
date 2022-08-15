@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import WitrinoPage from "@admin/components/Icons/WitrinoPage.vue";
-import PolotikPage from "@admin/components/Icons/PolotikPage.vue";
+import WitrinoPage from "@applets/admin/src/components/Icons/WitrinoPage.vue";
+import PolotikPage from "@applets/admin/src/components/Icons/PolotikPage.vue";
 export default {
     components: {
         WitrinoPage,
