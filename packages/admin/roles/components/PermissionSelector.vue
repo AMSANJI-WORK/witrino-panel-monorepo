@@ -6,7 +6,7 @@
       class="rounded-lg"
       label="انتخاب مجوز"
       multiple
-      :items="permissions"
+      :items="permissionList"
       small-chips
       :single-line="true"
       item-text="name"
@@ -48,7 +48,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["permissions"]),
+    ...mapGetters(["permissionList"]),
   },
   methods: {
     ...mapActions({
@@ -59,7 +59,7 @@ export default {
     },
   },
   created() {
-    if (this.permissions.length == 0) this.setPermissionsAsync();
+    if (this.permissionList.length == 0) this.setPermissionsAsync();
   },
 };
 </script>

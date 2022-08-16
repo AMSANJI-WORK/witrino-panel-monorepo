@@ -1,6 +1,6 @@
 const state = () => ({
-  users: [],
-  user: {
+  userAddressList: [],
+  userAddress: {
     id: null,
     is_deleted: null,
     created_at: null,
@@ -8,19 +8,14 @@ const state = () => ({
     created_id: null,
     updated_id: null,
     ip: null,
-    is_viewed: null,
-    is_active: null,
-    full_name: null,
-    jensiat: null,
-    national_no: null,
-    father_name: null,
-    mobile: null,
-    email: null,
-    password: null,
-    image_avatar: null,
-    phone: null,
-    money_deposit: null,
-    roles: [],
+    is_default: null,
+    user_id: null,
+    title: null,
+    description: null,
+    location: null,
+    province_id: null,
+    city_id: null,
+    address: null,
   },
 });
 export default state;

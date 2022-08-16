@@ -7,18 +7,18 @@
       title="ویرایش پروفایل"
     />
     <v-sheet class="mx-2 rounded-lg">
-      <ModifyForm />
+      <ModifyTabs />
     </v-sheet>
   </v-sheet>
 </template>
 
 <script>
-import ModifyForm from "@packages/profile/components/EditForm.vue";
+import ModifyTabs from "@packages/profile/components/Tabs.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 
 export default {
   components: {
-    ModifyForm,
+    ModifyTabs,
     SectionDivider,
   },
 };

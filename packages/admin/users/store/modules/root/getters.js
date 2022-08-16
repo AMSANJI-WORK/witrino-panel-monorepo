@@ -2,8 +2,8 @@ const getters = {
   userRoleId(state) {
     return state.user.roles.map((role) => role.id);
   },
-  users(state) {
-    return state.users;
+  userList(state) {
+    return state.userList;
   },
   user(state) {
     return state.user;

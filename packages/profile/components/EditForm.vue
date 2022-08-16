@@ -137,10 +137,8 @@
 import FormMixin from "@shared/mixins/form";
 import ProfileMixin from "@packages/profile/mixins/edit";
 import ModifyAvatar from "@packages/admin/users/components/ModifyFormAvatar.vue";
-import LocationList from "@packages/admin/users/components/LocationList.vue";
 export default {
   components: {
-    LocationList,
     ModifyAvatar,
   },
   mixins: [FormMixin, ProfileMixin],
@@ -175,19 +173,8 @@ export default {
       };
       this.updateUser(this.editableUser);
     },
-    create() {
-      this.editableUser = {
-        ...this.editableUser,
-        created_id: this.currentUserId,
-      };
-      this.createUser(this.editableUser);
-    },
     submit() {
-      if (this.validateFrom) {
-        this.editableUser.roles = [1, 2];
-        this.editableUser.is_viewed = this.editableUser.is_active;
-        this.checkRoutePass ? this.update() : this.create();
-      }
+      if (this.validateFrom) this.update();
     },
   },
 };

@@ -26,7 +26,7 @@ const ProfileMixin = {
     },
   }),
   computed: {
-    ...mapGetters("admin/user", ["user", "users", "userRoleId"]),
+    ...mapGetters("admin/user", ["user", "userList", "userRoleId"]),
     checkRoutePass() {
       return this.$route.fullPath.includes("edit");
     },
@@ -56,7 +56,7 @@ const ProfileMixin = {
     },
   },
   created() {
-    if (this.users.length == 0) this.getAllUser();
+    if (this.userList.length == 0) this.getAllUser();
     this.getUserInfo();
   },
 };

@@ -8,7 +8,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
       const { data } = await adminRepository.deleteUser(payload);
-      commit(`admin/user/${userAddressTypes.DELETE_USER_ADDRESS_ADDRESS}`, payload, { root: true });
+      commit(`admin/userAddress/${userAddressTypes.DELETE_USER_ADDRESS_ADDRESS}`, payload, { root: true });
       commit(userAddressTypes.DELETE_USER_ADDRESS_ADDRESS_SUCCESS, data);
     } catch (error) {
       console.log(error);

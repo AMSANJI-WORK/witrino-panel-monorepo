@@ -2,7 +2,7 @@
   <v-sheet class="transparent">
     <l-map
       ref="myMap"
-      style="height: 150px"
+      style="height: 250px"
       @ready="doSomethingOnReady"
       :zoom="zoom"
       :center="center"
@@ -11,7 +11,7 @@
       <!--  -->
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :lat-lng="markerLatLng"> </l-marker>
-    
+    </l-map>
   </v-sheet>
 </template>
 

@@ -5,7 +5,7 @@
       dense
       class="rounded-lg"
       multiple
-      :items="roles"
+      :items="roleList"
       small-chips
       :single-line="true"
       item-text="name"
@@ -50,7 +50,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["roles"]),
+    ...mapGetters(["roleList"]),
   },
   methods: {
     ...mapActions({
@@ -62,7 +62,7 @@ export default {
     },
   },
   created() {
-    if (this.roles.length == 0) this.getAllRole();
+    if (this.roleList.length == 0) this.getAllRole();
   },
 };
 </script>

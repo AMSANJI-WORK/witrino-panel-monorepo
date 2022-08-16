@@ -8,7 +8,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
       const { data } = await adminRepository.disableUser(id, { updated_id });
-      commit(`admin/user/${userAddressTypes.DISABLE_USER_ADDRESS_ADDRESS}`, id, { root: true });
+      commit(`admin/userAddress/${userAddressTypes.DISABLE_USER_ADDRESS_ADDRESS}`, id, { root: true });
       commit(userAddressTypes.DISABLE_USER_ADDRESS_ADDRESS_SUCCESS, data);
     } catch (error) {
       console.log(error);

@@ -3,7 +3,7 @@ const adminRepository = RepositoryFactory.get("admin");
 export default {
   namespaced: true,
   state: () => ({
-    permissions: [],
+    permissionList: [],
     permission: {
       id: null,
       is_deleted: null,
@@ -16,12 +16,12 @@ export default {
     },
   }),
   getters: {
-    permissions: (state) => state.permissions,
+    permissionList: (state) => state.permissionList,
     permission: (state) => state.permission,
   },
   mutations: {
     SET_PERMISSIONS(state, payload) {
-      state.permissions = [...payload.data.data];
+      state.permissionList = [...payload.data.data];
     },
     SET_PERMISSION(state, payload) {
       Object.assign(state.permission, payload);

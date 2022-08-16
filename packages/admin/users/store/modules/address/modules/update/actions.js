@@ -9,11 +9,11 @@ export default {
       let id;
       delete payload.password;
       if (router.currentRoute.path.includes("profile"))
-        id = router.currentRoute.params?.userId;
+        id = router.currentRoute.params?.userAddressId;
       else id = router.currentRoute.params?.id;
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.updateUser(id, payload);
-      commit(`admin/user/${userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS}`, data.data[0], {
+      commit(`admin/userAddress/${userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS}`, data.data[0], {
         root: true,
       });
       commit(userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS_SUCCESS, data);

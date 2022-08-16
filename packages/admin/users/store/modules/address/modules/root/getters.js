@@ -1,12 +1,9 @@
 const getters = {
-  userRoleId(state) {
-    return state.user.roles.map((role) => role.id);
+  userAddressList(state) {
+    return state.userAddressList;
   },
-  users(state) {
-    return state.users;
-  },
-  user(state) {
-    return state.user;
+  userAddress(state) {
+    return state.userAddress;
   },
 };
 export default getters;

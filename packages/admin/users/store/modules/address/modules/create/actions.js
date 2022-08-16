@@ -6,7 +6,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.createUser(payload);
-      commit(`admin/user/${userAddressTypes.CRATE_USER_ADDRESS_ADDRESS}`, data.data[0], { root: true });
+      commit(`admin/userAddress/${userAddressTypes.CRATE_USER_ADDRESS_ADDRESS}`, data.data[0], { root: true });
       commit(userAddressTypes.CREATE_USER_ADDRESS_ADDRESS_SUCCESS, data);
     } catch (error) {
       console.log(error);

@@ -7,10 +7,10 @@ export default {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
       const { data } = await adminRepository.getUser(payload);
-      dispatch(`admin/user/pagination/${userAddressTypes.SET_PAGINATION}`, data.data, {
+      dispatch(`admin/userAddress/pagination/${userAddressTypes.SET_PAGINATION}`, data.data, {
         root: true,
       });
-      commit(`admin/user/${userAddressTypes.SET_USER_ADDRESS_ADDRESSS}`, data.data, { root: true });
+      commit(`admin/userAddress/${userAddressTypes.SET_USER_ADDRESS_ADDRESSS}`, data.data, { root: true });
       commit(userAddressTypes.GET_ALL_USER_ADDRESS_ADDRESS_SUCCESS, data);
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.getUser(payload);
-      commit(`admin/user/${userAddressTypes.SET_USER_ADDRESS_ADDRESS}`, data.data[0], {
+      commit(`admin/userAddress/${userAddressTypes.SET_USER_ADDRESS_ADDRESS}`, data.data[0], {
         root: true,
       });
       commit(userAddressTypes.GET_ONE_USER_ADDRESS_ADDRESS_SUCCESS, data);

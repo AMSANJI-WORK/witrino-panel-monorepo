@@ -5,21 +5,21 @@ export default {
     Object.assign(state.user, payload);
   },
   [userTypes.SET_USERS](state, payload) {
-    state.users = [...payload.data];
+    state.userList = [...payload.data];
   },
   [userTypes.CRATE_USER](state, payload) {
-    state.users = [...state.users, payload];
+    state.userList = [...state.userList, payload];
   },
   [userTypes.UPDATE_USER](state, payload) {
-    const targetIndex = state.users.findIndex((user) => user.id == payload.id);
-    Object.assign(state.users[targetIndex], payload);
+    const targetIndex = state.userList.findIndex((user) => user.id == payload.id);
+    Object.assign(state.userList[targetIndex], payload);
   },
   [userTypes.DELETE_USER](state, payload) {
-    let targetIndex = state.users.findIndex((user) => user.id === payload);
-    state.users.splice(targetIndex, 1);
+    let targetIndex = state.userList.findIndex((user) => user.id === payload);
+    state.userList.splice(targetIndex, 1);
   },
   [userTypes.DISABLE_USER](state, payload) {
-    let targetIndex = state.users.findIndex((user) => user.id === payload);
-    state.users.splice(targetIndex, 1);
+    let targetIndex = state.userList.findIndex((user) => user.id === payload);
+    state.userList.splice(targetIndex, 1);
   },
 };

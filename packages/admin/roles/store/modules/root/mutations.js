@@ -5,21 +5,21 @@ export default {
     Object.assign(state.role, payload);
   },
   [roleTypes.SET_ROLES](state, payload) {
-    state.roles = [...payload.data];
+    state.roleList = [...payload.data];
   },
   [roleTypes.CRATE_ROLE](state, payload) {
-    state.roles = [...state.roles, payload];
+    state.roleList = [...state.roleList, payload];
   },
   [roleTypes.UPDATE_ROLE](state, payload) {
-    const targetIndex = state.roles.findIndex((role) => role.id == payload.id);
-    Object.assign(state.roles[targetIndex], payload);
+    const targetIndex = state.roleList.findIndex((role) => role.id == payload.id);
+    Object.assign(state.roleList[targetIndex], payload);
   },
   [roleTypes.DELETE_ROLE](state, payload) {
-    let targetIndex = state.roles.findIndex((role) => role.id === payload);
-    state.roles.splice(targetIndex, 1);
+    let targetIndex = state.roleList.findIndex((role) => role.id === payload);
+    state.roleList.splice(targetIndex, 1);
   },
   [roleTypes.DISABLE_ROLE](state, payload) {
-    let targetIndex = state.roles.findIndex((role) => role.id === payload);
-    state.roles.splice(targetIndex, 1);
+    let targetIndex = state.roleList.findIndex((role) => role.id === payload);
+    state.roleList.splice(targetIndex, 1);
   },
 };
