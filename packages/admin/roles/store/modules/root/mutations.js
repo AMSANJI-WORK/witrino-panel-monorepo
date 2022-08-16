@@ -7,7 +7,7 @@ export default {
   [roleTypes.SET_ROLES](state, payload) {
     state.roleList = [...payload.data];
   },
-  [roleTypes.CRATE_ROLE](state, payload) {
+  [roleTypes.CRAETE_ROLE](state, payload) {
     state.roleList = [...state.roleList, payload];
   },
   [roleTypes.UPDATE_ROLE](state, payload) {

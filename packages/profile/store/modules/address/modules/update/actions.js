@@ -1,10 +1,10 @@
 import router from "@witrino/router";
-import { userAddressTypes } from "../../types";
+import { userTypes } from "@packages/admin/users/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
 const adminRepository = RepositoryFactory.get("admin");
 
 export default {
-  async [userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS_ASYNC]({ commit }, payload) {
+  async [userTypes.UPDATE_USER_ADDRESS_ASYNC]({ commit }, payload) {
     try {
       let id;
       delete payload.password;
@@ -12,14 +12,18 @@ export default {
         id = router.currentRoute.params?.userAddressId;
       else id = router.currentRoute.params?.id;
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.updateUser(id, payload);
-      commit(`admin/userAddress/${userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS}`, data.data[0], {
-        root: true,
-      });
-      commit(userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS_SUCCESS, data);
+      const { data } = await adminRepository.updateUserAddress(id, payload);
+      commit(
+        `admin/user/address/${userTypes.UPDATE_USER_ADDRESS}`,
+        data.data[0],
+        {
+          root: true,
+        }
+      );
+      commit(userTypes.UPDATE_USER_ADDRESS_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(userAddressTypes.UPDATE_USER_ADDRESS_ADDRESS_FAILURE, error);
+      commit(userTypes.UPDATE_USER_ADDRESS_FAILURE, error);
     } finally {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }

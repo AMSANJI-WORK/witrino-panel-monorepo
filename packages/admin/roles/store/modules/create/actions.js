@@ -6,7 +6,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.createRole(payload);
-      commit(`admin/role/${roleTypes.CRATE_ROLE}`, data.data[0], { root: true });
+      commit(`admin/role/${roleTypes.CRAETE_ROLE}`, data.data[0], { root: true });
       commit(roleTypes.CREATE_ROLE_SUCCESS, data);
     } catch (error) {
       console.log(error);

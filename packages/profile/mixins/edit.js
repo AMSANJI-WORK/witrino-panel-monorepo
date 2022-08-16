@@ -47,6 +47,7 @@ const ProfileMixin = {
       updateUser: `update/${userTypes.UPDATE_USER_ASYNC}`,
       getUser: `get/${userTypes.GET_ONE_USER_ASYNC}`,
       getAllUser: `get/${userTypes.GET_ALL_USER_ASYNC}`,
+      getAllUserAddress: `address/get/${userTypes.GET_ALL_USER_ADDRESS_ASYNC}`,
     }),
     getUserInfo() {
       if (this.currentUserId)
@@ -58,6 +59,21 @@ const ProfileMixin = {
   created() {
     if (this.userList.length == 0) this.getAllUser();
     this.getUserInfo();
+    this.getAllUserAddress({
+      form_vars: [
+        {
+          name: "Param_WithWhere",
+          value: "1",
+          valueType: [
+            {
+              field: "user_id",
+              operator: "=",
+              value: this.currentUserId,
+            },
+          ],
+        },
+      ],
+    });
   },
 };
 export default ProfileMixin;

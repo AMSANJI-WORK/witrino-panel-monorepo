@@ -1,12 +1,13 @@
 <template>
   <v-form
-    ref="editProfile"
+    ref="editUserAddress"
     class="d-flex flex-wrap"
     @submit.prevent="addAddress"
   >
     <v-col cols="12" sm="6" class="pb-0">
       <v-text-field
         :loading="fromLoading"
+        v-model="editableUserAddress.title"
         :rules="[rules.required]"
         class="rounded-lg"
         dense
@@ -20,7 +21,8 @@
         dense
         outlined
         class="rounded-lg"
-        label="انتخاب شهر"
+        label="انتخاب استان"
+        v-model="editableUserAddress.province_id"
         :loading="fromLoading"
         :rules="[rules.required]"
       ></v-autocomplete>
@@ -30,6 +32,7 @@
         dense
         outlined
         class="rounded-lg"
+        v-model="editableUserAddress.city_id"
         label="انتخاب شهر"
         :loading="fromLoading"
         :rules="[rules.required]"
@@ -42,6 +45,7 @@
         rows="1"
         class="rounded-lg"
         label="آدرس"
+        v-model="editableUserAddress.address"
         :loading="fromLoading"
         :rules="[rules.required]"
       ></v-textarea>
@@ -53,6 +57,7 @@
         outlined
         class="rounded-lg"
         label="توضیحات"
+        v-model="editableUserAddress.description"
         :loading="fromLoading"
         :rules="[rules.required]"
       ></v-textarea>
@@ -68,14 +73,35 @@ import FormMixin from "@shared/mixins/form";
 import LocationList from "./LocationList.vue";
 export default {
   mixins: [FormMixin],
+  components: {
+    LocationList,
+  },
   props: {
     editedIndex: {
       type: Number,
       default: -1,
     },
   },
-  components: {
-    LocationList,
+  data() {
+    return {
+      editableUserAddress: {
+        is_default: null,
+        created_id: null,
+        user_id: null,
+        title: null,
+        description: null,
+        location: null,
+        province_id: null,
+        city_id: null,
+        address: null,
+      },
+    };
+  },
+
+  methods: {
+    resetFrom() {
+      return this.$refs.editUserAddress.reset();
+    },
   },
 };
 </script>

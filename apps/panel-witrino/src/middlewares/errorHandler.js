@@ -9,12 +9,11 @@ function responseErrorHandler(error) {
       store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
       break;
     case 403:
-      router.push("/403");
       store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
       break;
     case 404:
-      router.push("/404");
-      store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
+      store.dispatch("shared/message/SHOW_ERROR_MESSAGES", { message: null });
+      break;
     case 500:
       Vue.$toast.error("خطا در برقراری ارتباط با سرور");
       break;

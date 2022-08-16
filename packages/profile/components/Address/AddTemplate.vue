@@ -2,6 +2,7 @@
   <v-card-text
     class="pa-1 grey lighten-3 d-flex align-center justify-center rounded-xl"
   >
+    {{ userAddressList.length | isZero }}
     <v-btn
       color="grey"
       dark
@@ -25,8 +26,13 @@ export default {
       required: true,
     },
   },
+  filters: {
+    isZero(value) {
+      return value == 0 ? "هیچ آدرسی ثبت نشده" : "ثبت آدرس جدید";
+    },
+  },
   computed: {
-    ...mapGetters("admin/user/address", {}),
+    ...mapGetters("admin/user/address", ["userAddressList"]),
   },
 };
 </script>

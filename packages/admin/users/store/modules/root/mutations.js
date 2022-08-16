@@ -7,7 +7,7 @@ export default {
   [userTypes.SET_USERS](state, payload) {
     state.userList = [...payload.data];
   },
-  [userTypes.CRATE_USER](state, payload) {
+  [userTypes.CRAETE_USER](state, payload) {
     state.userList = [...state.userList, payload];
   },
   [userTypes.UPDATE_USER](state, payload) {
