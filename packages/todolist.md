@@ -1,13 +1,13 @@
 # TODO LIST
 
-## 1- profile edit page
+# 1- add user address api
 
-### add zone api
+## add zone api
 
-### add user address api
+## create reusable auto complete
 
-### change user gender fuild
+## set locattion lat long
 
-## 2- add sucsess message handler
+# 2- add sucsess message handler
 
-## 3- base lerna structure updated
+# 3- add polotik to this structure
