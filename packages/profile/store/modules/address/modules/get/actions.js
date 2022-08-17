@@ -7,7 +7,7 @@ export default {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
       const { data } = await adminRepository.getUserAddress(payload);
-      commit(`admin/userAddress/${userTypes.SET_USER_ADDRESSS}`, data.data, {
+      commit(`admin/user/address/${userTypes.SET_USER_ADDRESSS}`, data.data, {
         root: true,
       });
       commit(userTypes.GET_ALL_USER_ADDRESS_SUCCESS, data);

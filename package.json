@@ -14,7 +14,6 @@
   "workspaces": [
     "packages/admin/*",
     "packages/polotik/*",
-    "config/*",
     "packages/*",
     "applets/*",
     "apps/*"

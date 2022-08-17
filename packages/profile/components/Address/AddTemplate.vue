@@ -1,6 +1,6 @@
 <template>
   <v-card-text
-    class="pa-1 grey lighten-3 d-flex align-center justify-center rounded-xl"
+    class="pa-1 grey lighten-3 d-flex align-center justify-center rounded-lg"
   >
     {{ userAddressList.length | isZero }}
     <v-btn

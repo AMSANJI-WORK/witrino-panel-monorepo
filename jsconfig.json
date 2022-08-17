@@ -10,7 +10,8 @@
       "@packages/admin/*": ["packages/admin/*"],
       "@witrino/*": ["apps/panel-witrino/src/*"],
       "@polotik/*": ["apps/panel-polotik/src/*"],
-      "@packages/polotik/*": ["packages/polotik/*"]
+      "@packages/polotik/*": ["packages/polotik/*"],
+      "@config": ["config"]
     }
   },
   "include": ["./**/*.js", "./**/*.vue", "./**/*.json", "./**/*.scss"],

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import router from "@witrino/router";
 
-import { userTypes } from "../../types";
+import { userTypes } from "@packages/admin/users/store/types";
 export default {
   [userTypes.UPDATE_USER_SUCCESS](_, payload) {
     if (router.currentRoute.path.includes("profile"))

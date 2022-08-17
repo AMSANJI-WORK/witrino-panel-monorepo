@@ -1,4 +1,4 @@
-import { userTypes } from "../../types";
+import { userTypes } from "@packages/admin/users/store/types";
 
 export default {
   [userTypes.SET_PAGINATION]({ commit }, payload) {

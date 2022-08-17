@@ -1,4 +1,4 @@
-import { roleTypes } from "../../types";
+import { roleTypes } from "@packages/admin/roles/store/types";
 
 export default {
   [roleTypes.SET_PAGINATION](

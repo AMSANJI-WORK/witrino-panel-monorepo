@@ -1,16 +1,17 @@
 <template>
   <v-sheet class="transparent">
     <l-map
+      v-bind="$attrs"
       ref="myMap"
-      style="height: 250px"
       @ready="doSomethingOnReady"
       :zoom="zoom"
-      :center="center"
+      :center="currentCenter"
+      @update:center="centerUpdate"
       class="product-map"
     >
       <!--  -->
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :lat-lng="markerLatLng"> </l-marker>
+      <l-marker :lat-lng="marker" :draggable="false"> </l-marker>
     </l-map>
   </v-sheet>
 </template>
@@ -19,6 +20,7 @@
 import { LControl } from "vue2-leaflet";
 
 export default {
+  inheritAttrs: false,
   components: {
     LControl,
   },
@@ -29,12 +31,25 @@ export default {
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 15,
-      center: [51.505, -0.159],
-      markerLatLng: [51.504, -0.159],
       map: null,
+      marker: [47.41322, -1.219482],
+      currentCenter: [47.41322, -1.219482],
     };
   },
+  computed: {
+    markerLatLng: {
+      get() {
+        return this.marker;
+      },
+      set(value) {
+        this.marker = value;
+      },
+    },
+  },
   methods: {
+    centerUpdate(center) {
+      this.currentCenter = center;
+    },
     doSomethingOnReady() {
       this.map = this.$refs["myMap"].mapObject;
       window.dispatchEvent(new Event("resize"));
@@ -46,6 +61,12 @@ export default {
       );
       el[0].remove();
     },
+  },
+  created() {
+    this.$nextTick(() => {
+      this.currentCenter = [this.lat, this.long];
+      this.markerLatLng = [this.lat, this.long];
+    });
   },
 };
 </script>

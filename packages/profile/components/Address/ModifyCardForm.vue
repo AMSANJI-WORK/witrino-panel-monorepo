@@ -1,13 +1,13 @@
 <template>
   <v-form
-    ref="editUserAddress"
+    ref="UserAddress"
     class="d-flex flex-wrap"
     @submit.prevent="addAddress"
   >
     <v-col cols="12" sm="6" class="pb-0">
       <v-text-field
         :loading="fromLoading"
-        v-model="editableUserAddress.title"
+        v-model="userAddressDto.title"
         :rules="[rules.required]"
         class="rounded-lg"
         dense
@@ -22,7 +22,7 @@
         outlined
         class="rounded-lg"
         label="انتخاب استان"
-        v-model="editableUserAddress.province_id"
+        v-model="userAddressDto.province_id"
         :loading="fromLoading"
         :rules="[rules.required]"
       ></v-autocomplete>
@@ -32,7 +32,7 @@
         dense
         outlined
         class="rounded-lg"
-        v-model="editableUserAddress.city_id"
+        v-model="userAddressDto.city_id"
         label="انتخاب شهر"
         :loading="fromLoading"
         :rules="[rules.required]"
@@ -45,7 +45,7 @@
         rows="1"
         class="rounded-lg"
         label="آدرس"
-        v-model="editableUserAddress.address"
+        v-model="userAddressDto.address"
         :loading="fromLoading"
         :rules="[rules.required]"
       ></v-textarea>
@@ -57,14 +57,14 @@
         outlined
         class="rounded-lg"
         label="توضیحات"
-        v-model="editableUserAddress.description"
+        v-model="userAddressDto.description"
         :loading="fromLoading"
         :rules="[rules.required]"
       ></v-textarea>
     </v-col>
-    <v-col cols="12" class="pt-0">
+    <v-sheet class="pa-2" width="100%">
       <LocationList :lat="55.05" :long="55.05" />
-    </v-col>
+    </v-sheet>
   </v-form>
 </template>
 
@@ -84,7 +84,7 @@ export default {
   },
   data() {
     return {
-      editableUserAddress: {
+      userAddressDto: {
         is_default: null,
         created_id: null,
         user_id: null,
@@ -100,7 +100,7 @@ export default {
 
   methods: {
     resetFrom() {
-      return this.$refs.editUserAddress.reset();
+      return this.$refs.UserAddress.reset();
     },
   },
 };

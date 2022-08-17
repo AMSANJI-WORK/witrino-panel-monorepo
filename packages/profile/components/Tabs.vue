@@ -4,11 +4,21 @@
       :height="60"
       v-model="tab"
       slider-size="3"
-      class="rounded-t-lg"
+      class="rounded-t-lg text-md-subtitle-2 text-caption"
       :show-arrows="false"
     >
-      <v-tab key="private" active-class="light-blue--text">اطلاعات شخصی </v-tab>
-      <v-tab key="address" active-class="light-blue--text">آدرس ها</v-tab>
+      <v-tab
+        key="private"
+        class="text-md-subtitle-2 text-caption font-weight-medium"
+        active-class="light-blue--text"
+        >اطلاعات شخصی
+      </v-tab>
+      <v-tab
+        key="address"
+        class="text-md-subtitle-2 text-caption font-weight-medium"
+        active-class="light-blue--text"
+        >آدرس ها</v-tab
+      >
     </v-tabs>
     <v-tabs-items v-model="tab" class="rounded-b-lg">
       <v-tab-item key="private"> <EditForm /></v-tab-item>

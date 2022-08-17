@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { roleTypes } from "../../types";
+import { roleTypes } from "@packages/admin/roles/store/types";
 export default {
   [roleTypes.GET_ALL_ROLE_SUCCESS](_, payload) {},
   [roleTypes.GET_ALL_ROLE_FAILURE](_, error) {},
