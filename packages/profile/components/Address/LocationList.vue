@@ -11,7 +11,7 @@
     >
       <!--  -->
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :lat-lng="marker" :draggable="false"> </l-marker>
+      <l-marker :lat-lng="marker" :draggable="markerDrageble"> </l-marker>
     </l-map>
   </v-sheet>
 </template>
@@ -24,7 +24,20 @@ export default {
   components: {
     LControl,
   },
-  props: ["lat", "long"],
+  props: {
+    markerDrageble: {
+      type: Boolean,
+      default: false,
+    },
+    lat: {
+      type: Number,
+      default: 55,
+    },
+    long: {
+      type: Number,
+      default: 55,
+    },
+  },
   data() {
     return {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",

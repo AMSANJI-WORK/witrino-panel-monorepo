@@ -42,6 +42,8 @@
               />
             </v-col>
           </v-card-text>
+          <ModifyCardDialog v-model="showModifyForm" :edited-id="editedId" />
+
           <v-card-actions class="px-5">
             <v-spacer></v-spacer>
             <v-btn color="yellow darken-3" text @click="editItem(address.id)">
@@ -61,13 +63,24 @@
 
 <script>
 import { mapGetters } from "vuex";
-import LocationList from "./LocationList.vue";
+import UserAddressMixin from "@packages/profile/mixins/user.address";
 import VLabel from "@shared/components/Reusable/VLabel.vue";
+import ModifyCardDialog from "./ModifyCardDialog.vue";
+import LocationList from "./LocationList.vue";
 export default {
+  mixins: [UserAddressMixin],
   components: {
+    ModifyCardDialog,
     LocationList,
     VLabel,
   },
+  data() {
+    return {
+      showModifyForm: false,
+      editedId: -1,
+    };
+  },
+  watch: {},
   filters: {
     getLat(value) {
       let convertedLocationToArray = value.split(", ");
@@ -82,11 +95,12 @@ export default {
     ...mapGetters("admin/user/address", ["userAddressList"]),
   },
   methods: {
-    isDefaultChange(e, targetId) {
-      console.log(e, targetId);
+    async editItem(targetId) {
+      this.editedId = targetId;
+      this.toggle();
     },
-    editItem(targetId) {
-      console.log(targetId);
+    toggle() {
+      this.showModifyForm = !this.showModifyForm;
     },
   },
 };

@@ -2,7 +2,7 @@
   <v-dialog
     :value="value"
     @input="$emit('input', $event)"
-    max-width="800px"
+    max-width="800"
     @click:outside="cancel"
   >
     <template v-slot:activator="{ on, attrs }" v-if="hasActivator">

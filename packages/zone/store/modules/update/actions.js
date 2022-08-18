@@ -1,7 +1,7 @@
 import router from "@witrino/router";
 import { zoneTypes } from "@packages/zone/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const zoneRepository = RepositoryFactory.get("zone");
 
 export default {
   async [zoneTypes.UPDATE_ZONE_ASYNC]({ commit }, payload) {
@@ -12,8 +12,8 @@ export default {
         id = router.currentRoute.params?.zoneId;
       else id = router.currentRoute.params?.id;
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.updateZone(id, payload);
-      commit(`${zoneTypes.UPDATE_ZONE}`, data.data[0], {
+      const { data } = await zoneRepository.updateZone(id, payload);
+      commit(`shared/zone/${zoneTypes.UPDATE_ZONE}`, data.data[0], {
         root: true,
       });
       commit(zoneTypes.UPDATE_ZONE_SUCCESS, data);
