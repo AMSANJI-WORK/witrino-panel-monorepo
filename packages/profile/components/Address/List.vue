@@ -97,7 +97,16 @@ export default {
   methods: {
     async editItem(targetId) {
       this.editedId = targetId;
+      this.getUserAddress();
       this.toggle();
+    },
+    async getUserAddress() {
+      if (this.editedId != -1) {
+        await this.$store.dispatch(
+          "admin/user/address/get/GET_ONE_USER_ADDRESS_ASYNC",
+          { id: this.editedId }
+        );
+      }
     },
     toggle() {
       this.showModifyForm = !this.showModifyForm;

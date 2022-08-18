@@ -170,12 +170,14 @@ export default {
       return `${value == -1 ? "افزودن" : "ویرایش"} سطح دسترسی`;
     },
     getLat(value) {
+      if (!value) return 0;
       let convertedLocationToArray = value.split(", ");
-      return Number(convertedLocationToArray[0]);
+      return convertedLocationToArray[0];
     },
     getLong(value) {
+      if (!value) return 0;
       let convertedLocationToArray = value.split(", ");
-      return Number(convertedLocationToArray[1]);
+      return convertedLocationToArray[1];
     },
   },
   computed: {
@@ -200,7 +202,12 @@ export default {
   watch: {
     value(newValue) {
       if (!newValue) this.closeDialog();
-      else this.getUserAddress();
+    },
+    userAddress: {
+      handler(newValue) {
+        this.userAddressDto = Object.assign({}, newValue);
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -213,12 +220,6 @@ export default {
     },
     resetFrom() {
       return this.$refs.UserAddress.reset();
-    },
-    async getUserAddress() {
-      if (this.editedId != -1) {
-        await this.getOneUserAddress({ id: this.editedId });
-        this.userAddressDto = Object.assign({}, this.userAddress);
-      }
     },
     async save() {
       this.userAddressDto.user_id = this.$route.params.userId;
