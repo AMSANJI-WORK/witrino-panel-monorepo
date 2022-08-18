@@ -10,6 +10,14 @@
   },
   "dependencies": {
     "dotenv": "^16.0.1",
+    "auction": "*",
+    "tender": "*",
+    "inquiry": "*",
+    "sale": "*",
+    "barter": "*",
+    "polotik-auth": "*",
+    "polotik-dashboard": "*",
+    "polotik-upload": "*",
     "shared": "*"
   },
   "devDependencies": {

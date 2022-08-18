@@ -1,3 +1,3 @@
 import GuildsRoutes from "./guilds";
-import HomeRoutes from "@polotik/modules/Home/Routes";
+import HomeRoutes from "@packages/polotik/Home/Routes";
 export default [...HomeRoutes, ...GuildsRoutes];

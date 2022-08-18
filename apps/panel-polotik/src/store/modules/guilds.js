@@ -1,9 +1,10 @@
-import auction from '@polotik/modules/Auction/Store';
-import inquiry from "@polotik/modules/Inquiry/Store";
-import tender from "@polotik/modules/Tender/Store";
-import barter from "@polotik/modules/Barter/Store";
-import sale from "@polotik/modules/Sale/Store";
-import services from "@polotik/modules/Service/store";
+import services from "@packages/polotik/Service/store";
+import auction from "@packages/polotik/Auction/Store";
+import inquiry from "@packages/polotik/Inquiry/Store";
+import tender from "@packages/polotik/Tender/Store";
+import barter from "@packages/polotik/Barter/Store";
+import sale from "@packages/polotik/Sale/Store";
+
 const guilds = {
   namespaced: true,
   modules: {

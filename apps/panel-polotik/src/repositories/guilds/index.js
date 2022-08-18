@@ -1,8 +1,8 @@
-import auction from "@polotik/modules/Auction/Repositories";
-import tender from "@polotik/modules/Tender/Repositories";
-import inquiry from "@polotik/modules/Inquiry/Repositories";
-import barter from "@polotik/modules/Barter/Repositories";
-import sale from "@polotik/modules/Sale/Repositories";
+import auction from "@packages/polotik/Auction/Repositories";
+import tender from "@packages/polotik/Tender/Repositories";
+import inquiry from "@packages/polotik/Inquiry/Repositories";
+import barter from "@packages/polotik/Barter/Repositories";
+import sale from "@packages/polotik/Sale/Repositories";
 import service from "./service";
 export default {
   ...inquiry,

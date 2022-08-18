@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import DashboardRoutes from "./dashboard";
-import AuthRoutes from "@polotik/modules/Auth/router";
+import AuthRoutes from "@packages/polotik/Auth/router";
 import ScrollMiddleware from "@polotik/middlewares/scroll";
 Vue.use(VueRouter);
 
@@ -14,7 +14,7 @@ const router = new VueRouter({
       path: "/",
       name: "root",
       redirect: "/home",
-      component: () => import("@polotik/modules/Home/Views/Dashboard.vue"),
+      component: () => import("@packages/polotik/Home/Views/Dashboard.vue"),
       meta: {
         breadCrumb: [
           {

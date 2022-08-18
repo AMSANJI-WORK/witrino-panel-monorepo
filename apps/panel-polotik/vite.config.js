@@ -13,6 +13,7 @@ export default getClientConfiguration({
       "@polotik": fileURLToPath(new URL("./src", import.meta.url)),
       "@shared": path.resolve(__dirname, "../../packages/shared/src"),
       "@packages/polotik": path.resolve(__dirname, "../../packages/polotik"),
+      "@witrino": path.resolve(__dirname, "../panel-witrino/src"),
     },
   },
 });

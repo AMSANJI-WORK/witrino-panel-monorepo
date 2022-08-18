@@ -1,4 +1,4 @@
-import auth from "@polotik/modules/Auth/repositories";
+import auth from "@packages/polotik/Auth/repositories";
 import city from "./city";
 import guilds from "./guilds";
 import upload from "./upload";
