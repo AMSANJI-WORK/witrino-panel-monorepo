@@ -1,4 +1,5 @@
 const state = () => ({
+  editedId: -1,
   userAddressList: [],
   userAddress: {
     id: null,

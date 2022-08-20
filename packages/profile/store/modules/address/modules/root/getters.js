@@ -5,5 +5,8 @@ const getters = {
   userAddress(state) {
     return state.userAddress;
   },
+  editedId(state) {
+    return state.editedId;
+  },
 };
 export default getters;

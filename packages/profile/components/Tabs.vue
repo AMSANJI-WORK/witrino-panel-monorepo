@@ -22,14 +22,14 @@
     </v-tabs>
     <v-tabs-items v-model="tab" class="rounded-b-lg">
       <v-tab-item key="private"> <EditForm /></v-tab-item>
-      <v-tab-item key="address" class="pa-sm-5 pa-2"><Address /> </v-tab-item>
+      <v-tab-item key="address" class="pa-sm-5 pa-2"> <Address /></v-tab-item>
     </v-tabs-items>
   </v-sheet>
 </template>
 
 <script>
 import EditForm from "@packages/profile/components/EditForm.vue";
-import Address from "@packages/profile/components/Address/index.vue";
+import Address from "@packages/profile/components/UserAddress/index.vue";
 export default {
   components: {
     EditForm,

@@ -31,11 +31,11 @@ export default {
     },
     lat: {
       type: Number,
-      default: 55,
+      default: 	32.4279,
     },
     long: {
       type: Number,
-      default: 55,
+      default: 53.6880,
     },
   },
   data() {
@@ -45,8 +45,8 @@ export default {
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 15,
       map: null,
-      marker: [47.41322, -1.219482],
-      currentCenter: [47.41322, -1.219482],
+      marker: [32.4279, -53.6880],
+      currentCenter: [32.4279, -53.6880],
     };
   },
   computed: {

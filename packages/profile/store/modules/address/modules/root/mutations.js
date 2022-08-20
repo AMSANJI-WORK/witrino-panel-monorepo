@@ -2,6 +2,7 @@ import { userTypes } from "@packages/admin/users/store/types";
 
 export default {
   [userTypes.SET_USER_ADDRESS](state, payload) {
+    state.editedId = state.userAddress.id;
     Object.assign(state.userAddress, payload);
   },
   [userTypes.SET_USER_ADDRESSS](state, payload) {

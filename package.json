@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "refresh": "lerna bootstrap",
-    "test": "lerna run test",
+    "test:unit": "lerna run test:unit",
     "wapp:dev": "cd ./apps/panel-witrino && npm run dev",
     "wapp:test": "cd ./apps/panel-witrino && npm run test",
     "wapp:build": "cd ./apps/panel-witrino && npm run build",

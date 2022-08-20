@@ -1,12 +1,6 @@
 {
   "name": "shared",
   "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "test:unit": "vitest --environment jsdom"
-  },
   "dependencies": {
     "axios": "^0.27.2",
     "js-cookie": "^3.0.1",

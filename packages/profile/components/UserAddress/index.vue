@@ -1,14 +1,14 @@
 <template>
   <v-sheet class="transparent" width="100%">
-    <ModifyCard />
+    <List />
   </v-sheet>
 </template>
 
 <script>
-import ModifyCard from "./ModifyCard.vue";
+import List from "./List.vue";
 export default {
   components: {
-    ModifyCard,
+    List,
   },
 };
 </script>
