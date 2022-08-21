@@ -70,26 +70,36 @@ export default Object.freeze([
     disabled: false,
   },
   {
+    title: "تنظیمات",
+    icon: "mdi-cog-outline",
+    route: "",
+    child: [
+      {
+        title: "سرویس ها",
+        route: "/admin/service",
+        icon: "mdi-toolbox-outline",
+        visible: true,
+        disabled: false,
+      },
+      {
+        title: "تم ها",
+        route: "/admin/theme/list",
+        icon: "mdi-shape-outline",
+        visible: true,
+        disabled: false,
+      },
+    ],
+    visible: true,
+    disabled: false,
+  },
+  {
     title: "اپراتور",
     icon: "mdi-headset",
     route: "/admin/operator/list",
     visible: true,
     disabled: false,
   },
-  {
-    title: "سرویس ها",
-    route: "/admin/service",
-    icon: "mdi-toolbox-outline",
-    visible: true,
-    disabled: false,
-  },
-  {
-    title: "تم ها",
-    route: "/admin/theme/list",
-    icon: "mdi-shape-outline",
-    visible: true,
-    disabled: false,
-  },
+
   {
     title: "خروج",
     icon: "mdi-logout",

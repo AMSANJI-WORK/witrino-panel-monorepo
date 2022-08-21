@@ -1,10 +1,10 @@
+import { userAddressTypes } from "@packages/admin/users/modules/address/store/types";
 import * as createTypes from "./modules/create/types";
 import * as deleteTypes from "./modules/delete/types";
 import * as updateTypes from "./modules/update/types";
 import * as disableTypes from "./modules/disable/types";
 import * as paginationTypes from "./modules/pagination/types";
 import * as getTypes from "./modules/get/types";
-import { userAddressTypes } from "@packages/profile/store/modules/address/types";
 const SET_USER = "SET_USER";
 const SET_USERS = "SET_USERS";
 const CRAETE_USER = "CRAETE_USER";

@@ -73,20 +73,14 @@
 </template>
 
 <script>
+import Cookies from "js-cookie";
 import boxTopData from "@packages/polotik/Home/Mock/boxTop";
 import FacilitiesData from "@packages/polotik/Home/Mock/facilities";
-//-----//
 import Icons from "@packages/polotik/Home/Components/Icons.vue";
 import Facilities from "@packages/polotik/Home/Components/Facilities.vue";
 import Notification from "@polotik/components/App/Notification.vue";
 
 export default {
-  beforeRouteEnter(to, from, next) {
-    console.log("home.vue");
-    console.log(to);
-    console.log(from);
-    next();
-  },
   components: {
     Icons,
     Notification,
@@ -98,6 +92,24 @@ export default {
       boxTopData,
       page: 1,
     };
+  },
+  computed: {
+    userId() {
+      return Cookies.get("user-id") ?? null;
+    },
+    token() {
+      return Cookies.get("token") ?? null;
+    },
+  },
+  methods: {
+    checkToken() {
+      if (!this.userId || !this.token) {
+        this.$router.push("/403");
+      }
+    },
+  },
+  created() {
+    this.checkToken()
   },
 };
 </script>

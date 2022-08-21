@@ -1,4 +1,4 @@
-import address from "@packages/profile/store/modules/address";
+import address from "@packages/admin/users/modules/address/store";
 import pagination from "./pagination";
 import createModule from "./create";
 import deleteModule from "./delete";

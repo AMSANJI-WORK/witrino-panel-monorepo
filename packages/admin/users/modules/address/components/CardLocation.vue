@@ -9,47 +9,39 @@
       @update:center="centerUpdate"
       class="product-map"
     >
-      <!--  -->
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :lat-lng="marker" :draggable="markerDrageble"> </l-marker>
+      <l-marker :lat-lng="marker"> </l-marker>
     </l-map>
   </v-sheet>
 </template>
 
 <script>
-import { LControl } from "vue2-leaflet";
-
 export default {
   inheritAttrs: false,
-  components: {
-    LControl,
-  },
   props: {
-    markerDrageble: {
-      type: Boolean,
-      default: false,
-    },
-    lat: {
-      type: Number,
-      default: 	32.4279,
-    },
-    long: {
-      type: Number,
-      default: 53.6880,
+    latLng: {
+      type: Array,
+      default: [32.4279, -53.688],
     },
   },
-  data() {
-    return {
-      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      attribution:
-        '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 15,
-      map: null,
-      marker: [32.4279, -53.6880],
-      currentCenter: [32.4279, -53.6880],
-    };
+  data: () => ({
+    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    attribution:
+      '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    zoom: 15,
+    map: null,
+    marker: [32.4279, -53.688],
+    currentCenter: [32.4279, -53.688],
+  }),
+  watch: {
+    addressLocation(newValue) {
+      console.log(newValue);
+    },
   },
   computed: {
+    addressLocation() {
+      return this.$store.getters["admin/user/address/userAddress"];
+    },
     markerLatLng: {
       get() {
         return this.marker;
@@ -77,8 +69,8 @@ export default {
   },
   created() {
     this.$nextTick(() => {
-      this.currentCenter = [this.lat, this.long];
-      this.markerLatLng = [this.lat, this.long];
+      this.currentCenter = this.latLng;
+      this.markerLatLng = this.latLng;
     });
   },
 };

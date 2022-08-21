@@ -5,8 +5,10 @@
     max-width="800"
     @click:outside="cancel"
   >
-    <v-card>
-      <v-card-title class="text-h5">{{ editedId | formTitle }}</v-card-title>
+    <v-card class="rounded-lg">
+      <v-card-title class="text-h5 grey lighten-2">{{
+        editedId | formTitle
+      }}</v-card-title>
       <v-spacer></v-spacer>
       <v-card-text class="pb-0">
         <v-container>
@@ -76,9 +78,12 @@
               ></v-textarea>
             </v-col>
             <v-col cols="12">
-              <LocationList
+              <ModifyLocation
                 style="min-height: 150px; height: 200px"
+                :lat-lng="modifyDto?.location | getLocation"
                 :marker-drageble="true"
+                :show-inputs="true"
+                @update:location="(e) => (modifyDto.location = e)"
               />
             </v-col>
           </v-form>
@@ -115,11 +120,11 @@
 import Cookies from "js-cookie";
 import FormMixin from "@shared/mixins/form";
 import ZoneMixin from "@packages/zone/mixin/zone";
-import UserAddressMixin from "@packages/profile/mixins/user-address.modify";
-import LocationList from "./LocationList.vue";
+import UserAddressMixin from "@packages/admin/users/modules/address/mixins/address";
+import ModifyLocation from "./ModifyLocation.vue";
 export default {
   components: {
-    LocationList,
+    ModifyLocation,
   },
   mixins: [UserAddressMixin, ZoneMixin, FormMixin],
   props: {
@@ -173,6 +178,10 @@ export default {
     formTitle(value) {
       return `${value == -1 ? "افزودن" : "ویرایش"} آدرس `;
     },
+    getLocation(value) {
+      if (value) return value.split(", ");
+      return [31.50362930577303, 53.61328125000001];
+    },
   },
   computed: {
     selectStateCities() {
@@ -204,7 +213,6 @@ export default {
         ...this.modifyDto,
         user_id: this.userId,
         created_id: this.userId,
-        location: "36.27071757534224, 59.616540997291864",
       }).then(() => this.$nextTick(() => this.cancel()));
     },
     update() {
@@ -212,7 +220,6 @@ export default {
         ...this.modifyDto,
         user_id: this.userId,
         updated_id: this.userId,
-        location: "36.27071757534224, 59.616540997291864",
       }).then(() => this.$nextTick(() => this.cancel()));
     },
     save() {

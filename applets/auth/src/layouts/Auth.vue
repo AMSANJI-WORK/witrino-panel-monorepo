@@ -16,10 +16,10 @@
             <v-col align-self="center" cols="12" md="6">
               <v-row align="center" class="d-flex justify-center">
                 <v-col cols="12">
-                  <w-auth-title />
+                  <WAuthTitle />
                 </v-col>
                 <v-col cols="12" class="d-flex justify-center">
-                  <shop-withrino />
+                  <ShopWithrino />
                 </v-col>
               </v-row>
             </v-col>
@@ -33,13 +33,11 @@
 <script>
 import WAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
 import logo from "@shared/components/Icons/Auth/Logo.vue";
-import auth from "@shared/components/Icons/Auth/Auth.svg";
 import AuthMobile from "@shared/components/Icons/Auth/AuthMobile.vue";
 import ShopWithrino from "@shared/components/Icons/Auth/ShopWithrino.vue";
 export default {
   components: {
     logo,
-    auth,
     WAuthTitle,
     AuthMobile,
     ShopWithrino,

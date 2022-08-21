@@ -1,17 +1,17 @@
 <template>
   <v-sheet class="transparent">
-    <auth-layout v-if="$vuetify.breakpoint.mdAndUp" />
-    <auth-moblie-layout v-else />
+    <component :is="authLayout"></component>
   </v-sheet>
 </template>
 
 <script>
-import AuthLayout from "@applets/auth/src/layouts/Auth.vue";
-import AuthMoblieLayout from "@applets/auth/src/layouts/AuthMoblie.vue";
 export default {
-  components: {
-    AuthLayout,
-    AuthMoblieLayout,
+  computed: {
+    authLayout() {
+      return this.$vuetify.breakpoint.mdAndUp
+        ? () => import("@applets/auth/src/layouts/Auth.vue")
+        : () => import("@applets/auth/src/layouts/AuthMoblie.vue");
+    },
   },
 };
 </script>

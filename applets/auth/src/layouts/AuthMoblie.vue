@@ -22,7 +22,6 @@
 
 <script>
 import WitrinoAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
-
 export default {
   components: {
     WitrinoAuthTitle,

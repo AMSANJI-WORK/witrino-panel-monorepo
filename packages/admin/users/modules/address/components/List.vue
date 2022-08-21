@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="transparent" v-model="selectedAddress">
+  <v-sheet class="transparent">
     <v-item-group mandatory>
       <v-col
         v-for="address in userAddressList"
@@ -40,10 +40,9 @@
                   />
                 </v-col>
                 <v-col cols="12" sm="6">
-                  <LocationList
+                  <CardLocation
                     style="min-height: 150px; height: 200px"
-                    :lat="address.location | getLat"
-                    :long="address.location | getLong"
+                    :lat-lng="address.location | getLocation"
                   />
                 </v-col>
               </v-card-text>
@@ -78,7 +77,7 @@
       :disableItemConfirm="disableItemConfirm"
       :disableItem="disableItem"
     />
-    <DialogModify
+    <ModifyDialog
       v-model="dialogModify"
       :has-activator="false"
       :edited-id="editedId"
@@ -89,19 +88,19 @@
 
 <script>
 import Cookies from "js-cookie";
-import LocationList from "./LocationList.vue";
+import CardLocation from "./CardLocation.vue";
 import { mapActions, mapGetters } from "vuex";
 import VLabel from "@shared/components/Reusable/VLabel.vue";
 import { userTypes } from "@packages/admin/users/store/types";
 import DialogDisable from "@packages/admin/roles/components/DialogDisable.vue";
 import CreateCard from "./CreateCard.vue";
-import DialogModify from "./DialogModify.vue";
+import ModifyDialog from "./ModifyDialog.vue";
 
 export default {
   components: {
     DialogDisable,
-    DialogModify,
-    LocationList,
+    ModifyDialog,
+    CardLocation,
     CreateCard,
     VLabel,
   },
@@ -110,21 +109,10 @@ export default {
     deleteId: -1,
     dialogDisable: false,
     dialogModify: false,
-    selectedAddress: null,
   }),
-  watch: {
-    selectedAddress(newValue) {
-      console.log(newValue);
-    },
-  },
   filters: {
-    getLat(value) {
-      let convertedLocationToArray = value.split(", ");
-      return Number(convertedLocationToArray[0]);
-    },
-    getLong(value) {
-      let convertedLocationToArray = value.split(", ");
-      return Number(convertedLocationToArray[1]);
+    getLocation(value) {
+      return value.split(", ");
     },
   },
   computed: {

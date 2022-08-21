@@ -1,6 +1,6 @@
 const source = "User";
-import UserAddressRepository from "./address";
 import userClient from "@witrino/repositories/clients/user";
+import UserAddressRepository from "@packages/admin/users/modules/address/repositories/address";
 export default {
   ...UserAddressRepository,
   getUser(payload) {
