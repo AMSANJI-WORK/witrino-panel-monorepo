@@ -1,4 +1,3 @@
-import address from "@packages/admin/users/modules/address/store";
 import createModule from "./create";
 import deleteModule from "./delete";
 import updateModule from "./update";
@@ -10,5 +9,4 @@ export default {
   update: updateModule,
   disable: disableModule,
   get: getModule,
-  address,
 };

@@ -1,34 +1,34 @@
-import { userTypes } from "@packages/admin/users/store/types";
+import { planTypes } from "@packages/admin/plan/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
 const adminRepository = RepositoryFactory.get("admin");
 
 export default {
-  async [userTypes.GET_ALL_USER_ASYNC]({ commit }, payload) {
+  async [planTypes.GET_ALL_PLAN_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
-      const { data } = await adminRepository.getUser(payload);
-      commit(`admin/user/${userTypes.SET_USER_LIST}`, data.data, {
+      const { data } = await adminRepository.getPlan(payload);
+      commit(`admin/plan/${planTypes.SET_PLAN_LIST}`, data.data, {
         root: true,
       });
-      commit(userTypes.GET_ALL_USER_SUCCESS, data);
+      commit(planTypes.GET_ALL_PLAN_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(userTypes.GET_ALL_USER_FAILURE, error);
+      commit(planTypes.GET_ALL_PLAN_FAILURE, error);
     } finally {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
     }
   },
-  async [userTypes.GET_ONE_USER_ASYNC]({ commit }, payload) {
+  async [planTypes.GET_ONE_PLAN_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.getUser(payload);
-      commit(`admin/user/${userTypes.SET_USER}`, data.data[0], {
+      const { data } = await adminRepository.getPlan(payload);
+      commit(`admin/plan/${planTypes.SET_PLAN}`, data.data[0], {
         root: true,
       });
-      commit(userTypes.GET_ONE_USER_SUCCESS, data);
+      commit(planTypes.GET_ONE_PLAN_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(userTypes.GET_ONE_USER_FAILURE, error);
+      commit(planTypes.GET_ONE_PLAN_FAILURE, error);
     } finally {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }

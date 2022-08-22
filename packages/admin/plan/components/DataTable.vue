@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="userList"
+    :items="planList"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
@@ -10,26 +10,11 @@
     }"
   >
     <template v-slot:top>
-      <v-dialog v-model="dialogDisable" max-width="500px">
-        <v-card>
-          <v-card-title class="text-h5"
-            >آیا از حذف این داده اطمینان دارید ؟</v-card-title
-          >
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-              color="blue darken-1"
-              text
-              @click="dialogDisable = !dialogDisable"
-              >انصراف
-            </v-btn>
-            <v-btn color="blue darken-1" text @click="disableItemConfirm"
-              >بله</v-btn
-            >
-            <v-spacer></v-spacer>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+      <DisableDialog
+        v-model="dialogDisable"
+        :disableItemConfirm="disableItemConfirm"
+        :disableItem="disableItem"
+      />
     </template>
     <template v-slot:footer.page-text="item">
       {{ item | pageText }}
@@ -62,8 +47,13 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import TableMixin from "@shared/mixins/table";
-import { userTypes } from "../store/types";
+import { planTypes } from "@packages/admin/plan/store/types";
+import DisableDialog from "@packages/admin/roles/components/DialogDisable.vue";
+
 export default {
+  components: {
+    DisableDialog,
+  },
   mixins: [TableMixin],
   data: () => ({
     dialogDisable: false,
@@ -75,10 +65,8 @@ export default {
         sortable: false,
         value: "record",
       },
-      { text: "نام کاربر", value: "full_name" },
-      { text: "کد ملی", value: "national_no" },
-      { text: "موبایل", value: "mobile" },
-      { text: "ایمیل", value: "email" },
+      { text: "نام پلن", value: "title", sortable: false },
+      { text: "توضیحات", value: "description", sortable: false },
       {
         text: "عملیات",
         value: "actions",
@@ -87,7 +75,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/user", ["userList"]),
+    ...mapGetters("admin/plan", ["planList"]),
   },
   filters: {
     pageText({ pageStart = -1, itemsLength = 0 }) {
@@ -95,27 +83,27 @@ export default {
     },
   },
   methods: {
-    ...mapActions("admin/user", {
-      getAllUser: `get/${userTypes.GET_ALL_USER_ASYNC}`,
-      deleteUser: `delete/${userTypes.DELETE_USER_ASYNC}`,
-      disableUser: `disable/${userTypes.DISABLE_USER_ASYNC}`,
+    ...mapActions("admin/plan", {
+      getAllPlan: `get/${planTypes.GET_ALL_PLAN_ASYNC}`,
+      deletePlan: `delete/${planTypes.DELETE_PLAN_ASYNC}`,
+      disablePlan: `disable/${planTypes.DISABLE_PLAN_ASYNC}`,
     }),
     getRecordIndex(targetId) {
-      return this.userList.map((user) => user.id).indexOf(targetId) + 1;
+      return this.planList.map((plan) => plan.id).indexOf(targetId) + 1;
     },
     disableItem(targetId) {
       this.editedId = targetId;
       this.dialogDisable = true;
     },
     disableItemConfirm() {
-      this.disableUser({
+      this.disablePlan({
         id: this.editedId,
-        updated_id: this.currentUserId,
+        updated_id: this.currentPlanId,
       }).then(() => (this.dialogDisable = !this.dialogDisable));
     },
   },
   created() {
-    if (this.userList.length == 0) this.getAllUser();
+    if (this.planList.length == 0) this.getAllPlan();
   },
 };
 </script>
