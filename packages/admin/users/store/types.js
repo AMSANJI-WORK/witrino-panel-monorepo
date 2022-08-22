@@ -6,7 +6,7 @@ import * as disableTypes from "./modules/disable/types";
 import * as paginationTypes from "./modules/pagination/types";
 import * as getTypes from "./modules/get/types";
 const SET_USER = "SET_USER";
-const SET_USERS = "SET_USERS";
+const SET_USER_LIST = "SET_USER_LIST";
 const CRAETE_USER = "CRAETE_USER";
 const UPDATE_USER = "UPDATE_USER";
 const DELETE_USER = "DELETE_USER";
@@ -14,7 +14,7 @@ const DISABLE_USER = "DISABLE_USER";
 
 export const userTypes = {
   SET_USER,
-  SET_USERS,
+  SET_USER_LIST,
   CRAETE_USER,
   UPDATE_USER,
   DELETE_USER,

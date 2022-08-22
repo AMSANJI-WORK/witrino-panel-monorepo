@@ -10,7 +10,7 @@ export default {
       dispatch(`admin/user/pagination/${userTypes.SET_PAGINATION}`, data.data, {
         root: true,
       });
-      commit(`admin/user/${userTypes.SET_USERS}`, data.data, { root: true });
+      commit(`admin/user/${userTypes.SET_USER_LIST}`, data.data, { root: true });
       commit(userTypes.GET_ALL_USER_SUCCESS, data);
     } catch (error) {
       console.log(error);

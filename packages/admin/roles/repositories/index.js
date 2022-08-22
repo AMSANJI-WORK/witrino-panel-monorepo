@@ -19,7 +19,5 @@ export default {
   disableRole(id, payload) {
     return UserClient.patch(`${source}/IsDelete${source}/${id}`, payload);
   },
-  disableRole(id, payload) {
-    return UserClient.patch(`${source}/IsDelete${source}/${id}`, payload);
-  },
+
 };

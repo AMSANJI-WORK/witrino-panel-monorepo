@@ -10,7 +10,7 @@ export default {
       dispatch(`admin/role/pagination/${roleTypes.SET_PAGINATION}`, data.data, {
         root: true,
       });
-      commit(`admin/role/${roleTypes.SET_ROLES}`, data.data, { root: true });
+      commit(`admin/role/${roleTypes.SET_ROLE_LIST}`, data.data, { root: true });
       commit(roleTypes.GET_ALL_ROLE_SUCCESS, data);
     } catch (error) {
       console.log(error);

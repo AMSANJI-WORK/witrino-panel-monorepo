@@ -4,7 +4,7 @@ export default {
   [userTypes.SET_USER](state, payload) {
     Object.assign(state.user, payload);
   },
-  [userTypes.SET_USERS](state, payload) {
+  [userTypes.SET_USER_LIST](state, payload) {
     state.userList = [...payload.data];
   },
   [userTypes.CRAETE_USER](state, payload) {

@@ -4,7 +4,7 @@ export default {
   [roleTypes.SET_ROLE](state, payload) {
     Object.assign(state.role, payload);
   },
-  [roleTypes.SET_ROLES](state, payload) {
+  [roleTypes.SET_ROLE_LIST](state, payload) {
     state.roleList = [...payload.data];
   },
   [roleTypes.CRAETE_ROLE](state, payload) {

@@ -88,6 +88,13 @@ export default Object.freeze([
         visible: true,
         disabled: false,
       },
+      {
+        title: "پلن ها",
+        route: "/admin/plan/list",
+        icon: "mdi-shape-outline",
+        visible: true,
+        disabled: false,
+      },
     ],
     visible: true,
     disabled: false,
