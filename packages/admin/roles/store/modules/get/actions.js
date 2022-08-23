@@ -3,14 +3,14 @@ import RepositoryFactory from "@witrino/repositories/factory";
 const adminRepository = RepositoryFactory.get("admin");
 
 export default {
-  async [roleTypes.GET_ALL_ROLE_ASYNC]({ commit, dispatch }, payload) {
+  async [roleTypes.GET_ALL_ROLE_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
       const { data } = await adminRepository.getRole(payload);
-      dispatch(`admin/role/pagination/${roleTypes.SET_PAGINATION}`, data.data, {
+
+      commit(`admin/role/${roleTypes.SET_ROLE_LIST}`, data.data, {
         root: true,
       });
-      commit(`admin/role/${roleTypes.SET_ROLE_LIST}`, data.data, { root: true });
       commit(roleTypes.GET_ALL_ROLE_SUCCESS, data);
     } catch (error) {
       console.log(error);

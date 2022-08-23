@@ -1,4 +1,3 @@
-import Vue from "vue";
 import Cookies from "js-cookie";
 import modules from "./modules";
 import { authTypes } from "./type";

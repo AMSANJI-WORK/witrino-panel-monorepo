@@ -20,7 +20,7 @@ export default [
                             to: "/admin/home",
                         },
                         {
-                            text: "پلنان",
+                            text: "پلن ها",
                             to: "/admin/plan/list",
                             disabled: true,
                         },
@@ -42,7 +42,7 @@ export default [
                             to: "/home",
                         },
                         {
-                            text: "پلنان",
+                            text: "پلن ها",
                             to: "/admin/plan/list",
                         },
                         {
@@ -67,7 +67,7 @@ export default [
                             to: "/home",
                         },
                         {
-                            text: "پلنان",
+                            text: "پلن ها",
                             to: "/admin/plan/list",
                         },
                         {
@@ -92,7 +92,7 @@ export default [
                             to: "/home",
                         },
                         {
-                            text: "پلنان",
+                            text: "پلن ها",
                             to: "/admin/plan/list",
                         },
                         {

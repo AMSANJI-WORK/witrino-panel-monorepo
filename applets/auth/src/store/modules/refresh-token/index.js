@@ -1,17 +1,23 @@
 import router from "@witrino/router";
 import { authTypes } from "@applets/auth/src/store/type";
 import RepositoryFactory from "@witrino/repositories/factory";
+import Cookies from "js-cookie";
 const authRepository = RepositoryFactory.get("auth");
 
 export default {
   namespaced: true,
   actions: {
-    async [authTypes.AUTH_LOGIN_ASYNC]({ commit }, payload) {
+    async [authTypes.AUTH_REFRSH_TOKEN_ASYNC]({ commit }) {
+      let refreshToken = Cookies.get("refresh_token") ?? null;
       try {
         commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-        const { data } = await authRepository.login(payload);
-        commit(`auth/${authTypes.SET_AUTHORIZE_DATA}`, data, { root: true });
-        commit(authTypes.AUTH_LOGIN_SUCCESS);
+        if (refreshToken) {
+          const { data } = await authRepository.refreshToken({ refreshToken });
+          commit(`auth/${authTypes.SET_AUTHORIZE_DATA}`, data, { root: true });
+          router.go();
+        } else {
+          router.push("/auth");
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -20,9 +26,7 @@ export default {
     },
   },
   mutations: {
-    [authTypes.AUTH_LOGIN_SUCCESS]() {
-      router.push("/");
-    },
-    [authTypes.AUTH_LOGIN_FAILURE]() {},
+    [authTypes.AUTH_REFRSH_TOKEN_SUCCESS]() {},
+    [authTypes.AUTH_REFRSH_TOKEN_FAILURE]() {},
   },
 };

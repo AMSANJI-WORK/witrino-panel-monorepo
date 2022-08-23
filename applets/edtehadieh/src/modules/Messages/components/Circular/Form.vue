@@ -1,11 +1,11 @@
 <template>
-  <v-sheet class="rounded-lg mx-2 py-10 px-4"
-    >\
+  <v-sheet class="rounded-lg mx-2 py-10 px-4">
     <v-form ref="product" class="d-flex flex-wrap">
       <v-col cols="12" sm="4" :class="colCommenClass">
-        <!-- :loading="fromLoading"
-                :rules="[rules.required]"
-                v-model="editableInquiry.title" -->
+        <!-- 
+          :loading="fromLoading"
+          :rules="[rules.required]"
+          v-model="editableInquiry.title" -->
         <v-text-field
           class="rounded-lg"
           dense
@@ -14,9 +14,11 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="4" :class="colCommenClass">
-        <!-- :loading="fromLoading"
-                :rules="[rules.required]"
-                v-model="editableInquiry.title" -->
+        <!--
+           :loading="fromLoading"
+           :rules="[rules.required]"
+           v-model="editableInquiry.title" 
+        -->
         <v-text-field
           class="rounded-lg"
           dense
@@ -25,9 +27,10 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="4" :class="colCommenClass">
-        <!-- :loading="fromLoading"
-                :rules="[rules.required]"
-                v-model="editableInquiry.title" -->
+        <!-- 
+          :loading="fromLoading"
+          :rules="[rules.required]"
+          v-model="editableInquiry.title" -->
         <v-text-field
           class="rounded-lg"
           dense
@@ -36,9 +39,11 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" :class="colCommenClass">
-        <!-- :loading="fromLoading"
-                :rules="[rules.required]"
-                v-model="editableInquiry.title" -->
+        <!-- 
+          :loading="fromLoading"
+          :rules="[rules.required]"
+          v-model="editableInquiry.title" 
+         -->
         <v-textarea
           class="rounded-lg"
           dense
@@ -87,6 +92,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

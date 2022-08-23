@@ -5,8 +5,9 @@ function responseErrorHandler(error) {
   const { status, data } = error.response;
   switch (status) {
     case 401:
-      router.push("/auth");
-      store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
+      if (router.currentRoute.path.includes("auth"))
+        store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
+      else store.dispatch("auth/refreshtoken/AUTH_REFRSH_TOKEN_ASYNC");
       break;
     case 403:
       store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
