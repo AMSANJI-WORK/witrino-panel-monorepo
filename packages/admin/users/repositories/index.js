@@ -1,6 +1,8 @@
-import userClient from "@witrino/repositories/clients/user";
 const source = "User";
+import userClient from "@witrino/repositories/clients/user";
+import UserAddressRepository from "@packages/admin/users/modules/address/repositories/address";
 export default {
+  ...UserAddressRepository,
   getUser(payload) {
     return userClient.post(`${source}/Get${source}`, payload);
   },

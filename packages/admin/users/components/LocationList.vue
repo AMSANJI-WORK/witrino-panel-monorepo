@@ -2,7 +2,7 @@
   <v-sheet class="transparent">
     <l-map
       ref="myMap"
-      style="height: 200px"
+      style="height: 150px"
       @ready="doSomethingOnReady"
       :zoom="zoom"
       :center="center"
@@ -11,27 +11,7 @@
       <!--  -->
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :lat-lng="markerLatLng"> </l-marker>
-      <l-control :position="'bottomleft'">
-        <v-row style="z-index: 50" class="py-3">
-          <v-text-field
-            dense
-            label="s"
-            value=""
-            class="rounded-r-lg rounded-l-0"
-            hide-details
-            outlined
-          ></v-text-field>
-          <v-text-field
-            dense
-            value=""
-            hide-details
-            label="label"
-            outlined
-            class="rounded-l-lg rounded-r-0 ml-4"
-          ></v-text-field>
-        </v-row>
-      </l-control>
-    </l-map>
+    
   </v-sheet>
 </template>
 

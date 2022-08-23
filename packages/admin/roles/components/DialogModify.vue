@@ -2,7 +2,7 @@
   <v-dialog
     :value="value"
     @input="$emit('input', $event)"
-    max-width="800px"
+    max-width="800"
     @click:outside="cancel"
   >
     <template v-slot:activator="{ on, attrs }" v-if="hasActivator">
@@ -138,4 +138,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+:deep(.v-text-field--outlined > .v-input__control > .v-input__slot) {
+  background: #f6f6f6;
+}
+:deep(.v-input--is-focused .v-input__slot) {
+  background: #fff !important;
+}
+</style>

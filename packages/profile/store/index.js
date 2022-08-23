@@ -1,7 +1,8 @@
+import Cookies from "js-cookie";
 export default {
   namespaced: true,
   state: () => ({
-    fromPath: null,
+    fromPath: Cookies.get("from-path") ?? null,
   }),
   getters: {
     fromPath: (state) => state.fromPath,

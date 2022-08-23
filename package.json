@@ -3,14 +3,17 @@
   "private": true,
   "scripts": {
     "refresh": "lerna bootstrap",
-    "test": "lerna exec -- npm run test",
+    "test:unit": "lerna run test:unit",
     "wapp:dev": "cd ./apps/panel-witrino && npm run dev",
     "wapp:test": "cd ./apps/panel-witrino && npm run test",
-    "wapp:build": "cd ./apps/panel-witrino && npm run build"
+    "wapp:build": "cd ./apps/panel-witrino && npm run build",
+    "papp:dev": "cd ./apps/panel-polotik && npm run dev",
+    "papp:test": "cd ./apps/panel-polotik && npm run test:unit",
+    "papp:build": "cd ./apps/panel-polotik && npm run build"
   },
   "workspaces": [
     "packages/admin/*",
-    "config/*",
+    "packages/polotik/*",
     "packages/*",
     "applets/*",
     "apps/*"

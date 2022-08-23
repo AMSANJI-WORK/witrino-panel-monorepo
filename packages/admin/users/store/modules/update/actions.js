@@ -1,5 +1,5 @@
 import router from "@witrino/router";
-import { userTypes } from "../../types";
+import { userTypes } from "@packages/admin/users/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
 const adminRepository = RepositoryFactory.get("admin");
 

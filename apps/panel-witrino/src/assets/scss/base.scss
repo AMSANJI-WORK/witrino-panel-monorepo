@@ -40,5 +40,12 @@ body {
     padding: 0px !important;
   }
 }
+
+@media (min-width: 1904px) {
+  .container {
+    max-width: 1500px;
+  }
+}
+
 $red: #f55861;
 $secondary: #c7c7c7;

@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="users"
+    :items="userList"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
@@ -62,10 +62,9 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import TableMixin from "@shared/mixins/table";
-import UserPaginationMixin from "../mixins/pagination";
 import { userTypes } from "../store/types";
 export default {
-  mixins: [TableMixin, UserPaginationMixin],
+  mixins: [TableMixin],
   data: () => ({
     dialogDisable: false,
     headerDataTableClass: "blue-lighten-5 white--text",
@@ -88,7 +87,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/user", ["users"]),
+    ...mapGetters("admin/user", ["userList"]),
   },
   filters: {
     pageText({ pageStart = -1, itemsLength = 0 }) {
@@ -102,7 +101,7 @@ export default {
       disableUser: `disable/${userTypes.DISABLE_USER_ASYNC}`,
     }),
     getRecordIndex(targetId) {
-      return this.users.map((user) => user.id).indexOf(targetId) + 1;
+      return this.userList.map((user) => user.id).indexOf(targetId) + 1;
     },
     disableItem(targetId) {
       this.editedId = targetId;
@@ -116,7 +115,7 @@ export default {
     },
   },
   created() {
-    if (this.users.length == 0) this.getAllUser();
+    if (this.userList.length == 0) this.getAllUser();
   },
 };
 </script>

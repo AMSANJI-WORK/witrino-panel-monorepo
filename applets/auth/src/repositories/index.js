@@ -7,6 +7,9 @@ export default {
   register(payload) {
     return defaultClient.post("register", payload);
   },
+  refreshToken(payload) {
+    return defaultClient.post("refresh", payload);
+  },
   otp(payload) {
     return defaultClient.post("Otp/Otp-validate", payload);
   },

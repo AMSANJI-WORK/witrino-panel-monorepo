@@ -7,19 +7,33 @@
       title="ویرایش پروفایل"
     />
     <v-sheet class="mx-2 rounded-lg">
-      <ModifyForm />
+      <ModifyTabs />
     </v-sheet>
   </v-sheet>
 </template>
 
 <script>
-import ModifyForm from "@packages/profile/components/EditForm.vue";
+import ModifyTabs from "@packages/profile/components/Tabs.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-
 export default {
   components: {
-    ModifyForm,
+    ModifyTabs,
     SectionDivider,
+  },
+  computed: {
+    zoneList() {
+      return this.$store.getters["shared/zone/zoneList"];
+    },
+  },
+  methods: {
+    getAllZone() {
+      this.$store.dispatch("shared/zone/get/GET_ALL_ZONE_ASYNC", {
+        max_no: "1277",
+      });
+    },
+  },
+  created() {
+    if (this.zoneList.length == 0) this.getAllZone();
   },
 };
 </script>

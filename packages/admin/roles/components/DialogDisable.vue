@@ -10,7 +10,11 @@
         <v-btn color="blue darken-1" text @click.native="disable('disableItem')"
           >انصراف
         </v-btn>
-        <v-btn color="blue darken-1" text @click.native="disableItemConfirm"
+        <v-btn
+          color="blue darken-1"
+          :loading="submitBtnLoading"
+          text
+          @click.native="disableItemConfirm"
           >بله</v-btn
         >
         <v-spacer></v-spacer>
@@ -20,7 +24,9 @@
 </template>
 
 <script>
+import FormMixin from "@shared/mixins/form";
 export default {
+  mixins: [FormMixin],
   props: {
     value: {
       type: Boolean,

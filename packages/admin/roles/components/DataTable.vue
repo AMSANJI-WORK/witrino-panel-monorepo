@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="roles"
+    :items="roleList"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
@@ -84,7 +84,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/role", ["roles"]),
+    ...mapGetters("admin/role", ["roleList"]),
   },
 
   filters: {
@@ -102,7 +102,7 @@ export default {
       disableRole: `disable/${roleTypes.DISABLE_ROLE_ASYNC}`,
     }),
     getRecordIndex(targetId) {
-      return this.roles.map((role) => role.id).indexOf(targetId) + 1;
+      return this.roleList.map((role) => role.id).indexOf(targetId) + 1;
     },
     editItem(targetId) {
       this.editedId = targetId;
@@ -120,7 +120,7 @@ export default {
     },
   },
   created() {
-    if (this.roles.length == 0) this.getAllRole();
+    if (this.roleList.length == 0) this.getAllRole();
   },
 };
 </script>

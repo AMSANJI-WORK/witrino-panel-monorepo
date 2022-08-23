@@ -124,7 +124,7 @@
           </template>
         </v-text-field>
       </v-col>
-      <RoleSelector v-model="editableUser.rules" />
+      <RoleSelector v-model="editableUser.roles" />
       <v-col cols="12" sm="6" class="pb-0">
         <v-select
           class="rounded-lg"
@@ -168,9 +168,9 @@
 
 <script>
 import FormMixin from "@shared/mixins/form";
-import ModifyAvatar from "./ModifyFormAvatar.vue";
-import UserMixin from "../mixins/modify";
 import RoleSelector from "./RoleSelector.vue";
+import ModifyAvatar from "./ModifyFormAvatar.vue";
+import UserMixin from "@packages/admin/users/mixins/modify";
 export default {
   components: {
     ModifyAvatar,
@@ -221,9 +221,8 @@ export default {
       this.createUser(this.editableUser);
     },
     submit() {
-      if (this.validateFrom) {
+      if (this.validateFrom)
         this.checkRoutePass ? this.update() : this.create();
-      }
     },
   },
 };
@@ -232,6 +231,8 @@ export default {
 <style lang="scss" scoped>
 :deep(.v-text-field--outlined > .v-input__control > .v-input__slot) {
   background: #f6f6f6;
-  font-size: 13px;
+}
+:deep(.v-input--is-focused .v-input__slot) {
+  background: #fff !important;
 }
 </style>

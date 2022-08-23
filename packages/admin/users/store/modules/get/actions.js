@@ -1,16 +1,15 @@
-import { userTypes } from "../../types";
+import { userTypes } from "@packages/admin/users/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
 const adminRepository = RepositoryFactory.get("admin");
 
 export default {
-  async [userTypes.GET_ALL_USER_ASYNC]({ commit, dispatch }, payload) {
+  async [userTypes.GET_ALL_USER_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
       const { data } = await adminRepository.getUser(payload);
-      dispatch(`admin/user/pagination/${userTypes.SET_PAGINATION}`, data.data, {
+      commit(`admin/user/${userTypes.SET_USER_LIST}`, data.data, {
         root: true,
       });
-      commit(`admin/user/${userTypes.SET_USERS}`, data.data, { root: true });
       commit(userTypes.GET_ALL_USER_SUCCESS, data);
     } catch (error) {
       console.log(error);

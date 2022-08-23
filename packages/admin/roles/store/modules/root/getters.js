@@ -1,6 +1,6 @@
 const getters = {
-  roles(state) {
-    return state.roles;
+  roleList(state) {
+    return state.roleList;
   },
   role(state) {
     return state.role;

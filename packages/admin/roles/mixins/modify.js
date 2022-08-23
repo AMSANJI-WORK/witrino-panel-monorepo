@@ -12,7 +12,7 @@ const RoleMixin = {
     },
   }),
   computed: {
-    ...mapGetters("admin/role", ["role", "roles"]),
+    ...mapGetters("admin/role", ["role", "roleList"]),
     userId() {
       return Cookies.get("userId");
     },

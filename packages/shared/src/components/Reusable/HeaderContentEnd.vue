@@ -18,6 +18,23 @@
         <v-icon color="gray">mdi-account-outline</v-icon>
       </v-badge>
     </v-btn>
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          icon
+          dark
+          v-bind="attrs"
+          v-on="on"
+          link
+          to="/auth/logout"
+          :ripple="false"
+          class="d-md-flex ml-2 d-none"
+        >
+          <v-icon color="gray">mdi-power</v-icon>
+        </v-btn>
+      </template>
+      <span class="text-caption white--text">خروج</span>
+    </v-tooltip>
   </v-sheet>
 </template>
 

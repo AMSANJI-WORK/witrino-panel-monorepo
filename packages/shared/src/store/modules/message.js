@@ -14,7 +14,7 @@ export default {
   mutations: {
     SINGLE_MESSAGE(state, { message }) {
       state.message = message;
-      Vue.$toast.error(state.message);
+      if (state.message) Vue.$toast.error(state.message);
     },
     MULTIPLE_MESSAGES(state, payload = {}) {
       if (payload?.detail) {

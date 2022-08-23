@@ -1,5 +1,5 @@
 const state = () => ({
-  roles: [],
+  roleList: [],
   role: {
     id: null,
     is_deleted: null,

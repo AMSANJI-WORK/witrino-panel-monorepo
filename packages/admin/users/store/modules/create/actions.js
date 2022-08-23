@@ -1,4 +1,4 @@
-import { userTypes } from "../../types";
+import { userTypes } from "@packages/admin/users/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
 const adminRepository = RepositoryFactory.get("admin");
 export default {
@@ -6,7 +6,9 @@ export default {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await adminRepository.createUser(payload);
-      commit(`admin/user/${userTypes.CRATE_USER}`, data.data[0], { root: true });
+      commit(`admin/user/${userTypes.CRAETE_USER}`, data.data[0], {
+        root: true,
+      });
       commit(userTypes.CREATE_USER_SUCCESS, data);
     } catch (error) {
       console.log(error);
