@@ -8,6 +8,7 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
+    "@koumoul/vjsf": "^2.18.2",
     "axios": "^0.27.2",
     "js-cookie": "^3.0.1",
     "moment-jalaali": "^0.9.6",
@@ -19,7 +20,6 @@
     "vue-toastification": "^1.7.14",
     "vue2-leaflet": "^2.7.1",
     "vuetify": "2.6.4",
-    "vuex": "3.4.0",
-    "shared": "*"
+    "vuex": "3.4.0"
   }
 }

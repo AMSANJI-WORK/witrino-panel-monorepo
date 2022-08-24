@@ -93,7 +93,7 @@ export default Object.freeze([
         route: "/admin/plan/list",
         icon: "mdi-shape-outline",
         visible: true,
-        disabled: true,
+        disabled: false,
       },
     ],
     visible: true,

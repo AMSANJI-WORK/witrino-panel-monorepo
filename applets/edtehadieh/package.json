@@ -8,11 +8,12 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
-    "profile": "*",
+    "@koumoul/vjsf": "^2.18.2",
     "axios": "^0.27.2",
     "js-cookie": "^3.0.1",
     "moment-jalaali": "^0.9.6",
     "num2persian": "^3.2.2",
+    "profile": "*",
     "vue": "^2.7.7",
     "vue-apexcharts": "^1.6.2",
     "vue-persian-datetime-picker": "^2.10.4",

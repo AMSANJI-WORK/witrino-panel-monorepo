@@ -124,7 +124,9 @@
           </template>
         </v-text-field>
       </v-col>
-      <RoleSelector v-model="editableUser.roles" />
+      <v-col cols="12" sm="6" class="pb-0">
+        <RoleSelector v-model="editableUser.roles" />
+      </v-col>
       <v-col cols="12" sm="6" class="pb-0">
         <v-select
           class="rounded-lg"
@@ -168,7 +170,7 @@
 
 <script>
 import FormMixin from "@shared/mixins/form";
-import RoleSelector from "./RoleSelector.vue";
+import RoleSelector from "@packages/admin/roles/components/Selector.vue";
 import ModifyAvatar from "./ModifyFormAvatar.vue";
 import UserMixin from "@packages/admin/users/mixins/modify";
 export default {

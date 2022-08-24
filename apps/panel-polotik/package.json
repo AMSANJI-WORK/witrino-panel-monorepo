@@ -9,16 +9,17 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "dotenv": "^16.0.1",
+    
     "auction": "*",
-    "tender": "*",
-    "inquiry": "*",
-    "sale": "*",
     "barter": "*",
+    "dotenv": "^16.0.1",
+    "inquiry": "*",
     "polotik-auth": "*",
     "polotik-dashboard": "*",
     "polotik-upload": "*",
-    "shared": "*"
+    "sale": "*",
+    "shared": "*",
+    "tender": "*"
   },
   "devDependencies": {
     "@mdi/font": "^7.0.96",

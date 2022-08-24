@@ -10,7 +10,6 @@
           @change="onFileChanged"
         />
         <v-tooltip right>
-          <!-- :loading="loading" -->
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               fab

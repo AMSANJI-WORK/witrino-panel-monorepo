@@ -1,16 +1,17 @@
 <template>
-  <v-autocomplete
+  <v-select
     outlined
     dense
     class="rounded-lg"
-    label="انتخاب مجوز"
     multiple
-    :items="permissionList"
+    :items="serviceList"
     small-chips
-    item-text="name"
+    item-text="title"
     item-value="id"
+    return-object
     :loading="fromLoading"
-    :roles="[rules.required]"
+    :services="[rules.required]"
+    label="انتخاب سرویس"
     :value="value"
     @input="updateValue"
   >
@@ -27,15 +28,14 @@
         (+{{ value.length - 1 }} مورد دیگر)
       </span>
     </template>
-  </v-autocomplete>
+  </v-select>
 </template>
 
 <script>
 import FormMixin from "@shared/mixins/form";
 import { createNamespacedHelpers } from "vuex";
-const { mapGetters, mapActions } = createNamespacedHelpers(
-  "admin/role/permission"
-);
+const { mapGetters, mapActions } = createNamespacedHelpers("admin/service");
+import { serviceTypes } from "@packages/admin/service/store/types";
 export default {
   mixins: [FormMixin],
   props: {
@@ -45,18 +45,15 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["permissionList"]),
+    ...mapGetters(["serviceList"]),
   },
   methods: {
     ...mapActions({
-      setPermissionsAsync: "SET_PERMISSIONS_ASYNC",
+      getAllService: `get/${serviceTypes.GET_ALL_SERVICE_ASYNC}`,
     }),
     updateValue(value) {
       this.$emit("input", value);
     },
-  },
-  created() {
-    if (this.permissionList.length == 0) this.setPermissionsAsync();
   },
 };
 </script>

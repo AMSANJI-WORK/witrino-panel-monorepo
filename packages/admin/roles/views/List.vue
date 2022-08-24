@@ -1,7 +1,7 @@
 <template>
   <v-sheet class="transparent">
     <v-fade-transition>
-      <PageContainTable v-if="pageLoading" />
+      <PageContainTable v-if="pageLoading" :has-card="false" />
       <List v-else />
     </v-fade-transition>
   </v-sheet>

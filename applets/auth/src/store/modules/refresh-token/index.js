@@ -9,6 +9,7 @@ export default {
   actions: {
     async [authTypes.AUTH_REFRSH_TOKEN_ASYNC]({ commit }) {
       let refreshToken = Cookies.get("refresh_token") ?? null;
+      refreshToken = refreshToken == "undefined" ? null : refreshToken;
       try {
         commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
         if (refreshToken) {

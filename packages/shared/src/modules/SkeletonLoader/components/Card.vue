@@ -2,10 +2,9 @@
   <v-sheet
     class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
   >
-    <v-col v-for="n in 3" class="pa-2" cols="12" sm="6" md="4">
+    <v-col v-for="n in 3" :key="n" class="pa-2" cols="12" sm="6" md="4">
       <v-skeleton-loader
         v-bind="attrs"
-        :key="n"
         type="article, actions"
       ></v-skeleton-loader>
     </v-col>
@@ -17,7 +16,6 @@ export default {
   data() {
     return {
       attrs: {
-        boilerplate: true,
         elevation: 2,
         loading: true,
         class: "my-3 rounded-lg",

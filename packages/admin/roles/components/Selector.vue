@@ -1,12 +1,12 @@
 <template>
-  <v-autocomplete
+  <v-select
     outlined
     dense
     class="rounded-lg"
-    label="انتخاب مجوز"
     multiple
-    :items="permissionList"
+    :items="roleList"
     small-chips
+    :single-line="true"
     item-text="name"
     item-value="id"
     :loading="fromLoading"
@@ -14,6 +14,10 @@
     :value="value"
     @input="updateValue"
   >
+    <template #label>
+      <v-icon class="ml-1">mdi-account-star</v-icon>
+      <span>دسترسی</span>
+    </template>
     <template v-slot:no-data>
       <v-sheet class="transparent text-caption text-center">
         موردی یافت نشد
@@ -27,15 +31,14 @@
         (+{{ value.length - 1 }} مورد دیگر)
       </span>
     </template>
-  </v-autocomplete>
+  </v-select>
 </template>
 
 <script>
 import FormMixin from "@shared/mixins/form";
 import { createNamespacedHelpers } from "vuex";
-const { mapGetters, mapActions } = createNamespacedHelpers(
-  "admin/role/permission"
-);
+const { mapGetters, mapActions } = createNamespacedHelpers("admin/role");
+import { roleTypes } from "@packages/admin/roles/store/types";
 export default {
   mixins: [FormMixin],
   props: {
@@ -45,18 +48,19 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["permissionList"]),
+    ...mapGetters(["roleList"]),
   },
   methods: {
     ...mapActions({
-      setPermissionsAsync: "SET_PERMISSIONS_ASYNC",
+      getAllRole: `get/${roleTypes.GET_ALL_ROLE_ASYNC}`,
     }),
     updateValue(value) {
+      console.log(value);
       this.$emit("input", value);
     },
   },
   created() {
-    if (this.permissionList.length == 0) this.setPermissionsAsync();
+    if (this.roleList.length == 0) this.getAllRole();
   },
 };
 </script>

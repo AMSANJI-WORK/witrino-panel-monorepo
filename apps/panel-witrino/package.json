@@ -8,11 +8,12 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
-    "dotenv": "^16.0.1",
+    "@koumoul/vjsf": "^2.18.2",
     "admin": "*",
-    "namayande": "*",
-    "edtehadieh": "*",
     "auth": "*",
+    "dotenv": "^16.0.1",
+    "edtehadieh": "*",
+    "namayande": "*",
     "shared": "*"
   },
   "devDependencies": {

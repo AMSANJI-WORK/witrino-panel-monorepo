@@ -43,7 +43,9 @@
                 v-model="editableRole.name_en"
               ></v-text-field>
             </v-col>
-            <PermissionSelector v-model="editableRole.permissions" />
+            <v-col cols="12" sm="6" md="4" class="pb-0">
+              <PermissionSelector v-model="editableRole.permissions" />
+            </v-col>
           </v-form>
         </v-container>
       </v-card-text>
