@@ -5,7 +5,7 @@ export default {
   actions: {
     [authTypes.AUTH_LOGOUT]({ commit }) {
       commit(`auth/${authTypes.REMOVE_AUTHORIZE_DATA}`, {}, { root: true });
-      commit(AUTH_LOGOUT);
+      commit(authTypes.AUTH_LOGOUT);
     },
   },
   mutations: {

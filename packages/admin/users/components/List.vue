@@ -1,13 +1,15 @@
 <template>
   <v-sheet class="mx-2 rounded-lg transparent">
-    <div class="d-flex flex-wrap justify-space-around align-self-stretch">
+    <v-sheet
+      class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
+    >
       <DashboardProjectIcons
         v-for="(icon, index) in boxTopData"
         :data-source="icon"
         :colSizeMd="4"
         :key="index"
       />
-    </div>
+    </v-sheet>
     <SectionDivider
       bind-class="my-5"
       title-class="font-weight-bold text-h6"
