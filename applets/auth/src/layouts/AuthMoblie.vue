@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .auth-footer--bg {
-  background: url(@shared/components/Icons/Auth/footer.svg) no-repeat top;
+  background: url(@shared/assets/image/png/footer.png) no-repeat top;
   width: 100%;
   height: 50vh;
   background-size: cover;

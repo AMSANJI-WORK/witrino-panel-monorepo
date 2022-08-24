@@ -11,7 +11,10 @@ import SkeletonLoaderCard from "@shared/modules/SkeletonLoader/components/Card.v
 export default {
   components: { SkeletonLoaderTable, SkeletonLoaderCard },
   props: {
-    hasCard: Boolean,
+    hasCard: {
+      type: Boolean,
+      default: true,
+    },
   },
 };
 </script>
