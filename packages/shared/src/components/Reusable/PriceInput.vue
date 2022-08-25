@@ -7,8 +7,8 @@
     :loading="fromLoading"
     outlined
     :rules="[rules.required]"
-    :label="label"
     persistent-hint
+    v-bind="$attrs"
     suffix="تومان"
   ></v-text-field>
 </template>
@@ -17,10 +17,10 @@
 import FormMixin from "@shared/mixins/form";
 import UtilityMixin from "@shared/mixins/utility";
 export default {
+  inheritAttrs: false,
   mixins: [FormMixin, UtilityMixin],
   props: {
     value: String,
-    label: String,
   },
   methods: {
     updateValue(value) {

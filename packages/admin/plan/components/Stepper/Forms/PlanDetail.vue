@@ -1,6 +1,6 @@
 <template>
-  <v-form ref="form" v-model="valid">
-    <VJsf
+  <v-form ref="planDetail">
+    <v-jsf
       v-model="model"
       :schema="schema"
       :options="options"
@@ -9,6 +9,9 @@
       @input-child="logEvent('input-child', $event)"
       @change-child="logEvent('change-child', $event)"
     />
+    <v-col cols="12">
+      <slot name="form-action" :validate="validate" />
+    </v-col>
   </v-form>
 </template>
 
@@ -20,45 +23,68 @@ export default {
   data() {
     return {
       model: {
-        objectSection: {
-          child1: "child 1 default value",
-          child2: "child 2 default value",
-        },
-        stringProp: "I'm a default value",
+        objectSection: {},
       },
-      options: {},
+      options: {
+        sectionsClass: "pa-5",
+      },
       schema: {
         type: "object",
         properties: {
-          stringProp: {
-            type: "string",
-            title: "I'm a string",
-            default: "I'm a default value",
-          },
           objectSection: {
             type: "object",
             title: "I'm a section with a default value",
-            default: {
-              child1: "child 1 default value",
-              child2: "child 2 default value",
-            },
             properties: {
               child1: {
                 type: "string",
+                "x-class": "pa-3",
+                "x-props": {
+                  outlined: true,
+                  dense: true,
+                },
+                "x-options": {
+                  fieldColProps: {
+                    cols: 12,
+                    md: 6,
+                  },
+                },
               },
               child2: {
                 type: "string",
+                "x-class": "pa-3",
+                "x-props": {
+                  outlined: true,
+                  dense: true,
+                },
+                "x-options": {
+                  fieldColProps: {
+                    cols: 12,
+                    md: 6,
+                  },
+                },
               },
             },
           },
         },
       },
-      valid: null,
     };
+  },
+  computed: {
+    formDatailSchema() {
+      return this.$store.getters["admin/plan/dfrom/schema"];
+    },
+    planDetailRefrence() {
+      return this.$refs.planDetail;
+    },
   },
   methods: {
     logEvent(key, $event) {
+      console.log(this.formDatailSchema);
       console.log("vjsf event", key, $event);
+    },
+
+    validate() {
+      return this.planDetailRefrence.validate();
     },
   },
 };

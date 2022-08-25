@@ -32,7 +32,7 @@ import { mapGetters } from "vuex";
 import Header from "./Header.vue";
 import Cookies from "js-cookie";
 import PriceTimeLine from "./PriceTimeLine.vue";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 export default {
   mixins: [UtilityMixin],
   components: {

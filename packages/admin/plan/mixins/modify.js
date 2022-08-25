@@ -1,28 +1,10 @@
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import { planTypes } from "../store/types";
 const PlanMixin = {
-  data: () => ({
-    modifyDto: {
-      id: null,
-      is_deleted: null,
-      created_at: null,
-      updated_at: null,
-      created_id: null,
-      updated_id: null,
-      ip: null,
-      is_viewed: null,
-      is_active: null,
-      title: null,
-      description: null,
-      price: null,
-      duration: null,
-      details: [],
-    },
-  }),
   computed: {
     ...mapGetters("admin/plan", ["plan", "planList"]),
     defaultDto() {
-      let defaultDto = Object.create(this.modifyDto);
+      let defaultDto = Object.create(this.plan);
       Object.keys(defaultDto).forEach((key) => (defaultDto[key] = null));
       return defaultDto;
     },
@@ -44,6 +26,11 @@ const PlanMixin = {
       getAllPlan: `get/${planTypes.GET_ALL_PLAN_ASYNC}`,
       createPlan: `create/${planTypes.CREATE_PLAN_ASYNC}`,
       updatePlan: `update/${planTypes.UPDATE_PLAN_ASYNC}`,
+    }),
+    ...mapMutations("admin/plan", {
+      setPlanStepByStep: planTypes.SET_PLAN_STEP_BY_STEP,
+      setPlanDetailFormSchema: `dfrom/${planTypes.SET_FORM_SCHEMA}`,
+      setPlanDetailFormModel: `dfrom/${planTypes.SET_FORM_MODEL}`,
     }),
   },
 };

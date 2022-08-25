@@ -57,7 +57,7 @@
 import { createNamespacedHelpers } from "vuex";
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
 import VLabel from "@polotik/components/Reusable/VLabel.vue";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 
 export default {
   mixins: [UtilityMixin],

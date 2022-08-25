@@ -22,7 +22,7 @@
     </template>
     <template v-slot:selection="{ item, index }">
       <v-chip x-small v-if="index === 0">
-        <span>{{ item.name }}</span>
+        <span>{{ item.title }}</span>
       </v-chip>
       <span v-if="index === 1" class="grey--text text-caption">
         (+{{ value.length - 1 }} مورد دیگر)

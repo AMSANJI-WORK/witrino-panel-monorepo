@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
-import UtilityMixin from "@polotik/mixins/utility";
+import FormMixin from "@shared/mixins/form";
+import UtilityMixin from "@shared/mixins/utility";
 import InquiryMixin from "@packages/polotik/Inquiry/Mixins";
 import VLabel from "@polotik/components/Reusable/VLabel.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";

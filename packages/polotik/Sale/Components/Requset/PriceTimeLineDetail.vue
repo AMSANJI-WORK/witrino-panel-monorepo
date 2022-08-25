@@ -21,7 +21,7 @@
 
 <script>
 import moment from "moment-jalaali";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import RequestMixin from "@packages/polotik/Sale/Mixins/request";
 export default {
   mixins: [RequestMixin, UtilityMixin],

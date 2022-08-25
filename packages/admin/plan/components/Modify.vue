@@ -21,13 +21,24 @@
           </form-plan-info>
         </v-stepper-content>
         <v-stepper-content step="2">
-          <v-form ref="plan-detail"> </v-form>
+          <form-plan-detail>
+            <template #form-action="{ validate }">
+              <v-sheet class="d-flex">
+                <v-spacer></v-spacer>
+                <ButtonBack />
+                <ButtonNext :submit="validate" />
+              </v-sheet>
+            </template>
+          </form-plan-detail>
         </v-stepper-content>
         <v-stepper-content step="3">
           <v-card
             elevation="0"
-            class="my-md-12 my-4 mx-sm-5 mx-0 px-1 px-md-auto"
+            class="my-md-12 my-4 mx-sm-5 mx-0 px-1 px-md-auto d-flex"
           >
+            <v-spacer></v-spacer>
+            <ButtonBack />
+            <ButtonNext :submit="() => true" />
           </v-card>
         </v-stepper-content>
       </v-stepper-items>
@@ -55,11 +66,25 @@
           </template>
         </form-plan-info>
       </v-stepper-content>
-      <v-stepper-step class="font-weight-medium pr-3" :complete="step > 2" step="2">
+      <v-stepper-step
+        class="font-weight-medium pr-3"
+        :complete="step > 2"
+        step="2"
+      >
         اطلاعات سرویس ها
       </v-stepper-step>
 
-      <v-stepper-content step="2" class="mr-3 pl-5 pr-2"> </v-stepper-content>
+      <v-stepper-content step="2" class="mr-3 pl-5 pr-2">
+        <form-plan-detail>
+          <template #form-action="{ validate }">
+            <v-sheet class="d-flex">
+              <v-spacer></v-spacer>
+              <ButtonBack />
+              <ButtonNext :submit="validate" />
+            </v-sheet>
+          </template>
+        </form-plan-detail>
+      </v-stepper-content>
 
       <v-stepper-step class="font-weight-medium pr-3" step="3">
         ثبت نهایی</v-stepper-step
@@ -69,6 +94,8 @@
           elevation="0"
           class="my-md-12 my-4 mx-sm-5 mx-0 px-1 px-md-auto"
         >
+          <ButtonBack />
+          <ButtonNext :submit="() => true" />
         </v-card>
       </v-stepper-content>
     </v-stepper>
@@ -76,14 +103,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import StepperHeader from "./Stepper/Header.vue";
 import StepperHeaderTitle from "./Stepper/HeaderTitle.vue";
 import FormPlanInfo from "./Stepper/Forms/PlanInfo.vue";
 import FormPlanDetail from "./Stepper/Forms/PlanDetail.vue";
 import ButtonNext from "./Stepper/ButtonNext.vue";
-import { mapGetters } from "vuex";
+import ButtonBack from "./Stepper/ButtonBack.vue";
 export default {
   components: {
+    ButtonBack,
     ButtonNext,
     FormPlanInfo,
     FormPlanDetail,

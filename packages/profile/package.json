@@ -1,19 +1,4 @@
 {
   "name": "profile",
-  "version": "0.0.0",
-  "dependencies": {
-    
-    "axios": "^0.27.2",
-    "js-cookie": "^3.0.1",
-    "moment-jalaali": "^0.9.6",
-    "num2persian": "^3.2.2",
-    "vue": "^2.7.7",
-    "vue-apexcharts": "^1.6.2",
-    "vue-persian-datetime-picker": "^2.10.4",
-    "vue-router": "3.5.3",
-    "vue-toastification": "^1.7.14",
-    "vue2-leaflet": "^2.7.1",
-    "vuetify": "2.6.4",
-    "vuex": "3.4.0"
-  }
+  "version": "0.0.0"
 }

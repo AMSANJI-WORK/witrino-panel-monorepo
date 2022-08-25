@@ -76,10 +76,10 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import FormMixin from "@shared/mixins/form";
 import ServicesMixin from "@polotik/mixins/base/services";
 import StepperMixin from "@packages/polotik/Tender/Mixins/stepper";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import CategoryService from "@packages/polotik/Service/components/Category.vue";

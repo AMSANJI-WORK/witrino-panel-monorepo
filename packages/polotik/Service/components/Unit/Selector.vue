@@ -19,7 +19,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import FormMixin from "@shared/mixins/form";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 export default {
   components: {

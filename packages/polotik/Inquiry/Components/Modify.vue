@@ -122,10 +122,10 @@
 
 <script>
 import moment from "moment-jalaali";
-import FormMixin from "@polotik/mixins/base/form";
+import FormMixin from "@shared/mixins/form";
 import InquiryMixin from "@packages/polotik/Inquiry/Mixins";
 import ServicesMixin from "@polotik/mixins/base/services";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";

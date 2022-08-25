@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
-import UtilityMixin from "@polotik/mixins/utility";
+import FormMixin from "@shared/mixins/form";
+import UtilityMixin from "@shared/mixins/utility";
 export default {
   mixins: [FormMixin, UtilityMixin],
   props: {

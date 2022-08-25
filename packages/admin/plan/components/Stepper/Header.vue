@@ -10,7 +10,7 @@
       اطلاعات سرویس ها
     </v-stepper-step>
     <v-divider class="d-none d-sm-block"></v-divider>
-    <v-stepper-step class="font-weight-medium" step="6">
+    <v-stepper-step class="font-weight-medium" step="3">
       ثبت نهایی</v-stepper-step
     >
   </v-stepper-header>

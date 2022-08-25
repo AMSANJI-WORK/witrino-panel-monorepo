@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import FormMixin from "@shared/mixins/form";
 export default {
   mixins: [FormMixin],
   props: ["value"],

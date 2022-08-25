@@ -11,10 +11,22 @@
     "@koumoul/vjsf": "^2.18.2",
     "admin": "*",
     "auth": "*",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "edtehadieh": "*",
+    "js-cookie": "^3.0.1",
+    "moment-jalaali": "^0.9.6",
     "namayande": "*",
-    "shared": "*"
+    "num2persian": "^3.2.2",
+    "shared": "*",
+    "vue": "^2.7.7",
+    "vue-apexcharts": "^1.6.2",
+    "vue-persian-datetime-picker": "^2.10.4",
+    "vue-router": "3.5.3",
+    "vue-toastification": "^1.7.14",
+    "vue2-leaflet": "^2.7.1",
+    "vuetify": "2.6.4",
+    "vuex": "3.4.0"
   },
   "devDependencies": {
     "@mdi/font": "^7.0.96",
