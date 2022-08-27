@@ -25,9 +25,9 @@ export default {
       resetStep: "RESET_STEP",
     }),
     validateStep() {
-      if (this.submit()) {
+      // if (this.submit()) {
         this.changeStep(this.nextStep);
-      }
+      // }
     },
   },
 };

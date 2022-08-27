@@ -3,6 +3,7 @@ import modules from "./modules";
 import { authTypes } from "./type";
 import defaultClient from "@witrino/repositories/clients/default";
 import userClient from "@witrino/repositories/clients/user";
+import daynamicClient from "@witrino/repositories/clients/daynamic";
 
 export default {
   namespaced: true,
@@ -27,8 +28,11 @@ export default {
       state.access_token = access_token;
       state.refresh_token = refresh_token;
       state.id = id;
+      
       defaultClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
       userClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
+      daynamicClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
+
       Cookies.set("access_token", access_token);
       Cookies.set("refresh_token", refresh_token);
       Cookies.set("userId", JSON.stringify(id));

@@ -129,7 +129,7 @@ export default {
     },
     initializeFormPlanDetail() {
       let formDatailSchema = this.selectedService.map((service) => {
-        const { title, description, attributes } = service;
+        const { title, attributes } = service;
         let selectedAttrs = attributes.map((attr) => {
           return {
             service_id: attr.service_id,
@@ -144,12 +144,12 @@ export default {
         });
         return {
           serviceTitle: title,
-          serviceDescription: description,
           serviceAttributes: selectedAttrs,
         };
       });
       this.setPlanDetailFormSchema(formDatailSchema);
     },
+
     validate() {
       this.setPlanStepByStep(this.formDto);
       return this.planInfoRefrence.validate();

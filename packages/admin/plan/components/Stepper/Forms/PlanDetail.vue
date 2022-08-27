@@ -1,14 +1,11 @@
 <template>
   <v-form ref="planDetail">
-    <v-jsf
-      v-model="model"
-      :schema="schema"
-      :options="options"
-      @input="logEvent('input', $event)"
-      @change="logEvent('change', $event)"
-      @input-child="logEvent('input-child', $event)"
-      @change-child="logEvent('change-child', $event)"
-    />
+    <!-- <DaynamicFormContent
+      v-if="schemaList != 0"
+      v-for="(schema, index) in schemaList"
+      :from-schema="schema"
+      :key="index"
+    /> -->
     <v-col cols="12">
       <slot name="form-action" :validate="validate" />
     </v-col>
@@ -17,74 +14,34 @@
 
 <script>
 import PlanMixin from "@packages/admin/plan/mixins/modify";
-import FormMixin from "@shared/mixins/form";
+import DaynamicFormContent from "@packages/admin/plan/components/DaynamicFormContent.vue";
 export default {
-  mixins: [PlanMixin, FormMixin],
+  mixins: [PlanMixin],
+  components: {
+    DaynamicFormContent,
+  },
   data() {
-    return {
-      model: {
-        objectSection: {},
-      },
-      options: {
-        sectionsClass: "pa-5",
-      },
-      schema: {
-        type: "object",
-        properties: {
-          objectSection: {
-            type: "object",
-            title: "I'm a section with a default value",
-            properties: {
-              child1: {
-                type: "string",
-                "x-class": "pa-3",
-                "x-props": {
-                  outlined: true,
-                  dense: true,
-                },
-                "x-options": {
-                  fieldColProps: {
-                    cols: 12,
-                    md: 6,
-                  },
-                },
-              },
-              child2: {
-                type: "string",
-                "x-class": "pa-3",
-                "x-props": {
-                  outlined: true,
-                  dense: true,
-                },
-                "x-options": {
-                  fieldColProps: {
-                    cols: 12,
-                    md: 6,
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    };
+    return {};
+  },
+  watch: {
+    schemaList(newValue) {},
   },
   computed: {
     formDatailSchema() {
       return this.$store.getters["admin/plan/dfrom/schema"];
     },
-    planDetailRefrence() {
-      return this.$refs.planDetail;
+    schemaList() {
+      return this.formDatailSchema.map((section) => {
+        return {
+          title: section.serviceTitle,
+          properties: section.serviceAttributes,
+        };
+      });
     },
   },
   methods: {
-    logEvent(key, $event) {
-      console.log(this.formDatailSchema);
-      console.log("vjsf event", key, $event);
-    },
-
     validate() {
-      return this.planDetailRefrence.validate();
+      return this.$refs.planDetail.validate();
     },
   },
 };
