@@ -28,7 +28,7 @@ const { mapGetters, mapActions } = createNamespacedHelpers(
 );
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import servicesTypes from "@packages/polotik/Service/store/types";
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 export default {
   inheritAttrs: false,
   mixins: [FormMixin],

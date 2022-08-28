@@ -50,7 +50,9 @@
         </v-tooltip>
       </template>
       <template v-slot:cardSubTilte>
-        <v-sheet class="transparent">فعال شدن امکان مناقصه</v-sheet>
+        <v-sheet class="transparent yellow--text"
+          >فعال شدن امکان مناقصه</v-sheet
+        >
       </template>
       <template v-slot:cardSubTilteEnd>
         <v-sheet class="transparent white--text">2 ساعت پیش</v-sheet>
@@ -104,12 +106,14 @@ export default {
   methods: {
     checkToken() {
       if (!this.userId || !this.token) {
-        this.$router.push("/403");
+        return import.meta.env.DEV
+          ? this.$router.push("/set-permission")
+          : this.$router.push("/403");
       }
     },
   },
   created() {
-    this.checkToken()
+    this.checkToken();
   },
 };
 </script>

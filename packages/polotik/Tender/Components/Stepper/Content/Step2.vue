@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import StepperMixin from "@packages/polotik/Tender/Mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";

@@ -234,7 +234,7 @@
 <script>
 import moment from "moment-jalaali";
 import SaleMixin from "@packages/polotik/Sale/Mixins";
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import servicesTypes from "@packages/polotik/Service/store/types";

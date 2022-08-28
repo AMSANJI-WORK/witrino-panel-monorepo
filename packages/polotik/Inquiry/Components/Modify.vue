@@ -122,7 +122,7 @@
 
 <script>
 import moment from "moment-jalaali";
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import InquiryMixin from "@packages/polotik/Inquiry/Mixins";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";

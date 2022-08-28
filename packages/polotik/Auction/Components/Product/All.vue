@@ -23,7 +23,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 

@@ -29,10 +29,7 @@ const BarterMixin = {
           unit: null,
           category2: null,
           gallery: [],
-          category: {
-            available: [],
-            requested: [],
-          },
+          category: [],
           endDay: 1,
         },
       },

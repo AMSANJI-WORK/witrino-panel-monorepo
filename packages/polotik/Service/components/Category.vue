@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters } = createNamespacedHelpers("guilds/services/category");
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";

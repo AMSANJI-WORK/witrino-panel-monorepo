@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import TYPES from "@packages/polotik/Barter/Store/modules/request/types";
 import { mapActions } from 'vuex';
 

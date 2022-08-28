@@ -12,7 +12,9 @@ export default {
   mixins: [ZoneMixin],
   computed: {
     isLogin() {
-      return Cookies.get("access_token") ?? Cookies.get("refresh_token") ?? null;
+      return (
+        Cookies.get("access_token") ?? Cookies.get("refresh_token") ?? null
+      );
     },
     isLoginPage() {
       return this.$route.fullPath.includes("auth");

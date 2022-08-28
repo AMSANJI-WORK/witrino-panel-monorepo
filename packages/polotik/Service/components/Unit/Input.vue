@@ -16,7 +16,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 export default {
   mixins: [FormMixin],
   props: {

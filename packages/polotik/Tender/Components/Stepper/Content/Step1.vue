@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import ServicesMixin from "@polotik/mixins/base/services";
 import StepperMixin from "@packages/polotik/Tender/Mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";

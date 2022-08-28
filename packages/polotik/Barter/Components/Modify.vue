@@ -170,7 +170,7 @@ import moment from "moment-jalaali";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import servicesTypes from "@packages/polotik/Service/store/types";
 import BarterMixin from "@packages/polotik/Barter/Mixins";
-import FormMixin from "@shared/mixins/form";
+import FormMixin from "@polotik/mixins/base/form";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";

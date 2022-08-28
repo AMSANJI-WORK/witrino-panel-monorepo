@@ -139,8 +139,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
-import FormMixin from "@shared/mixins/form";
+import { mapActions, mapGetters, mapState } from "vuex";
+import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/Auction/Mixins/stepper";
 import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";

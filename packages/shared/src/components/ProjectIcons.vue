@@ -5,7 +5,7 @@
         <v-card
           class="pa-2 d-flex flex-wrap rounded-lg transition-swing cursor-pointer"
           outlined
-          :elevation="hover ? 3 : 0"
+          :elevation="hover ? 3 : 1"
         >
           <v-list-item three-line class="px-0 d-flex flex-wrap">
             <v-list-item-avatar tile size="40">
