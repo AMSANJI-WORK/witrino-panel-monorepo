@@ -4,13 +4,13 @@
     dense
     class="rounded-lg"
     multiple
-    :items="serviceList"
+    :items="themeList"
     small-chips
-    item-text="title"
+    item-text="name"
     item-value="id"
     :loading="fromLoading"
-    :services="[rules.required]"
-    label="انتخاب سرویس"
+    :rules="[rules.required]"
+    label="انتخاب تم"
     :value="value"
     @input="updateValue"
   >
@@ -21,7 +21,7 @@
     </template>
     <template v-slot:selection="{ item, index }">
       <v-chip x-small v-if="index === 0">
-        <span>{{ item.title }}</span>
+        <span>{{ item.name }}</span>
       </v-chip>
       <span v-if="index === 1" class="grey--text text-caption">
         (+{{ value.length - 1 }} مورد دیگر)
@@ -33,7 +33,7 @@
 <script>
 import FormMixin from "@shared/mixins/form";
 import { createNamespacedHelpers } from "vuex";
-const { mapGetters } = createNamespacedHelpers("admin/service");
+const { mapGetters } = createNamespacedHelpers("admin/theme");
 export default {
   mixins: [FormMixin],
   props: {
@@ -43,7 +43,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["serviceList"]),
+    ...mapGetters(["themeList"]),
   },
   methods: {
     updateValue(value) {

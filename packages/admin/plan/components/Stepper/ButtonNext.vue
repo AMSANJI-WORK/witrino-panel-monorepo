@@ -11,6 +11,7 @@ import { createNamespacedHelpers } from "vuex";
 const { mapMutations, mapGetters } = createNamespacedHelpers("shared/stepper");
 export default {
   props: {
+    isValid: Function,
     submit: Function,
   },
   computed: {
@@ -25,9 +26,10 @@ export default {
       resetStep: "RESET_STEP",
     }),
     validateStep() {
-      // if (this.submit()) {
+      if (this.isValid()) {
+        this.submit();
         this.changeStep(this.nextStep);
-      // }
+      }
     },
   },
 };

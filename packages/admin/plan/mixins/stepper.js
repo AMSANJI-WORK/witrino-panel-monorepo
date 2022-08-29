@@ -1,18 +1,8 @@
 import { createNamespacedHelpers } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("admin/plan");
-const TenderStepperMixin = {
-  watch: {
-    plan: {
-      handler(newValue) {
-        if (newValue !== undefined) {
-          this.isEditPage();
-        }
-      },
-      immediate: true,
-    },
-  },
+const { mapMutations } = createNamespacedHelpers("admin/plan");
+const StepperMixin = {
+  watch: {},
   computed: {
-    ...mapGetters(["plan"]),
     routeContainEdit() {
       return this.$route.path.includes("edit");
     },
@@ -20,8 +10,5 @@ const TenderStepperMixin = {
   methods: {
     ...mapMutations({ changeStep: "CHANGE_STEP" }),
   },
-  created() {
-    if (this.routeContainEdit) this.setData();
-  },
 };
-export default TenderStepperMixin;
+export default StepperMixin;

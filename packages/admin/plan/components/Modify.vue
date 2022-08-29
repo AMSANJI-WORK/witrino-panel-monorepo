@@ -12,21 +12,21 @@
       <v-stepper-items>
         <v-stepper-content step="1">
           <form-plan-info>
-            <template #form-action="{ validate }">
+            <template #form-action="{ validate, submit }">
               <v-sheet class="d-flex">
                 <v-spacer></v-spacer>
-                <ButtonNext :submit="validate" />
+                <ButtonNext :submit="submit" :is-valid="validate" />
               </v-sheet>
             </template>
           </form-plan-info>
         </v-stepper-content>
         <v-stepper-content step="2">
           <form-plan-detail>
-            <template #form-action="{ validate }">
+            <template #form-action="{ validate, submit }">
               <v-sheet class="d-flex">
                 <v-spacer></v-spacer>
                 <ButtonBack />
-                <ButtonNext :submit="validate" />
+                <ButtonNext :submit="submit" :is-valid="validate" />
               </v-sheet>
             </template>
           </form-plan-detail>
@@ -58,10 +58,10 @@
 
       <v-stepper-content step="1" class="mr-3 pl-5 pr-2">
         <form-plan-info>
-          <template #form-action="{ validate }">
+          <template #form-action="{ validate, submit }">
             <v-sheet class="d-flex">
               <v-spacer></v-spacer>
-              <ButtonNext :submit="validate" />
+              <ButtonNext :submit="submit" :is-valid="validate" />
             </v-sheet>
           </template>
         </form-plan-info>
@@ -76,11 +76,11 @@
 
       <v-stepper-content step="2" class="mr-3 pl-5 pr-2">
         <form-plan-detail>
-          <template #form-action="{ validate }">
+          <template #form-action="{ validate, submit }">
             <v-sheet class="d-flex">
               <v-spacer></v-spacer>
               <ButtonBack />
-              <ButtonNext :submit="validate" />
+              <ButtonNext :submit="submit" :is-valid="validate" />
             </v-sheet>
           </template>
         </form-plan-detail>
@@ -110,7 +110,10 @@ import FormPlanInfo from "./Stepper/Forms/PlanInfo.vue";
 import FormPlanDetail from "./Stepper/Forms/PlanDetail.vue";
 import ButtonNext from "./Stepper/ButtonNext.vue";
 import ButtonBack from "./Stepper/ButtonBack.vue";
+import PlanMixin from "@packages/admin/plan/mixins/modify";
+
 export default {
+  mixins: [PlanMixin],
   components: {
     ButtonBack,
     ButtonNext,
@@ -126,10 +129,15 @@ export default {
         ? "ویرایش پلن"
         : "افزودن پلن";
     },
+    selectedPlanId() {
+      return this.$route.params.id;
+    },
   },
   methods: {},
   created() {
-    this.$store.dispatch("admin/service/get/GET_ALL_SERVICE_ASYNC");
+    this.getAllService();
+    if (this.selectedPlanId) this.getPlan({ id: this.selectedPlanId });
+    if (this.planList.length == 0) this.getAllPlan();
   },
 };
 </script>

@@ -63,16 +63,16 @@
       ></v-textarea>
     </v-col>
     <v-col cols="12">
-      <slot name="form-action" :validate="validate" />
+      <slot name="form-action" :validate="validate" :submit="submit" />
     </v-col>
   </v-form>
 </template>
 
 <script>
-import PlanMixin from "@packages/admin/plan/mixins/modify";
 import FormMixin from "@shared/mixins/form";
-import ServiceSelector from "@packages/admin/service/components/Selector.vue";
+import PlanMixin from "@packages/admin/plan/mixins/modify";
 import PriceInput from "@shared/components/Reusable/PriceInput.vue";
+import ServiceSelector from "@packages/admin/service/components/Selector.vue";
 export default {
   mixins: [PlanMixin, FormMixin],
   components: {
@@ -91,14 +91,19 @@ export default {
         description: null,
         price: null,
         duration: null,
-        details: [],
       },
     };
   },
   watch: {
-    selectedService() {
-      this.setPlanDetails();
-      this.initializeFormPlanDetail();
+    selectedService(newValue) {
+      this.setDetailForm(newValue);
+    },
+    plan: {
+      handler() {
+        if (this.$route.path.includes("edit")) this.setData();
+      },
+      immediate: true,
+      deep: true,
     },
   },
   filters: {
@@ -115,43 +120,28 @@ export default {
     planInfoRefrence() {
       return this.$refs.planInfo;
     },
+    themeList() {
+      return this.$store.getters["admin/theme/themeList"];
+    },
   },
   methods: {
-    setPlanDetails() {
-      this.formDto.details = this.selectedService.map((service) => {
-        return {
-          service_id: service.id,
-          attributes: service.attributes.map((attr) => {
-            return { attr_id: attr.id, value: null };
-          }),
-        };
-      });
+    setData() {
+      Object.keys(this.formDto).forEach(
+        (key) => (this.formDto[key] = this.plan[key])
+      );
+      this.selectedService = this.plan.details.map((detail) =>
+        Number(detail.service_id)
+      );
     },
-    initializeFormPlanDetail() {
-      let formDatailSchema = this.selectedService.map((service) => {
-        const { title, attributes } = service;
-        let selectedAttrs = attributes.map((attr) => {
-          return {
-            service_id: attr.service_id,
-            title: attr.title,
-            title_en: attr.title_en,
-            type: attr.type,
-            default_value: attr.default_value,
-            default_url: attr.default_url,
-            is_required: attr.is_required,
-            is_can_add: attr.is_can_add,
-          };
-        });
-        return {
-          serviceTitle: title,
-          serviceAttributes: selectedAttrs,
-        };
-      });
-      this.setPlanDetailFormSchema(formDatailSchema);
+    setServiceData() {
+      if (this.selectedService.includes(1) && this.themeList.length == 0)
+        this.$store.dispatch("admin/theme/get/GET_ALL_THEME_ASYNC");
     },
-
-    validate() {
+    submit() {
       this.setPlanStepByStep(this.formDto);
+      this.setServiceData();
+    },
+    validate() {
       return this.planInfoRefrence.validate();
     },
   },

@@ -8,6 +8,11 @@ export default {
     Object.keys(payload).forEach((key) => (state.plan[key] = payload[key]));
     console.log(state.plan);
   },
+  [planTypes.SET_PLAN_DETAILS](state, payload) {
+    state.plan.details = [...state.plan.details,payload];
+    state.plan.details = [...new Set(state.plan.details)];
+    console.log(state.plan);
+  },
   [planTypes.SET_PLAN_LIST](state, payload) {
     state.planList = [...payload.data];
   },

@@ -49,7 +49,7 @@ import { mapActions, mapGetters } from "vuex";
 import TableMixin from "@shared/mixins/table";
 import { planTypes } from "@packages/admin/plan/store/types";
 import DisableDialog from "@packages/admin/roles/components/DialogDisable.vue";
-
+import Cookies from "js-cookie";
 export default {
   components: {
     DisableDialog,
@@ -76,6 +76,9 @@ export default {
   }),
   computed: {
     ...mapGetters("admin/plan", ["planList"]),
+    currentUserId() {
+      return Cookies.get("userId") ?? null;
+    },
   },
   filters: {
     pageText({ pageStart = -1, itemsLength = 0 }) {
@@ -98,7 +101,7 @@ export default {
     disableItemConfirm() {
       this.disablePlan({
         id: this.editedId,
-        updated_id: this.currentPlanId,
+        updated_id: this.currentUserId,
       }).then(() => (this.dialogDisable = !this.dialogDisable));
     },
   },

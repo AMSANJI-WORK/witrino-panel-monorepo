@@ -1,5 +1,6 @@
+import { serviceTypes } from "@packages/admin/service/store/types";
+import { planTypes } from "@packages/admin/plan/store/types";
 import { mapActions, mapGetters, mapMutations } from "vuex";
-import { planTypes } from "../store/types";
 const PlanMixin = {
   computed: {
     ...mapGetters("admin/plan", ["plan", "planList"]),
@@ -21,16 +22,16 @@ const PlanMixin = {
     },
   },
   methods: {
-    ...mapActions("admin/plan", {
-      getPlan: `get/${planTypes.GET_ONE_PLAN_ASYNC}`,
-      getAllPlan: `get/${planTypes.GET_ALL_PLAN_ASYNC}`,
-      createPlan: `create/${planTypes.CREATE_PLAN_ASYNC}`,
-      updatePlan: `update/${planTypes.UPDATE_PLAN_ASYNC}`,
+    ...mapActions("admin", {
+      getPlan: `plan/get/${planTypes.GET_ONE_PLAN_ASYNC}`,
+      getAllPlan: `plan/get/${planTypes.GET_ALL_PLAN_ASYNC}`,
+      createPlan: `plan/create/${planTypes.CREATE_PLAN_ASYNC}`,
+      updatePlan: `plan/update/${planTypes.UPDATE_PLAN_ASYNC}`,
+      getAllService: `service/get/${serviceTypes.GET_ALL_SERVICE_ASYNC}`,
     }),
     ...mapMutations("admin/plan", {
       setPlanStepByStep: planTypes.SET_PLAN_STEP_BY_STEP,
-      setPlanDetailFormSchema: `dfrom/${planTypes.SET_FORM_SCHEMA}`,
-      setPlanDetailFormModel: `dfrom/${planTypes.SET_FORM_MODEL}`,
+      setDetailForm: `dfrom/${planTypes.SET_FORM_SCHEMA}`,
     }),
   },
 };

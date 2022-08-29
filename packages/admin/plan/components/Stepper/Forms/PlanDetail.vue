@@ -1,47 +1,46 @@
 <template>
-  <v-form ref="planDetail">
-    <!-- <DaynamicFormContent
-      v-if="schemaList != 0"
-      v-for="(schema, index) in schemaList"
-      :from-schema="schema"
-      :key="index"
-    /> -->
+  <v-form>
+    <v-col v-show="themeServiceVisible" cols="12">
+      <ThemeService ref="theme-service" :is-visible="themeServiceVisible" />
+    </v-col>
     <v-col cols="12">
-      <slot name="form-action" :validate="validate" />
+      <slot name="form-action" :validate="validate" :submit="submit" />
     </v-col>
   </v-form>
 </template>
 
 <script>
 import PlanMixin from "@packages/admin/plan/mixins/modify";
-import DaynamicFormContent from "@packages/admin/plan/components/DaynamicFormContent.vue";
+import ThemeService from "@packages/admin/plan/components/Stepper/Forms/Services/Theme.vue";
 export default {
   mixins: [PlanMixin],
   components: {
-    DaynamicFormContent,
+    ThemeService,
   },
   data() {
     return {};
-  },
-  watch: {
-    schemaList(newValue) {},
   },
   computed: {
     formDatailSchema() {
       return this.$store.getters["admin/plan/dfrom/schema"];
     },
-    schemaList() {
-      return this.formDatailSchema.map((section) => {
-        return {
-          title: section.serviceTitle,
-          properties: section.serviceAttributes,
-        };
-      });
+    themeServiceVisible() {
+      return this.formDatailSchema.includes(1);
     },
   },
   methods: {
+    submit() {},
     validate() {
-      return this.$refs.planDetail.validate();
+      let validateServices = [];
+      if (this.themeServiceVisible) {
+        validateServices = [
+          ...validateServices,
+          this.$refs["theme-service"].validataTheme(),
+        ];
+      }
+      validateServices = [...new Set(validateServices)];
+      const isFormValid = (validationResult) => validationResult === true;
+      return validateServices.every(isFormValid);
     },
   },
 };
