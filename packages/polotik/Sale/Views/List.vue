@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import SaleFilters from "@packages/polotik/Sale/Components/Filters.vue";
-import PagesDescription from "@packages/polotik/Sale/Components/PagesDescription.vue";
+import SaleFilters from "@packages/polotik/sale/components/Filters.vue";
+import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
 export default {
   components: {
     SaleFilters,

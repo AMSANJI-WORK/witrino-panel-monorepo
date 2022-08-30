@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import moment from "moment-jalaali";
-import Types from "@packages/polotik/Barter/Store/modules/root/types";
+import Types from "@packages/polotik/barter/store/modules/root/types";
 import { createNamespacedHelpers } from "vuex";
 const { mapActions, mapGetters, mapMutations } =
   createNamespacedHelpers("guilds/barter");

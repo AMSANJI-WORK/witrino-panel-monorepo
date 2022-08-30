@@ -20,7 +20,7 @@
 
 <script>
 import Notification from "@polotik/components/App/Notification.vue";
-import auctionFilters from "@packages/polotik/Auction/Components/Filters.vue";
+import auctionFilters from "@packages/polotik/auction/components/Filters.vue";
 
 export default {
   components: {

@@ -83,7 +83,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import Types from "@packages/polotik/Inquiry/Store/modules/root/types";
+import Types from "@packages/polotik/inquiry/store/modules/root/types";
 import RequestLink from "@polotik/components/Reusable/RequestLink.vue";
 const { mapActions } = createNamespacedHelpers("guilds/inquiry");
 

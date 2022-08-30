@@ -9,8 +9,8 @@ import {
   defualtState,
   dataUpdate,
   SOURCE,
-} from "@packages/polotik/Tender/__mock__/store";
-import Types from "@packages/polotik/Tender/Store/modules/root/types";
+} from "@packages/polotik/tender/__mock__/store";
+import Types from "@packages/polotik/tender/store/modules/root/types";
 
 describe("tender mutations and getters", () => {
   let tenders;

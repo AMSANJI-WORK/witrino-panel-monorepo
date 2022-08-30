@@ -9,8 +9,8 @@ import {
   defualtState,
   dataUpdate,
   SOURCE,
-} from "@packages/polotik/Barter/__mock__/store";
-import Types from "@packages/polotik/Barter/Store/modules/root/types";
+} from "@packages/polotik/barter/__mock__/store";
+import Types from "@packages/polotik/barter/store/modules/root/types";
 
 describe("barter mutations and getters", () => {
   let barters;

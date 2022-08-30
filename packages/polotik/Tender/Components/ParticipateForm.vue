@@ -142,10 +142,10 @@
 <script>
 import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
-import StepperMixin from "@packages/polotik/Tender/Mixins/stepper";
-import { mapGetters, mapState, mapActions, mapMutations } from "vuex";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue"
-import TYPES from "@packages/polotik/Tender/Store/modules/request/types";
+import StepperMixin from "@packages/polotik/tender/mixins/stepper";
+import { mapGetters, mapState, mapActions } from "vuex";
+import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import TYPES from "@packages/polotik/tender/store/modules/request/types";
 export default {
   components: {
     UploadImage,

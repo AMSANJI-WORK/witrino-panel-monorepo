@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import AuctionModifyMixin from "@packages/polotik/Auction/Mixins/modify";
+import AuctionModifyMixin from "@packages/polotik/auction/mixins/modify";
 import ServicesMixin from "@polotik/mixins/base/services";
 export default {
   mixins: [AuctionModifyMixin, ServicesMixin],

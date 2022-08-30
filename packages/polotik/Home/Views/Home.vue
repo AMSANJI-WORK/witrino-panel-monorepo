@@ -76,10 +76,10 @@
 
 <script>
 import Cookies from "js-cookie";
-import boxTopData from "@packages/polotik/Home/Mock/boxTop";
-import FacilitiesData from "@packages/polotik/Home/Mock/facilities";
-import Icons from "@packages/polotik/Home/Components/Icons.vue";
-import Facilities from "@packages/polotik/Home/Components/Facilities.vue";
+import boxTopData from "@packages/polotik/Home/mock/boxTop";
+import FacilitiesData from "@packages/polotik/Home/mock/facilities";
+import Icons from "@packages/polotik/Home/components/Icons.vue";
+import Facilities from "@packages/polotik/Home/components/Facilities.vue";
 import Notification from "@polotik/components/App/Notification.vue";
 
 export default {

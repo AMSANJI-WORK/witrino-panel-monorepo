@@ -1,16 +1,18 @@
 import paginationMiddleware from "@polotik/middlewares/pagination";
-import { resetBarter } from "@packages/polotik/Barter/Middlewares";
+import { resetBarter } from "@packages/polotik/barter/middlewares";
+import offersRoutes from "@packages/polotik/barter/modules/offers/routes";
 export default [
   {
     path: "/barter",
     name: "barter-page",
     redirect: "/barter/list",
-    component: () => import("@packages/polotik/Barter/Views/Index.vue"),
+    component: () => import("@packages/polotik/barter/views/index.vue"),
     children: [
+      ...offersRoutes,
       {
         path: "list",
         name: "barter-list-page",
-        component: () => import("@packages/polotik/Barter/Views/List.vue"),
+        component: () => import("@packages/polotik/barter/views/List.vue"),
         beforeEnter: paginationMiddleware,
         meta: {
           breadCrumb: [
@@ -28,7 +30,7 @@ export default [
       {
         path: ":id/preview",
         name: "barter-preview-page",
-        component: () => import("@packages/polotik/Barter/Views/Preview.vue"),
+        component: () => import("@packages/polotik/barter/views/Preview.vue"),
         beforeEnter: resetBarter,
         meta: {
           breadCrumb: [
@@ -50,7 +52,7 @@ export default [
       {
         path: ":id/edit",
         name: "barter-edit-page",
-        component: () => import("@packages/polotik/Barter/Views/Edit.vue"),
+        component: () => import("@packages/polotik/barter/views/Edit.vue"),
         beforeEnter: resetBarter,
         meta: {
           breadCrumb: [
@@ -70,31 +72,9 @@ export default [
         },
       },
       {
-        path: ":id/request",
-        name: "barter-request-page",
-        component: () => import("@packages/polotik/Barter/Views/Request.vue"),
-        beforeEnter: resetBarter,
-        meta: {
-          breadCrumb: [
-            {
-              text: "خانه",
-              to: "/home",
-            },
-            {
-              text: "تهاتر",
-              to: "/barter",
-            },
-            {
-              text: "درخواست ها",
-              disabled: true,
-            },
-          ],
-        },
-      },
-      {
         path: "create",
         name: "barter-create-page",
-        component: () => import("@packages/polotik/Barter/Views/Create.vue"),
+        component: () => import("@packages/polotik/barter/views/Create.vue"),
         beforeEnter: resetBarter,
         meta: {
           breadCrumb: [

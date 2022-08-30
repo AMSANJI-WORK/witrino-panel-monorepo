@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import PagesDescription from "@packages/polotik/Sale/Components/PagesDescription.vue";
-import PreviewForm from "@packages/polotik/Sale/Components/Preview.vue";
+import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
+import PreviewForm from "@packages/polotik/sale/components/Preview.vue";
 export default {
   components: {
     PreviewForm,

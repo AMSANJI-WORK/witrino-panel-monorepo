@@ -1,16 +1,18 @@
 import paginationMiddleware from "@polotik/middlewares/pagination";
-import { resetSale } from "@packages/polotik/Sale/Middlewares";
+import { resetSale } from "@packages/polotik/sale/middlewares";
+import offersRoute from "@packages/polotik/sale/modules/offers/routes";
 export default [
   {
     path: "/sale",
     name: "sale-page",
     redirect: "/sale/list",
-    component: () => import("@packages/polotik/Sale/Views/Index.vue"),
+    component: () => import("@packages/polotik/sale/views/index.vue"),
     children: [
+      ...offersRoute,
       {
         path: "list",
         name: "sale-list-page",
-        component: () => import("@packages/polotik/Sale/Views/List.vue"),
+        component: () => import("@packages/polotik/sale/views/List.vue"),
         beforeEnter: paginationMiddleware,
         meta: {
           breadCrumb: [
@@ -28,7 +30,7 @@ export default [
       {
         path: ":id/preview",
         name: "sale-preview-page",
-        component: () => import("@packages/polotik/Sale/Views/Preview.vue"),
+        component: () => import("@packages/polotik/sale/views/Preview.vue"),
         beforeEnter: resetSale,
         meta: {
           breadCrumb: [
@@ -50,7 +52,7 @@ export default [
       {
         path: ":id/edit",
         name: "sale-edit-page",
-        component: () => import("@packages/polotik/Sale/Views/Edit.vue"),
+        component: () => import("@packages/polotik/sale/views/Edit.vue"),
         beforeEnter: resetSale,
         meta: {
           breadCrumb: [
@@ -69,32 +71,11 @@ export default [
           ],
         },
       },
-      {
-        path: ":id/request",
-        name: "sale-request-page",
-        component: () => import("@packages/polotik/Sale/Views/Request.vue"),
-        beforeEnter: resetSale,
-        meta: {
-          breadCrumb: [
-            {
-              text: "خانه",
-              to: "/home",
-            },
-            {
-              text: "حراجی",
-              to: "/sale",
-            },
-            {
-              text: "درخواست ها",
-              disabled: true,
-            },
-          ],
-        },
-      },
+
       {
         path: "create",
         name: "sale-create-page",
-        component: () => import("@packages/polotik/Sale/Views/Create.vue"),
+        component: () => import("@packages/polotik/SaleCreate.vue"),
         beforeEnter: resetSale,
         meta: {
           breadCrumb: [

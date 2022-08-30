@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import TenderModifyMixin from "@packages/polotik/Tender/Mixins/modify";
+import TenderModifyMixin from "@packages/polotik/tender/mixins/modify";
 import ServicesMixin from "@polotik/mixins/base/services";
 export default {
   mixins: [TenderModifyMixin, ServicesMixin],

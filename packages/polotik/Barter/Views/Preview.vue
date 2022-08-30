@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import PagesDescription from "@packages/polotik/Barter/Components/PagesDescription.vue";
-import PreviewForm from "@packages/polotik/Barter/Components/Preview.vue";
+import PagesDescription from "@packages/polotik/barter/components/PagesDescription.vue";
+import PreviewForm from "@packages/polotik/barter/components/Preview.vue";
 export default {
   components: {
     PreviewForm,

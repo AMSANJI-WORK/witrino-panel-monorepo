@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import barterFilters from "@packages/polotik/Barter/Components/Filters.vue";
-import PagesDescription from "@packages/polotik/Barter/Components/PagesDescription.vue";
+import barterFilters from "@packages/polotik/barter/components/Filters.vue";
+import PagesDescription from "@packages/polotik/barter/components/PagesDescription.vue";
 export default {
   components: {
     barterFilters,

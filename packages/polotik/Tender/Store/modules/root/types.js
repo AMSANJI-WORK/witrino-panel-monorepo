@@ -1,7 +1,7 @@
-import * as createTypes from "@packages/polotik/Tender/Store/create/types";
-import * as deleteTypes from "@packages/polotik/Tender/Store/delete/types";
-import * as getTypes from "@packages/polotik/Tender/Store/get/types";
-import * as updateTypes from "@packages/polotik/Tender/Store/update/types";
+import * as createTypes from "@packages/polotik/tender/store/create/types";
+import * as deleteTypes from "@packages/polotik/tender/store/delete/types";
+import * as getTypes from "@packages/polotik/tender/store/get/types";
+import * as updateTypes from "@packages/polotik/tender/store/update/types";
 
 export default {
   ...createTypes,

@@ -1,13 +1,13 @@
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
-import Types from "@packages/polotik/Tender/Store/modules/root/types";
-import TenderStepOne from "@packages/polotik/Tender/Components/Stepper/Content/Step1.vue";
-import TenderStepTwo from "@packages/polotik/Tender/Components/Stepper/Content/Step2.vue";
-import TenderStepThree from "@packages/polotik/Tender/Components/Stepper/Content/Step3.vue";
-import TenderStepFour from "@packages/polotik/Tender/Components/Stepper/Content/Step4.vue";
-import TenderStepFive from "@packages/polotik/Tender/Components/Stepper/Content/Step5.vue";
-import TenderPreviewContent from "@packages/polotik/Tender/Components/PreviewContent/index.vue";
-import TenderStepperHeader from "@packages/polotik/Tender/Components/Stepper/Header.vue";
+import Types from "@packages/polotik/tender/store/modules/root/types";
+import TenderStepOne from "@packages/polotik/tender/components/Stepper/Content/Step1.vue";
+import TenderStepTwo from "@packages/polotik/tender/components/Stepper/Content/Step2.vue";
+import TenderStepThree from "@packages/polotik/tender/components/Stepper/Content/Step3.vue";
+import TenderStepFour from "@packages/polotik/tender/components/Stepper/Content/Step4.vue";
+import TenderStepFive from "@packages/polotik/tender/components/Stepper/Content/Step5.vue";
+import TenderPreviewContent from "@packages/polotik/tender/components/PreviewContent/index.vue";
+import TenderStepperHeader from "@packages/polotik/tender/components/Stepper/Header.vue";
 import VStepperTitle from "@polotik/components/Reusable/VStepperTitle.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 

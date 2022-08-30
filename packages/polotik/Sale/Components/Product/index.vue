@@ -87,7 +87,7 @@
 <script>
 const { mapActions } = createNamespacedHelpers("guilds/sale");
 import { createNamespacedHelpers } from "vuex";
-import Types from "@packages/polotik/Sale/Store/modules/root/types";
+import Types from "@packages/polotik/sale/store/modules/root/types";
 import RequestLink from "@polotik/components/Reusable/RequestLink.vue";
 
 export default {

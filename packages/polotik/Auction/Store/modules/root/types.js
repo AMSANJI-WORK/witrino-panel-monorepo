@@ -1,7 +1,7 @@
-import * as createTypes from "@packages/polotik/Auction/Store/create/types";
-import * as deleteTypes from "@packages/polotik/Auction/Store/delete/types";
-import * as getTypes from "@packages/polotik/Auction/Store/get/types";
-import * as updateTypes from "@packages/polotik/Auction/Store/update/types";
+import * as createTypes from "@packages/polotik/auction/store/create/types";
+import * as deleteTypes from "@packages/polotik/auction/store/delete/types";
+import * as getTypes from "@packages/polotik/auction/store/get/types";
+import * as updateTypes from "@packages/polotik/auction/store/update/types";
 
 export default {
   ...createTypes,

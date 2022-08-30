@@ -1,7 +1,7 @@
-import { getMutations } from "@packages/polotik/Inquiry/Store/get";
-import { createMutations } from "@packages/polotik/Inquiry/Store/create";
-import { deleteMutations } from "@packages/polotik/Inquiry/Store/delete";
-import { updateMutations } from "@packages/polotik/Inquiry/Store/update";
+import { getMutations } from "@packages/polotik/inquiry/store/get";
+import { createMutations } from "@packages/polotik/inquiry/store/create";
+import { deleteMutations } from "@packages/polotik/inquiry/store/delete";
+import { updateMutations } from "@packages/polotik/inquiry/store/update";
 const mutations = {
   ...getMutations,
   ...createMutations,

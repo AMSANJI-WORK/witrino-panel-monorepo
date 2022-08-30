@@ -2,7 +2,7 @@ import Vue from "vue";
 import store from "@polotik/store";
 import toast from "@polotik/plugins/toast";
 import { expect, describe, it } from "vitest";
-import { data, failureData, defualtState } from "@packages/polotik/Auth/__mock__/store";
+import { data, failureData, defualtState } from "@packages/polotik/auth/__mock__/store";
 
 describe("SetPermission mutations and getters", () => {
   beforeEach(() => {

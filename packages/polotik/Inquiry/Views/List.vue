@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import InquiryFilters from "@packages/polotik/Inquiry/Components/Filters.vue";
-import PagesDescription from "@packages/polotik/Inquiry/Components/PagesDescription.vue";
+import InquiryFilters from "@packages/polotik/inquiry/components/Filters.vue";
+import PagesDescription from "@packages/polotik/inquiry/components/PagesDescription.vue";
 export default {
   components: {
     InquiryFilters,

@@ -1,16 +1,18 @@
 import paginationMiddleware from "@polotik/middlewares/pagination";
-import { resetInquriry } from "@packages/polotik/Inquiry/Middlewares";
+import { resetInquriry } from "@packages/polotik/inquiry/middlewares";
+import offersRoutes from "@packages/polotik/inquiry/modules/offers/routes";
 export default [
   {
     path: "/inquiry",
     name: "inquiry-page",
     redirect: "/inquiry/list",
-    component: () => import("@packages/polotik/Inquiry/Views/Index.vue"),
+    component: () => import("@packages/polotik/inquiry/views/index.vue"),
     children: [
+      ...offersRoutes,
       {
         path: "list",
         name: "inquiry-list-page",
-        component: () => import("@packages/polotik/Inquiry/Views/List.vue"),
+        component: () => import("@packages/polotik/inquiry/views/List.vue"),
         beforeEnter: paginationMiddleware,
         meta: {
           breadCrumb: [
@@ -28,7 +30,7 @@ export default [
       {
         path: ":id/preview",
         name: "inquiry-preview-page",
-        component: () => import("@packages/polotik/Inquiry/Views/Preview.vue"),
+        component: () => import("@packages/polotik/inquiry/views/Preview.vue"),
         beforeEnter: resetInquriry,
         meta: {
           breadCrumb: [
@@ -50,7 +52,7 @@ export default [
       {
         path: ":id/edit",
         name: "inquiry-edit-page",
-        component: () => import("@packages/polotik/Inquiry/Views/Edit.vue"),
+        component: () => import("@packages/polotik/inquiry/views/Edit.vue"),
         beforeEnter: resetInquriry,
         meta: {
           breadCrumb: [
@@ -69,32 +71,11 @@ export default [
           ],
         },
       },
-      {
-        path: ":id/request",
-        name: "inquiry-request-page",
-        component: () => import("@packages/polotik/Inquiry/Views/Request.vue"),
-        beforeEnter: resetInquriry,
-        meta: {
-          breadCrumb: [
-            {
-              text: "خانه",
-              to: "/home",
-            },
-            {
-              text: "استعلام",
-              to: "/inquiry",
-            },
-            {
-              text: "درخواست ها",
-              disabled: true,
-            },
-          ],
-        },
-      },
+
       {
         path: "create",
         name: "inquiry-create-page",
-        component: () => import("@packages/polotik/Inquiry/Views/Create.vue"),
+        component: () => import("@packages/polotik/inquiry/views/Create.vue"),
         beforeEnter: resetInquriry,
         meta: {
           breadCrumb: [

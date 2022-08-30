@@ -1,15 +1,15 @@
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
-import Types from "@packages/polotik/Auction/Store/modules/root/types";
+import Types from "@packages/polotik/auction/store/modules/root/types";
 import VStepperTitle from "@polotik/components/Reusable/VStepperTitle.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
-import AuctionStepperHeader from "@packages/polotik/Auction/Components/Stepper/Header.vue";
-import AuctionStepOne from "@packages/polotik/Auction/Components/Stepper/Content/Step1.vue";
-import AuctionStepTwo from "@packages/polotik/Auction/Components/Stepper/Content/Step2.vue";
-import AuctionStepThree from "@packages/polotik/Auction/Components/Stepper/Content/Step3.vue";
-import AuctionStepFour from "@packages/polotik/Auction/Components/Stepper/Content/Step4.vue";
-import AuctionStepFive from "@packages/polotik/Auction/Components/Stepper/Content/Step5.vue";
-import AuctionPreviewContent from "@packages/polotik/Auction/Components/PreviewContent/index.vue";
+import AuctionStepperHeader from "@packages/polotik/auction/components/Stepper/Header.vue";
+import AuctionStepOne from "@packages/polotik/auction/components/Stepper/Content/Step1.vue";
+import AuctionStepTwo from "@packages/polotik/auction/components/Stepper/Content/Step2.vue";
+import AuctionStepThree from "@packages/polotik/auction/components/Stepper/Content/Step3.vue";
+import AuctionStepFour from "@packages/polotik/auction/components/Stepper/Content/Step4.vue";
+import AuctionStepFive from "@packages/polotik/auction/components/Stepper/Content/Step5.vue";
+import AuctionPreviewContent from "@packages/polotik/auction/components/PreviewContent/index.vue";
 
 const AuctionModifyMixin = {
   components: {

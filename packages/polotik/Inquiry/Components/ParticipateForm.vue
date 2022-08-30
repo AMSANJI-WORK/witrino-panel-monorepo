@@ -46,7 +46,7 @@
 import { mapActions } from "vuex";
 import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
-import TYPES from "@packages/polotik/Inquiry/Store/modules/request/types";
+import TYPES from "@packages/polotik/inquiry/store/modules/request/types";
 
 export default {
   mixins: [FormMixin, UtilityMixin],
