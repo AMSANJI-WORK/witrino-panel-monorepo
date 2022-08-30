@@ -1,16 +1,13 @@
 <template>
-  <app-header color="blue-darken-5">
+  <app-header color="#495057">
     <template #header-title>
       <v-btn icon class="d-lg-none mb-1" @click="toggleDrawer">
         <v-icon color="white">mdi-dots-vertical</v-icon>
       </v-btn>
       <Logo class="ml-2 mt-1" />
-      <v-toolbar-title class="yellow--text darken-1">
-        <span class="yellow--text darken-1 font-weight-bold d-md-block d-none"
-          >ویترین نوین کسب و کار
-        </span>
+      <v-toolbar-title class="darken-1">
         <span
-          class="yellow--text darken-1 font-weight-bold text-caption d-none d-md-none d-sm-block"
+          class="white--text darken-1 mx-3 mx-sm-5 font-weight-bold text-subtitle-2"
           >ویترین نوین کسب و کار
         </span>
       </v-toolbar-title>

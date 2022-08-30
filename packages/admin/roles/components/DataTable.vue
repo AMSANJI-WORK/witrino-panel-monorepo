@@ -65,7 +65,7 @@ export default {
   data: () => ({
     dialogDisable: false,
     dialogModify: false,
-    headerDataTableClass: "blue-lighten-5 white--text",
+    headerDataTableClass: "blue lighten-4",
     headers: [
       {
         text: "ردیف",

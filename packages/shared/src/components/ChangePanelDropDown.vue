@@ -38,6 +38,18 @@ export default {
           text: "پنل اتحادیه",
           route: "/edtehadieh/home",
         },
+        {
+          text: "پنل سوپر وایزر",
+          route: "/supervisor/home",
+        },
+        {
+          text: "پنل ایجنت",
+          route: "/agent/home",
+        },
+        {
+          text: "پنل اپراتور",
+          route: "/operator/home",
+        },
       ],
     };
   },

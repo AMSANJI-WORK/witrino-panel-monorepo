@@ -6,10 +6,8 @@
 
 <script>
 import Cookies from "js-cookie";
-import ZoneMixin from "@packages/zone/mixin/zone";
 
 export default {
-  mixins: [ZoneMixin],
   computed: {
     isLogin() {
       return (
@@ -26,6 +24,7 @@ export default {
     },
   },
   created() {
+    console.log(true);
     this.checkPermision();
   },
 };

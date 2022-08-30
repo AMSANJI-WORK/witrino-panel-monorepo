@@ -28,7 +28,6 @@ export const ThemesColorEdtehadieh = Object.freeze({
   "auth-blue": "#303C87",
 });
 export const ThemesColorAdmin = Object.freeze({
-  dark: "#1E1F2A",
   primery: "#FF9E00",
   secondary: "#C7C7C7",
   "pink-red": "#FF006F",

@@ -4,7 +4,7 @@
       <DashboardProjectIcons
         v-for="(icon, index) in boxTopData"
         :data-source="icon"
-        :colSizeMd="3"
+        :col-size-md="3"
         :key="index"
       />
     </div>

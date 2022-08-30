@@ -1,6 +1,5 @@
 <template>
   <v-card width="100%" elevation="0" rounded="lg" class="pt-2" height="100%">
-    <!-- color="dark-primery" -->
     <v-sheet
       class="rounded-t-xl ma-3 d-flex flex-column align-center sheet--boreder-bottom sheet--background"
       height="250"
@@ -28,7 +27,7 @@
         class="py-1"
       >
         <v-list-item
-          active-class="white--text primery active-icon"
+          active-class="amber lighten-3"
           v-if="!item.child"
           v-show="item.visible === true"
           :disabled="item.disabled"
@@ -44,7 +43,7 @@
         </v-list-item>
 
         <v-list-group
-          active-class="white--text primery active-icon"
+          active-class="amber lighten-3"
           v-else
           no-action
           :disabled="item.disabled"
@@ -57,7 +56,7 @@
           </template>
 
           <v-list-item
-            active-class="white--text primery--text active-icon  boreder--bold"
+            active-class="amber lighten-3  boreder--bold"
             v-for="childern in item.child"
             :key="childern.id"
             router
@@ -98,13 +97,9 @@ export default {
 .boreder--bold {
   border-right: solid 3px #e69d2f;
 }
-.active-icon {
-  i.v-icon.v-icon {
-    color: #fff !important;
-  }
-}
+
 .sheet--background {
-  background: linear-gradient(51deg, #1e1e1e9e, #1e1e22);
+  background: #275ec8;
 }
 .sheet--boreder-bottom {
   border-bottom-left-radius: 75px;

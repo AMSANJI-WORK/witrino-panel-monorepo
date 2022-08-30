@@ -7,7 +7,7 @@
         v-for="(icon, index) in boxTopData"
         :data-source="icon"
         :key="index"
-        :colSizeMd="4"
+        :col-size-md="4"
       />
     </v-sheet>
     <section-divider

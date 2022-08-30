@@ -67,7 +67,7 @@ export default {
   mixins: [TableMixin],
   data: () => ({
     dialogDisable: false,
-    headerDataTableClass: "blue-lighten-5 white--text",
+    headerDataTableClass: "blue lighten-4",
     headers: [
       {
         text: "ردیف",
