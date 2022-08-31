@@ -24,7 +24,6 @@ export default {
     },
   },
   created() {
-    console.log(true);
     this.checkPermision();
   },
 };

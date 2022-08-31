@@ -5,19 +5,13 @@
       height="250"
       elevation="5"
     >
-      <v-avatar size="100" class="mt-6">
-        <img
-          :src="require('@shared/assets/image/png/card-branch-avatar.png')"
-        />
-      </v-avatar>
-      <v-sheet class="text-center mt-5 mb-2 transparent">
-        <h4 class="my-1 white--text">گروه تولیدی و صنعتی حسام</h4>
-        <span
-          class="mt-1 mb-4 white--text darken-1"
-          style="font-size: 0.875rem; font-weight: 200"
-          >محمد مهدی حیاتی</span
-        >
-      </v-sheet>
+      <div
+        class="d-flex flex-column align-center text-center my-auto"
+        style="width: 100%"
+      >
+        <WLogo />
+        <h4 class="mb-1 mt-4 white--text">پنل ادمین ویترینو</h4>
+      </div>
     </v-sheet>
 
     <v-divider class="mb-2"></v-divider>
@@ -33,7 +27,7 @@
         class="py-1"
       >
         <v-list-item
-          active-class="red darken-4 white--text active-icon"
+          active-class="amber lighten-3"
           v-if="!item.child"
           v-show="item.visible === true"
           :disabled="item.disabled"
@@ -49,7 +43,7 @@
         </v-list-item>
 
         <v-list-group
-          active-class="red darken-4 white--text active-icon"
+          active-class="amber lighten-3"
           v-else
           no-action
           :disabled="item.disabled"
@@ -62,7 +56,7 @@
           </template>
 
           <v-list-item
-            active-class="red darken-4 white--text  boreder--bold active-icon"
+            active-class="amber lighten-3  boreder--bold"
             v-for="childern in item.child"
             :key="childern.id"
             router
@@ -80,8 +74,10 @@
 </template>
 
 <script>
-import menuItems from "@applets/operator/src/constants/menu";
+import menuItems from "@applets/admin/src/constants/menu";
+import WLogo from "@shared/components/Icons/Admin/Logo.vue";
 export default {
+  components: { WLogo },
   props: {
     rounded: {
       type: String,
@@ -99,15 +95,11 @@ export default {
 
 <style lang="scss" scoped>
 .boreder--bold {
-  border-right: solid 3px #850a0a;
+  border-right: solid 3px #e69d2f;
 }
-.active-icon {
-  i.v-icon.v-icon {
-    color: #fff !important;
-  }
-}
+
 .sheet--background {
-  background: linear-gradient(51deg, #ffeb00, #ff9100);
+  background: #275ec8;
 }
 .sheet--boreder-bottom {
   border-bottom-left-radius: 75px;

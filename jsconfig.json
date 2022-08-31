@@ -7,11 +7,8 @@
       "@applets/*": ["applets/*"],
       "@shared/*": ["packages/shared/src/*"],
       "@packages/*": ["packages/*"],
-      "@packages/admin/*": ["packages/admin/*"],
       "@witrino/*": ["apps/panel-witrino/src/*"],
-      "@polotik/*": ["apps/panel-polotik/src/*"],
-      "@packages/polotik/*": ["packages/polotik/*"],
-      "@config": ["config"]
+      "@polotik/*": ["apps/panel-polotik/src/*"]
     }
   },
   "include": ["./**/*.js", "./**/*.vue", "./**/*.json", "./**/*.scss"],

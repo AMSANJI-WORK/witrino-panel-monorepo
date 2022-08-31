@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import storeModules from "./modules/store.module";
+import modules from "./modules";
 import { getters, state, mutations, actions } from "./root";
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -8,7 +8,5 @@ export default new Vuex.Store({
   getters,
   mutations,
   actions,
-  modules: {
-    ...storeModules,
-  },
+  modules,
 });

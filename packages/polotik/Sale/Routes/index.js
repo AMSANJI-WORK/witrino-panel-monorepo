@@ -75,7 +75,7 @@ export default [
       {
         path: "create",
         name: "sale-create-page",
-        component: () => import("@packages/polotik/SaleCreate.vue"),
+        component: () => import("@packages/polotik/sale/views/Create.vue"),
         beforeEnter: resetSale,
         meta: {
           breadCrumb: [
