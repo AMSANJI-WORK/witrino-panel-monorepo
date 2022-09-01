@@ -3,7 +3,7 @@
     <app-mobile-drawer />
     <app-header />
     <mobile-sub-header />
-    <v-main class="grey lighten-3">
+    <v-main class="bg--color">
       <v-container>
         <v-row>
           <v-col class="d-lg-block d-none" cols="3">
@@ -16,7 +16,7 @@
               min-height="100vh"
               rounded="lg"
               elevation="0"
-              class="pa-0 grey lighten-3"
+              class="pa-0 transparent"
             >
               <slot v-if="haveSlot" />
               <VRouterView v-else />
@@ -53,7 +53,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.bg-secondary {
-  background: #c7c7c7;
+.bg--color {
+  background: #F0F1FA;
 }
 </style>

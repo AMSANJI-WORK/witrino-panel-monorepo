@@ -12,17 +12,18 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_INQUIRY_ASYNC]({ commit, rootState }, payload) {
+  async [GET_ALL_INQUIRY_ASYNC]({ commit, rootGetters }, payload) {
     try {
-      rootState.fromLoading = true;
-      const { pagination, selfItemPagination } = rootState;
+      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      let selfItemPagination = rootGetters["pagination/selfItemPagination"];
+      let pagination = rootGetters["pagination/pagination"];
       if (payload) {
         const { data } = await guildsRepository.getAllInquiries({
           pagination: selfItemPagination,
           userId: payload.currentUserId,
         });
         commit(
-          "SET_PAGINATION",
+          "pagination/SET_PAGINATION",
           {
             target: "selfItemPagination",
             data: {
@@ -41,7 +42,7 @@ export default {
           userId: null,
         });
         commit(
-          "SET_PAGINATION",
+          "pagination/SET_PAGINATION",
           {
             target: "pagination",
             data: {
@@ -58,27 +59,34 @@ export default {
       console.log(error);
       commit(GET_ALL_INQUIRY_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      }, 1000);
     }
   },
-  async [GET_AN_INQUIRY_ASYNC]({ commit, state }, payload) {
+  async [GET_AN_INQUIRY_ASYNC]({ commit }, payload) {
     try {
-      state.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+
       const { data } = await guildsRepository.getAnInquiry(payload);
       if (data.data?.offers)
-      commit(
-        "guilds/inquiry/request/GET_ALL_OFFER_SUCCESS",
-        data.data.offers,
-        {
-          root: true,
-        }
-      );
+        commit(
+          "guilds/inquiry/request/GET_ALL_OFFER_SUCCESS",
+          data.data.offers,
+          {
+            root: true,
+          }
+        );
       commit(GET_AN_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_AN_INQUIRY_FAILURE, error);
     } finally {
-      state.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      }, 1000);
     }
   },
 };

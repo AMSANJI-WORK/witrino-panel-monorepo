@@ -24,7 +24,7 @@
       class="rounded-r-0 rounded-lg"
       style="padding: 20px 0px; margin-top: 1px"
       color="success"
-      :loading="submitBtnLoading"
+      :loading="fromLoading"
       @click="submitRequest"
       elevation="5"
     >
@@ -45,8 +45,8 @@
 <script>
 import { mapActions } from "vuex";
 import FormMixin from "@polotik/mixins/base/form";
-import UtilityMixin from "@polotik/mixins/utility";
-import TYPES from "@packages/polotik/Inquiry/Store/modules/request/types";
+import UtilityMixin from "@shared/mixins/utility";
+import TYPES from "@packages/polotik/inquiry/modules/offers/store/types";
 
 export default {
   mixins: [FormMixin, UtilityMixin],

@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pagination: "pagination",
+      pagination: "pagination/pagination",
       allBarters: "guilds/barter/allBarters",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),

@@ -16,6 +16,10 @@ import Modify from "../components/Modify.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 
 export default {
+  beforeRouteLeave(to, from, next) {
+    this.$store.commit("shared/stepper/RESET_STEP");
+    next();
+  },
   components: {
     Modify,
     SectionDivider,

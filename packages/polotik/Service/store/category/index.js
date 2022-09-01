@@ -34,9 +34,9 @@ export default {
     },
   },
   actions: {
-    async [GET_ALL_CATEGORIES_ASYNC]({ commit, getters, rootState }, payload) {
+    async [GET_ALL_CATEGORIES_ASYNC]({ commit, getters }, payload) {
       try {
-        rootState.fromLoading = true;
+        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
         if (getters.categories.length == 0) {
           let { data } = await guildsRepository.getAllCategories(
             payload.target
@@ -46,7 +46,7 @@ export default {
       } catch (error) {
         commit(GET_ALL_CATEGORIES_FAILURE, error);
       } finally {
-        rootState.fromLoading = false;
+        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       }
     },
   },

@@ -4,7 +4,7 @@ import moment from "moment-jalaali";
 import { createNamespacedHelpers } from "vuex";
 const { mapActions, mapGetters, mapMutations } =
   createNamespacedHelpers("guilds/sale");
-import Types from "@packages/polotik/Sale/Store/modules/root/types";
+import Types from "@packages/polotik/sale/store/modules/root/types";
 const SaleMixin = {
   data() {
     return {

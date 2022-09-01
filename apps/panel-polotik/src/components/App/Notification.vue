@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-0 ma-2" elevation="0" rounded="lg">
+  <v-card class="pa-0 ma-2" elevation="3" rounded="lg">
     <v-card-title class="green lighten-2 my-3 py-3">
       <slot name="cardTilte"></slot>
       <v-spacer></v-spacer>

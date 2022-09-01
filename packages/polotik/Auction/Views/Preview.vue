@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PreviewForm from "@packages/polotik/Auction/Components/Preview.vue";
+import PreviewForm from "@packages/polotik/auction/components/Preview.vue";
 export default {
   components: {
     PreviewForm,

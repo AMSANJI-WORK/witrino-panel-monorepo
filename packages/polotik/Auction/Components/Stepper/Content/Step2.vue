@@ -105,8 +105,8 @@
 
 <script>
 import FormMixin from "@polotik/mixins/base/form";
-import UtilityMixin from "@polotik/mixins/utility";
-import StepperMixin from "@packages/polotik/Auction/Mixins/stepper";
+import UtilityMixin from "@shared/mixins/utility";
+import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 

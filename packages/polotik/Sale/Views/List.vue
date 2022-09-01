@@ -1,22 +1,32 @@
 <template>
   <v-sheet class="transparent">
-    <pages-description />
-    <sale-filters />
+    <v-slide-x-transition>
+      <PageListSkeleton v-show="skletonLoding.list" />
+    </v-slide-x-transition>
+    <v-slide-x-transition>
+      <v-sheet class="transparent" v-show="!skletonLoding.list">
+        <PagesDescription />
+        <SaleFilters />
+      </v-sheet>
+    </v-slide-x-transition>
   </v-sheet>
 </template>
 
 <script>
-import SaleFilters from "@packages/polotik/Sale/Components/Filters.vue";
-import PagesDescription from "@packages/polotik/Sale/Components/PagesDescription.vue";
+import SaleFilters from "@packages/polotik/sale/components/Filters.vue";
+import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
+import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
 export default {
+  mixins: [ToggleVisibleMixin],
   components: {
     SaleFilters,
+    PageListSkeleton,
     PagesDescription,
   },
   created() {
     this.$store.commit("CHANGE_SERVICE", "sale");
   },
-  
 };
 </script>
 

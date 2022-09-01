@@ -221,7 +221,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="fromLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn
@@ -233,9 +233,9 @@
 
 <script>
 import moment from "moment-jalaali";
-import SaleMixin from "@packages/polotik/Sale/Mixins";
+import SaleMixin from "@packages/polotik/sale/Mixins";
 import FormMixin from "@polotik/mixins/base/form";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import servicesTypes from "@packages/polotik/Service/store/types";
 import { mapActions, mapMutations, mapGetters } from "vuex";
@@ -246,9 +246,9 @@ import CityService from "@packages/polotik/Service/components/City.vue";
 import UnitService from "@packages/polotik/Service/components/Unit/index.vue";
 import UnitServiceSelector from "@packages/polotik/Service/components/Unit/Selector.vue";
 import UnitServiceInput from "@packages/polotik/Service/components/Unit/Input.vue";
-import LimitSection from "@packages/polotik/Sale/Components/ModifyLimit/Section.vue";
-import LimitPriceInput from "@packages/polotik/Sale/Components/ModifyLimit/PriceInput.vue";
-import LimitPercentInput from "@packages/polotik/Sale/Components/ModifyLimit/PercentInput.vue";
+import LimitSection from "@packages/polotik/sale/components/ModifyLimit/Section.vue";
+import LimitPriceInput from "@packages/polotik/sale/components/ModifyLimit/PriceInput.vue";
+import LimitPercentInput from "@packages/polotik/sale/components/ModifyLimit/PercentInput.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
 

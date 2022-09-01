@@ -19,7 +19,10 @@
                   <WAuthTitle />
                 </v-col>
                 <v-col cols="12" class="d-flex justify-center">
-                  <ShopWithrino />
+                  <v-img
+                    height="60%"
+                    :src="require('@shared/assets/image/png/witrino-store.png')"
+                  ></v-img>
                 </v-col>
               </v-row>
             </v-col>
@@ -31,17 +34,14 @@
 </template>
 
 <script>
-import WAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
 import logo from "@shared/components/Icons/Auth/Logo.vue";
-import AuthMobile from "@shared/components/Icons/Auth/AuthMobile.vue";
-import ShopWithrino from "@shared/components/Icons/Auth/ShopWithrino.vue";
+import WAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
 export default {
   components: {
     logo,
     WAuthTitle,
-    AuthMobile,
-    ShopWithrino,
   },
+  computed: {},
 };
 </script>
 

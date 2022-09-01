@@ -1,36 +1,33 @@
 <template>
-  <v-col cols="12" sm="6" md="4" class="pb-0">
-    <v-autocomplete
-      outlined
-      dense
-      class="rounded-lg"
-      label="انتخاب مجوز"
-      multiple
-      :items="permissionList"
-      small-chips
-      :single-line="true"
-      item-text="name"
-      item-value="id"
-      :loading="fromLoading"
-      :roles="[rules.required]"
-      :value="value"
-      @input="updateValue"
-    >
-      <template v-slot:no-data>
-        <v-sheet class="transparent text-caption text-center">
-          موردی یافت نشد
-        </v-sheet>
-      </template>
-      <template v-slot:selection="{ item, index }">
-        <v-chip x-small v-if="index === 0">
-          <span>{{ item.name }}</span>
-        </v-chip>
-        <span v-if="index === 1" class="grey--text text-caption">
-          (+{{ value.length - 1 }} مورد دیگر)
-        </span>
-      </template>
-    </v-autocomplete>
-  </v-col>
+  <v-autocomplete
+    outlined
+    dense
+    class="rounded-lg"
+    label="انتخاب مجوز"
+    multiple
+    :items="permissionList"
+    small-chips
+    item-text="name"
+    item-value="id"
+    :loading="fromLoading"
+    :roles="[rules.required]"
+    :value="value"
+    @input="updateValue"
+  >
+    <template v-slot:no-data>
+      <v-sheet class="transparent text-caption text-center">
+        موردی یافت نشد
+      </v-sheet>
+    </template>
+    <template v-slot:selection="{ item, index }">
+      <v-chip x-small v-if="index === 0">
+        <span>{{ item.name }}</span>
+      </v-chip>
+      <span v-if="index === 1" class="grey--text text-caption">
+        (+{{ value.length - 1 }} مورد دیگر)
+      </span>
+    </template>
+  </v-autocomplete>
 </template>
 
 <script>

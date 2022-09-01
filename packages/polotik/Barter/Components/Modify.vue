@@ -155,7 +155,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="fromLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn
@@ -169,10 +169,10 @@
 import moment from "moment-jalaali";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import servicesTypes from "@packages/polotik/Service/store/types";
-import BarterMixin from "@packages/polotik/Barter/Mixins";
+import BarterMixin from "@packages/polotik/barter/Mixins";
 import FormMixin from "@polotik/mixins/base/form";
 import ServicesMixin from "@polotik/mixins/base/services";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";

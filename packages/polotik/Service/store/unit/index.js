@@ -51,9 +51,9 @@ export default {
     },
   },
   actions: {
-    async [GET_ALL_UNITS_ASYNC]({ commit, rootState, getters }) {
+    async [GET_ALL_UNITS_ASYNC]({ commit, getters }) {
       try {
-        rootState.fromLoading = true;
+        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
         if (getters.units.length == 0) {
           const { data } = await guildsRepository.getAllUnits();
           commit(GET_ALL_UNITS_SUCCESS, data);
@@ -61,14 +61,8 @@ export default {
       } catch (error) {
         commit(GET_A_UNITS_FAILURE, error);
       } finally {
-        rootState.fromLoading = false;
+        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       }
     },
-    // [GET_A_UNIT_ASYNC]({ commit, rootState, getters }, payload) {
-    //   try {
-    //   } catch (error) {
-    //   } finally {
-    //   }
-    // },
   },
 };

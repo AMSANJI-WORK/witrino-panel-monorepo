@@ -4,7 +4,7 @@ import moment from "moment-jalaali";
 import { createNamespacedHelpers } from "vuex";
 const { mapActions, mapGetters } =
   createNamespacedHelpers("guilds/inquiry");
-import Types from "@packages/polotik/Inquiry/Store/modules/root/types";
+import Types from "@packages/polotik/inquiry/store/modules/root/types";
 const InquiryMixin = {
   data() {
     return {

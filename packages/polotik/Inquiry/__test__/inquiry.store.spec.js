@@ -9,8 +9,8 @@ import {
   defualtState,
   dataUpdate,
   SOURCE,
-} from "@packages/polotik/Inquiry/__mock__/store";
-import Types from "@packages/polotik/Inquiry/Store/modules/root/types";
+} from "@packages/polotik/inquiry/__mock__/store";
+import Types from "@packages/polotik/inquiry/store/modules/root/types";
 
 describe("inquiry mutations and getters", () => {
   let inquiries;

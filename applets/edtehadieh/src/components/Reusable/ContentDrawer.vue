@@ -42,7 +42,7 @@
         :disabled="item.disabled"
       >
         <v-list-item
-          exact-active-class="white--text light-blue active-icon"
+          exact-active-class="white--text deep-purple accent-4 active-icon"
           v-if="!item.child"
           v-show="item.visible === true"
           :disabled="item.disabled"
@@ -51,7 +51,7 @@
         >
           <v-list-item-action>
             <!-- class="mt-4 ml-4" -->
-            <v-icon color="grey-blue">{{ item.icon }}</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <!-- style="color: #e1e3e5" -->
@@ -60,7 +60,7 @@
         </v-list-item>
 
         <v-list-group
-          active-class="white--text light-blue active-icon"
+          active-class="white--text deep-purple accent-4 active-icon"
           v-else
           no-action
           :disabled="item.disabled"
@@ -68,13 +68,13 @@
           <template v-slot:activator>
             <v-list-item-action>
               <!-- class="mt-4 ml-4" -->
-              <v-icon color="grey-blue">{{ item.icon }}</v-icon>
+              <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </template>
 
           <v-list-item
-            exact-active-class="light-blue--text active-icon  boreder--bold"
+            exact-active-class="deep-purple accent-4--text active-icon  boreder--bold"
             v-for="childern in item.child"
             :key="childern.id"
             router
@@ -120,7 +120,7 @@ export default {
 }
 
 .sheet--background {
-  background: linear-gradient(45deg, #5f0aff, #f300ff);
+  background: #9529ff;
 }
 .sheet-ineer--background-img {
   background: url(@shared/assets/image/svg/sofabg.svg) no-repeat left bottom;

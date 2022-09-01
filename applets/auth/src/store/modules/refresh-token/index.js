@@ -9,8 +9,9 @@ export default {
   actions: {
     async [authTypes.AUTH_REFRSH_TOKEN_ASYNC]({ commit }) {
       let refreshToken = Cookies.get("refresh_token") ?? null;
+      refreshToken = refreshToken == "undefined" ? null : refreshToken;
       try {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        // commit("shared/loading/TOGGLE_SKELETON_LOADING", {}, { root: true });
         if (refreshToken) {
           const { data } = await authRepository.refreshToken({ refreshToken });
           commit(`auth/${authTypes.SET_AUTHORIZE_DATA}`, data, { root: true });
@@ -21,7 +22,7 @@ export default {
       } catch (error) {
         console.log(error);
       } finally {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        // commit("shared/loading/TOGGLE_SKELETON_LOADING", {}, { root: true });
       }
     },
   },

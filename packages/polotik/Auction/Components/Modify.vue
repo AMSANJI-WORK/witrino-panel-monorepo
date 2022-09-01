@@ -39,7 +39,7 @@
             :next-btn-text="submitBtnTilte"
             :next-btn-function="submit"
             :next-btn-color="submitBtnColor"
-            :next-btn-loading="submitBtnLoading"
+            :next-btn-loading="fromLoading"
           />
         </v-stepper-content>
       </v-stepper-items>
@@ -118,7 +118,7 @@
           :next-btn-text="submitBtnTilte"
           :next-btn-function="submit"
           :next-btn-color="submitBtnColor"
-          :next-btn-loading="submitBtnLoading"
+          :next-btn-loading="fromLoading"
         />
       </v-stepper-content>
     </v-stepper>
@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import AuctionModifyMixin from "@packages/polotik/Auction/Mixins/modify";
+import AuctionModifyMixin from "@packages/polotik/auction/mixins/modify";
 import ServicesMixin from "@polotik/mixins/base/services";
 export default {
   mixins: [AuctionModifyMixin, ServicesMixin],

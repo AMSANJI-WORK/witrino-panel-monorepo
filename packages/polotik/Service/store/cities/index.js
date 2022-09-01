@@ -35,9 +35,9 @@ export default {
     },
   },
   actions: {
-    async [GET_ALL_CITIES_ASYNC]({ commit, getters, rootState }) {
+    async [GET_ALL_CITIES_ASYNC]({ commit, getters }) {
       try {
-        rootState.fromLoading = true;
+        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
         if (getters.cities.length == 0) {
           const { data } = await cityRepository.getAllCities();
           commit(GET_ALL_CITIES_SUCCESS, data);
@@ -45,7 +45,7 @@ export default {
       } catch (error) {
         commit(GET_ALL_CITIES_FAILURE, error);
       } finally {
-        rootState.fromLoading = false;
+        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       }
     },
   },

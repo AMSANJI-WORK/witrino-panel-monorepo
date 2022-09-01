@@ -1,11 +1,14 @@
 <template>
   <v-card elevation="0" :loading="fromLoading">
-    <product
-      v-for="inquiry in userInquiries"
-      :data-source="inquiry"
-      :key="inquiry.id"
-      :current-user-id="currentUserId"
-    />
+    <v-slide-x-transition :group="true">
+      <product
+        v-for="inquiry in userInquiries"
+        :data-source="inquiry"
+        :key="inquiry.id"
+        :current-user-id="currentUserId"
+      />
+    </v-slide-x-transition>
+
     <div class="d-flex pa-2 mt-2">
       <v-spacer></v-spacer>
       <v-pagination
@@ -37,7 +40,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userPagination: "selfItemPagination",
+      userPagination: "pagination/selfItemPagination",
       userInquiries: "guilds/inquiry/allInquiries",
     }),
     currentUserId() {

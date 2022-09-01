@@ -29,7 +29,7 @@ export default {
   data: () => ({
     dialogDisable: false,
     dialogModify: false,
-    headerDataTableClass: "blue-lighten-5 white--text",
+    headerDataTableClass: "blue accent-1",
     headers: [
       {
         text: "ردیف",

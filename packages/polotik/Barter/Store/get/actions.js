@@ -13,17 +13,18 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_BARTER_ASYNC]({ commit, rootState }, payload) {
+  async [GET_ALL_BARTER_ASYNC]({ commit, rootGetters }, payload) {
     try {
-      rootState.fromLoading = true;
-      const { pagination, selfItemPagination } = rootState;
+      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      let selfItemPagination = rootGetters["pagination/selfItemPagination"];
+      let pagination = rootGetters["pagination/pagination"];
       if (payload) {
         const { data } = await guildsRepository.getAllBarters({
           pagination: selfItemPagination,
           userId: payload.currentUserId,
         });
         commit(
-          "SET_PAGINATION",
+          "pagination/SET_PAGINATION",
           {
             target: "selfItemPagination",
             data: {
@@ -41,7 +42,7 @@ export default {
           userId: null,
         });
         commit(
-          "SET_PAGINATION",
+          "pagination/SET_PAGINATION",
           {
             target: "pagination",
             data: {
@@ -58,24 +59,34 @@ export default {
       console.log(error);
       commit(GET_ALL_BARTER_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      }, 1000);
     }
   },
 
-  async [GET_A_BARTER_ASYNC]({ commit, rootState }, payload) {
+  async [GET_A_BARTER_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
       const { data } = await guildsRepository.getABarter(payload);
       if (data.data?.offers)
-      commit("guilds/barter/request/GET_ALL_OFFER_SUCCESS", data.data.offers, {
-        root: true,
-      });
+        commit(
+          "guilds/barter/request/GET_ALL_OFFER_SUCCESS",
+          data.data.offers,
+          {
+            root: true,
+          }
+        );
       commit(GET_A_BARTER_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_A_BARTER_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      }, 1000);
     }
   },
 };

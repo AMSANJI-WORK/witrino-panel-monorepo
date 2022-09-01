@@ -9,8 +9,8 @@ import {
   defualtState,
   dataUpdate,
   SOURCE,
-} from "@packages/polotik/Sale/__mock__/store";
-import Types from "@packages/polotik/Sale/Store/modules/root/types";
+} from "@packages/polotik/sale/__mock__/store";
+import Types from "@packages/polotik/sale/store/modules/root/types";
 
 describe("sale mutations and getters", () => {
   let sales;

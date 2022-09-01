@@ -8,9 +8,9 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [DELETE_SALE_ASYNC]({ commit, rootState }, payload) {
+  async [DELETE_SALE_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const data = await guildsRepository.deleteSale(payload);
       if (data.status === 204 && data.data === "")
         commit(DELETE_SALE_SUCCESS, payload);
@@ -18,7 +18,7 @@ export default {
       console.log(error);
       commit(DELETE_SALE_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
 };

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ModifyAuction from "@packages/polotik/Auction/Components/Modify.vue";
+import ModifyAuction from "@packages/polotik/auction/components/Modify.vue";
 
 export default {
   components: {

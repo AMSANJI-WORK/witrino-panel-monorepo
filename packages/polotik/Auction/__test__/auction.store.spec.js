@@ -9,8 +9,8 @@ import {
   defualtState,
   dataUpdate,
   SOURCE,
-} from "@packages/polotik/Auction/__mock__/store";
-import Types from "@packages/polotik/Auction/Store/modules/root/types";
+} from "@packages/polotik/auction/__mock__/store";
+import Types from "@packages/polotik/auction/store/modules/root/types";
 
 describe("auction mutations and getters", () => {
   let auctions;

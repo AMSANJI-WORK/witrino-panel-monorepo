@@ -11,7 +11,7 @@ export default {
   ...setStepData,
   TOGGLE_LOADING(state) {
     state.fromLoading = !state.fromLoading;
-    state.submitBtnLoading = !state.submitBtnLoading;
+    state.fromLoading = !state.fromLoading;
   },
   RESET_TENDER(state) {
     state.tender = {

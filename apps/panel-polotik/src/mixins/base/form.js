@@ -1,4 +1,4 @@
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 const FormMixin = {
   data() {
@@ -15,10 +15,7 @@ const FormMixin = {
     };
   },
   computed: {
-    ...mapState({
-      submitBtnLoading: (state) => state.submitBtnLoading,
-      fromLoading: (state) => state.fromLoading,
-    }),
+    ...mapGetters("loading", ["fromLoading"]),
   },
 };
 

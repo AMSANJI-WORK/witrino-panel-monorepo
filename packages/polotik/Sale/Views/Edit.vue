@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import ModifySale from "@packages/polotik/Sale/Components/Modify.vue";
-import PagesDescription from "@packages/polotik/Sale/Components/PagesDescription.vue";
+import ModifySale from "@packages/polotik/sale/components/Modify.vue";
+import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
 export default {
   components: {
     ModifySale,

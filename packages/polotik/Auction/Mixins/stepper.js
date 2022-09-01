@@ -1,4 +1,4 @@
-import { createNamespacedHelpers, mapState } from "vuex";
+import { createNamespacedHelpers,  } from "vuex";
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 const TenderStepperMixin = {
   watch: {
@@ -13,10 +13,6 @@ const TenderStepperMixin = {
   },
   computed: {
     ...mapGetters({ dataSource: "auction" }),
-    ...mapState({
-      fromLoading: (state) => state.fromLoading,
-      submitBtnLoading: (state) => state.submitBtnLoading,
-    }),
     isDataSourceUpdated() {
       return this.dataSource.data;
     },

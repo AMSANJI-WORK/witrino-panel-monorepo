@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import ModifyInquiry from "@packages/polotik/Inquiry/Components/Modify.vue"
-import PagesDescription from "@packages/polotik/Inquiry/Components/PagesDescription.vue";
+import ModifyInquiry from "@packages/polotik/inquiry/components/Modify.vue"
+import PagesDescription from "@packages/polotik/inquiry/components/PagesDescription.vue";
 export default {
   components: {
     ModifyInquiry,

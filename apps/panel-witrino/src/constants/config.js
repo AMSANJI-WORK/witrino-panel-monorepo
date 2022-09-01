@@ -5,6 +5,9 @@ export const Config = Object.freeze({
 export const ConfigMock = Object.freeze({
   baseURL: `/api`,
 });
+export const ConfigDaynamic = Object.freeze({
+  baseURL: `${import.meta.env.VITE_BASE_URL}`,
+});
 export const ThemesColorNamayande = Object.freeze({
   red: "#F55861",
   dark: "#393939",
@@ -25,7 +28,6 @@ export const ThemesColorEdtehadieh = Object.freeze({
   "auth-blue": "#303C87",
 });
 export const ThemesColorAdmin = Object.freeze({
-  dark: "#1E1F2A",
   primery: "#FF9E00",
   secondary: "#C7C7C7",
   "pink-red": "#FF006F",

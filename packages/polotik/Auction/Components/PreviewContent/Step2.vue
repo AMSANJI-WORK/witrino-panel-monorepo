@@ -71,7 +71,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 import VLabel from "@polotik/components/Reusable/VLabel.vue";
 export default {

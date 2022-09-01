@@ -8,10 +8,10 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [UPDATE_INQUIRY_ASYNC]({ commit, rootState }, payload) {
+  async [UPDATE_INQUIRY_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
-      rootState.submitBtnLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+
       delete payload.offers;
       delete payload.user_offer;
       const { data } = await guildsRepository.updateInquiry(
@@ -24,8 +24,7 @@ export default {
       console.log(error);
       commit(UPDATE_INQUIRY_FAILURE, error);
     } finally {
-      rootState.submitBtnLoading = false;
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
 };

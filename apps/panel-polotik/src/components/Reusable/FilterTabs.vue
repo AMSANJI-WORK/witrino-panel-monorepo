@@ -7,7 +7,6 @@
       prev-icon="mdi-arrow-left-bold-box-outline"
       show-arrows
       v-model="tab"
-      slider-size="3"
       :ripple="false"
     >
       <v-tab class="text-caption text-md-body-2 font-weight-medium" key="list"

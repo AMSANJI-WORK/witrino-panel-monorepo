@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ModifyTender from "@packages/polotik/Tender/Components/Modify.vue";
+import ModifyTender from "@packages/polotik/tender/components/Modify.vue";
 export default {
   components: {
     ModifyTender,

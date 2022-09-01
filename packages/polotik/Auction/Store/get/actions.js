@@ -14,17 +14,18 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_AUCTION_ASYNC]({ commit, rootState }, payload) {
+  async [GET_ALL_AUCTION_ASYNC]({ commit, rootGetters }, payload) {
     try {
-      rootState.fromLoading = true;
-      const { pagination, selfItemPagination } = rootState;
+      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      let selfItemPagination = rootGetters["pagination/selfItemPagination"];
+      let pagination = rootGetters["pagination/pagination"];
       if (payload) {
         const { data } = await guildsRepository.getAllAuctions({
           pagination: selfItemPagination,
           userId: payload.currentUserId,
         });
         commit(
-          "SET_PAGINATION",
+          "pagination/SET_PAGINATION",
           {
             target: "selfItemPagination",
             data: {
@@ -42,7 +43,7 @@ export default {
           userId: null,
         });
         commit(
-          "SET_PAGINATION",
+          "pagination/SET_PAGINATION",
           {
             target: "pagination",
             data: {
@@ -59,13 +60,15 @@ export default {
       console.log(error);
       commit(GET_ALL_AUCTION_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      }, 1000);
     }
   },
 
-  async [GET_AN_AUCTION_ASYNC]({ commit, rootState }, payload) {
+  async [GET_AN_AUCTION_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await guildsRepository.getAnAuction(payload);
       if (data.data?.offers)
         commit(
@@ -88,7 +91,7 @@ export default {
       console.log(error);
       commit(GET_AN_AUCTION_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {

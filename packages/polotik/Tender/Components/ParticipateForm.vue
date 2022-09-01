@@ -129,7 +129,7 @@
         <v-btn
           color="success"
           elevation="5"
-          :loading="submitBtnLoading"
+          :loading="fromLoading"
           @click="submitTenderParticipate"
         >
           ثبت
@@ -141,11 +141,11 @@
 
 <script>
 import FormMixin from "@polotik/mixins/base/form";
-import UtilityMixin from "@polotik/mixins/utility";
-import StepperMixin from "@packages/polotik/Tender/Mixins/stepper";
-import { mapGetters, mapState, mapActions, mapMutations } from "vuex";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue"
-import TYPES from "@packages/polotik/Tender/Store/modules/request/types";
+import UtilityMixin from "@shared/mixins/utility";
+import StepperMixin from "@packages/polotik/tender/mixins/stepper";
+import { mapGetters, mapState, mapActions } from "vuex";
+import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import TYPES from "@packages/polotik/tender/modules/offers/store/types";
 export default {
   components: {
     UploadImage,

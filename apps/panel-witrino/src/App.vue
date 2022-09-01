@@ -6,13 +6,13 @@
 
 <script>
 import Cookies from "js-cookie";
-import ZoneMixin from "@packages/zone/mixin/zone";
 
 export default {
-  mixins: [ZoneMixin],
   computed: {
     isLogin() {
-      return Cookies.get("access_token") ?? null;
+      return (
+        Cookies.get("access_token") ?? Cookies.get("refresh_token") ?? null
+      );
     },
     isLoginPage() {
       return this.$route.fullPath.includes("auth");
@@ -24,7 +24,7 @@ export default {
     },
   },
   created() {
-    // this.checkPermision();
+    this.checkPermision();
   },
 };
 </script>

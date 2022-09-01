@@ -74,9 +74,9 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import FormMixin from "@polotik/mixins/base/form";
-import BarterMixin from "@packages/polotik/Barter/Mixins";
+import BarterMixin from "@packages/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";
 import VLabel from "@polotik/components/Reusable/VLabel.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";

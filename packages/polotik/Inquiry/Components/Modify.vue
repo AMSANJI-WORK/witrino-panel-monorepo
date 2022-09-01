@@ -110,7 +110,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="fromLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn
@@ -123,17 +123,17 @@
 <script>
 import moment from "moment-jalaali";
 import FormMixin from "@polotik/mixins/base/form";
-import InquiryMixin from "@packages/polotik/Inquiry/Mixins";
+import InquiryMixin from "@packages/polotik/inquiry/Mixins";
 import ServicesMixin from "@polotik/mixins/base/services";
-import UtilityMixin from "@polotik/mixins/utility";
+import UtilityMixin from "@shared/mixins/utility";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
-import CategoryService from "@packages/polotik/Service/components/Category.vue";
-import CityService from "@packages/polotik/Service/components/City.vue";
-import UnitService from "@packages/polotik/Service/components/Unit/index.vue";
-import UnitServiceSelector from "@packages/polotik/Service/components/Unit/Selector.vue";
-import UnitServiceInput from "@packages/polotik/Service/components/Unit/Input.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
+import CategoryService from "@packages/polotik/service/components/Category.vue";
+import CityService from "@packages/polotik/service/components/City.vue";
+import UnitService from "@packages/polotik/service/components/Unit/index.vue";
+import UnitServiceSelector from "@packages/polotik/service/components/Unit/Selector.vue";
+import UnitServiceInput from "@packages/polotik/service/components/Unit/Input.vue";
 import servicesTypes from "@packages/polotik/Service/store/types";
 export default {
   mixins: [InquiryMixin, FormMixin, ServicesMixin, UtilityMixin],

@@ -1,19 +1,31 @@
 <template>
-  <v-sheet rounded="lg" width="100%">
-    <content-drawer></content-drawer>
+  <v-sheet class="transparent" width="100%">
+    <DrawerSkeletonLoder v-if="pageLoading" />
+    <v-sheet v-else rounded="lg" width="100%">
+      <content-drawer></content-drawer>
+    </v-sheet>
   </v-sheet>
 </template>
 
 <script>
+import ContentDrawer from "@applets/namayande/src/components/Reusable/ContentDrawer.vue";
+import DrawerSkeletonLoder from "@shared/modules/SkeletonLoader/components/Drawer.vue";
+import SkeletonLoaderMixin from "@shared/modules/SkeletonLoader/mixins/skeleton-loading";
 import menuItems from "@applets/namayande/src/constants/menu";
 export default {
+  mixins: [SkeletonLoaderMixin],
   components: {
-    ContentDrawer: () => import("@applets/namayande/src/components/Reusable/ContentDrawer.vue"),
+    DrawerSkeletonLoder,
+    ContentDrawer,
+    ContentDrawer,
   },
   data() {
     return {
       items: menuItems,
     };
+  },
+  created() {
+    this.pageReady();
   },
 };
 </script>

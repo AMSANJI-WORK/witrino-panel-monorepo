@@ -15,7 +15,7 @@ const TenderStepperMixin = {
     ...mapGetters({ dataSource: "tender" }),
     ...mapState({
       fromLoading: (state) => state.fromLoading,
-      submitBtnLoading: (state) => state.submitBtnLoading,
+      fromLoading: (state) => state.fromLoading,
     }),
     isDataSourceUpdated() {
       return this.dataSource.data;

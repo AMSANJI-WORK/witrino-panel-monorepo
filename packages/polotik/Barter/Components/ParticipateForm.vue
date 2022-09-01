@@ -6,7 +6,7 @@
       <v-btn
         color="success"
         class="rounded-lg white--text"
-        :loading="submitBtnLoading"
+        :loading="fromLoading"
         @click="submitRequest"
         elevation="10"
       >
@@ -28,7 +28,7 @@
 
 <script>
 import FormMixin from "@polotik/mixins/base/form";
-import TYPES from "@packages/polotik/Barter/Store/modules/request/types";
+import TYPES from "@packages/polotik/barter/modules/offers/store/types";
 import { mapActions } from 'vuex';
 
 export default {

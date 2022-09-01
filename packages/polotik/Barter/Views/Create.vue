@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import ModifyBarter from "@packages/polotik/Barter/Components/Modify.vue";
+import ModifyBarter from "@packages/polotik/barter/components/Modify.vue";
 import Notification from "@polotik/components/App/Notification.vue";
-import PagesDescription from "@packages/polotik/Barter/Components/PagesDescription.vue";
+import PagesDescription from "@packages/polotik/barter/components/PagesDescription.vue";
 export default {
   components: {
     ModifyBarter,

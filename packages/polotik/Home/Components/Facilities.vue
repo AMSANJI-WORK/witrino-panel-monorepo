@@ -15,7 +15,7 @@
           height="100%"
           outlined
           :disabled="dataSource.disabled"
-          :elevation="hover ? 3 : 0"
+          :elevation="hover ? 3 : 1"
         >
           <v-card-title class="py-0">
             <v-avatar size="60" tile>
