@@ -1,8 +1,8 @@
 <template>
   <filter-tabs service="مناقصه" @chage-active-tab="handleTab">
     <template #list-content>
-      <all-product @changePage="getAllTenderAsync"
-    /></template>
+      <all-product @changePage="getAllTenderAsync" />
+    </template>
     <template #list-mine-content>
       <user-product @changePage="getAllTenderAsync({ currentUserId })" />
     </template>

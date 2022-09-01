@@ -1,17 +1,28 @@
 <template>
   <v-sheet class="transparent">
-    <pages-description />
-    <barter-filters />
+    <v-slide-x-transition>
+      <PageListSkeleton v-show="skletonLoding.list" />
+    </v-slide-x-transition>
+    <v-slide-x-transition>
+      <v-sheet v-show="!skletonLoding.list" class="transparent">
+        <PagesDescription />
+        <BarterFilters />
+      </v-sheet>
+    </v-slide-x-transition>
   </v-sheet>
 </template>
 
 <script>
-import barterFilters from "@packages/polotik/barter/components/Filters.vue";
+import BarterFilters from "@packages/polotik/barter/components/Filters.vue";
+import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
 import PagesDescription from "@packages/polotik/barter/components/PagesDescription.vue";
 export default {
+  mixins: [ToggleVisibleMixin],
   components: {
-    barterFilters,
+    BarterFilters,
     PagesDescription,
+    PageListSkeleton,
   },
   created() {
     this.$store.commit("CHANGE_SERVICE", "barter");

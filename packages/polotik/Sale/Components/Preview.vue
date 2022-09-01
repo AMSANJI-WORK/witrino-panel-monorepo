@@ -57,7 +57,7 @@
 
 <script>
 import FormMixin from "@polotik/mixins/base/form";
-import SaleMixin from "@packages/polotik/sale/Mixins";
+import SaleMixin from "@packages/polotik/sale/mixins";
 import UtilityMixin from "@shared/mixins/utility";
 import VLabel from "@polotik/components/Reusable/VLabel.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";

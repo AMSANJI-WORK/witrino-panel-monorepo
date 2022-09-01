@@ -1,11 +1,14 @@
 <template>
   <v-card elevation="0" :loading="fromLoading">
-    <product
-      v-for="auction in userAuctions"
-      :data-source="auction"
-      :key="auction.id"
-      :current-user-id="currentUserId"
-    />
+    <v-slide-x-transition :group="true">
+      <product
+        v-for="auction in userAuctions"
+        :data-source="auction"
+        :key="auction.id"
+        :current-user-id="currentUserId"
+      />
+    </v-slide-x-transition>
+
     <div class="d-flex pa-2 mt-2">
       <v-spacer></v-spacer>
       <v-pagination

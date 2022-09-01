@@ -16,7 +16,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [GET_ALL_AUCTION_ASYNC]({ commit, rootGetters }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
       let selfItemPagination = rootGetters["pagination/selfItemPagination"];
       let pagination = rootGetters["pagination/pagination"];
       if (payload) {
@@ -60,7 +60,9 @@ export default {
       console.log(error);
       commit(GET_ALL_AUCTION_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      }, 1000);
     }
   },
 

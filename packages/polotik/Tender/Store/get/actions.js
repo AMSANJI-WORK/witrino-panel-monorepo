@@ -16,7 +16,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [GET_ALL_TENDER_ASYNC]({ commit, rootGetters }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
       let selfItemPagination = rootGetters["pagination/selfItemPagination"];
       let pagination = rootGetters["pagination/pagination"];
       if (payload) {
@@ -60,13 +60,16 @@ export default {
       console.log(error);
       commit(GET_ALL_TENDER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      }, 1000);
     }
   },
 
   async [GET_A_TENDER_ASYNC]({ commit }, payload) {
     try {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
       const { data } = await guildsRepository.getATender(payload);
       if (data.data?.offers)
         commit(
@@ -82,6 +85,9 @@ export default {
       commit(GET_A_TENDER_FAILURE, error);
     } finally {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      }, 1000);
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {

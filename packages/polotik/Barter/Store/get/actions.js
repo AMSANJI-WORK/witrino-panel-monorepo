@@ -15,7 +15,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [GET_ALL_BARTER_ASYNC]({ commit, rootGetters }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
       let selfItemPagination = rootGetters["pagination/selfItemPagination"];
       let pagination = rootGetters["pagination/pagination"];
       if (payload) {
@@ -59,13 +59,16 @@ export default {
       console.log(error);
       commit(GET_ALL_BARTER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      }, 1000);
     }
   },
 
   async [GET_A_BARTER_ASYNC]({ commit }, payload) {
     try {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
       const { data } = await guildsRepository.getABarter(payload);
       if (data.data?.offers)
         commit(
@@ -81,6 +84,9 @@ export default {
       commit(GET_A_BARTER_FAILURE, error);
     } finally {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      }, 1000);
     }
   },
 };
