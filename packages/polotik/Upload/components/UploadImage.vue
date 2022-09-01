@@ -46,7 +46,7 @@
 <script>
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 
-import VImageItem from "@packages/polotik/Upload/components/VImageItem.vue";
+import VImageItem from "@packages/polotik/upload/components/VImageItem.vue";
 import { UPLOAD_FILE_ASYNC } from "@packages/polotik/Upload/store/types";
 export default {
   components: {

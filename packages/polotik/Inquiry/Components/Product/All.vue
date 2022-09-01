@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pagination: "pagination",
+      pagination: "pagination/pagination",
       allInquiries: "guilds/inquiry/allInquiries",
     }),
     currentUserId() {

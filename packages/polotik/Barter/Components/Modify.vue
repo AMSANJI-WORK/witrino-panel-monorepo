@@ -155,7 +155,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="fromLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn

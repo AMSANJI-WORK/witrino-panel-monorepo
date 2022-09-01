@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pagination: "pagination",
+      pagination: "pagination/pagination",
       allTenders: "guilds/tender/allTenders",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),

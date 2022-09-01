@@ -7,10 +7,9 @@ import {
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 export default {
-  async [CREATE_OFFER_AUCTION_ASYNC]({ commit, rootState }, payload) {
+  async [CREATE_OFFER_AUCTION_ASYNC]({ commit }, payload) {
     try {
-      rootState.submitBtnLoading = true;
-      rootState.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await guildsRepository.createOffer(payload);
       commit(CREATE_OFFER_AUCTION_SUCCESS, data);
     } catch (error) {
@@ -18,8 +17,7 @@ export default {
       commit(CREATE_OFFER_AUCTION_FAILURE, error);
     } finally {
       commit("upload/REST_IMAGES", {}, { root: true });
-      rootState.submitBtnLoading = false;
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
 };

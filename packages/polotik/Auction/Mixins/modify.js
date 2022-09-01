@@ -27,7 +27,7 @@ const AuctionModifyMixin = {
     ...mapGetters("guilds/auction", ["auction", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     ...mapState({
-      submitBtnLoading: (state) => state.submitBtnLoading,
+      fromLoading: (state) => state.fromLoading,
     }),
     auctionId() {
       return this.$route.params.id;

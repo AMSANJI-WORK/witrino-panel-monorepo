@@ -8,10 +8,10 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [CREATE_BARTER_ASYNC]({ commit, rootState }, payload) {
+  async [CREATE_BARTER_ASYNC]({ commit }, payload) {
     try {
-      rootState.submitBtnLoading = true;
-      rootState.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+
       delete payload.offers;
       delete payload.user_offer;
       const { data } = await guildsRepository.createBarter(payload);
@@ -20,8 +20,7 @@ export default {
       console.log(error);
       commit(CREATE_BARTER_FAILURE, error);
     } finally {
-      rootState.submitBtnLoading = false;
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
 };

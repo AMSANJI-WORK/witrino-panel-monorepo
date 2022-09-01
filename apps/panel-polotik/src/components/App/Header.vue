@@ -22,11 +22,6 @@
       <v-toolbar-title class="font-weight-black">پنل اصناف</v-toolbar-title>
       <v-spacer></v-spacer>
       <logo class="ml-2 d-block d-md-none" />
-
-      <!-- <v-btn text  :ripple="false" class="d-md-flex d-none mx-1">
-        سبد خرید
-        <v-icon color="yellow" class="mr-2">mdi-basket-outline</v-icon>
-      </v-btn> -->
       <v-btn small fab :ripple="false" class="d-md-flex ml-2 d-none">
         <v-badge dot overlap left color="error">
           <v-icon color="gray" small>mdi-bell-outline</v-icon>
@@ -49,12 +44,8 @@ export default {
     };
   },
   methods: {
-    getToken() {},
     toggleDrawer() {
       navigation.drawer = !navigation.drawer;
-    },
-    toggleMiniVariant() {
-      navigation.miniVariant = !navigation.miniVariant;
     },
   },
 };

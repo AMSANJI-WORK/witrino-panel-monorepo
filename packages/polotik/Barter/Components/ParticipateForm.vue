@@ -6,7 +6,7 @@
       <v-btn
         color="success"
         class="rounded-lg white--text"
-        :loading="submitBtnLoading"
+        :loading="fromLoading"
         @click="submitRequest"
         elevation="10"
       >

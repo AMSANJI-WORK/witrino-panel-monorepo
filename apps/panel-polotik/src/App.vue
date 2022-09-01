@@ -19,7 +19,6 @@ export default {
     // },
   },
   created() {
-    console.dir(this.$store.getters);
     // this.isAuthorizate();
   },
 };

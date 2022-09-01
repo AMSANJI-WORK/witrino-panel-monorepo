@@ -14,17 +14,17 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_OFFER_ASYNC]({ commit, rootState }, payload) {
+  async [GET_ALL_OFFER_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
-      const { pagination } = rootState;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      let pagination = rootGetters["pagination/pagination"];
       const { data } = await guildsRepository.getAllOffers(
         payload.target,
         payload.id,
         pagination
       );
       commit(
-        "SET_PAGINATION",
+        "pagination/SET_PAGINATION",
         {
           target: "pagination",
           data: {
@@ -40,13 +40,13 @@ export default {
       console.log(error);
       commit(GET_ALL_OFFER_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
 
-  async [GET_AN_OFFER_ASYNC]({ commit, rootState }, payload) {
+  async [GET_AN_OFFER_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await guildsRepository.getAOffer(
         payload.target,
         payload.id
@@ -56,7 +56,7 @@ export default {
       console.log(error);
       commit(GET_AN_OFFER_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {

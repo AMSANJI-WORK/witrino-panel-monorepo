@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userPagination: "selfItemPagination",
+      userPagination: "pagination/selfItemPagination",
       userAuctions: "guilds/auction/allAuctions",
     }),
     currentUserId() {

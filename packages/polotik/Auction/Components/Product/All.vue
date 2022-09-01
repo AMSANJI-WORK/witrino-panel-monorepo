@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pagination: "pagination",
+      pagination: "pagination/pagination",
       allAuctions: "guilds/auction/allAuctions",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),

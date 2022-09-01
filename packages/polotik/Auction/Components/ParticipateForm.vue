@@ -128,7 +128,7 @@
         </v-btn>
         <v-btn
           color="primary"
-          :loading="submitBtnLoading"
+          :loading="fromLoading"
           @click="submitAuctionParticipate"
         >
           ثبت
@@ -139,7 +139,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
@@ -180,9 +180,6 @@ export default {
     ...mapGetters({
       auction: "guilds/auction/auction",
       uploadedImages: "upload/successUploadedImages",
-    }),
-    ...mapState({
-      fromLoading: (state) => state.fromLoading,
     }),
     auctionId() {
       return this.$route.params.id;

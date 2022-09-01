@@ -39,7 +39,7 @@
             :next-btn-text="submitBtnTilte"
             :next-btn-function="submit"
             :next-btn-color="submitBtnColor"
-            :next-btn-loading="submitBtnLoading"
+            :next-btn-loading="fromLoading"
           />
         </v-stepper-content>
       </v-stepper-items>
@@ -118,7 +118,7 @@
           :next-btn-text="submitBtnTilte"
           :next-btn-function="submit"
           :next-btn-color="submitBtnColor"
-          :next-btn-loading="submitBtnLoading"
+          :next-btn-loading="fromLoading"
         />
       </v-stepper-content>
     </v-stepper>

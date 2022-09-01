@@ -8,10 +8,10 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [UPDATE_AUCTION_ASYNC]({ commit, rootState }, payload) {
+  async [UPDATE_AUCTION_ASYNC]({ commit }, payload) {
     try {
-      rootState.fromLoading = true;
-      rootState.submitBtnLoading = true;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+
       delete payload.created_at;
       delete payload.updated_at;
       delete payload?.offers;
@@ -31,8 +31,7 @@ export default {
       console.log(error);
       commit(UPDATE_AUCTION_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
-      rootState.submitBtnLoading = false;
+      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }
   },
 };
