@@ -3,20 +3,22 @@
     <v-container class="pa-0 fill-height">
       <slot name="header-title" />
       <v-spacer></v-spacer>
-      <header-content-end />
+      <slot name="header-end" v-if="hasSlotEnd" />
+      <HeaderContentEnd v-else />
     </v-container>
   </v-app-bar>
 </template>
 
 <script>
-import HeaderContentEnd from "@shared/components/Reusable/HeaderContentEnd.vue";
+import HeaderContentEnd from "./HeaderContentEnd.vue";
 export default {
   props: {
-    color: String,
+    color: { type: String, default: "#495057" },
     dark: {
       type: Boolean,
       default: true,
     },
+    hasSlotEnd: Boolean,
   },
   components: {
     HeaderContentEnd,

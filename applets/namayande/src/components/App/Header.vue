@@ -18,8 +18,7 @@
 <script>
 import Logo from "@shared/components/Icons/Namayande/Logo.vue";
 import navigation from "@applets/namayande/src/constants/data";
-import AppHeader from "@shared/components/App/Header.vue";
-
+import AppHeader from "@commen/header/components/Header.vue";
 import Cookies from "js-cookie";
 export default {
   components: {

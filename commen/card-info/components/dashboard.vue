@@ -1,7 +1,7 @@
 <template>
   <v-hover>
     <template v-slot:default="{ hover }">
-      <v-col class="pa-2" cols="6" sm="6" md="3">
+      <v-col class="pa-2" cols="6" sm="6" :md="colSizeMd">
         <v-card
           class="pa-2 d-flex flex-wrap rounded-lg transition-swing cursor-pointer"
           outlined
@@ -15,17 +15,20 @@
               <v-list-item-title
                 class="mb-1 d-flex flex-wrap justify-space-between"
               >
-                <p class="font-weight-bold text-subtitle-1">
+                <p class="font-weight-normal text-caption">
                   {{ dataSource.title }}
                 </p>
-                <v-sheet class="transparent">
-                  <p :class="colorize(dataSource.present)">
+                <div>
+                  <p
+                    class="text-subtitle-2 font-weight-light"
+                    :class="colorize(dataSource.present)"
+                  >
                     <v-icon small :color="colorizeIcon(dataSource.present)">{{
                       dataSource.present > 0 ? "mdi-arrow-up" : "mdi-arrow-down"
                     }}</v-icon>
-                    {{ present }}
+                    {{ present + "%" }}
                   </p>
-                </v-sheet>
+                </div>
               </v-list-item-title>
               <v-card-title class="pa-0">{{ dataSource.number }}</v-card-title>
             </v-list-item-content>
@@ -40,6 +43,10 @@
 export default {
   props: {
     dataSource: Object,
+    colSizeMd: {
+      type: Number,
+      default: 3,
+    },
   },
   computed: {
     present() {
@@ -59,5 +66,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

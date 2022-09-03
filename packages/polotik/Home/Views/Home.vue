@@ -3,7 +3,7 @@
     <v-sheet
       class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
     >
-      <Icons
+      <CardInfoDashboard
         v-for="icon in boxTopData"
         :key="icon.number"
         :data-source="icon"
@@ -78,13 +78,13 @@
 import Cookies from "js-cookie";
 import boxTopData from "@packages/polotik/Home/mock/boxTop";
 import FacilitiesData from "@packages/polotik/Home/mock/facilities";
-import Icons from "@packages/polotik/Home/components/Icons.vue";
+import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
 import Facilities from "@packages/polotik/Home/components/Facilities.vue";
 import Notification from "@polotik/components/App/Notification.vue";
 
 export default {
   components: {
-    Icons,
+    CardInfoDashboard,
     Notification,
     Facilities,
   },

@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import ChangePanelDropDown from "@shared/components/ChangePanelDropDown.vue";
+import ChangePanelDropDown from "./ChangePanelDropDown.vue";
 import Cookies from "js-cookie";
 
 export default {

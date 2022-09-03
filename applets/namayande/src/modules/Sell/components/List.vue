@@ -3,7 +3,7 @@
     <div
       class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
     >
-      <DashboardProjectIcons
+      <CardInfoDashboard
         v-for="(icon, index) in boxTopData"
         :key="index"
         :col-size-md="4"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
+import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import DataTable from "./DataTable.vue";
 import boxTopData from "@applets/namayande/src/modules/Sell/mock/boxTop";
@@ -34,7 +34,7 @@ export default {
   },
   components: {
     SectionDivider,
-    DashboardProjectIcons,
+    CardInfoDashboard,
     DataTable,
   },
 };

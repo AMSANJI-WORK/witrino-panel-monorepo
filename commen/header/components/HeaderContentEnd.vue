@@ -1,8 +1,7 @@
 <template>
-  <v-sheet elevation="0" class="transparent d-flex" width="100%">
-    <change-panel-drop-down />
-    <v-spacer></v-spacer>
-    <v-btn dark icon :ripple="false" class="ml-2">
+  <v-sheet elevation="0" class="transparent d-flex">
+    <change-panel-drop-down class="d-none d-md-block" />
+    <v-btn dark icon :ripple="false" class="d-md-flex ml-2 d-none">
       <v-badge dot overlap left color="error" offset-x="10" offset-y="10">
         <v-icon color="gray">mdi-bell-outline</v-icon>
       </v-badge>
@@ -13,7 +12,7 @@
       link
       :to="`/profile/${userId}`"
       :ripple="false"
-      class="ml-2"
+      class="d-md-flex ml-2 d-none"
     >
       <v-badge dot overlap left color="error" offset-x="10" offset-y="10">
         <v-icon color="gray">mdi-account-outline</v-icon>
@@ -29,6 +28,7 @@
           link
           to="/auth/logout"
           :ripple="false"
+          class="d-md-flex ml-2 d-none"
         >
           <v-icon color="gray">mdi-power</v-icon>
         </v-btn>
@@ -39,9 +39,8 @@
 </template>
 
 <script>
-import ChangePanelDropDown from "@shared/components/ChangePanelDropDown.vue";
+import ChangePanelDropDown from "./ChangePanelDropDown.vue";
 import Cookies from "js-cookie";
-
 export default {
   components: {
     ChangePanelDropDown,

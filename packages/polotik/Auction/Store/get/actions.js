@@ -69,6 +69,7 @@ export default {
   async [GET_AN_AUCTION_ASYNC]({ commit }, payload) {
     try {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
       const { data } = await guildsRepository.getAnAuction(payload);
       if (data.data?.offers)
         commit(
@@ -92,6 +93,9 @@ export default {
       commit(GET_AN_AUCTION_FAILURE, error);
     } finally {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      setTimeout(() => {
+        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      }, 1000);
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
