@@ -48,11 +48,11 @@
                 }}</span
               >
             </v-chip>
-            <RequestLink
+            <!-- <RequestLink
               v-if="isCurrentUser"
               :newRequestCount="2"
               :productId="dataSource.id"
-            />
+            /> -->
             <v-spacer></v-spacer>
             <div v-if="isCurrentUser" class="d-flex flex-row flex-wrap mt-2">
               <v-btn

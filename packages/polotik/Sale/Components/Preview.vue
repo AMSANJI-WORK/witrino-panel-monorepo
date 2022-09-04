@@ -43,7 +43,7 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <v-btn
+    <!-- <v-btn
       v-if="currentUserId != editableSale.user_id"
       color="red"
       dark
@@ -51,7 +51,7 @@
       to="request"
       class="mr-auto"
       >شرکت در حراجی</v-btn
-    >
+    > -->
   </v-card>
 </template>
 
