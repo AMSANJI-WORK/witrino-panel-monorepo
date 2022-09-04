@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import Err403 from "@commen/icons/components/polotik/Err403.vue";
-import Err403Moblie from "@commen/icons/components/polotik/ErrMoblie403.vue";
-import DefualtLayout from "@packages/polotik/Auth/layout/Defualt.vue";
+import Err403 from "@commen/icons/components/Err403.vue";
+import Err403Moblie from "@commen/icons/components/ErrMoblie403.vue";
+import DefualtLayout from "@packages/polotik/auth/layout/Defualt.vue";
 import SetPermissionAvatar from "@commen/icons/components/polotik/SetPermissionAvatar.vue";
 export default {
   components: {

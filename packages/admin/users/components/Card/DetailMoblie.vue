@@ -1,7 +1,7 @@
 <template>
   <v-card-title class="d-flex flex-column justify-center d-md-none">
     <v-avatar size="150" class="ma-md-3 mx-auto">
-      <img :src="require('@shared/assets/image/png/card-branch-avatar.png')" />
+      <img :src="require('@commen/assets/image/png/card-branch-avatar.png')" />
     </v-avatar>
     <v-sheet class="d-flex flex-column justify-center">
       <v-sheet class="d-flex flex-column align-center">

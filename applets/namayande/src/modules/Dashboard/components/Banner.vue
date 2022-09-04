@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .banner-bg {
-  background: url(@shared/assets/image/svg/WBannerBackground.svg) no-repeat center;
+  background: url(@commen/assets/image/svg/WBannerBackground.svg) no-repeat center;
   background-size: cover;
 }
 .v-application .text-h6 {

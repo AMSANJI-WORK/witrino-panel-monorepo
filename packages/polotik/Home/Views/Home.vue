@@ -78,9 +78,9 @@
 import Cookies from "js-cookie";
 import boxTopData from "@packages/polotik/Home/mock/boxTop";
 import FacilitiesData from "@packages/polotik/Home/mock/facilities";
-import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
+import Notification from "@commen/card/components/Notification.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import Facilities from "@packages/polotik/Home/components/Facilities.vue";
-import Notification from "@polotik/components/App/Notification.vue";
 
 export default {
   components: {

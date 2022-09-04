@@ -51,7 +51,7 @@
 
 <script>
 import QRCode from "@applets/admin/src/components/Icons/QRCode.vue";
-import VLabel from "@shared/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import WCalender from "@applets/admin/src/components/Icons/WCalender.vue";
 export default {
     components: {

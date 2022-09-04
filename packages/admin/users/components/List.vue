@@ -25,14 +25,13 @@
 </template>
 
 <script>
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
 import boxTopData from "../mock/boxTop";
+import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import TableBtnCreate from "@shared/components/Reusable/TableBtnCreate.vue";
 import DataTable from "./DataTable.vue";
 export default {
   components: {
-    DashboardProjectIcons,
     CardInfoDashboard,
     SectionDivider,
     TableBtnCreate,

@@ -30,7 +30,7 @@
     <v-avatar size="150" color="grey" class="ma-md-3 mx-auto rounded-circle">
       <img
         class="rounded-circle"
-        :src="require('@shared/assets/image/png/image-default.png')"
+        :src="require('@commen/assets/image/png/image-default.png')"
         v-if="!image"
       />
       <img v-else class="rounded-circle" :src="getImage(image)" />
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import VLabel from "@shared/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: {
     VLabel,

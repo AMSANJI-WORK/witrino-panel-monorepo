@@ -32,7 +32,7 @@ export default {
   },
   data: () => ({
     dialog: false,
-    MassageIcon: () => import("@polotik/components/Icons/Massage.vue"),
+    MassageIcon: () => import("@commen/icons/components/polotik/Massage.vue"),
   }),
   computed: {
     ...mapGetters(`${Types.RESOURCE}`, ["offers", "offer"]),

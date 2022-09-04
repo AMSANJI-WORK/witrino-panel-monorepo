@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "dependencies": {
     "bread-crumbs": "*",
-    "card-info": "*",
+    "card": "*",
     "assets": "*",
     "header": "*",
     "icons": "*",
-    "zone": "*"
+    "zone": "*",
+    "label": "*"
   }
 }

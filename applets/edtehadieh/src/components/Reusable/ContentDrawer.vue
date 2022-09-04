@@ -17,7 +17,7 @@
         width="100%"
       >
         <v-avatar size="100" color="grey" class="mt-6">
-          <img src="@shared/assets/image/png/sofa.png" />
+          <img src="@commen/assets/image/png/sofa.png" />
         </v-avatar>
         <v-sheet class="text-center mt-5 mb-2 transparent">
           <h4 class="my-1 white--text">گروه تولیدی و صنعتی حسام</h4>
@@ -123,7 +123,7 @@ export default {
   background: #9529ff;
 }
 .sheet-ineer--background-img {
-  background: url(@shared/assets/image/svg/sofabg.svg) no-repeat left bottom;
+  background: url(@commen/assets/image/svg/sofabg.svg) no-repeat left bottom;
 }
 .sheet--boreder-bottom {
   border-bottom-left-radius: 75px;

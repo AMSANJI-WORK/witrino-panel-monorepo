@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import LocationList from "@applets/admin/src/modules/Branchs/components/LocationList.vue";
 import DataTable from "@applets/admin/src/modules/Branchs/components/DataTable/BranchList.vue";

@@ -4,7 +4,7 @@
     elevation="0"
   >
     <v-avatar size="150" class="ma-md-3 mx-auto">
-      <img src="@shared/assets/image/png/card-branch-avatar.png" />
+      <img src="@commen/assets/image/png/card-branch-avatar.png" />
     </v-avatar>
     <v-card-text
       class="d-flex flex-md-row flex-column justify-space-between align-center align-md-start"
@@ -48,7 +48,7 @@
 
 <script>
 import QRCode from "@commen/icons/components/QRCode.vue";
-import VLabel from "@shared/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import WCalender from "@commen/icons/components/WCalender.vue";
 export default {
   components: {

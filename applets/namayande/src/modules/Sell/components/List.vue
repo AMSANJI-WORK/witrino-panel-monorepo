@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
 import DataTable from "./DataTable.vue";
 import boxTopData from "@applets/namayande/src/modules/Sell/mock/boxTop";

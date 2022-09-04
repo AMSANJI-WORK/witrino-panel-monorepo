@@ -15,7 +15,7 @@
 import PreviewForm from "@packages/polotik/tender/components/Preview.vue";
 import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
 
-import PagePreviewTypeSecond from "@polotik/modules/loading/components/PagePreviewTypeSecond.vue";
+import PagePreviewTypeSecond from "@polotik/modules/loading/components/PagePreviewSkeletonTypeSecond.vue";
 
 export default {
   mixins: [ToggleVisibleMixin],

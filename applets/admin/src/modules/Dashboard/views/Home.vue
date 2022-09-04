@@ -25,9 +25,9 @@
 
 <script>
 import boxTopData from "@applets/admin/src/modules/Dashboard/mock/boxTop";
-import CardInfoDashboard from "@commen/card-info/components/dashboard.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import NotificationProduct from "@shared/components/NotificationProduct.vue";
+import NotificationProduct from "@commen/card/components/NotificationProduct.vue";
 export default {
   components: {
     CardInfoDashboard,

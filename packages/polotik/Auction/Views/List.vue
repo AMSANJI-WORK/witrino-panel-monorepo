@@ -28,7 +28,7 @@
 <script>
 import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
 import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
-import Notification from "@polotik/components/App/Notification.vue";
+import Notification from "@commen/card/components/Notification.vue";
 import AuctionFilters from "@packages/polotik/auction/components/Filters.vue";
 
 export default {

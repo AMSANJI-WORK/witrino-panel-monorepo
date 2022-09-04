@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Notification from "@polotik/components/App/Notification.vue";
+import Notification from "@commen/card/components/Notification.vue";
 export default {
   components: { Notification },
   computed: {

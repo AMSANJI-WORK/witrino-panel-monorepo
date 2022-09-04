@@ -21,7 +21,7 @@
                 <v-col cols="12" class="d-flex justify-center">
                   <v-img
                     height="60%"
-                    :src="require('@shared/assets/image/png/witrino-store.png')"
+                    :src="require('@commen/assets/image/png/witrino-store.png')"
                   ></v-img>
                 </v-col>
               </v-row>

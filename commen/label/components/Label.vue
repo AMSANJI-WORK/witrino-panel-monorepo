@@ -21,19 +21,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.v-application .text-sm-body-1 {
-  font-size: 1rem !important;
-  font-weight: 400;
-  line-height: 1.5rem;
-  letter-spacing: 0.03125em !important;
-  font-family: Vazir !important;
-}
-.v-application .text-caption {
-  font-size: 0.75rem !important;
-  font-weight: 400;
-  line-height: 1.25rem;
-  letter-spacing: 0.0333333333em !important;
-  font-family: Vazir !important;
-}
-</style>
+<style lang="scss" scoped></style>

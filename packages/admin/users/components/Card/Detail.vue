@@ -49,7 +49,7 @@
 <script>
 import moment from "moment-jalaali";
 import UserMixin from "@packages/admin/users/mixins/modify";
-import VLabel from "@shared/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 export default {
   mixins: [UserMixin],
   components: {
