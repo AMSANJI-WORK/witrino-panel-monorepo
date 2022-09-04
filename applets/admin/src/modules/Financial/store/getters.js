@@ -1,6 +1,6 @@
 const getters = {
-  allInquiries(state) {
-    return state.inquiries;
+  inquiryList(state) {
+    return state.inquiryList;
   },
   inquiry(state) {
     return state.inquiry;

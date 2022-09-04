@@ -21,7 +21,7 @@
               :label-value="offer.time | convertTodateFa"
             />
             <v-chip class="white--text blue darken-2 font-weight-bold">
-              قیمت {{ offer.price | toRial }} تومان
+              قیمت {{ user.price | toRial }} تومان
             </v-chip>
           </v-card-subtitle>
           <v-card-text class="green-lighten-6 rounded-lg">
@@ -68,8 +68,8 @@
 import { mapGetters } from "vuex";
 import moment from "moment-jalaali";
 import UtilityMixin from "@shared/mixins/utility";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
-import RequestMixin from "@packages/polotik/auction/modules/offers/mixins/request";
+import VLabel from "@commen/label/components/Label.vue";
+import RequestMixin from "@packages/polotik/barter/modules/offers/mixins/request";
 export default {
   mixins: [UtilityMixin, RequestMixin],
   components: {
@@ -89,7 +89,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("guilds/auction/request", ["userOffers"]),
+    ...mapGetters("guilds/barter/request", ["userOffers"]),
   },
   methods: {
     chipColor(value) {

@@ -1,7 +1,7 @@
 <template>
   <v-card class="rounded-lg mx-2">
     <v-card-subtitle class="grey lighten-2 black--text">
-     نام :  {{ auction.title }}
+     نام :  {{ barter.title }}
     </v-card-subtitle>
     <v-card-text>
       <ProductInfo />
@@ -24,7 +24,7 @@ export default {
     TabFilter,
   },
   computed: {
-    ...mapGetters("guilds/auction", ["auction"]),
+    ...mapGetters("guilds/barter", ["barter"]),
   },
 };
 </script>

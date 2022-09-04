@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters({
       userPagination: "pagination/selfItemPagination",
-      userInquiries: "guilds/inquiry/allInquiries",
+      userInquiries: "guilds/inquiry/inquiryList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

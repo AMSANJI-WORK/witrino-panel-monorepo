@@ -1,5 +1,5 @@
 const state = () => ({
-  auctions: [],
+  auctionList: [],
   auction: {
     id: null,
     title: null,

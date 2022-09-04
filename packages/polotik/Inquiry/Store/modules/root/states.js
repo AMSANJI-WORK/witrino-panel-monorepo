@@ -1,5 +1,5 @@
 const state = () => ({
-  inquiries: [],
+  inquiryList: [],
   inquiry: {
     title: null,
     description: null,

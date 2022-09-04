@@ -35,7 +35,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import VImageItemStepper from "@polotik/components/Reusable/VImageItemStepper.vue";
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 export default {

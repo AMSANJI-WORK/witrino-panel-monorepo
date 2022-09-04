@@ -79,6 +79,14 @@ export default {
             root: true,
           }
         );
+      if (data.data?.user_offer)
+        commit(
+          "guilds/tender/request/GET_ALL_USER_OFFER_SUCCESS",
+          data.data.user_offer,
+          {
+            root: true,
+          }
+        );
       commit(GET_A_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);

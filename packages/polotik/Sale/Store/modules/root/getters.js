@@ -1,5 +1,5 @@
 const getters = {
-  allSales(state) {
+  saleList(state) {
     return state.sales;
   },
   sale(state) {

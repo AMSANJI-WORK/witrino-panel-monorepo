@@ -282,7 +282,7 @@ export const dataUpdate = {
   },
 };
 export const defualtState = {
-  inquiries: [],
+  inquiryList: [],
   inquiry: {
     title: null,
     description: null,

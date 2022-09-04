@@ -4,8 +4,11 @@
     <v-card-actions class="px-5 pb-4">
       <v-spacer></v-spacer>
       <auction-participate-form v-if="showDialogBtn" />
-      <v-btn v-else color="success" @click="$router.push('outcome')"
-        >پیگیری درخواست</v-btn
+      <v-btn
+        v-if="showDialogBtn"
+        color="success"
+        @click="$router.push('outcome')"
+        >پیگیری پیشنهاد های من</v-btn
       >
     </v-card-actions>
   </v-card>
@@ -39,7 +42,8 @@ export default {
     },
     showDialogBtn() {
       return (
-        this.currentUserId != this.auction.user_id && !this.auction?.user_offer
+        this.currentUserId != this.auction.user_id &&
+        !this.auction?.user_offer?.length >= 1
       );
     },
   },

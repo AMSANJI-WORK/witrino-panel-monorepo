@@ -35,7 +35,7 @@
 <script>
 import { mapGetters } from "vuex";
 import moment from "moment-jalaali";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: {
     VLabel,

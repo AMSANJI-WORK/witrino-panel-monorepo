@@ -1,6 +1,6 @@
 const getters = {
-  allBarters(state) {
-    return state.barters;
+  barterList(state) {
+    return state.barterList;
   },
   barter(state) {
     return state.barter;

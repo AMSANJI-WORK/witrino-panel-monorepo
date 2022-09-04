@@ -10,7 +10,6 @@ export default {
   async [CREATE_OFFER_TENDER_ASYNC]({ commit }, payload) {
     try {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-
       const { data } = await guildsRepository.createOffer(payload);
       commit(CREATE_OFFER_TENDER_SUCCESS, data);
     } catch (error) {

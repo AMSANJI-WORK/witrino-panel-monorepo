@@ -1,15 +1,15 @@
 <template>
-  <div class="d-inline-flex my-2 pr-sm-4">
+  <v-sheet class="d-sm-inline-flex my-2 pr-sm-4 transparent">
     <slot name="icon" />
-    <label for="title" class="mr-1 text-sm-body-1 text-caption"
+    <label for="title" class="mr-1 text-sm-body-1 text-no-wrap text-caption"
       >{{ label }} :
     </label>
-    <div
-      class="mx-xs-3 mx-1 text--secondary text-truncate text-sm-body-1 text-caption"
+    <v-sheet
+      class="mx-xs-3 mx-1 text--secondary text-sm-body-1 text-caption transparent"
     >
       {{ labelValue }}
-    </div>
-  </div>
+    </v-sheet>
+  </v-sheet>
 </template>
 
 <script>

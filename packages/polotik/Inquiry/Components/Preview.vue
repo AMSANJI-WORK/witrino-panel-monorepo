@@ -58,15 +58,33 @@
       </v-card>
     </v-col>
     <!--  -->
-    <ParticipateForm v-if="currentUserId != editableInquiry.user_id" />
+    <ParticipateForm
+      v-if="
+        currentUserId != editableInquiry.user_id &&
+        editableInquiry?.user_offer?.length == 0
+      "
+    />
+    <v-col
+      cols="12"
+      class="d-flex"
+      v-if="
+        currentUserId != editableInquiry.user_id &&
+        editableInquiry?.user_offer?.length >= 1
+      "
+    >
+      <v-spacer></v-spacer>
+      <v-btn color="success" @click="$router.push('outcome')"
+        >پیگیری پیشنهاد های ارسال شده</v-btn
+      >
+    </v-col>
   </v-card>
 </template>
 
 <script>
 import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
-import InquiryMixin from "@packages/polotik/inquiry/Mixins";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import InquiryMixin from "@packages/polotik/inquiry/mixins/index";
+import VLabel from "@commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import ParticipateForm from "./ParticipateForm.vue";
 import { mapGetters } from "vuex";

@@ -9,7 +9,7 @@ import {
 } from "./types";
 export default {
   [GET_ALL_INQUIRY_SUCCESS](state, payload) {
-    state.inquiries = [...payload.data];
+    state.inquiryList = [...payload.data];
     Vue.$toast.open({
       message: "استعلام ها با موفقیت دریافت شد",
       type: "success",

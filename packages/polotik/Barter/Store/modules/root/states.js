@@ -1,5 +1,5 @@
 const state = () => ({
-  barters: [],
+  barterList: [],
   barter: {
     title: null,
     description: null,

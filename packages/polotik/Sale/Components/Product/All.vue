@@ -2,7 +2,7 @@
   <v-card elevation="0" :loading="fromLoading">
     <v-slide-x-transition :group="true">
       <product
-        v-for="sale in allSales"
+        v-for="sale in saleList"
         :key="sale.id"
         :data-source="sale"
         :current-user-id="currentUserId"
@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters({
       pagination: "pagination/pagination",
-      allSales: "guilds/sale/allSales",
+      saleList: "guilds/sale/saleList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

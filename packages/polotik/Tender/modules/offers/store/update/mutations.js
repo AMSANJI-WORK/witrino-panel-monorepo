@@ -11,10 +11,10 @@ export default {
     if (!targetIndex)
       Vue.$toast.error( "مورد یافت نشد");
     state.offers[targetIndex] = Object.assign({}, payload);
-    Vue.$toast.success("مناقصه ها با موفقیت ویرایش شد");
+    Vue.$toast.success("مزایده ها با موفقیت ویرایش شد");
   },
   [UPDATE_OFFER_TENDER_FAILURE](_, error) {
-    Vue.$toast.error("ویرایش مناقصه با خطا مواجه شد");
+    Vue.$toast.error("ویرایش مزایده با خطا مواجه شد");
     console.log(error);
   },
 };

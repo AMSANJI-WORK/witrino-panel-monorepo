@@ -2,7 +2,7 @@ import UserClient from "@polotik/repositories/clients/user";
 ;
 const Source = "/guilds/sales";
 export default {
-  getAllSales({ pagination, userId }) {
+  getsaleList({ pagination, userId }) {
     const { size, page } = pagination;
     if (userId)
       return UserClient.get(

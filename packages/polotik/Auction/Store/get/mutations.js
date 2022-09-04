@@ -10,7 +10,7 @@ import {
 } from "./types";
 export default {
   [GET_ALL_AUCTION_SUCCESS](state, payload) {
-    state.auctions = [...payload.data];
+    state.auctionList = [...payload.data];
   },
   [GET_ALL_AUCTION_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");

@@ -3,7 +3,8 @@ export default [
   {
     path: ":id/request",
     name: "tender-request-page",
-    component: () => import("@packages/polotik/tender/modules/offers/views/Request.vue"),
+    component: () =>
+      import("@packages/polotik/tender/modules/offers/views/Request.vue"),
     beforeEnter: resetTender,
     meta: {
       breadCrumb: [
@@ -25,7 +26,8 @@ export default [
   {
     path: ":id/outcome",
     name: "tender-follow-page",
-    component: () => import("@packages/polotik/tender/modules/offers/views/OutCome.vue"),
+    component: () =>
+      import("@packages/polotik/tender/modules/offers/views/OutCome.vue"),
     beforeEnter: resetTender,
     meta: {
       breadCrumb: [

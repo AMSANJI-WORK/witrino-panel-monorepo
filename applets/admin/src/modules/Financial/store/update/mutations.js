@@ -7,7 +7,7 @@ import {
 import Vue from "vue";
 export default {
     [UPDATE_INQUIRY_SUCCESS](state, payload) {
-        const targetIndex = state.inquiries.findIndex(
+        const targetIndex = state.inquiryList.findIndex(
             (inquiry) => inquiry.id === payload.id
         );
         if (!targetIndex)
@@ -15,7 +15,7 @@ export default {
                 message: "مورد یافت نشد",
                 type: "error",
             });
-        state.inquiries[targetIndex] = Object.assign({}, payload);
+        state.inquiryList[targetIndex] = Object.assign({}, payload);
         Vue.$toast.open({
             message: "ویرایش استعلام با موفقیت انجام شد",
             type: "success",
@@ -29,7 +29,7 @@ export default {
         console.log(error);
     },
     [UPDATE_STATUS_INQUIRY_SUCCESS](state, payload) {
-        const targetIndex = state.inquiries.findIndex(
+        const targetIndex = state.inquiryList.findIndex(
             (inquiry) => inquiry.id === payload.id
         );
         if (!targetIndex)
@@ -37,7 +37,7 @@ export default {
                 message: "مورد یافت نشد",
                 type: "error",
             });
-        state.inquiries[targetIndex] = Object.assign({}, payload);
+        state.inquiryList[targetIndex] = Object.assign({}, payload);
         Vue.$toast.open({
             message: "ویرایش استعلام با موفقیت انجام شد",
             type: "success",

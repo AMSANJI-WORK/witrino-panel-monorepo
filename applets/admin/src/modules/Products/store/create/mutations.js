@@ -5,7 +5,7 @@ import {
 } from "./types";
 export default {
   [CREATE_INQUIRY_SUCCESS](state, payload) {
-    state.inquiries = [...state.inquiries, payload.data];
+    state.inquiryList = [...state.inquiryList, payload.data];
     Vue.$toast.open({
       message: "استعلام جدید با موفقیت ایجاد شد",
       type: "success",

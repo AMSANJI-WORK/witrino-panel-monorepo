@@ -72,8 +72,16 @@ export default {
       const { data } = await guildsRepository.getAnInquiry(payload);
       if (data.data?.offers)
         commit(
-          "guilds/inquiry/request/GET_ALL_OFFER_SUCCESS",
+          "guilds/inquiry/request/GET_ALL_OFFER_INQUIRY_SUCCESS",
           data.data.offers,
+          {
+            root: true,
+          }
+        );
+      if (data.data?.user_offer)
+        commit(
+          "guilds/inquiry/request/GET_ALL_USER_OFFER_SUCCESS",
+          data.data.user_offer,
           {
             root: true,
           }

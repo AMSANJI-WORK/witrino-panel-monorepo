@@ -45,8 +45,8 @@
               >
             </v-chip>
             <RequestLink
-              v-if="isCurrentUser"
-              :newRequestCount="2"
+              v-if="isCurrentUser && dataSource.offers_count != 0"
+              :new-request-count="dataSource.offers_count"
               :productId="dataSource.id"
             />
 

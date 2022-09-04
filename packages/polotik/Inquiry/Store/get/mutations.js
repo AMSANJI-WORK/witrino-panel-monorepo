@@ -9,7 +9,7 @@ import {
 } from "./types";
 export default {
   [GET_ALL_INQUIRY_SUCCESS](state, payload) {
-    state.inquiries = [...payload.data];
+    state.inquiryList = [...payload.data];
   },
   [GET_ALL_INQUIRY_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");

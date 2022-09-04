@@ -496,7 +496,7 @@ export const dataUpdate = {
   },
 };
 export const defualtState = {
-  tenders: [],
+  tenderList: [],
   tender: {
     id: null,
     title: null,

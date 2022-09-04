@@ -15,7 +15,7 @@
               </v-avatar>
               <h5 class="mx-4">{{ user.name }}</h5>
             </v-sheet>
-            <v-label label="شماره همراه" :label-value="user.mobile" />
+            <v-label label="شماره همراه" :label-value="offer.data.phone" />
             <v-label
               label="تاریخ ثبت درخواست"
               :label-value="offer.time | convertTodateFa"
@@ -28,18 +28,26 @@
             <v-sheet class="transparent px-3 pt-5 text-caption"
               >{{ offer.description }}
               <br />
-              {{offer.data.comment}}
+              آدرس :
+              {{ offer.data.address }}
+              <br />
+              نظر :
+              {{ offer.data.comment }}
             </v-sheet>
             <v-sheet class="transparent pa-3 d-flex flex-wrap align-center">
-              <v-col class="d-flex justify-sm-start justify-center">
+              <v-col class="d-flex flex-wrap justify-sm-start justify-center">
                 <v-avatar
-                  class="rounded-lg mx-1 my-1"
-                  color="grey"
+                  class="rounded-lg mx-1 my-1 transparent"
                   v-for="(image, index) in offer.data?.gallery"
                   :key="index"
                   size="60"
                   tile
                 >
+                  <img
+                    class="transparent"
+                    :src="image.src | getImage"
+                    :alt="image.name"
+                  />
                 </v-avatar>
               </v-col>
               <v-col class="pb-0">
@@ -65,8 +73,8 @@
 import { mapGetters } from "vuex";
 import moment from "moment-jalaali";
 import UtilityMixin from "@shared/mixins/utility";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
-import RequestMixin from "@packages/polotik/inquiry/mixins/request";
+import VLabel from "@commen/label/components/Label.vue";
+import RequestMixin from "@packages/polotik/barter/modules/offers/mixins/request";
 export default {
   mixins: [UtilityMixin, RequestMixin],
   components: {
@@ -77,9 +85,15 @@ export default {
       selected: [],
     };
   },
+  watch: {
+    selected(newValue) {},
+  },
   filters: {
     convertTodateFa(value) {
       return moment(value).format("jYYYY/jMM/jDD HH:mm");
+    },
+    getImage(value) {
+      return import.meta.env.VITE_BASE_URL + value;
     },
   },
   methods: {

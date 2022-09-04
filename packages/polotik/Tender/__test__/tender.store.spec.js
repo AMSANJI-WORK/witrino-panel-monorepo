@@ -13,21 +13,21 @@ import {
 import Types from "@packages/polotik/tender/store/modules/root/types";
 
 describe("tender mutations and getters", () => {
-  let tenders;
+  let tenderList;
   beforeEach(() => {
     new Vue({
       toast,
     });
     store.commit(`${SOURCE}/${Types.GET_ALL_TENDER_SUCCESS}`, dataAll);
-    tenders = store.getters[`${SOURCE}/allTenders`];
+    tenderList = store.getters[`${SOURCE}/tenderList`];
   });
   afterEach(() => {
     store.state.guilds.tender = defualtState;
   });
 
   it("get all", () => {
-    expect(tenders.length).toBe(2);
-    expect(tenders).toContain(dataAll.data[0]);
+    expect(tenderList.length).toBe(2);
+    expect(tenderList).toContain(dataAll.data[0]);
   });
 
   it("get one", () => {
@@ -37,21 +37,21 @@ describe("tender mutations and getters", () => {
   });
   it("delete", () => {
     store.commit(`${SOURCE}/${Types.DELETE_TENDER_SUCCESS}`, dataOne.data.id);
-    expect(tenders).not.toContain(dataOne.data);
-    expect(tenders.length).toBe(1);
+    expect(tenderList).not.toContain(dataOne.data);
+    expect(tenderList.length).toBe(1);
   });
 
   it("create", () => {
     store.commit(`${SOURCE}/${Types.CREATE_TENDER_SUCCESS}`, dataCreate);
-    tenders = store.getters[`${SOURCE}/allTenders`];
-    expect(tenders.length).toBe(3);
-    expect(tenders).toContain(dataCreate.data);
+    tenderList = store.getters[`${SOURCE}/tenderList`];
+    expect(tenderList.length).toBe(3);
+    expect(tenderList).toContain(dataCreate.data);
   });
   it("update", () => {
     store.commit(`${SOURCE}/${Types.UPDATE_TENDER_SUCCESS}`, dataUpdate.data);
-    tenders = store.getters[`${SOURCE}/allTenders`];
-    let tender = tenders.find((tender) => tender.id == dataUpdate.data.id);
-    expect(tenders.length).toBe(2);
+    tenderList = store.getters[`${SOURCE}/tenderList`];
+    let tender = tenderList.find((tender) => tender.id == dataUpdate.data.id);
+    expect(tenderList.length).toBe(2);
     expect(tender.title).toBe(dataUpdate.data.title);
   });
 });

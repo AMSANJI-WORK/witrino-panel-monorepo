@@ -59,7 +59,7 @@
 import FormMixin from "@polotik/mixins/base/form";
 import SaleMixin from "@packages/polotik/sale/mixins";
 import UtilityMixin from "@shared/mixins/utility";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 export default {
   components: {

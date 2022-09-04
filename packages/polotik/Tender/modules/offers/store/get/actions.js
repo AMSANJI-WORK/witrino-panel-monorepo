@@ -5,9 +5,9 @@ import {
   GET_ALL_OFFER_TENDER_FAILURE,
   CHANGE_PAGE_PAGINATION,
   // get one methods
-  GET_A_OFFER_TENDER_ASYNC,
-  GET_A_OFFER_TENDER_SUCCESS,
-  GET_A_OFFER_TENDER_FAILURE,
+  GET_AN_OFFER_TENDER_ASYNC,
+  GET_AN_OFFER_TENDER_SUCCESS,
+  GET_AN_OFFER_TENDER_FAILURE,
 } from "./types";
 
 import RepositoryFactory from "@polotik/repositories/factory";
@@ -44,17 +44,17 @@ export default {
     }
   },
 
-  async [GET_A_OFFER_TENDER_ASYNC]({ commit }, payload) {
+  async [GET_AN_OFFER_TENDER_ASYNC]({ commit }, payload) {
     try {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
       const { data } = await guildsRepository.getAOffer(
         payload.target,
         payload.id
       );
-      commit(GET_A_OFFER_TENDER_SUCCESS, data);
+      commit(GET_AN_OFFER_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_A_OFFER_TENDER_FAILURE, error);
+      commit(GET_AN_OFFER_TENDER_FAILURE, error);
     } finally {
       commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
     }

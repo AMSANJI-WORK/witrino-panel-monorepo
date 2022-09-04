@@ -492,7 +492,7 @@ export const dataUpdate = {
   },
 };
 export const defualtState = {
-  auctions: [],
+  auctionList: [],
   auction: {
     id: null,
     title: null,

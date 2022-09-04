@@ -17,23 +17,23 @@
 </template>
 
 <script>
+import Requset from "@packages/polotik/auction/modules/offers/components/Requset/index.vue";
+import { GET_AN_INQUIRY_ASYNC } from "@packages/polotik/auction/store/get/types";
 import { mapActions, mapGetters } from "vuex";
-import Requset from "@packages/polotik/inquiry/modules/offers/components/Requset/index.vue";
-import { GET_AN_INQUIRY_ASYNC } from "@packages/polotik/inquiry/store/get/types";
 export default {
   components: {
     Requset,
   },
   computed: {
-    ...mapGetters("guilds/inquiry/request", ["pagination"]),
+    ...mapGetters("guilds/auction/request", ["pagination"]),
   },
   methods: {
-    ...mapActions("guilds/inquiry", {
-      getAnInquiry: GET_AN_INQUIRY_ASYNC,
+    ...mapActions("guilds/auction", {
+      getAnAuction: GET_AN_INQUIRY_ASYNC,
     }),
   },
   created() {
-    this.getAnInquiry(this.$route.params.id);
+    this.getAnAuction(this.$route.params.id);
   },
 };
 </script>

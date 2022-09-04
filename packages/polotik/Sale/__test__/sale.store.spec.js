@@ -19,7 +19,7 @@ describe("sale mutations and getters", () => {
       toast,
     });
     store.commit(`${SOURCE}/${Types.GET_ALL_SALE_SUCCESS}`, dataAll);
-    sales = store.getters[`${SOURCE}/allSales`];
+    sales = store.getters[`${SOURCE}/saleList`];
   });
   afterEach(() => {
     store.state.guilds.sale = defualtState;
@@ -43,13 +43,13 @@ describe("sale mutations and getters", () => {
 
   it("create", () => {
     store.commit(`${SOURCE}/${Types.CREATE_SALE_SUCCESS}`, dataCreate);
-    sales = store.getters[`${SOURCE}/allSales`];
+    sales = store.getters[`${SOURCE}/saleList`];
     expect(sales.length).toBe(3);
     expect(sales).toContain(dataCreate.data);
   });
   it("update", () => {
     store.commit(`${SOURCE}/${Types.UPDATE_SALE_SUCCESS}`, dataUpdate.data);
-    sales = store.getters[`${SOURCE}/allSales`];
+    sales = store.getters[`${SOURCE}/saleList`];
     let sale = sales.find((sale) => sale.id == dataUpdate.data.id);
     expect(sales.length).toBe(2);
     expect(sale.title).toBe(dataUpdate.data.title);

@@ -1,12 +1,12 @@
 import Cookies from "js-cookie";
 const getters = {
   currentUserTenders(state) {
-    return state.tenders.filter(
+    return state.tenderList.filter(
       (tender) => tender.user_id === Cookies.get("user-id")
     );
   },
-  allTenders(state) {
-    return state.tenders;
+  tenderList(state) {
+    return state.tenderList;
   },
   pagination(state) {
     return state.pagination;

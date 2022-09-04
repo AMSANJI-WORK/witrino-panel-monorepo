@@ -1,31 +1,34 @@
 import Vue from "vue";
 import {
-  // get all methods
-  GET_ALL_OFFER_SUCCESS,
-  GET_ALL_OFFER_FAILURE,
+  GET_ALL_OFFER_INQUIRY_SUCCESS,
+  GET_ALL_OFFER_INQUIRY_FAILURE,
   CHANGE_PAGE_PAGINATION,
-  // get one methods
-  GET_AN_OFFER_SUCCESS,
-  GET_AN_OFFER_FAILURE,
+  GET_ALL_USER_OFFER_SUCCESS,
+  GET_AN_OFFER_INQUIRY_SUCCESS,
+  GET_AN_OFFER_INQUIRY_FAILURE,
 } from "./types";
 export default {
-  [GET_ALL_OFFER_SUCCESS](state, payload) {
-    const { count, last_page, page } = payload;
-    state.offers = [...payload.data];
+  [GET_ALL_OFFER_INQUIRY_SUCCESS](state, payload) {
+    const { count, last_page, page, data } = payload;
+
+    state.offers = [...data];
     state.pagination.page = page;
     state.pagination.lastPage = last_page;
     state.pagination.size = 5;
     state.pagination.recordCount = count;
   },
-  [GET_ALL_OFFER_FAILURE](_, error) {
+  [GET_ALL_USER_OFFER_SUCCESS](state, payload) {
+    state.userOffers = [...payload];
+  },
+  [GET_ALL_OFFER_INQUIRY_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");
     console.log(error);
   },
-  [GET_AN_OFFER_SUCCESS](state, payload) {
+  [GET_AN_OFFER_INQUIRY_SUCCESS](state, payload) {
     state.offer = Object.assign({}, payload.data);
   },
 
-  [GET_AN_OFFER_FAILURE](_, error) {
+  [GET_AN_OFFER_INQUIRY_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");
     console.log(error);
   },

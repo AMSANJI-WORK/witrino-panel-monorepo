@@ -23,4 +23,27 @@ export default [
       ],
     },
   },
+  {
+    path: ":id/outcome",
+    name: "inquiry-follow-page",
+    component: () =>
+      import("@packages/polotik/inquiry/modules/offers/views/OutCome.vue"),
+    beforeEnter: resetInquriry,
+    meta: {
+      breadCrumb: [
+        {
+          text: "خانه",
+          to: "/home",
+        },
+        {
+          text: "استعلام",
+          to: "/inquiry",
+        },
+        {
+          text: "پیگیری درخواست ها",
+          disabled: true,
+        },
+      ],
+    },
+  },
 ];

@@ -45,7 +45,7 @@
 import moment from "moment-jalaali";
 import { createNamespacedHelpers } from "vuex";
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {

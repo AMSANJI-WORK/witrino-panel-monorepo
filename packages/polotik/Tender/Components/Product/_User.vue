@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters({
       userPagination: "pagination/selfItemPagination",
-      userTenders: "guilds/tender/allTenders",
+      userTenders: "guilds/tender/tenderList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

@@ -13,21 +13,21 @@ import {
 import Types from "@packages/polotik/auction/store/modules/root/types";
 
 describe("auction mutations and getters", () => {
-  let auctions;
+  let auctionList;
   beforeEach(() => {
     new Vue({
       toast,
     });
     store.commit(`${SOURCE}/${Types.GET_ALL_AUCTION_SUCCESS}`, dataAll);
-    auctions = store.getters[`${SOURCE}/allAuctions`];
+    auctionList = store.getters[`${SOURCE}/auctionList`];
   });
   afterEach(() => {
     store.state.guilds.auction = defualtState;
   });
 
   it("get all", () => {
-    expect(auctions.length).toBe(2);
-    expect(auctions).toContain(dataAll.data[0]);
+    expect(auctionList.length).toBe(2);
+    expect(auctionList).toContain(dataAll.data[0]);
   });
 
   it("get one", () => {
@@ -37,21 +37,21 @@ describe("auction mutations and getters", () => {
   });
   it("delete", () => {
     store.commit(`${SOURCE}/${Types.DELETE_AUCTION_SUCCESS}`, dataOne.data.id);
-    expect(auctions).not.toContain(dataOne.data);
-    expect(auctions.length).toBe(1);
+    expect(auctionList).not.toContain(dataOne.data);
+    expect(auctionList.length).toBe(1);
   });
 
   it("create", () => {
     store.commit(`${SOURCE}/${Types.CREATE_AUCTION_SUCCESS}`, dataCreate);
-    auctions = store.getters[`${SOURCE}/allAuctions`];
-    expect(auctions.length).toBe(3);
-    expect(auctions).toContain(dataCreate.data);
+    auctionList = store.getters[`${SOURCE}/auctionList`];
+    expect(auctionList.length).toBe(3);
+    expect(auctionList).toContain(dataCreate.data);
   });
   it("update", () => {
     store.commit(`${SOURCE}/${Types.UPDATE_AUCTION_SUCCESS}`, dataUpdate.data);
-    auctions = store.getters[`${SOURCE}/allAuctions`];
-    let auction = auctions.find((auction) => auction.id == dataUpdate.data.id);
-    expect(auctions.length).toBe(2);
+    auctionList = store.getters[`${SOURCE}/auctionList`];
+    let auction = auctionList.find((auction) => auction.id == dataUpdate.data.id);
+    expect(auctionList.length).toBe(2);
     expect(auction.title).toBe(dataUpdate.data.title);
   });
 });

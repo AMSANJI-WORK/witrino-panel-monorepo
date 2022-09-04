@@ -1,12 +1,12 @@
 import Cookies from "js-cookie";
 const getters = {
   currentUserAuctions(state) {
-    return state.auctions.filter(
+    return state.auctionList.filter(
       (auction) => auction.user_id === Cookies.get("user-id")
     );
   },
-  allAuctions(state) {
-    return state.auctions;
+  auctionList(state) {
+    return state.auctionList;
   },
   pagination(state) {
     return state.pagination;

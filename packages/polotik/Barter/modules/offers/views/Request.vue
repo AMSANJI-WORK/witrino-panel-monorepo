@@ -10,7 +10,7 @@
       ></v-pagination>
       <v-spacer></v-spacer>
       <div class="my-auto grey--text font-weight-thin">
-        تعداد :  {{ pagination.recordCount }}
+        تعداد : {{ pagination.recordCount }}
       </div>
     </div>
   </v-sheet>
@@ -29,11 +29,11 @@ export default {
   },
   methods: {
     ...mapActions("guilds/barter", {
-      getABarter: GET_A_BARTER_ASYNC,
+      getABarterAsync: GET_A_BARTER_ASYNC,
     }),
   },
   created() {
-    this.getABarter(this.$route.params.id);
+    this.getABarterAsync(this.$route.params.id);
   },
 };
 </script>

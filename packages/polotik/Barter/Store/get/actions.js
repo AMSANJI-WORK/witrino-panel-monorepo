@@ -72,8 +72,16 @@ export default {
       const { data } = await guildsRepository.getABarter(payload);
       if (data.data?.offers)
         commit(
-          "guilds/barter/request/GET_ALL_OFFER_SUCCESS",
+          "guilds/barter/request/GET_ALL_OFFER_BARTER_SUCCESS",
           data.data.offers,
+          {
+            root: true,
+          }
+        );
+      if (data.data?.user_offer)
+        commit(
+          "guilds/barter/request/GET_ALL_USER_OFFER_SUCCESS",
+          data.data.user_offer,
           {
             root: true,
           }

@@ -1,7 +1,7 @@
 import { mapGetters } from "vuex";
 const RequestMixin = {
   computed: {
-    ...mapGetters("guilds/barter/request", ["user"]),
+    ...mapGetters("guilds/inquiry/request", ["user"]),
   },
 };
 export default RequestMixin;

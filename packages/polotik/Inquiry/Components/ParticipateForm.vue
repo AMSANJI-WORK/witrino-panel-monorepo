@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     ...mapActions("guilds/inquiry/request", {
-      createRequestInquiryAsync: TYPES.CREATE_OFFER_ASYNC,
+      createRequestInquiryAsync: TYPES.CREATE_OFFER_INQUIRY_ASYNC,
     }),
     submitRequest() {
       if (this.$refs.inquiryParticipate.validate())

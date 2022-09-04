@@ -2,7 +2,7 @@
   <v-card elevation="0" :loading="fromLoading">
     <v-slide-x-transition :group="true">
       <product
-        v-for="tender in allTenders"
+        v-for="tender in tenderList"
         :key="tender.id"
         :data-source="tender"
         :current-user-id="currentUserId"
@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters({
       pagination: "pagination/pagination",
-      allTenders: "guilds/tender/allTenders",
+      tenderList: "guilds/tender/tenderList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),
     currentUserId() {

@@ -19,7 +19,7 @@ export default {
       let selfItemPagination = rootGetters["pagination/selfItemPagination"];
       let pagination = rootGetters["pagination/pagination"];
       if (payload) {
-        const { data } = await guildsRepository.getAllSales({
+        const { data } = await guildsRepository.getsaleList({
           pagination: selfItemPagination,
           userId: payload.currentUserId,
         });
@@ -37,7 +37,7 @@ export default {
         );
         commit(GET_ALL_SALE_SUCCESS, data);
       } else {
-        const { data } = await guildsRepository.getAllSales({
+        const { data } = await guildsRepository.getsaleList({
           pagination,
           userId: null,
         });

@@ -9,7 +9,7 @@ import {
 } from "./types";
 export default {
   [GET_ALL_BARTER_SUCCESS](state, payload) {
-    state.barters = [...payload.data];
+    state.barterList = [...payload.data];
   },
   [GET_ALL_BARTER_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");

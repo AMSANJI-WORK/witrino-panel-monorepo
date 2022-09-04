@@ -29,11 +29,11 @@ export default {
   },
   methods: {
     ...mapActions("guilds/tender", {
-      getAnTender: GET_A_TENDER_ASYNC,
+      getATender: GET_A_TENDER_ASYNC,
     }),
   },
   created() {
-    this.getAnTender(this.$route.params.id);
+    this.getATender(this.$route.params.id);
   },
 };
 </script>

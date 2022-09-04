@@ -3,7 +3,13 @@
     <preview-content />
     <v-card-actions>
       <v-spacer></v-spacer>
-      <!-- <tender-participate-form v-if="currentUserId != tender.user_id" /> -->
+      <tender-participate-form v-if="showDialogBtn" />
+      <v-btn
+        v-if="showDialogBtn"
+        color="success"
+        @click="$router.push('outcome')"
+        >پیگیری پیشنهاد های من</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
@@ -30,6 +36,12 @@ export default {
     ...mapGetters(["tender"]),
     tenderId() {
       return this.$route.params.id;
+    },
+    showDialogBtn() {
+      return (
+        this.currentUserId != this.tender.user_id &&
+        this.tender?.user_offer?.length >= 1
+      );
     },
     currentUserId() {
       return Cookies.get("user-id");

@@ -1,12 +1,15 @@
 import Vue from "vue";
-import { CREATE_OFFER_SUCCESS, CREATE_OFFER_FAILURE } from "./types";
+import {
+  CREATE_OFFER_INQUIRY_SUCCESS,
+  CREATE_OFFER_INQUIRY_FAILURE,
+} from "./types";
 export default {
-  [CREATE_OFFER_SUCCESS](state, payload) {
+  [CREATE_OFFER_INQUIRY_SUCCESS](state, payload) {
     state.offers = [...state.offers, payload.data];
-    Vue.$toast.success("درخواست شما با موفقیت ثبت شد");
+    Vue.$toast.success("درخواست شما برای مزایده با موفقیت ایجاد شد");
   },
-  [CREATE_OFFER_FAILURE](_, error) {
-    Vue.$toast.error("ثبت درخواست شما با خطا مواجه شد");
+  [CREATE_OFFER_INQUIRY_FAILURE](_, error) {
+    Vue.$toast.error("ایجاد درخواست شما برای مزایده با خطا مواجه شد");
     console.log(error);
   },
 };

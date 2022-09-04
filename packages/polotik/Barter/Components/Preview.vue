@@ -67,7 +67,25 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <ParticipateForm v-if="currentUserId != editableBarter.user_id" />
+      <ParticipateForm
+        v-if="
+          currentUserId != editableBarter.user_id &&
+          editableBarter?.user_offer?.length == 0
+        "
+      />
+      <v-col
+        cols="12"
+        class="d-flex"
+        v-if="
+          currentUserId != editableBarter.user_id &&
+          editableBarter?.user_offer?.length >= 1
+        "
+      >
+        <v-spacer></v-spacer>
+        <v-btn color="success" @click="$router.push('outcome')"
+          >پیگیری پیشنهاد من</v-btn
+        >
+      </v-col>
     </v-card>
   </v-form>
 </template>
@@ -78,7 +96,7 @@ import UtilityMixin from "@shared/mixins/utility";
 import FormMixin from "@polotik/mixins/base/form";
 import BarterMixin from "@packages/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import servicesTypes from "@packages/polotik/Service/store/types";
 export default {

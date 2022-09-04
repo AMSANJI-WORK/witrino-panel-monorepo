@@ -1,7 +1,7 @@
 <template>
   <v-card elevation="0" :loading="fromLoading">
     <product
-      v-for="auction in allAuctions"
+      v-for="auction in auctionList"
       :key="auction.id"
       :data-source="auction"
       :current-user-id="currentUserId"
@@ -38,7 +38,7 @@ export default {
   computed: {
     ...mapGetters({
       pagination: "pagination/pagination",
-      allAuctions: "guilds/auction/allAuctions",
+      auctionList: "guilds/auction/auctionList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),
     currentUserId() {

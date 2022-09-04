@@ -10,7 +10,7 @@ import {
 } from "./types";
 export default {
   [GET_ALL_TENDER_SUCCESS](state, payload) {
-    state.tenders = [...payload.data];
+    state.tenderList = [...payload.data];
   },
   [GET_ALL_TENDER_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");

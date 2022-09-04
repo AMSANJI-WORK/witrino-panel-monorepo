@@ -9,10 +9,10 @@ export default {
     if (targetIndex === -1)
       Vue.$toast.error("مورد یافت نشد");
     state.offers.splice(targetIndex, 1);
-    Vue.$toast.success("این پیشنهاد برای مناقصه با موفقیت حذف شد");
+    Vue.$toast.success("این پیشنهاد برای مزایده با موفقیت حذف شد");
   },
   [DELETE_OFFER_TENDER_FAILURE](_, error) {
-    Vue.$toast.error("حذف این مناقصه با خطا مواجه شد");
+    Vue.$toast.error("حذف این مزایده با خطا مواجه شد");
     console.log(error);
   },
 };

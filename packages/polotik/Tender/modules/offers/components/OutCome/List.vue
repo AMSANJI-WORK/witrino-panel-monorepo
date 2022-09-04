@@ -68,7 +68,7 @@
 import { mapGetters } from "vuex";
 import moment from "moment-jalaali";
 import UtilityMixin from "@shared/mixins/utility";
-import VLabel from "@polotik/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import RequestMixin from "@packages/polotik/tender/modules/offers/mixins/request";
 export default {
   mixins: [UtilityMixin, RequestMixin],

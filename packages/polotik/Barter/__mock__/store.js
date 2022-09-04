@@ -236,7 +236,7 @@ export const dataUpdate = {
   },
 };
 export const defualtState = {
-  barters: [],
+  barterList: [],
   barter: {
     id: null,
     title: null,

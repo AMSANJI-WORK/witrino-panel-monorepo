@@ -1,7 +1,7 @@
 <template>
   <v-card elevation="0" :loading="fromLoading">
     <product
-      v-for="barter in allBarters"
+      v-for="barter in barterList"
       :key="barter.id"
       :data-source="barter"
       :current-user-id="currentUserId"
@@ -38,7 +38,7 @@ export default {
   computed: {
     ...mapGetters({
       pagination: "pagination/pagination",
-      allBarters: "guilds/barter/allBarters",
+      barterList: "guilds/barter/barterList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),
     currentUserId() {

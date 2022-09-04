@@ -31,11 +31,10 @@
               >
             </v-chip>
             <RequestLink
-              v-if="isCurrentUser"
-              :newRequestCount="2"
+              v-if="isCurrentUser && dataSource.offers_count != 0"
+              :new-request-count="dataSource.offers_count"
               :productId="dataSource.id"
             />
-
             <v-spacer></v-spacer>
             <div v-if="isCurrentUser" class="d-flex flex-row flex-wrap mt-2">
               <v-btn

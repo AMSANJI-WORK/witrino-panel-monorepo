@@ -13,21 +13,21 @@ import {
 import Types from "@packages/polotik/inquiry/store/modules/root/types";
 
 describe("inquiry mutations and getters", () => {
-  let inquiries;
+  let inquiryList;
   beforeEach(() => {
     new Vue({
       toast,
     });
     store.commit(`${SOURCE}/${Types.GET_ALL_INQUIRY_SUCCESS}`, dataAll);
-    inquiries = store.getters[`${SOURCE}/allInquiries`];
+    inquiryList = store.getters[`${SOURCE}/inquiryList`];
   });
   afterEach(() => {
     store.state.guilds.inquiry = defualtState;
   });
 
   it("get all", () => {
-    expect(inquiries.length).toBe(2);
-    expect(inquiries).toContain(dataAll.data[0]);
+    expect(inquiryList.length).toBe(2);
+    expect(inquiryList).toContain(dataAll.data[0]);
   });
 
   it("get one", () => {
@@ -37,21 +37,21 @@ describe("inquiry mutations and getters", () => {
   });
   it("delete", () => {
     store.commit(`${SOURCE}/${Types.DELETE_INQUIRY_SUCCESS}`, dataOne.data.id);
-    expect(inquiries).not.toContain(dataOne.data);
-    expect(inquiries.length).toBe(1);
+    expect(inquiryList).not.toContain(dataOne.data);
+    expect(inquiryList.length).toBe(1);
   });
 
   it("create", () => {
     store.commit(`${SOURCE}/${Types.CREATE_INQUIRY_SUCCESS}`, dataCreate);
-    inquiries = store.getters[`${SOURCE}/allInquiries`];
-    expect(inquiries.length).toBe(3);
-    expect(inquiries).toContain(dataCreate.data);
+    inquiryList = store.getters[`${SOURCE}/inquiryList`];
+    expect(inquiryList.length).toBe(3);
+    expect(inquiryList).toContain(dataCreate.data);
   });
   it("update", () => {
     store.commit(`${SOURCE}/${Types.UPDATE_INQUIRY_SUCCESS}`, dataUpdate.data);
-    inquiries = store.getters[`${SOURCE}/allInquiries`];
-    let inquiry = inquiries.find((inquiry) => inquiry.id == dataUpdate.data.id);
-    expect(inquiries.length).toBe(2);
+    inquiryList = store.getters[`${SOURCE}/inquiryList`];
+    let inquiry = inquiryList.find((inquiry) => inquiry.id == dataUpdate.data.id);
+    expect(inquiryList.length).toBe(2);
     expect(inquiry.title).toBe(dataUpdate.data.title);
   });
 });

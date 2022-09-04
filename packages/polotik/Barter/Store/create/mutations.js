@@ -2,7 +2,7 @@ import Vue from "vue";
 import { CREATE_BARTER_SUCCESS, CREATE_BARTER_FAILURE } from "./types";
 export default {
   [CREATE_BARTER_SUCCESS](state, payload) {
-    state.barters = [...state.barters, payload];
+    state.barterList = [...state.barterList, payload];
     Vue.$toast.success("تهاتر جدید با موفقیت ایجاد شد");
   },
   [CREATE_BARTER_FAILURE](_, error) {
