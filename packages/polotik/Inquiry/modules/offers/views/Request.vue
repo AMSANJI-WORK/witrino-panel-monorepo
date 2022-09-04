@@ -18,7 +18,7 @@
 
 <script>
 import Requset from "@packages/polotik/auction/modules/offers/components/Requset/index.vue";
-import { GET_AN_INQUIRY_ASYNC } from "@packages/polotik/auction/store/get/types";
+import { GET_AN_INQUIRY_ASYNC } from "@packages/polotik/inquiry/store/get/types";
 import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
@@ -29,11 +29,11 @@ export default {
   },
   methods: {
     ...mapActions("guilds/auction", {
-      getAnAuction: GET_AN_INQUIRY_ASYNC,
+      getAnInquiry: GET_AN_INQUIRY_ASYNC,
     }),
   },
   created() {
-    this.getAnAuction(this.$route.params.id);
+    this.getAnInquiry(this.$route.params.id);
   },
 };
 </script>
