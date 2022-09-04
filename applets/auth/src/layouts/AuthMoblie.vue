@@ -37,7 +37,7 @@ export default {
   background-size: cover;
 }
 .auth-header--bg {
-  background: url(@shared/components/Icons/Auth/header.svg) no-repeat bottom;
+  background: url(@commen/icons/components/auth/header.svg) no-repeat bottom;
   width: 100%;
   height: 100%;
   background-size: cover;

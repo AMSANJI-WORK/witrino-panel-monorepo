@@ -42,9 +42,9 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import SetPermissionAvatar from "@polotik/components/Icons/SetPermissionAvatar.vue";
-import SetPermissionMobile from "@polotik/components/Icons/SetPermissionMobile.vue";
-import SetPermission from "@polotik/components/Icons/SetPermission.vue";
+import SetPermissionAvatar from "@commen/icons/components/polotik/SetPermissionAvatar.vue";
+import SetPermissionMobile from "@commen/icons/components/polotik/SetPermissionMobile.vue";
+import SetPermission from "@commen/icons/components/polotik/SetPermission.vue";
 export default {
   beforeRouteEnter(to, from, next) {
     console.log("SetPermission.vue");
@@ -102,7 +102,7 @@ export default {
   font-size: 18px;
 }
 .set-permission-background {
-  background-image: url(@polotik/assets/image/svg/SetPermissionImg.svg);
+  background-image: url(@commen/assets/image/svg/SetPermissionImg.svg);
   min-height: 479px;
   background-position: center;
 }

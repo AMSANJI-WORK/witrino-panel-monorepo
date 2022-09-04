@@ -1,7 +1,7 @@
-import AllBranch from "@shared/components/Icons/AllBranch.vue";
-import ActiveBranch from "@shared/components/Icons/ActiveBranch.vue";
-import OutDateBranch from "@shared/components/Icons/OutDateBranch.vue";
-import DisableBranch from "@shared/components/Icons/DeActiveBranch.vue";
+import AllBranch from "@commen/icons/components/AllBranch.vue";
+import ActiveBranch from "@commen/icons/components/ActiveBranch.vue";
+import OutDateBranch from "@commen/icons/components/OutDateBranch.vue";
+import DisableBranch from "@commen/icons/components/DeActiveBranch.vue";
 export default [
   {
     number: 1,

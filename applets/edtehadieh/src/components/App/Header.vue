@@ -17,7 +17,7 @@
 
 <script>
 import Cookies from "js-cookie";
-import Logo from "@shared/components/Icons/Edtehadieh/Logo.vue";
+import Logo from "@commen/icons/components/edtehadieh/Logo.vue";
 import AppHeader from "@commen/header/components/Header.vue";
 import navigation from "@applets/edtehadieh/src/constants/data";
 export default {

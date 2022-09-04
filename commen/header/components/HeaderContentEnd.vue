@@ -14,9 +14,7 @@
       :ripple="false"
       class="d-md-flex ml-2 d-none"
     >
-      <v-badge dot overlap left color="error" offset-x="10" offset-y="10">
-        <v-icon color="gray">mdi-account-outline</v-icon>
-      </v-badge>
+      <v-icon color="gray">mdi-account-outline</v-icon>
     </v-btn>
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">

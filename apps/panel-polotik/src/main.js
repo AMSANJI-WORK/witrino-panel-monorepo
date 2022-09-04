@@ -6,7 +6,7 @@ import vuetify from "./plugins/vuetify";
 import toast from "./plugins/toast";
 import num2persian from "./plugins/num.to.persian";
 import datepiker from "./plugins/datepiker";
-import "./assets/scss/base.scss";
+import "@commen/assets/styles/scss/base.scss";
 
 new Vue({
   toast,

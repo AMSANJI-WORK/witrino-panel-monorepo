@@ -1,7 +1,7 @@
-import ProjectBlueIcon from "@polotik/components/Icons/ProjectBlue.vue";
-import ProjectGreenIcon from "@polotik/components/Icons/ProjectGreen.vue";
-import ProjectRedIcon from "@polotik/components/Icons/ProjectRed.vue";
-import ProjectYellowIcon from "@polotik/components/Icons/ProjectYellow.vue";
+import ProjectBlueIcon from "@commen/icons/components/WProjectBlue.vue";
+import ProjectGreenIcon from "@commen/icons/components/WProjectGreen.vue";
+import ProjectRedIcon from "@commen/icons/components/WProjectRed.vue";
+import ProjectYellowIcon from "@commen/icons/components/WProjectYellow.vue";
 export default [
   {
     number: 1,

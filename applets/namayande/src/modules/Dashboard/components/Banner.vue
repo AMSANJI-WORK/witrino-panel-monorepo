@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import SofaBanner from "@shared/components/Icons/SofaBanner.vue";
+import SofaBanner from "@commen/icons/components/SofaBanner.vue";
 export default {
   components: {
     SofaBanner,

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Logo from "@shared/components/Icons/Auth/Logo.vue";
+import Logo from "@commen/icons/components/auth/Logo.vue";
 export default {
   components: { Logo },
 };

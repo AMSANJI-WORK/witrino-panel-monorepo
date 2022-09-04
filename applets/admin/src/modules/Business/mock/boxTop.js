@@ -1,6 +1,6 @@
-import AllBusiness from "@shared/components/Icons/AllBusiness.vue";
-import ActiveBusiness from "@shared/components/Icons/ActiveBusiness.vue";
-import DisableBusiness from "@shared/components/Icons/DisableBusiness.vue";
+import AllBusiness from "@commen/icons/components/AllBusiness.vue";
+import ActiveBusiness from "@commen/icons/components/ActiveBusiness.vue";
+import DisableBusiness from "@commen/icons/components/DisableBusiness.vue";
 export default [
   {
     number: 1,

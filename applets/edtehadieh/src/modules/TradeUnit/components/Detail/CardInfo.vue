@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import QRCode from "@shared/components/Icons/QRCode.vue";
+import QRCode from "@commen/icons/components/QRCode.vue";
 import VLabel from "@shared/components/Reusable/VLabel.vue";
-import WCalender from "@shared/components/Icons/WCalender.vue";
+import WCalender from "@commen/icons/components/WCalender.vue";
 export default {
   components: {
     QRCode,

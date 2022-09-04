@@ -1,6 +1,6 @@
-import AllUsers from "@shared/components/Icons/AllUsers.vue";
-import ActiveUsers from "@shared/components/Icons/ActiveUsers.vue";
-import DisableUsers from "@shared/components/Icons/DisableUsers.vue";
+import AllUsers from "@commen/icons/components/AllUsers.vue";
+import ActiveUsers from "@commen/icons/components/ActiveUsers.vue";
+import DisableUsers from "@commen/icons/components/DisableUsers.vue";
 export default [
   {
     number: 1,

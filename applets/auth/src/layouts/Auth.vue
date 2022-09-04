@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import logo from "@shared/components/Icons/Auth/Logo.vue";
+import logo from "@commen/icons/components/auth/Logo.vue";
 import WAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
 export default {
   components: {
@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .auth--background {
-  background: url(@shared/components/Icons/Auth/Auth.png) no-repeat;
+  background: url(@commen/icons/components/auth/Auth.png) no-repeat;
   background-size: cover;
 }
 </style>

@@ -1,9 +1,9 @@
-import EstelamIcon from "@polotik/components/Icons/Estelam.vue";
-import HarajiIcon from "@polotik/components/Icons/Haraji.vue";
-import MonaghesehIcon from "@polotik/components/Icons/Monagheseh.vue";
-import MySiteIcon from "@polotik/components/Icons/MySite.vue";
-import TahatorIcon from "@polotik/components/Icons/Tahator.vue";
-import MozayedehIcon from "@polotik/components/Icons/Mozayedeh.vue";
+import EstelamIcon from "@commen/icons/components/polotik/Estelam.vue";
+import HarajiIcon from "@commen/icons/components/polotik/Haraji.vue";
+import MonaghesehIcon from "@commen/icons/components/polotik/Monagheseh.vue";
+import MySiteIcon from "@commen/icons/components/polotik/MySite.vue";
+import TahatorIcon from "@commen/icons/components/polotik/Tahator.vue";
+import MozayedehIcon from "@commen/icons/components/polotik/Mozayedeh.vue";
 export default [
   {
     title: "تهاتر",

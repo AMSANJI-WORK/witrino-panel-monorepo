@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .user-box {
-  background: url(@polotik/assets/image/svg/UserBoxBackground.svg) no-repeat;
+  background: url(@commen/assets/image/svg/UserBoxBackground.svg) no-repeat;
   color: #fff;
 }
 .user-box .v-card__subtitle,

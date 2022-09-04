@@ -1,7 +1,7 @@
-import AllTradeUnit from "@shared/components/Icons/AllTradeUnit.vue";
-import ActiveTradeUnit from "@shared/components/Icons/ActiveTradeUnit.vue";
-import DeActiveTradeUnit from "@shared/components/Icons/DeActiveTradeUnit.vue";
-import ExpirationTradeUnit from "@shared/components/Icons/ExpirationTradeUnit.vue";
+import AllTradeUnit from "@commen/icons/components/AllTradeUnit.vue";
+import ActiveTradeUnit from "@commen/icons/components/ActiveTradeUnit.vue";
+import DeActiveTradeUnit from "@commen/icons/components/DeActiveTradeUnit.vue";
+import ExpirationTradeUnit from "@commen/icons/components/ExpirationTradeUnit.vue";
 export default [
   {
     number: 1,

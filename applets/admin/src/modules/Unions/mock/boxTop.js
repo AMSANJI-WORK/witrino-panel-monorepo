@@ -1,6 +1,6 @@
-import AllUnions from "@shared/components/Icons/AllUnions.vue";
-import ActiveUnions from "@shared/components/Icons/ActiveUnions.vue";
-import DisableUnions from "@shared/components/Icons/DisableUnions.vue";
+import AllUnions from "@commen/icons/components/AllUnions.vue";
+import ActiveUnions from "@commen/icons/components/ActiveUnions.vue";
+import DisableUnions from "@commen/icons/components/DisableUnions.vue";
 export default [
   {
     number: 1,

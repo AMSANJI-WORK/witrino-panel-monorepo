@@ -40,8 +40,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import WitrinoPage from "@shared/components/Icons/WitrinoPage.vue";
-import PolotikPage from "@shared/components/Icons/PolotikPage.vue";
+import WitrinoPage from "@commen/icons/components/WitrinoPage.vue";
+import PolotikPage from "@commen/icons/components/PolotikPage.vue";
 export default {
   components: {
     WitrinoPage,
