@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <tender-participate-form v-if="showDialogBtn" />
       <v-btn
-        v-if="showDialogBtn"
+        v-if="tender?.user_offer?.length >= 1"
         color="success"
         @click="$router.push('outcome')"
         >پیگیری پیشنهاد های من</v-btn
@@ -40,7 +40,7 @@ export default {
     showDialogBtn() {
       return (
         this.currentUserId != this.tender.user_id &&
-        this.tender?.user_offer?.length >= 1
+        !this.tender?.user_offer?.length >= 1
       );
     },
     currentUserId() {

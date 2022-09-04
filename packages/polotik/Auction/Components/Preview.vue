@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <auction-participate-form v-if="showDialogBtn" />
       <v-btn
-        v-if="showDialogBtn"
+        v-if="auction?.user_offer?.length >= 1"
         color="success"
         @click="$router.push('outcome')"
         >پیگیری پیشنهاد های من</v-btn
