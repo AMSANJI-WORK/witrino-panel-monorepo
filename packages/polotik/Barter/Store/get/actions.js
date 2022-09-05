@@ -20,17 +20,17 @@ export default {
         : "loading/TOGGLE_SKELETON_LOADING_MENU";
     try {
       commit(loadingType, {}, { root: true });
-      let selfItemPagination = rootGetters["pagination/selfItemPagination"];
+      let paginationSelfItem = rootGetters["pagination/paginationSelfItem"];
       let pagination = rootGetters["pagination/pagination"];
       if (payload) {
         const { data } = await guildsRepository.getAllBarters({
-          pagination: selfItemPagination,
+          pagination: paginationSelfItem,
           userId: payload.currentUserId,
         });
         commit(
           "pagination/SET_PAGINATION",
           {
-            target: "selfItemPagination",
+            target: "paginationSelfItem",
             data: {
               page: data.page,
               last_page: data.last_page,

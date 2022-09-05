@@ -8,7 +8,7 @@
         :value="value"
         @input="updateValue"
         :items="priceTypeItems"
-        :loading="fromLoading"
+        :loading="formLoading"
         label="نوع محدودیت"
       >
       </v-select>

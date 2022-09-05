@@ -46,7 +46,7 @@
           outlined
           label="توضیحات"
           placeholder="این فرم در اختیار شرکت کنندگان قرار میگیرد"
-          :loading="fromLoading"
+          :loading="formLoading"
           v-model="formData.participateFormDescription"
         ></v-textarea>
       </v-col>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
@@ -71,7 +71,7 @@ export default {
     VFieldSpace,
     VStepperLevelBtn,
   },
-  mixins: [FormMixin, StepperMixin],
+  mixins: [auctionLoadingMixin, StepperMixin],
   data: () => ({
     formData: {
       uploadable: false,

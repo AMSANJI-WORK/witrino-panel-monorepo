@@ -9,10 +9,6 @@ export default {
   ...deleteMutations,
   ...updateMutations,
   ...setStepData,
-  TOGGLE_LOADING(state) {
-    state.fromLoading = !state.fromLoading;
-    state.fromLoading = !state.fromLoading;
-  },
   RESET_AUCTION(state) {
     state.auction = {
       id: null,

@@ -4,7 +4,7 @@
       <v-switch
         :label="formDto.is_viewed | viewedToFa"
         inset
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="formDto.is_viewed"
         color="green"
         class="mt-0"
@@ -14,7 +14,7 @@
       <v-switch
         inset
         v-model="formDto.is_active"
-        :loading="fromLoading"
+        :loading="formLoading"
         :label="formDto.is_active | activeToFa"
         color="green"
         class="mt-0"
@@ -24,7 +24,7 @@
     <v-col cols="12" sm="6">
       <v-text-field
         class="rounded-lg"
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="formDto.title"
         label="عنوان"
         dense
@@ -43,7 +43,7 @@
         class="rounded-lg"
         label="دوره"
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         v-model.number="formDto.duration"
         type="number"
@@ -56,7 +56,7 @@
         class="rounded-lg"
         label="توضیحات"
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="formDto.description"
         outlined
         :rules="[rules.required]"

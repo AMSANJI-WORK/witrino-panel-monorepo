@@ -10,7 +10,7 @@
         readonly
         v-model="collectionDocsTime"
         label="مهلت تهیه اسناد"
-        :loading="fromLoading"
+        :loading="formLoading"
         append-icon="mdi-calendar"
         :rules="[rules.required]"
         dense
@@ -32,7 +32,7 @@
         readonly
         v-model="sendDocsDate"
         label="مهلت ارسال اسناد"
-        :loading="fromLoading"
+        :loading="formLoading"
         append-icon="mdi-calendar"
         :rules="[rules.required]"
         dense
@@ -53,7 +53,7 @@
         readonly
         label="تاریخ برگزاری"
         v-model="startTenderDate"
-        :loading="fromLoading"
+        :loading="formLoading"
         append-icon="mdi-calendar"
         :rules="[rules.required]"
         dense
@@ -74,7 +74,7 @@
         id="timeStart"
         readonly
         label="زمان برگزاری (ساعت)"
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="formData.time"
         name="sendDate"
         append-icon="mdi-timer-outline"
@@ -94,7 +94,7 @@
         label="آدرس"
         name="tenderAddress"
         v-model="formData.tenderAddress"
-        :loading="fromLoading"
+        :loading="formLoading"
         dense
         outlined
       ></v-textarea>

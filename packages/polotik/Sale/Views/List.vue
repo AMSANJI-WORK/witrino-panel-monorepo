@@ -1,10 +1,10 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeleton v-show="skletonLoding.list" />
+      <PageListSkeleton v-show="skeletonLoading.list" />
     </v-slide-x-transition>
     <v-slide-x-transition>
-      <v-sheet class="transparent" v-show="!skletonLoding.list">
+      <v-sheet class="transparent" v-show="!skeletonLoading.list">
         <PagesDescription />
         <SaleFilters />
       </v-sheet>

@@ -1,10 +1,10 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeleton v-show="skletonLoding.list" />
+      <PageListSkeleton v-show="skeletonLoading.list" />
     </v-slide-x-transition>
     <v-slide-x-transition>
-      <v-sheet v-show="!skletonLoding.list" class="transparent">
+      <v-sheet v-show="!skeletonLoading.list" class="transparent">
         <notification>
           <template v-slot:cardTilte>
             <v-chip small class="white red--text"

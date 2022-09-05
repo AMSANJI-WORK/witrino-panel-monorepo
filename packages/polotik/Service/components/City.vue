@@ -5,7 +5,7 @@
       outlined
       class="rounded-lg"
       :class="$attrs['city-selector-class']"
-      :loading="fromLoading"
+      :loading="formLoading"
       :value="value"
       :rules="[rules.required]"
       :items="cities"
@@ -27,7 +27,7 @@ const { mapGetters, mapActions } = createNamespacedHelpers(
   "guilds/services/cities"
 );
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
-import servicesTypes from "@packages/polotik/Service/store/types";
+import servicesTypes from "@packages/polotik/service/store/types";
 import FormMixin from "@polotik/mixins/base/form";
 export default {
   inheritAttrs: false,

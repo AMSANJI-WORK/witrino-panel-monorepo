@@ -12,7 +12,7 @@
         :value="formData.guaranteePrice | toRial"
         @input="(value) => (formData.guaranteePrice = value)"
         :hint="formData.guaranteePrice | numberToStringFa"
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="مبلغ ضمانت"
@@ -26,7 +26,7 @@
         outlined
         label="نوع ضمانت"
         v-model="formData.guaranteeType"
-        :loading="fromLoading"
+        :loading="formLoading"
         :rules="[rules.required]"
         :items="['سند', 'چک', 'اوراق بهادار', 'طلا']"
       ></v-select>
@@ -41,7 +41,7 @@
         :readonly="formData.isDocsFree"
         persistent-hint
         suffix="تومان"
-        :loading="fromLoading"
+        :loading="formLoading"
       >
         <!--  -->
         <template v-slot:label>
@@ -67,7 +67,7 @@
         auto-grow
         row-height="1"
         v-model="formData.docsCollectType"
-        :loading="fromLoading"
+        :loading="formLoading"
         :rules="[rules.required]"
         label="نحوه تهیه اسناد"
       ></v-textarea>
@@ -88,7 +88,7 @@
         label="شرایط متقاضی"
         :rules="[rules.required]"
         v-model="formData.askerInformation"
-        :loading="fromLoading"
+        :loading="formLoading"
         placeholder="شرایط متقاضی (توضیحات)"
       >
       </v-textarea>

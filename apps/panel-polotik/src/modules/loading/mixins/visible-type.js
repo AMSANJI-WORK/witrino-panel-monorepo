@@ -1,14 +1,7 @@
-import { mapGetters, mapMutations } from "vuex";
-import * as LOADING_TYPES from "@polotik/modules/loading/store/types";
+import { mapGetters } from "vuex";
 const ToggleVisibleMixin = {
   computed: {
-    ...mapGetters("loading", ["skletonLoding"]),
-  },
-  methods: {
-    ...mapMutations("loading", {
-      toggleSkeletonLoadingList: LOADING_TYPES.TOGGLE_SKELETON_LOADING_LIST,
-      toggleSkeletonLoadingOne: LOADING_TYPES.TOGGLE_SKELETON_LOADING_ONE,
-    }),
+    ...mapGetters("loading", ["skeletonLoading"]),
   },
 };
 export default ToggleVisibleMixin;

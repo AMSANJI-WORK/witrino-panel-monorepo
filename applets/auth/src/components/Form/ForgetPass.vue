@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-text-field
         v-model="forgetPassFrom.mobile"
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="شماره تماس خود را وارد کنید"

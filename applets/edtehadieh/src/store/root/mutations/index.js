@@ -5,7 +5,7 @@ export default {
     state.serviceName = payload;
   },
   TOGGLE_LOADING(state) {
-    state.fromLoading = !state.fromLoading;
+    state.formLoading = !state.formLoading;
     state.submitBtnLoading = !state.submitBtnLoading;
   },
   CHANGE_FORM_REFRENCE(state, payload) {

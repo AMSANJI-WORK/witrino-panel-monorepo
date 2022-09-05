@@ -10,7 +10,7 @@
         v-model="formData.auctionCreator"
         dense
         readonly
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="مزایده گذار"
@@ -20,7 +20,7 @@
       <v-select
         v-model="formData.auctionType"
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         :items="['یک مرحله ای', 'دو مرحله ای', 'ارزیابی کیفی']"
         outlined
         :rules="[rules.required]"
@@ -33,7 +33,7 @@
       <v-text-field
         v-model="formData.auctionTitle"
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="عنوان مزایده"
@@ -61,7 +61,7 @@
         :value="formData.auctionBasePrice | toRial"
         @input="(value) => (formData.auctionBasePrice = value)"
         :hint="formData.auctionBasePrice | numberToStringFa"
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
       ></v-text-field>
     </v-col>
@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
@@ -96,7 +96,7 @@ export default {
     VSelectInputNoData,
     VSelectInputSelection,
   },
-  mixins: [FormMixin, ServicesMixin, StepperMixin, UtilityMixin],
+  mixins: [auctionLoadingMixin, ServicesMixin, StepperMixin, UtilityMixin],
   data: () => ({
     formData: {
       auctionBasePrice: null,

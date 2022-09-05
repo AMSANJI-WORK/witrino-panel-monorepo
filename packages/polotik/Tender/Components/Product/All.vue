@@ -1,9 +1,9 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeletonMenu v-show="skletonLoding.menu" />
+      <PageListSkeletonMenu v-show="skeletonLoading.menu" />
     </v-slide-x-transition>
-    <v-card elevation="0" v-show="!skletonLoding.menu">
+    <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
           v-for="tender in tenderList"
@@ -46,7 +46,7 @@ export default {
   computed: {
     ...mapGetters({
       pagination: "pagination/pagination",
-      skletonLoding: "loading/skletonLoding",
+      skeletonLoading: "loading/skeletonLoading",
       tenderList: "guilds/tender/tenderList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),

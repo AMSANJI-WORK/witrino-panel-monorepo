@@ -4,7 +4,7 @@
       <v-text-field
         class="pt-2"
         outlined
-        :loading="fromLoading"
+        :loading="formLoading"
         label="شماره همراه"
         placeholder=""
         v-model="loginform.mobile"
@@ -21,7 +21,7 @@
         :type="show ? 'text' : 'password'"
         label="رمز عبور"
         placeholder=""
-        :loading="fromLoading"
+        :loading="formLoading"
         prepend-inner-icon="mdi-lock"
         :append-icon="show ? 'mdi-eye-off' : 'mdi-eye'"
         @click:append="showPass()"

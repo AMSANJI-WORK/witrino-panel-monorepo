@@ -15,7 +15,7 @@
           <v-form ref="userAddress" class="d-flex flex-wrap">
             <v-col cols="12" sm="6" class="pb-0">
               <v-text-field
-                :loading="fromLoading"
+                :loading="formLoading"
                 v-model="modifyDto.title"
                 :rules="[rules.required]"
                 class="rounded-lg"
@@ -35,7 +35,7 @@
                 item-text="name"
                 item-value="id"
                 v-model="modifyDto.province_id"
-                :loading="fromLoading"
+                :loading="formLoading"
                 :rules="[rules.required]"
               ></v-autocomplete>
             </v-col>
@@ -49,7 +49,7 @@
                 item-value="id"
                 v-model="modifyDto.city_id"
                 label="انتخاب شهر"
-                :loading="fromLoading"
+                :loading="formLoading"
                 :rules="[rules.required]"
               ></v-autocomplete>
             </v-col>
@@ -61,7 +61,7 @@
                 class="rounded-lg"
                 label="آدرس"
                 v-model="modifyDto.address"
-                :loading="fromLoading"
+                :loading="formLoading"
                 :rules="[rules.required]"
               ></v-textarea>
             </v-col>
@@ -73,7 +73,7 @@
                 class="rounded-lg"
                 label="توضیحات"
                 v-model="modifyDto.description"
-                :loading="fromLoading"
+                :loading="formLoading"
                 :rules="[rules.required]"
               ></v-textarea>
             </v-col>

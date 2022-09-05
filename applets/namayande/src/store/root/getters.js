@@ -1,6 +1,6 @@
 export default {
-  selfItemPagination(state) {
-    return state.selfItemPagination;
+  paginationSelfItem(state) {
+    return state.paginationSelfItem;
   },
   pagination(state) {
     return state.pagination;

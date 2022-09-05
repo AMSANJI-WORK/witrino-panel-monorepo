@@ -1,9 +1,9 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeletonMenu v-show="skletonLoding.menu" />
+      <PageListSkeletonMenu v-show="skeletonLoading.menu" />
     </v-slide-x-transition>
-    <v-card elevation="0" v-show="!skletonLoding.menu">
+    <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
           v-for="barter in barterListUser"
@@ -47,8 +47,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userPagination: "pagination/selfItemPagination",
-      skletonLoding: "loading/skletonLoding",
+      userPagination: "pagination/paginationSelfItem",
+      skeletonLoading: "loading/skeletonLoading",
       barterListUser: "guilds/barter/barterList",
     }),
     currentUserId() {

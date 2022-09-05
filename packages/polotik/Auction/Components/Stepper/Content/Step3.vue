@@ -10,7 +10,7 @@
         readonly
         v-model="collectionDocsTime"
         label="مهلت تهیه اسناد"
-        :loading="fromLoading"
+        :loading="formLoading"
         append-icon="mdi-calendar"
         :rules="[rules.required]"
         dense
@@ -32,7 +32,7 @@
         readonly
         v-model="sendDocsDate"
         label="مهلت ارسال اسناد"
-        :loading="fromLoading"
+        :loading="formLoading"
         append-icon="mdi-calendar"
         :rules="[rules.required]"
         dense
@@ -53,7 +53,7 @@
         readonly
         label="تاریخ برگزاری"
         v-model="startAuctionDate"
-        :loading="fromLoading"
+        :loading="formLoading"
         append-icon="mdi-calendar"
         :rules="[rules.required]"
         dense
@@ -74,7 +74,7 @@
         id="timeStart"
         readonly
         label="زمان برگزاری (ساعت)"
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="formData.time"
         name="sendDate"
         append-icon="mdi-timer-outline"
@@ -94,7 +94,7 @@
         label="آدرس"
         name="auctionAddress"
         v-model="formData.auctionAddress"
-        :loading="fromLoading"
+        :loading="formLoading"
         dense
         outlined
       ></v-textarea>
@@ -111,7 +111,7 @@
 
 <script>
 import moment from "moment-jalaali";
-import FormMixin from "@polotik/mixins/base/form";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
@@ -121,7 +121,7 @@ export default {
     VFieldSpace,
     VStepperLevelBtn,
   },
-  mixins: [FormMixin, StepperMixin, UtilityMixin],
+  mixins: [auctionLoadingMixin, StepperMixin, UtilityMixin],
   data: () => ({
     collectionDocsTime: [],
     startAuctionDate: "",

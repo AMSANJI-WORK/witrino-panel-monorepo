@@ -27,7 +27,7 @@ const TenderModifyMixin = {
     ...mapGetters("guilds/tender", ["tender", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     ...mapState({
-      fromLoading: (state) => state.fromLoading,
+      formLoading: (state) => state.formLoading,
     }),
     tenderId() {
       return this.$route.params.id;

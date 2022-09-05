@@ -12,7 +12,7 @@
         :hint="formData.guaranteePrice | numberToStringFa"
         :value="formData.guaranteePrice | toRial"
         @input="(value) => (formData.guaranteePrice = value)"
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="مبلغ ضمانت"
@@ -26,7 +26,7 @@
         outlined
         label="نوع ضمانت"
         v-model="formData.guaranteeType"
-        :loading="fromLoading"
+        :loading="formLoading"
         :rules="[rules.required]"
         :items="['سند', 'چک', 'اوراق بهادار', 'طلا']"
       ></v-select>
@@ -41,7 +41,7 @@
         suffix="تومان"
         outlined
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
       >
         <!--  -->
         <template v-slot:label>
@@ -67,7 +67,7 @@
         auto-grow
         row-height="1"
         v-model="formData.docsCollectType"
-        :loading="fromLoading"
+        :loading="formLoading"
         :rules="[rules.required]"
         label="نحوه تهیه اسناد"
       ></v-textarea>
@@ -88,7 +88,7 @@
         label="شرایط متقاضی"
         :rules="[rules.required]"
         v-model="formData.askerInformation"
-        :loading="fromLoading"
+        :loading="formLoading"
         placeholder="شرایط متقاضی (توضیحات)"
       >
       </v-textarea>
@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
@@ -115,7 +115,7 @@ export default {
     VFieldSpace,
     VStepperLevelBtn,
   },
-  mixins: [FormMixin, StepperMixin, UtilityMixin],
+  mixins: [auctionLoadingMixin, StepperMixin, UtilityMixin],
   data: () => ({
     formData: {
       askerInformation: null,

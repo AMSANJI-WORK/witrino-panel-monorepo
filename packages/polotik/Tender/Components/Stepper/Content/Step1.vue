@@ -10,7 +10,7 @@
         v-model="formData.tenderCreator"
         dense
         readonly
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="مناقصه گذار"
@@ -20,7 +20,7 @@
       <v-select
         v-model="formData.tenderType"
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         :items="['یک مرحله ای', 'دو مرحله ای', 'ارزیابی کیفی']"
         outlined
         :rules="[rules.required]"
@@ -33,7 +33,7 @@
       <v-text-field
         v-model="formData.tenderTitle"
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="عنوان مناقصه"
@@ -60,7 +60,7 @@
         persistent-hint
         suffix="تومان"
         :hint="formData.tenderBasePrice | numberToStringFa"
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         label="برارود اولیه"
       ></v-text-field>

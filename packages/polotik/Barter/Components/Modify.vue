@@ -1,6 +1,10 @@
 <template>
   <v-form ref="barter">
-    <v-card elevation="2" outlined class="d-flex flex-wrap rounded-lg pa-10 mx-2 my-5">
+    <v-card
+      elevation="2"
+      outlined
+      class="d-flex flex-wrap rounded-lg pa-10 mx-2 my-5"
+    >
       <carousel
         class="d-md-none d-block"
         :gallery="editableBarter.data.gallery"
@@ -12,7 +16,7 @@
             name="title"
             dense
             class="rounded-lg"
-            :loading="fromLoading"
+            :loading="formLoading"
             outlined
             :rules="[rules.required]"
             label="عنوان"
@@ -24,7 +28,7 @@
             readonly
             class="rounded-lg"
             label="تاریخ شروع"
-            :loading="fromLoading"
+            :loading="formLoading"
             name="fromDate"
             append-icon="mdi-calendar"
             :rules="[rules.required, fromDateRule]"
@@ -46,7 +50,7 @@
             :value="editableBarter.data.price | toRial"
             @input="(value) => (editableBarter.data.price = value)"
             :hint="editableBarter.data.price | numberToStringFa"
-            :loading="fromLoading"
+            :loading="formLoading"
             class="rounded-lg"
             :rules="[rules.required]"
             label="ارزش تقریبی"
@@ -65,7 +69,7 @@
         <v-col cols="12" class="py-0">
           <v-text-field
             v-model="editableBarter.data.service.requestedTitle"
-            :loading="fromLoading"
+            :loading="formLoading"
             class="rounded-t-lg py-0 rounded-b-0"
             :rules="[rules.required]"
             label="محصول / خدمت درخواستی"
@@ -88,7 +92,7 @@
         <v-col cols="12" class="py-0">
           <v-text-field
             v-model="editableBarter.data.service.availableTitle"
-            :loading="fromLoading"
+            :loading="formLoading"
             class="rounded-t-lg py-0 rounded-b-0"
             :rules="[rules.required]"
             label="خدمت / محصول"
@@ -118,7 +122,7 @@
             track-color="yellow darken-2"
             :tick-labels="tickLables"
             tick-color="white"
-            :loading="fromLoading"
+            :loading="formLoading"
             thumb-label="always"
             ticks="always"
             tick-size="1"
@@ -140,7 +144,7 @@
           class="rounded-lg"
           :rules="[rules.required]"
           label="توضیحات"
-          :loading="fromLoading"
+          :loading="formLoading"
           v-model="editableBarter.description"
         ></v-textarea>
       </v-col>
@@ -155,7 +159,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="fromLoading"
+          :loading="formLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn
@@ -169,15 +173,15 @@
 import moment from "moment-jalaali";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import servicesTypes from "@packages/polotik/Service/store/types";
-import BarterMixin from "@packages/polotik/barter/Mixins";
+import BarterMixin from "@packages/polotik/barter/mixins";
 import FormMixin from "@polotik/mixins/base/form";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
-import CategoryService from "@packages/polotik/Service/components/Category.vue";
-import CityService from "@packages/polotik/Service/components/City.vue";
+import CategoryService from "@packages/polotik/service/components/Category.vue";
+import CityService from "@packages/polotik/service/components/City.vue";
 
 export default {
   mixins: [BarterMixin, ServicesMixin, FormMixin, UtilityMixin],

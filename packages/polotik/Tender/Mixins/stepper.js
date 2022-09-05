@@ -14,8 +14,8 @@ const TenderStepperMixin = {
   computed: {
     ...mapGetters({ dataSource: "tender" }),
     ...mapState({
-      fromLoading: (state) => state.fromLoading,
-      fromLoading: (state) => state.fromLoading,
+      formLoading: (state) => state.formLoading,
+      formLoading: (state) => state.formLoading,
     }),
     isDataSourceUpdated() {
       return this.dataSource.data;

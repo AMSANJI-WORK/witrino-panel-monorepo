@@ -28,7 +28,7 @@
                 dense
                 class="rounded-lg"
                 :roles="[rules.required]"
-                :loading="fromLoading"
+                :loading="formLoading"
                 v-model="editableRole.name"
               ></v-text-field>
             </v-col>
@@ -38,7 +38,7 @@
                 dense
                 class="rounded-lg"
                 label="نام انگلیسی"
-                :loading="fromLoading"
+                :loading="formLoading"
                 :roles="[rules.required]"
                 v-model="editableRole.name_en"
               ></v-text-field>

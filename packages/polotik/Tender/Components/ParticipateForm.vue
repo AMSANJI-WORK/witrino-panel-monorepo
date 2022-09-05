@@ -29,7 +29,7 @@
               class="rounded-lg"
               v-model="tenderParticipate.title"
               dense
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               :rules="[rules.required]"
               label="عنوان درخواست"
@@ -45,7 +45,7 @@
               @input="(value) => (tenderParticipate.data.price = value)"
               :hint="tenderParticipate.data.price | numberToStringFa"
               :disabled="!settings.offerPrice"
-              :loading="fromLoading"
+              :loading="formLoading"
               :rules="[rules.required]"
               dense
               outlined
@@ -58,7 +58,7 @@
               persistent-hint
               class="rounded-lg"
               label="شماره همراه"
-              :loading="fromLoading"
+              :loading="formLoading"
               :rules="[rules.required]"
               v-model="tenderParticipate.data.phone"
               dense
@@ -72,7 +72,7 @@
               dense
               row-height="3"
               auto-grow
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               :rules="[rules.required]"
               label="آدرس"
@@ -86,7 +86,7 @@
               persistent-hint
               row-height="3"
               auto-grow
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               label="تبت نظر"
               placeholder="نظر خود را درباره این مناقصه ثبت کنید"
@@ -99,7 +99,7 @@
               dense
               :rules="[rules.required]"
               persistent-hint
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               label="توضیحات"
             ></v-textarea>
@@ -121,7 +121,7 @@
         <v-btn
           color="red lighten-2"
           text
-          :loading="fromLoading"
+          :loading="formLoading"
           @click="cansel"
         >
           انصراف
@@ -129,7 +129,7 @@
         <v-btn
           color="success"
           elevation="5"
-          :loading="fromLoading"
+          :loading="formLoading"
           @click="submitTenderParticipate"
         >
           ثبت
@@ -182,7 +182,7 @@ export default {
       uploadedImages: "upload/successUploadedImages",
     }),
     ...mapState({
-      fromLoading: (state) => state.fromLoading,
+      formLoading: (state) => state.formLoading,
     }),
     tenderId() {
       return this.$route.params.id;

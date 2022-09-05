@@ -7,7 +7,7 @@
           class="rounded-l-0 white mt-7"
           outlined
           dense
-          :loading="fromLoading"
+          :loading="formLoading"
           :rules="[rules.required]"
           :value="inquiryParticipate.data.price | toRial"
           @input="(value) => (inquiryParticipate.data.price = value)"
@@ -24,7 +24,7 @@
       class="rounded-r-0 rounded-lg"
       style="padding: 20px 0px; margin-top: 1px"
       color="success"
-      :loading="fromLoading"
+      :loading="formLoading"
       @click="submitRequest"
       elevation="5"
     >

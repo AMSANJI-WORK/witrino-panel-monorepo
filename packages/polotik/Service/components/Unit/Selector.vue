@@ -4,7 +4,7 @@
     outlined
     :value="value"
     @input="updateValue"
-    :loading="fromLoading"
+    :loading="formLoading"
     :rules="[rules.required]"
     :items="units"
     item-text="name"

@@ -32,8 +32,8 @@ export default {
     };
   },
   TOGGLE_LOADING(state) {
-    state.fromLoading = !state.fromLoading;
-    state.fromLoading = !state.fromLoading;
+    state.formLoading = !state.formLoading;
+    state.formLoading = !state.formLoading;
   },
   CHANGE_PAGE_PAGINATION(state, payload) {
     console.log(changePagePagination);

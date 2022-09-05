@@ -4,7 +4,7 @@
       dense
       outlined
       :class="inputClass"
-      :loading="fromLoading"
+      :loading="formLoading"
       :rules="[rules.required]"
       item-text="name"
       item-value="id"

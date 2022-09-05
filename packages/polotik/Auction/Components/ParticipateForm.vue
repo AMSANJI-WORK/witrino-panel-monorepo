@@ -29,7 +29,7 @@
               class="rounded-lg"
               v-model="auctionParticipate.title"
               dense
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               :rules="[rules.required]"
               label="عنوان درخواست"
@@ -45,7 +45,7 @@
               persistent-hint
               :disabled="!settings.offerPrice"
               suffix="تومان"
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               :rules="[rules.required]"
               label="مبلغ پیشنهادی"
@@ -58,7 +58,7 @@
               dense
               persistent-hint
               suffix="+98"
-              :loading="fromLoading"
+              :loading="formLoading"
               type="number"
               outlined
               :rules="[rules.required]"
@@ -72,7 +72,7 @@
               dense
               row-height="3"
               auto-grow
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               :rules="[rules.required]"
               label="آدرس"
@@ -86,7 +86,7 @@
               persistent-hint
               row-height="3"
               auto-grow
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               label="تبت نظر"
               placeholder="نظر خود را درباره این مناقصه ثبت کنید"
@@ -99,7 +99,7 @@
               dense
               :rules="[rules.required]"
               persistent-hint
-              :loading="fromLoading"
+              :loading="formLoading"
               outlined
               label="توضیحات"
             ></v-textarea>
@@ -121,14 +121,14 @@
         <v-btn
           color="red lighten-2"
           text
-          :loading="fromLoading"
+          :loading="formLoading"
           @click="cansel"
         >
           انصراف
         </v-btn>
         <v-btn
           color="primary"
-          :loading="fromLoading"
+          :loading="formLoading"
           @click="submitAuctionParticipate"
         >
           ثبت
@@ -140,7 +140,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
@@ -150,7 +150,7 @@ export default {
   components: {
     UploadImage,
   },
-  mixins: [FormMixin, StepperMixin, UtilityMixin],
+  mixins: [auctionLoadingMixin, StepperMixin, UtilityMixin],
   data() {
     return {
       dialog: false,

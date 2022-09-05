@@ -1,9 +1,9 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeletonMenu v-show="skletonLoding.menu" />
+      <PageListSkeletonMenu v-show="skeletonLoading.menu" />
     </v-slide-x-transition>
-    <v-card elevation="0" v-show="!skletonLoding.menu">
+    <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
           v-for="sale in saleListUser"
@@ -46,8 +46,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      skletonLoding: "loading/skletonLoding",
-      userPagination: "pagination/selfItemPagination",
+      skeletonLoading: "loading/skeletonLoading",
+      userPagination: "pagination/paginationSelfItem",
       saleListUser: "guilds/sale/saleList",
     }),
     currentUserId() {

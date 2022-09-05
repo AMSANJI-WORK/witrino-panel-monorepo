@@ -3,7 +3,7 @@
     <v-col cols="12" class="py-0">
       <v-text-field
         v-model="value"
-        :loading="fromLoading"
+        :loading="formLoading"
         outlined
         :rules="[rules.required]"
         label="کد تایید ارسالی را وارد کنید"

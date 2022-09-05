@@ -10,8 +10,8 @@ export default {
   ...updateMutations,
   ...setStepData,
   TOGGLE_LOADING(state) {
-    state.fromLoading = !state.fromLoading;
-    state.fromLoading = !state.fromLoading;
+    state.formLoading = !state.formLoading;
+    state.formLoading = !state.formLoading;
   },
   RESET_TENDER(state) {
     state.tender = {

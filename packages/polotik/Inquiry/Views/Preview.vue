@@ -1,10 +1,10 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PagePreviewSkeletonTypeFirst v-show="skletonLoding.one" />
+      <PagePreviewSkeletonTypeFirst v-show="skeletonLoading.one" />
     </v-slide-x-transition>
     <v-slide-x-transition>
-      <v-sheet v-show="!skletonLoding.one" class="transparent">
+      <v-sheet v-show="!skeletonLoading.one" class="transparent">
         <PagesDescription />
         <PreviewForm />
       </v-sheet>

@@ -1,4 +1,4 @@
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 import Types from "@packages/polotik/auction/store/modules/root/types";
 import VStepperTitle from "@polotik/components/Reusable/VStepperTitle.vue";
@@ -26,9 +26,6 @@ const AuctionModifyMixin = {
   computed: {
     ...mapGetters("guilds/auction", ["auction", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
-    ...mapState({
-      fromLoading: (state) => state.fromLoading,
-    }),
     auctionId() {
       return this.$route.params.id;
     },

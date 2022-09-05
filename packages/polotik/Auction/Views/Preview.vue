@@ -1,10 +1,10 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PagePreviewTypeSecond v-show="skletonLoding.one" />
+      <PagePreviewTypeSecond v-show="skeletonLoading.one" />
     </v-slide-x-transition>
     <v-slide-x-transition>
-      <v-sheet v-show="!skletonLoding.one" class="transparent">
+      <v-sheet v-show="!skeletonLoading.one" class="transparent">
         <PreviewForm />
       </v-sheet>
     </v-slide-x-transition>
@@ -13,12 +13,11 @@
 
 <script>
 import PreviewForm from "@packages/polotik/auction/components/Preview.vue";
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
-
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import PagePreviewTypeSecond from "@polotik/modules/loading/components/PagePreviewSkeletonTypeSecond.vue";
 
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [auctionLoadingMixin],
   components: {
     PreviewForm,
     PagePreviewTypeSecond,

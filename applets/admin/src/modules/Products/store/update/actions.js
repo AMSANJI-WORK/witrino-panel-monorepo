@@ -13,7 +13,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
     async [UPDATE_INQUIRY_ASYNC]({ commit, rootState }, payload) {
         try {
-            rootState.fromLoading = true;
+            rootState.formLoading = true;
             rootState.submitBtnLoading = true;
             delete payload.offers;
             delete payload.user_offer;
@@ -28,12 +28,12 @@ export default {
             commit(UPDATE_INQUIRY_FAILURE, error);
         } finally {
             rootState.submitBtnLoading = false;
-            rootState.fromLoading = false;
+            rootState.formLoading = false;
         }
     },
     async [UPDATE_STATUS_INQUIRY_ASYNC]({ commit, rootState }, payload) {
         try {
-            rootState.fromLoading = true;
+            rootState.formLoading = true;
             rootState.submitBtnLoading = true;
             delete payload.offers;
             delete payload.user_offer;
@@ -48,7 +48,7 @@ export default {
             commit(UPDATE_STATUS_INQUIRY_SUCCESS, error);
         } finally {
             rootState.submitBtnLoading = false;
-            rootState.fromLoading = false;
+            rootState.formLoading = false;
         }
     },
 };

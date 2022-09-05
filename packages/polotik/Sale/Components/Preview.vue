@@ -1,7 +1,7 @@
 <template>
   <v-card
     elevation="6"
-    :loading="fromLoading"
+    :loading="formLoading"
     class="d-flex flex-row flex-wrap rounded-lg mx-2 mx-2 pa-10"
   >
     <carousel class="d-block d-md-none" :gallery="editableSale.data?.gallery" />

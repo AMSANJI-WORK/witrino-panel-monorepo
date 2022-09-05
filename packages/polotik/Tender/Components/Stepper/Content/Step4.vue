@@ -9,7 +9,7 @@
         outlined
         :rules="[rules.required]"
         label="توضیحات"
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="formData.description"
       ></v-textarea>
     </v-col>

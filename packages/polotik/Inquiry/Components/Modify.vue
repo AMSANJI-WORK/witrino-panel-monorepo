@@ -12,7 +12,7 @@
             name="title"
             class="rounded-lg"
             dense
-            :loading="fromLoading"
+            :loading="formLoading"
             outlined
             :rules="[rules.required]"
             label="عنوان"
@@ -43,7 +43,7 @@
             readonly
             label="تاریخ شروع"
             class="rounded-lg"
-            :loading="fromLoading"
+            :loading="formLoading"
             name="fromDate"
             append-icon="mdi-calendar"
             :rules="[rules.required, fromDateRule]"
@@ -71,7 +71,7 @@
             track-color="yellow darken-2"
             :tick-labels="tickLables"
             tick-color="white"
-            :loading="fromLoading"
+            :loading="formLoading"
             thumb-label="always"
             ticks="always"
             tick-size="1"
@@ -91,7 +91,7 @@
           outlined
           :rules="[rules.required]"
           label="توضیحات"
-          :loading="fromLoading"
+          :loading="formLoading"
           v-model="editableInquiry.description"
         ></v-textarea>
       </v-col>
@@ -110,7 +110,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="fromLoading"
+          :loading="formLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn
@@ -123,7 +123,7 @@
 <script>
 import moment from "moment-jalaali";
 import FormMixin from "@polotik/mixins/base/form";
-import InquiryMixin from "@packages/polotik/inquiry/Mixins";
+import InquiryMixin from "@packages/polotik/inquiry/mixins";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
 import { mapActions, mapGetters, mapMutations } from "vuex";

@@ -1,9 +1,9 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeletonMenu v-show="skletonLoding.menu" />
+      <PageListSkeletonMenu v-show="skeletonLoading.menu" />
     </v-slide-x-transition>
-    <v-card elevation="0" v-show="!skletonLoding.menu">
+    <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
           v-for="auction in auctionList"
@@ -30,14 +30,14 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [auctionLoadingMixin],
   watch: {
     "pagination.page": function (newValue) {
       this.$emit("changePage");
@@ -45,8 +45,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pagination: "pagination/pagination",
-      skletonLoding: "loading/skletonLoding",
+      pagination: "guilds/auction/pagination/pagination",
       auctionList: "guilds/auction/auctionList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),

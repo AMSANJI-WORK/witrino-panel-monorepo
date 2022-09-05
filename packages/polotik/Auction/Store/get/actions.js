@@ -1,3 +1,4 @@
+import router from "@polotik/router";
 import {
   // get all methods
   GET_ALL_AUCTION_ASYNC,
@@ -14,51 +15,35 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_AUCTION_ASYNC]({ commit, rootGetters, getters }, payload) {
+  async [GET_ALL_AUCTION_ASYNC]({ commit, getters }, payload) {
     let loadingType =
       getters.auctionList.length == 0
-        ? "loading/TOGGLE_SKELETON_LOADING_LIST"
-        : "loading/TOGGLE_SKELETON_LOADING_MENU";
+        ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
+        : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
 
     try {
-      commit(loadingType, {}, { root: true });
-      let selfItemPagination = rootGetters["pagination/selfItemPagination"];
-      let pagination = rootGetters["pagination/pagination"];
+      commit(loadingType);
+      let paginationSelfItem = getters.pagination.paginationSelfItem;
+      let pagination = getters.pagination.pagination;
       if (payload) {
         const { data } = await guildsRepository.getAllAuctions({
-          pagination: selfItemPagination,
+          pagination: paginationSelfItem,
           userId: payload.currentUserId,
         });
-        commit(
-          "pagination/SET_PAGINATION",
-          {
-            target: "selfItemPagination",
-            data: {
-              page: data.page,
-              last_page: data.last_page,
-              count: data.count,
-            },
-          },
-          { root: true }
-        );
+        commit("pagination/SET_PAGINATION", {
+          target: "paginationSelfItem",
+          data,
+        });
         commit(GET_ALL_AUCTION_SUCCESS, data);
       } else {
         const { data } = await guildsRepository.getAllAuctions({
           pagination,
           userId: null,
         });
-        commit(
-          "pagination/SET_PAGINATION",
-          {
-            target: "pagination",
-            data: {
-              page: data.page,
-              last_page: data.last_page,
-              count: data.count,
-            },
-          },
-          { root: true }
-        );
+        commit("pagination/SET_PAGINATION", {
+          target: "pagination",
+          data,
+        });
         commit(GET_ALL_AUCTION_SUCCESS, data);
       }
     } catch (error) {
@@ -66,41 +51,28 @@ export default {
       commit(GET_ALL_AUCTION_FAILURE, error);
     } finally {
       setTimeout(() => {
-        commit(loadingType, {}, { root: true });
+        commit(loadingType);
       }, 1000);
     }
   },
 
   async [GET_AN_AUCTION_ASYNC]({ commit }, payload) {
+    let loadingType = router.currentRoute.path.includes("edit")
+      ? "formLoading/TOGGLE_FORM_LOADING"
+      : "skeletonLoading/TOGGLE_SKELETON_LOADING_ONE";
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      commit(loadingType);
       const { data } = await guildsRepository.getAnAuction(payload);
       if (data.data?.offers)
-        commit(
-          "guilds/auction/request/GET_ALL_OFFER_AUCTION_SUCCESS",
-          data.data.offers,
-          {
-            root: true,
-          }
-        );
+        commit("request/GET_ALL_OFFER_AUCTION_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
-        commit(
-          "guilds/auction/request/GET_ALL_USER_OFFER_SUCCESS",
-          data.data.user_offer,
-          {
-            root: true,
-          }
-        );
+        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_AN_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_AN_AUCTION_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      setTimeout(() => {
-        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
-      }, 1000);
+      commit(loadingType);
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {

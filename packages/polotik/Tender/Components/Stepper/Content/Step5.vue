@@ -47,7 +47,7 @@
           outlined
           label="توضیحات"
           placeholder="این فرم در اختیار شرکت کنندگان قرار میگیرد"
-          :loading="fromLoading"
+          :loading="formLoading"
           v-model="formData.participateFormDescription"
         ></v-textarea>
       </v-col>

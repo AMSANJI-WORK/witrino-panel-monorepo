@@ -1,10 +1,10 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeleton v-show="skletonLoding.list" />
+      <PageListSkeleton v-show="skeletonLoading.list" />
     </v-slide-x-transition>
     <v-slide-x-transition>
-      <v-sheet class="transparent" v-show="!skletonLoding.list">
+      <v-sheet class="transparent" v-show="!skeletonLoading.list">
         <notification>
           <template v-slot:cardTilte>
             <v-chip small class="white red--text"
@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
 import AuctionFilters from "@packages/polotik/auction/components/Filters.vue";
 
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [auctionLoadingMixin],
   components: {
     PageListSkeleton,
     AuctionFilters,

@@ -15,7 +15,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [GET_ALL_INQUIRY_ASYNC]({ commit, rootState }, payload) {
     try {
-      rootState.fromLoading = true;
+      rootState.formLoading = true;
       const { pagination, selfItemPagination } = rootState;
       if (payload) {
         const { data } = await guildsRepository.getAllInquiries({
@@ -58,19 +58,19 @@ export default {
       console.log(error);
       commit(GET_ALL_INQUIRY_FAILURE, error);
     } finally {
-      rootState.fromLoading = false;
+      rootState.formLoading = false;
     }
   },
   async [GET_AN_INQUIRY_ASYNC]({ commit, state }, payload) {
     try {
-      state.fromLoading = true;
+      state.formLoading = true;
       const { data } = await guildsRepository.getAnInquiry(payload);
       commit(GET_AN_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_AN_INQUIRY_FAILURE, error);
     } finally {
-      state.fromLoading = false;
+      state.formLoading = false;
     }
   },
 };

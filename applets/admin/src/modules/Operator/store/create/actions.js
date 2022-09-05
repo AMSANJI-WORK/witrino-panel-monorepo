@@ -10,7 +10,7 @@ export default {
   async [CREATE_INQUIRY_ASYNC]({ commit, rootState }, payload) {
     try {
       rootState.submitBtnLoading = true;
-      rootState.fromLoading = true;
+      rootState.formLoading = true;
       delete payload?.offers;
       delete payload?.operator_offer;
       const { data } = await guildsRepository.createInquiry(payload);
@@ -20,7 +20,7 @@ export default {
       commit(CREATE_INQUIRY_FAILURE, error);
     } finally {
       rootState.submitBtnLoading = false;
-      rootState.fromLoading = false;
+      rootState.formLoading = false;
     }
   },
 };

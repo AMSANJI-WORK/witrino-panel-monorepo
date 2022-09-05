@@ -2,7 +2,7 @@
   <v-sheet class="rounded-lg mx-2 py-10 px-4">
     <v-form ref="operator" class="d-flex flex-wrap">
       <v-col cols="12" sm="6" :class="colCommenClass">
-        <!-- :loading="fromLoading"
+        <!-- :loading="formLoading"
                 :rules="[rules.required]"
                 v-model="editableInquiry.title" -->
         <v-text-field
@@ -13,7 +13,7 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" :class="colCommenClass">
-        <!-- :loading="fromLoading"
+        <!-- :loading="formLoading"
                 :rules="[rules.required]"
                 v-model="editableInquiry.title" -->
         <v-text-field
@@ -24,7 +24,7 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" :class="colCommenClass">
-        <!-- :loading="fromLoading"
+        <!-- :loading="formLoading"
                 :rules="[rules.required]"
                 v-model="editableInquiry.title" -->
         <v-text-field
@@ -35,7 +35,7 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" :class="colCommenClass">
-        <!-- :loading="fromLoading"
+        <!-- :loading="formLoading"
                 :rules="[rules.required]"
                 v-model="editableInquiry.title" -->
         <v-text-field
@@ -46,7 +46,7 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" :class="colCommenClass">
-        <!-- :loading="fromLoading"
+        <!-- :loading="formLoading"
                 :rules="[rules.required]"
                 v-model="editableInquiry.title" -->
         <v-text-field

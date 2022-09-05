@@ -38,7 +38,7 @@ export default {
       state[target].recordCount = data.count;
     },
     REST_PAGINATION(state) {
-      Object.assign(state.selfItemPagination, state.defaultPagination);
+      Object.assign(state.paginationSelfItem, state.defaultPagination);
       Object.assign(state.pagination, state.defaultPagination);
     },
     ...getMutations,

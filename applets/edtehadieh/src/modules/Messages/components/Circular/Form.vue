@@ -3,7 +3,7 @@
     <v-form ref="product" class="d-flex flex-wrap">
       <v-col cols="12" sm="4" :class="colCommenClass">
         <!-- 
-          :loading="fromLoading"
+          :loading="formLoading"
           :rules="[rules.required]"
           v-model="editableInquiry.title" -->
         <v-text-field
@@ -15,7 +15,7 @@
       </v-col>
       <v-col cols="12" sm="4" :class="colCommenClass">
         <!--
-           :loading="fromLoading"
+           :loading="formLoading"
            :rules="[rules.required]"
            v-model="editableInquiry.title" 
         -->
@@ -28,7 +28,7 @@
       </v-col>
       <v-col cols="12" sm="4" :class="colCommenClass">
         <!-- 
-          :loading="fromLoading"
+          :loading="formLoading"
           :rules="[rules.required]"
           v-model="editableInquiry.title" -->
         <v-text-field
@@ -40,7 +40,7 @@
       </v-col>
       <v-col cols="12" :class="colCommenClass">
         <!-- 
-          :loading="fromLoading"
+          :loading="formLoading"
           :rules="[rules.required]"
           v-model="editableInquiry.title" 
          -->

@@ -1,6 +1,6 @@
 <template>
   <v-card
-    :loading="fromLoading"
+    :loading="formLoading"
     class="d-flex flex-row flex-wrap rounded-lg mx-0 elevation-0"
   >
     <tender-step-one-preview />
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     ...mapState({
-      fromLoading: (state) => state.fromLoading,
+      formLoading: (state) => state.formLoading,
     }),
   },
 };

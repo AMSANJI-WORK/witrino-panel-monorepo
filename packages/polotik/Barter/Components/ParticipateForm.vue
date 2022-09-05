@@ -6,7 +6,7 @@
       <v-btn
         color="success"
         class="rounded-lg white--text"
-        :loading="fromLoading"
+        :loading="formLoading"
         @click="submitRequest"
         elevation="10"
       >
@@ -16,7 +16,7 @@
     <v-form ref="barterParticipate">
       <v-textarea
         dense
-        :loading="fromLoading"
+        :loading="formLoading"
         v-model="barterParticipate.data.comment"
         class="rounded-lg pl-4 pr-3"
         outlined

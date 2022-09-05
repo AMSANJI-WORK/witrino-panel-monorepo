@@ -9,7 +9,7 @@ export default {
   }),
   getters: {
     submitBtnLoading: (state) => state.from.submitButton,
-    fromLoading: (state) => state.from.input,
+    formLoading: (state) => state.from.input,
     tableLoading: (state) => state.table,
   },
   mutations: {

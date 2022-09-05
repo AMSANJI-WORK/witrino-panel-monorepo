@@ -8,7 +8,7 @@
     small-chips
     item-text="name"
     item-value="id"
-    :loading="fromLoading"
+    :loading="formLoading"
     :rules="[rules.required]"
     label="انتخاب تم"
     :value="value"

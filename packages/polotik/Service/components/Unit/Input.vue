@@ -3,7 +3,7 @@
     dense
     outlined
     :class="$attrs['unit-amount-class']"
-    :loading="fromLoading"
+    :loading="formLoading"
     :value="value"
     @input="updateValue"
     :rules="[rules.required]"

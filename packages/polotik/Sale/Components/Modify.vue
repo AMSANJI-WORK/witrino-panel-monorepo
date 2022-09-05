@@ -10,7 +10,7 @@
           v-model="editableSale.user_id"
           class="rounded-lg"
           dense
-          :loading="fromLoading"
+          :loading="formLoading"
           outlined
           :rules="[rules.required]"
           label="برگزار کننده"
@@ -22,7 +22,7 @@
           name="title"
           class="rounded-lg"
           dense
-          :loading="fromLoading"
+          :loading="formLoading"
           outlined
           :rules="[rules.required]"
           label="عنوان"
@@ -60,7 +60,7 @@
           :value="editableSale.data.price.base | toRial"
           @input="(value) => (editableSale.data.price.base = value)"
           :hint="editableSale.data.price.base | numberToStringFa"
-          :loading="fromLoading"
+          :loading="formLoading"
           :rules="[rules.required]"
           outlined
           label="قیمت پایه"
@@ -72,7 +72,7 @@
           readonly
           label="تاریخ شروع"
           class="rounded-lg"
-          :loading="fromLoading"
+          :loading="formLoading"
           name="fromDate"
           append-icon="mdi-calendar"
           :rules="[rules.required, fromDateRule]"
@@ -97,7 +97,7 @@
           readonly
           class="rounded-lg"
           label="تاریخ پایان"
-          :loading="fromLoading"
+          :loading="formLoading"
           name="fromDate"
           append-icon="mdi-calendar"
           :rules="[rules.required, fromDateRule]"
@@ -129,7 +129,7 @@
           :rules="[rules.required]"
           label="توضیحات"
           class="rounded-lg"
-          :loading="fromLoading"
+          :loading="formLoading"
           v-model="editableSale.description"
         ></v-textarea>
       </v-col>
@@ -221,7 +221,7 @@
         <v-btn
           dark
           :color="submitBtnColor"
-          :loading="fromLoading"
+          :loading="formLoading"
           elevation="5"
           @click="submit"
           >{{ submitBtnTilte }}</v-btn
@@ -233,7 +233,7 @@
 
 <script>
 import moment from "moment-jalaali";
-import SaleMixin from "@packages/polotik/sale/Mixins";
+import SaleMixin from "@packages/polotik/sale/mixins";
 import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
@@ -243,9 +243,9 @@ import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import CategoryService from "@packages/polotik/Service/components/Category.vue";
 import CityService from "@packages/polotik/Service/components/City.vue";
-import UnitService from "@packages/polotik/Service/components/Unit/index.vue";
-import UnitServiceSelector from "@packages/polotik/Service/components/Unit/Selector.vue";
-import UnitServiceInput from "@packages/polotik/Service/components/Unit/Input.vue";
+import UnitService from "@packages/polotik/service/components/Unit/index.vue";
+import UnitServiceSelector from "@packages/polotik/service/components/Unit/Selector.vue";
+import UnitServiceInput from "@packages/polotik/service/components/Unit/Input.vue";
 import LimitSection from "@packages/polotik/sale/components/ModifyLimit/Section.vue";
 import LimitPriceInput from "@packages/polotik/sale/components/ModifyLimit/PriceInput.vue";
 import LimitPercentInput from "@packages/polotik/sale/components/ModifyLimit/PercentInput.vue";

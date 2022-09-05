@@ -1,9 +1,9 @@
 <template>
   <v-sheet class="transparent">
     <v-slide-x-transition>
-      <PageListSkeletonMenu v-show="skletonLoding.menu" />
+      <PageListSkeletonMenu v-show="skeletonLoading.menu" />
     </v-slide-x-transition>
-    <v-card elevation="0" v-show="!skletonLoding.menu">
+    <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
           v-for="auction in auctionListUser"
@@ -16,13 +16,13 @@
       <div class="d-flex pa-2 mt-2">
         <v-spacer></v-spacer>
         <v-pagination
-          v-model="userPagination.page"
-          :length="userPagination.lastPage"
+          v-model="paginationSelfItem.page"
+          :length="paginationSelfItem.lastPage"
           :total-visible="6"
         ></v-pagination>
         <v-spacer></v-spacer>
         <div class="my-auto grey--text font-weight-thin">
-          تعداد (کل) : {{ userPagination.recordCount }}
+          تعداد (کل) : {{ paginationSelfItem.recordCount }}
         </div>
       </div>
     </v-card>
@@ -31,24 +31,22 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
-
+import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [auctionLoadingMixin],
   watch: {
-    "userPagination.page": function () {
+    "paginationSelfItem.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
     ...mapGetters({
-      skletonLoding: "loading/skletonLoding",
-      userPagination: "pagination/selfItemPagination",
+      paginationSelfItem: "guilds/auction/pagination/paginationSelfItem",
       auctionListUser: "guilds/auction/auctionList",
     }),
     currentUserId() {

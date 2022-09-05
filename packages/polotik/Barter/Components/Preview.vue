@@ -2,7 +2,7 @@
   <v-form ref="barter">
     <v-card
       elevation="6"
-      :loading="fromLoading"
+      :loading="formLoading"
       class="d-flex flex-row flex-wrap rounded-lg mx-2 py-5 pt-3"
     >
       <carousel
