@@ -21,12 +21,12 @@
                 <div>
                   <p
                     class="text-subtitle-2 font-weight-light"
-                    :class="colorize(dataSource.present)"
+                    :class="colorize(dataSource.percent)"
                   >
-                    <v-icon small :color="colorizeIcon(dataSource.present)">{{
-                      dataSource.present > 0 ? "mdi-arrow-up" : "mdi-arrow-down"
+                    <v-icon small :color="colorizeIcon(dataSource.percent)">{{
+                      dataSource.percent > 0 ? "mdi-arrow-up" : "mdi-arrow-down"
                     }}</v-icon>
-                    {{ present + "%" }}
+                    {{ percent + "%" }}
                   </p>
                 </div>
               </v-list-item-title>
@@ -49,9 +49,9 @@ export default {
     },
   },
   computed: {
-    present() {
-      if (this.dataSource.present < 0) return this.dataSource.present * -1;
-      return this.dataSource.present;
+    percent() {
+      if (this.dataSource.percent < 0) return this.dataSource.percent * -1;
+      return this.dataSource.percent;
     },
   },
   methods: {

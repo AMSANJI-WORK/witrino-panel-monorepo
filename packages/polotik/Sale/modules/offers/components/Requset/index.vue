@@ -45,15 +45,15 @@ export default {
       return this.sale.user_id != Cookies.get("user-id") ? true : false;
     },
     priceRules() {
-      const { limited, priceType, present } = this.sale.data.price;
+      const { limited, priceType, percent } = this.sale.data.price;
       if (limited) {
         if (priceType == "isPercent")
           return [
             (value) =>
-              value <= value * (present.min / 100) ||
+              value <= value * (percent.min / 100) ||
               "قیمت باید از حداقل افزایش تایین شده بیشتر باشد",
             (value) =>
-              value >= value * (present.max / 100) ||
+              value >= value * (percent.max / 100) ||
               "قیمت باید از حداکثر افزایش تایین شده کمتر باشد",
           ];
       }

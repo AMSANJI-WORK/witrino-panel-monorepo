@@ -146,14 +146,14 @@
                 <limit-percent-input
                   label="حداقل افزایش قیمت"
                   class="rounded-lg rounded-l-0"
-                  v-model="editableSale.data.price.present.min"
+                  v-model="editableSale.data.price.percent.min"
                 />
               </v-col>
               <v-col cols="6" sm="6" class="pa-0 pl-3">
                 <limit-percent-input
                   label="حداکثرافزایش قیمت"
                   class="rounded-lg rounded-r-0"
-                  v-model.number="editableSale.data.price.present.max"
+                  v-model.number="editableSale.data.price.percent.max"
                 />
               </v-col>
             </template>
@@ -347,8 +347,8 @@ export default {
     checkPriceType() {
       this.editableSale.data.price.priceType = this.priceType;
       if (this.priceType === "isAmount") {
-        this.editableSale.data.price.present.min = 0;
-        this.editableSale.data.price.present.max = 0;
+        this.editableSale.data.price.percent.min = 0;
+        this.editableSale.data.price.percent.max = 0;
       } else {
         this.editableSale.data.price.min = 0;
         this.editableSale.data.price.max = 0;

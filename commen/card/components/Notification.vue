@@ -18,9 +18,9 @@
 
       <v-divider class="mt-2 grey"></v-divider>
     </v-card-text>
-    <v-card-actions class="green py-0">
+    <v-card-actions class="green">
       <v-spacer></v-spacer>
-      <v-btn text class="mb-1 white--text" plain disabled>بیشتر</v-btn>
+      <!-- <v-btn text class="mb-1 white--text" plain disabled>بیشتر</v-btn> -->
     </v-card-actions>
   </v-card>
 </template>

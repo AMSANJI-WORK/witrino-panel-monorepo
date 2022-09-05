@@ -21,7 +21,7 @@ const state = () => ({
         max: null,
         min: null,
         priceType: null,
-        present: {
+        percent: {
           limited: false,
           max: null,
           min: null,

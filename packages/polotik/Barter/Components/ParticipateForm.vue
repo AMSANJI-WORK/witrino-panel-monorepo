@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12">
     <v-card-title class="pt-0 pr-3 text--secondary">
-      ارسال نظر
+      ارسال پیشنهاد
       <v-spacer></v-spacer>
       <v-btn
         color="success"
@@ -17,7 +17,7 @@
       <v-textarea
         dense
         :loading="formLoading"
-        v-model="barterParticipate.data.comment"
+        v-model="barterParticipate.description"
         class="rounded-lg pl-4 pr-3"
         outlined
         placeholder="نظرات یا پیشنهادات خود را میتوانید در این قسمت ثبت کنید"
@@ -37,11 +37,8 @@ export default {
     return {
       barterParticipate: {
         title: "تست",
-        description: "تست درخواست تهاتر ایجاد",
+        description: null,
         status: 1,
-        data: {
-          comment: "",
-        },
       },
     };
   },

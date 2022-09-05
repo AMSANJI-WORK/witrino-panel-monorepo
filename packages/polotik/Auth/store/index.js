@@ -8,6 +8,7 @@ import {
 import UserClient from "@polotik/repositories/clients/user";
 import RepositoryFactory from "@polotik/repositories/factory";
 const authRepository = RepositoryFactory.get("auth");
+import boxTopData from "../../home/mock/boxTop";
 
 export default {
   namespaced: true,
@@ -15,6 +16,7 @@ export default {
     indeterminateLoading: false,
     token: null,
     role: null,
+    cards: [],
     user: {
       id: null,
       name: null,
@@ -29,9 +31,30 @@ export default {
   getters: {
     user: (state) => state.user,
     token: (state) => state.token || null,
+    cards: (state) => state.cards,
   },
   mutations: {
-    [SET_PERMISSION_SUCCESS](state, { token, user }) {
+    LOGOUT() {
+      Cookies.remove("token");
+      Cookies.remove("role");
+      Cookies.remove("user-id");
+      Cookies.remove("user-name");
+      Cookies.remove("register-date");
+      Cookies.remove("num-of-products");
+      Cookies.remove("image");
+      Cookies.remove("mobile");
+      Cookies.remove("company-name");
+      Cookies.remove("site");
+      Cookies.remove("cards");
+    },
+    SET_DASHBOARD(state, payload) {
+      state.cards = [...payload];
+      state.cards = state.cards.map((card, index) => {
+        return { ...card, icon: boxTopData[index].icon };
+      });
+    },
+    [SET_PERMISSION_SUCCESS](state, { token, user, cards }) {
+      Cookies.set("cards", JSON.stringify(state.cards));
       const {
         id,
         role,
@@ -41,7 +64,7 @@ export default {
         num_of_products,
         register_date,
         company_name,
-        site
+        site,
       } = user;
       //
       Cookies.set("token", token);
@@ -77,15 +100,25 @@ export default {
     },
   },
   actions: {
+    async GET_DASHBOARD_DATA({ commit }) {
+      try {
+        const { data } = await authRepository.getDashboardData();
+        commit("SET_DASHBOARD", data.cards);
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async [SET_PERMISSION_ASYNC]({ commit, state }, payload) {
       try {
         state.indeterminateLoading = true;
-        const { data } = await authRepository.setPermission(payload);
-        commit(SET_PERMISSION_SUCCESS, data);
+        const { cards } = await authRepository.setPermission(payload);
+        commit(SET_PERMISSION_SUCCESS, cards);
       } catch (error) {
         commit(SET_PERMISSION_FAILURE, error);
       } finally {
-        state.indeterminateLoading = false;
+        setTimeout(() => {
+          state.indeterminateLoading = false;
+        }, 1000);
       }
     },
   },

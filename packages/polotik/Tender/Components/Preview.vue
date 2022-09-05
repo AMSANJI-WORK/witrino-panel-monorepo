@@ -8,7 +8,7 @@
         v-if="tender?.user_offer?.length >= 1"
         color="success"
         @click="$router.push('outcome')"
-        >پیگیری پیشنهاد های من</v-btn
+        >پیگیری پیشنهاد من</v-btn
       >
     </v-card-actions>
   </v-card>

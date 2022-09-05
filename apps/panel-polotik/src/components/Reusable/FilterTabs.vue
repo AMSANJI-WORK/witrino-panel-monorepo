@@ -17,12 +17,12 @@
         key="list-mine"
         >{{ service }} های من</v-tab
       >
-      <v-tab
+      <!-- <v-tab
         class="text-caption text-md-body-2 font-weight-medium"
         :disabled="true"
         key="list-mine-request"
-        >پیگیری پیشنهاد های من</v-tab
-      >
+        >پیگیری پیشنهاد من</v-tab
+      > -->
 
       <v-spacer></v-spacer>
       <v-btn
@@ -51,9 +51,9 @@
         <v-tab-item key="list-mine">
           <slot name="list-mine-content" />
         </v-tab-item>
-        <v-tab-item key="list-mine-request">
+        <!-- <v-tab-item key="list-mine-request">
           <slot name="list-mine-request" />
-        </v-tab-item>
+        </v-tab-item> -->
       </v-tabs-items>
     </v-tabs>
   </v-card>

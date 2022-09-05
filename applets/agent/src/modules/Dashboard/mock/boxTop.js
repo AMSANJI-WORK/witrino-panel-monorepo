@@ -5,19 +5,19 @@ export default [
   {
     number: 1,
     title: "اصناف",
-    present: 25,
+    percent: 25,
     icon: WProjectBlueIcon,
   },
   {
     number: 2,
     title: "محصولات",
-    present: 10,
+    percent: 10,
     icon: WProjectYellowIcon,
   },
   {
     number: 3,
     title: "سرویس ها",
-    present: -10,
+    percent: -10,
     icon: WProjectGreenIcon,
   },
 ];

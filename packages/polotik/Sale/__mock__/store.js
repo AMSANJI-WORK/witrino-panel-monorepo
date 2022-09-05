@@ -33,7 +33,7 @@ export const dataAll = {
           max: 0,
           min: 0,
           priceType: "isPercent",
-          present: {
+          percent: {
             limited: false,
             max: 50,
             min: "20",
@@ -119,7 +119,7 @@ export const dataAll = {
           max: "2,0000",
           min: "15,000",
           priceType: "isAmount",
-          present: {
+          percent: {
             limited: false,
             max: 0,
             min: 0,
@@ -277,7 +277,7 @@ export const dataCreate = {
       max: "4,1234",
       min: "12,3123",
       priceType: "isAmount",
-      present: {
+      percent: {
         limited: false,
         max: 0,
         min: 0,
@@ -320,7 +320,7 @@ export const dataUpdate = {
         max: 0,
         min: 0,
         priceType: "isPercent",
-        present: {
+        percent: {
           limited: false,
           max: 50,
           min: "20",
@@ -377,7 +377,7 @@ export const defualtState = {
         max: null,
         min: null,
         priceType: null,
-        present: {
+        percent: {
           limited: false,
           max: null,
           min: null,

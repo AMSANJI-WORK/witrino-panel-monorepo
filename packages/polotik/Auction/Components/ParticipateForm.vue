@@ -38,9 +38,9 @@
           <v-col cols="12" sm="6" :class="settings.offerPrice ? '' : 'd-none'">
             <v-text-field
               class="rounded-lg"
-              :value="auctionParticipate.data.price | toRial"
-              @input="(value) => (auctionParticipate.data.price = value)"
-              :hint="auctionParticipate.data.price | numberToStringFa"
+              :value="auctionParticipate.price | toRial"
+              @input="(value) => (auctionParticipate.price = value)"
+              :hint="auctionParticipate.price | numberToStringFa"
               dense
               persistent-hint
               :disabled="!settings.offerPrice"
@@ -159,8 +159,8 @@ export default {
         title: null,
         description: null,
         status: 1,
+        price: null,
         data: {
-          price: null,
           gallery: [],
           docs: [],
           address: null,

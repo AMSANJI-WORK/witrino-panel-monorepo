@@ -74,7 +74,7 @@
     >
       <v-spacer></v-spacer>
       <v-btn color="success" @click="$router.push('outcome')"
-        >پیگیری پیشنهاد های ارسال شده</v-btn
+        >پیگیری پیشنهاد من</v-btn
       >
     </v-col>
   </v-card>

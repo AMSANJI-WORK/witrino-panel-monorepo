@@ -1,38 +1,36 @@
 <template>
-  <v-item-group v-model="selected" multiple>
+  <v-item-group>
     <v-col v-for="(offer, index) in offers" :key="offer.id" cols="12">
       <v-item v-slot="{ active, toggle }">
         <v-card elevation="0">
-          <h4 class="mx-4 my-2 font-weight-regular">
-            {{ offer.title }} {{ index + 1 }}
-          </h4>
           <v-card-subtitle
-            class="d-flex flex-wrap align-center justify-md-space-around justify-center green-lighten-5 rounded-t-xl"
+            class="d-flex flex-wrap align-center justify-space-between py-0"
+          >
+            <h4 class="mx-4 my-2">{{ offer.title }}</h4>
+            {{ offer.time | convertTodateFa }}
+          </v-card-subtitle>
+
+          <v-card-subtitle
+            class="d-flex flex-wrap align-center justify-md-space-between justify-center green-lighten-5 rounded-t-xl"
           >
             <v-sheet class="d-flex transparent align-center">
               <v-avatar size="60" color="grey lighten-2">
-                <!-- <img src="" alt="alt" /> -->
+                <img :src="offer.user_data.image" alt="alt" />
               </v-avatar>
-              <h5 class="mx-4">{{ user.name }}</h5>
+              <h5 class="mx-4">{{ offer.user_data.name }}</h5>
             </v-sheet>
-            <v-label label="شماره همراه" :label-value="offer.data.phone" />
             <v-label
-              label="تاریخ ثبت درخواست"
-              :label-value="offer.time | convertTodateFa"
+              label="شماره همراه"
+              :label-value="offer.user_data.mobile"
             />
+
             <v-chip class="white--text blue darken-2 font-weight-bold">
-              قیمت {{ offer.data.price | toRial }} تومان
+              قیمت {{ offer.price | toRial }} تومان
             </v-chip>
           </v-card-subtitle>
           <v-card-text class="green-lighten-6 rounded-lg">
             <v-sheet class="transparent px-3 pt-5 text-caption"
               >{{ offer.description }}
-              <br />
-              آدرس :
-              {{ offer.data.address }}
-              <br />
-              نظر :
-              {{ offer.data.comment }}
             </v-sheet>
             <v-sheet class="transparent pa-3 d-flex flex-wrap align-center">
               <v-col class="d-flex flex-wrap justify-sm-start justify-center">
@@ -50,18 +48,16 @@
                   />
                 </v-avatar>
               </v-col>
-              <v-col class="pb-0">
-                <v-card-actions class="justify-sm-end justify-center pb-0 pt-4">
-                  <v-btn dark icon color="red" @click="rejectOffer(offer.id)"
-                    ><v-icon>mdi-power</v-icon></v-btn
-                  >
-                  <v-btn icon color="success" @click="toggle">
-                    <v-icon v-if="active" color="grey"> mdi-bookmark</v-icon>
-                    <v-icon v-else color="grey"> mdi-bookmark-outline</v-icon>
-                  </v-btn>
-                </v-card-actions>
-              </v-col>
             </v-sheet>
+            <v-col class="pb-0 d-flex justify-end">
+              <v-btn
+                color="primary"
+                class="rounded-lg"
+                @click="redirectToSellerProfile(offer.user_data.site)"
+                >{{ "صفحه" + ` ${offer.user_data.name}` }}
+                <v-icon right>mdi-arrow-left</v-icon>
+              </v-btn>
+            </v-col>
           </v-card-text>
         </v-card>
       </v-item>
@@ -99,6 +95,9 @@ export default {
   methods: {
     rejectOffer(ID) {},
     resolveOffer(ID) {},
+    redirectToSellerProfile(url) {
+      window.location.href = url;
+    },
   },
   computed: {
     ...mapGetters("guilds/tender/request", ["offers"]),

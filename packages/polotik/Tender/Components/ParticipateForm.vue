@@ -41,9 +41,9 @@
               label="مبلغ پیشنهادی"
               class="rounded-lg"
               persistent-hint
-              :value="tenderParticipate.data.price | toRial"
-              @input="(value) => (tenderParticipate.data.price = value)"
-              :hint="tenderParticipate.data.price | numberToStringFa"
+              :value="tenderParticipate.price | toRial"
+              @input="(value) => (tenderParticipate.price = value)"
+              :hint="tenderParticipate.price | numberToStringFa"
               :disabled="!settings.offerPrice"
               :loading="formLoading"
               :rules="[rules.required]"
@@ -159,8 +159,8 @@ export default {
         title: null,
         description: null,
         status: 1,
+        price: null,
         data: {
-          price: null,
           gallery: [],
           docs: [],
           address: null,

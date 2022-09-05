@@ -3,7 +3,8 @@ export default [
   {
     path: ":id/request",
     name: "auction-request-page",
-    component: () => import("@packages/polotik/auction/modules/offers/views/Request.vue"),
+    component: () =>
+      import("@packages/polotik/auction/modules/offers/views/Request.vue"),
     beforeEnter: resetAuction,
     meta: {
       breadCrumb: [
@@ -16,7 +17,7 @@ export default [
           to: "/auction",
         },
         {
-          text: "درخواست ها",
+          text: "پیشنهادات",
           disabled: true,
         },
       ],
@@ -25,7 +26,8 @@ export default [
   {
     path: ":id/outcome",
     name: "auction-follow-page",
-    component: () => import("@packages/polotik/auction/modules/offers/views/OutCome.vue"),
+    component: () =>
+      import("@packages/polotik/auction/modules/offers/views/OutCome.vue"),
     beforeEnter: resetAuction,
     meta: {
       breadCrumb: [
@@ -38,7 +40,7 @@ export default [
           to: "/auction",
         },
         {
-          text: "پیگیری درخواست ها",
+          text: "پیگیری پیشنهاد من",
           disabled: true,
         },
       ],

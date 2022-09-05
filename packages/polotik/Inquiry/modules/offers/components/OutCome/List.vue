@@ -3,31 +3,34 @@
     <v-col v-for="(offer, index) in userOffers" :key="offer.id" cols="12">
       <v-item>
         <v-card elevation="0">
-          <h4 class="mx-4 my-2 font-weight-regular">
-            {{ offer.title }} {{ index + 1 }}
-          </h4>
           <v-card-subtitle
-            class="d-flex flex-wrap align-center justify-md-space-around justify-center green-lighten-5 rounded-t-xl"
+            class="d-flex flex-wrap align-center justify-space-between py-0"
+          >
+            <h4 class="mx-4 my-2">
+              {{ "پیشنهاد شما" }}
+            </h4>
+            {{ offer.time | convertTodateFa }}
+          </v-card-subtitle>
+
+          <v-card-text
+            class="d-flex flex-wrap align-center justify-md-space-between justify-center green-lighten-5 rounded-xl pa-4"
           >
             <v-sheet class="d-flex transparent align-center">
               <v-avatar size="60" color="grey lighten-2">
-                <!-- <img src="" alt="alt" /> -->
+                <img :src="offer.user_data.image" alt="alt" />
               </v-avatar>
-              <h5 class="mx-4">{{ user.name }}</h5>
+              <h5 class="mx-4">{{ offer.user_data.name }}</h5>
             </v-sheet>
-            <v-label label="شماره همراه" :label-value="offer.data.phone" />
             <v-label
-              label="تاریخ ثبت درخواست"
-              :label-value="offer.time | convertTodateFa"
+              label="شماره همراه"
+              :label-value="offer.user_data.mobile"
             />
+
             <v-chip class="white--text blue darken-2 font-weight-bold">
-              قیمت {{ user.price | toRial }} تومان
+              قیمت {{ offer.price | toRial }} تومان
             </v-chip>
-          </v-card-subtitle>
-          <v-card-text class="green-lighten-6 rounded-lg">
-            <v-sheet class="transparent px-3 pt-5 text-caption"
-              >{{ offer.description }}
-            </v-sheet>
+          </v-card-text>
+          <!-- <v-card-text class="green-lighten-6 rounded-lg">
             <v-sheet class="transparent pa-3 d-flex flex-wrap align-center">
               <v-col
                 class="d-flex flex-wrap justify-sm-start justify-center py-0"
@@ -46,18 +49,8 @@
                   />
                 </v-avatar>
               </v-col>
-              <v-col class="py-0 pl-0">
-                <v-card-actions class="justify-sm-end justify-center py-0">
-                  <v-chip
-                    class="rounded-xl font-weight-bold text-caption"
-                    :color="chipColor(offer.status)"
-                    text-color="white"
-                    >{{ offer.status | statusToFa }}
-                  </v-chip>
-                </v-card-actions>
-              </v-col>
             </v-sheet>
-          </v-card-text>
+          </v-card-text> -->
         </v-card>
       </v-item>
     </v-col>
@@ -77,7 +70,7 @@ export default {
   },
   filters: {
     convertTodateFa(value) {
-      return moment(value).format("jYYYY/jMM/jDD HH:mm");
+      return moment(value).format("HH:mm | jYYYY/jMM/jDD");
     },
     statusToFa(value) {
       if (value == 1) return "درحال بررسی";

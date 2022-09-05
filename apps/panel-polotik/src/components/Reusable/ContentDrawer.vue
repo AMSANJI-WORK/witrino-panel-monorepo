@@ -42,6 +42,8 @@
           active-class="green--text"
           v-if="!item.child"
           v-show="item.visible === true"
+          :href="item.href"
+          link
           :disabled="item.disabled"
           router
           :to="item.route"

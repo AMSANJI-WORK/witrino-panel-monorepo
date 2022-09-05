@@ -1,7 +1,7 @@
 <template>
   <v-card class="rounded-lg mx-2">
     <v-card-subtitle class="grey lighten-2 black--text">
-      نام : {{ inquiry.title }}
+      {{ inquiry.title }}
     </v-card-subtitle>
     <v-card-text>
       <ProductInfo />

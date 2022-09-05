@@ -97,7 +97,7 @@ export default Object.freeze([
   {
     title: "خروج",
     icon: "mdi-logout",
-    route: "/",
+    route: "/logout",
     role: "user",
     visible: true,
   },

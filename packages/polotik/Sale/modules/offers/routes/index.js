@@ -16,7 +16,7 @@ export default [
           to: "/sale",
         },
         {
-          text: "درخواست ها",
+          text: "پیشنهادات",
           disabled: true,
         },
       ],

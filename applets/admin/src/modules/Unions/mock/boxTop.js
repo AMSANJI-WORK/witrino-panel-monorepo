@@ -5,19 +5,19 @@ export default [
   {
     number: 1,
     title: "همه اتحادیه ها",
-    present: 25,
+    percent: 25,
     icon: AllUnions,
   },
   {
     number: 2,
     title: "اتحادیه ها فعال",
-    present: 10,
+    percent: 10,
     icon: ActiveUnions,
   },
   {
     number: 3,
     title: "اتحادیه ها غیرفعال",
-    present: -10,
+    percent: -10,
     icon: DisableUnions,
   },
 ];

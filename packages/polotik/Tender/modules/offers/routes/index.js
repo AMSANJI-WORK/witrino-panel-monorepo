@@ -17,7 +17,7 @@ export default [
           to: "/tender",
         },
         {
-          text: "درخواست ها",
+          text: "پیشنهادات",
           disabled: true,
         },
       ],
@@ -40,7 +40,7 @@ export default [
           to: "/tender",
         },
         {
-          text: "پیگیری درخواست ها",
+          text: "پیگیری پیشنهادات",
           disabled: true,
         },
       ],

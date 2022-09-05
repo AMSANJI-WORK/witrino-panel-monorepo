@@ -17,7 +17,7 @@ export default [
           to: "/barter",
         },
         {
-          text: "درخواست ها",
+          text: "پیشنهادات",
           disabled: true,
         },
       ],
@@ -40,7 +40,7 @@ export default [
           to: "/barter",
         },
         {
-          text: "پیگیری درخواست ها",
+          text: "پیگیری پیشنهاد من",
           disabled: true,
         },
       ],

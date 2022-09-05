@@ -4,8 +4,8 @@
       class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
     >
       <CardInfoDashboard
-        v-for="icon in boxTopData"
-        :key="icon.number"
+        v-for="(icon, index) in cards"
+        :key="index"
         :data-source="icon"
       />
     </v-sheet>
@@ -16,7 +16,7 @@
           جدیدترین اخبار ها</v-chip
         >
       </template>
-      <template v-slot:cardTilteEnd>
+      <!-- <template v-slot:cardTilteEnd>
         <v-tooltip right>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
@@ -48,14 +48,14 @@
           </template>
           <span class="text-small font-weight-bold white--text">غیر فعال</span>
         </v-tooltip>
-      </template>
+      </template> -->
       <template v-slot:cardSubTilte>
         <v-sheet class="transparent yellow--text"
           >فعال شدن امکان مناقصه</v-sheet
         >
       </template>
       <template v-slot:cardSubTilteEnd>
-        <v-sheet class="transparent white--text">2 ساعت پیش</v-sheet>
+        <!-- <v-sheet class="transparent white--text">2 ساعت پیش</v-sheet> -->
       </template>
       <template v-slot:cardText>
         با فعالسازی امکان مناقصه، از این پس میتوانید با استفاده از این سامانه،
@@ -76,7 +76,6 @@
 
 <script>
 import Cookies from "js-cookie";
-import boxTopData from "@packages/polotik/Home/mock/boxTop";
 import FacilitiesData from "@packages/polotik/Home/mock/facilities";
 import Notification from "@commen/card/components/Notification.vue";
 import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
@@ -91,7 +90,6 @@ export default {
   data() {
     return {
       FacilitiesData,
-      boxTopData,
       page: 1,
     };
   },
@@ -102,6 +100,9 @@ export default {
     token() {
       return Cookies.get("token") ?? null;
     },
+    cards() {
+      return this.$store.getters["auth/cards"];
+    },
   },
   methods: {
     checkToken() {
@@ -111,8 +112,12 @@ export default {
           : this.$router.push("/403");
       }
     },
+    getCardData() {
+      this.$store.dispatch("auth/GET_DASHBOARD_DATA");
+    },
   },
   created() {
+    this.getCardData();
     this.checkToken();
   },
 };
