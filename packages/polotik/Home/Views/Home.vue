@@ -113,7 +113,7 @@ export default {
       }
     },
     getCardData() {
-      this.$store.dispatch("auth/GET_DASHBOARD_DATA");
+      if (this.token) this.$store.dispatch("auth/GET_DASHBOARD_DATA");
     },
   },
   created() {

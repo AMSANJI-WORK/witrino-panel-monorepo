@@ -111,8 +111,8 @@ export default {
     async [SET_PERMISSION_ASYNC]({ commit, state }, payload) {
       try {
         state.indeterminateLoading = true;
-        const { cards } = await authRepository.setPermission(payload);
-        commit(SET_PERMISSION_SUCCESS, cards);
+        const { data } = await authRepository.setPermission(payload);
+        commit(SET_PERMISSION_SUCCESS, data);
       } catch (error) {
         commit(SET_PERMISSION_FAILURE, error);
       } finally {
