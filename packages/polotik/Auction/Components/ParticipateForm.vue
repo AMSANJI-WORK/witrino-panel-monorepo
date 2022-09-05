@@ -57,7 +57,7 @@
               v-model="auctionParticipate.data.phone"
               dense
               persistent-hint
-              suffix="+98"
+              suffix="98+"
               :loading="formLoading"
               type="number"
               outlined
@@ -143,7 +143,7 @@ import { mapActions, mapGetters } from "vuex";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import TYPES from "@packages/polotik/auction/modules/offers/store/types";
 
 export default {
@@ -210,6 +210,7 @@ export default {
           target: { name: "auction", id: this.auctionId },
           participateForm: this.auctionParticipate,
         }).then(() => {
+          this.$router.go(0);
           this.cansel();
         });
       }

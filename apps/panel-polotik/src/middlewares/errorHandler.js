@@ -5,15 +5,16 @@ function responseErrorHandler(error) {
     status,
     data: { message },
   } = error.response;
-  if (!status)  {
-    Vue.$toast.error("پیام خطا دریافت شد")
+  if (!status) {
+    Vue.$toast.error("پیام خطا دریافت شد");
     return router.push("/404");
-  };
+  }
   switch (status) {
     case 400:
       Vue.$toast.error("داده های ارسالی نا معتبر میباشد");
       break;
     case 401:
+      router.push("/403");
       Vue.$toast.error("احراز هویت با خطا مواجه شد");
       break;
     case 403:

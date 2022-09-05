@@ -1,10 +1,13 @@
 <template>
   <v-card elevation="0" class="mx-auto px-4 my-1" max-width="800">
     <v-card-subtitle
-      class="transparent pb-3 pr-0 font-weight-black"
+      class="transparent pb-3 pr-0 font-weight-black d-flex justify-space-between"
       @click="modify(dataSource.id, 'preview')"
-      >{{ dataSource.title }}</v-card-subtitle
-    >
+      >{{ dataSource.title }}
+      <span class="text-body-2">
+        {{ dataSource.created_at | timeTofa }}
+      </span>
+    </v-card-subtitle>
     <v-hover>
       <template v-slot:default="{ hover }">
         <div
@@ -57,6 +60,7 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 const { mapActions } = createNamespacedHelpers("guilds/auction");
+import moment from "moment-jalaali";
 import RequestLink from "@polotik/components/Reusable/RequestLink.vue";
 export default {
   components: {
@@ -65,6 +69,11 @@ export default {
   props: {
     dataSource: Object,
     currentUserId: Number,
+  },
+  filters: {
+    timeTofa: function (value) {
+      return moment(value).format("HH:mm | jYYYY/jMM/jDD");
+    },
   },
   computed: {
     isCurrentUser() {

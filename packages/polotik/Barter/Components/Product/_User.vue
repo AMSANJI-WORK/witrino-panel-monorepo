@@ -31,15 +31,15 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
+import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [barterLoadingMixin],
   watch: {
     "userPagination.page": function () {
       this.$emit("changePage");
@@ -47,8 +47,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userPagination: "pagination/paginationSelfItem",
-      skeletonLoading: "loading/skeletonLoading",
+      userPagination: "guilds/barter/pagination/paginationSelfItem",
       barterListUser: "guilds/barter/barterList",
     }),
     currentUserId() {

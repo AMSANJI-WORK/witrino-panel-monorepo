@@ -71,6 +71,8 @@ export default {
         this.createRequestInquiryAsync({
           target: { name: "inquiry", id: this.$route.params.id },
           participateForm: this.inquiryParticipate,
+        }).then(() => {
+          this.$router.go(0);
         });
     },
   },

@@ -6,10 +6,13 @@
     max-width="800"
   >
     <v-card-subtitle
-      class="transparent pb-3 pr-0 font-weight-bold"
+      class="transparent pb-3 pr-0 font-weight-bold d-flex justify-space-between"
       @click="modify(dataSource.id, 'preview')"
-      >{{ dataSource.title }}</v-card-subtitle
-    >
+      >{{ dataSource.title }}
+      <span class="text-body-2">
+        {{ dataSource.created_at | timeTofa }}
+      </span>
+    </v-card-subtitle>
     <v-hover>
       <template v-slot:default="{ hover }">
         <div
@@ -85,6 +88,7 @@
 </template>
 
 <script>
+import moment from "moment-jalaali";
 const { mapActions } = createNamespacedHelpers("guilds/sale");
 import { createNamespacedHelpers } from "vuex";
 import Types from "@packages/polotik/sale/store/modules/root/types";
@@ -97,6 +101,11 @@ export default {
   props: {
     dataSource: Object,
     currentUserId: Number,
+  },
+  filters: {
+    timeTofa: function (value) {
+      return moment(value).format("HH:mm | jYYYY/jMM/jDD");
+    },
   },
   computed: {
     isCurrentUser() {

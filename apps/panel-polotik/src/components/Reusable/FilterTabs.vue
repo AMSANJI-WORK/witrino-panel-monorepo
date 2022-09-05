@@ -21,7 +21,7 @@
         class="text-caption text-md-body-2 font-weight-medium"
         :disabled="true"
         key="list-mine-request"
-        >پیگیری درخواست های من</v-tab
+        >پیگیری پیشنهاد های من</v-tab
       >
 
       <v-spacer></v-spacer>

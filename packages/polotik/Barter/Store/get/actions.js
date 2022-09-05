@@ -1,3 +1,4 @@
+import router from "@polotik/router";
 import {
   // get all methods
   GET_ALL_BARTER_ASYNC,
@@ -13,50 +14,34 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_BARTER_ASYNC]({ commit, rootGetters, getters }, payload) {
+  async [GET_ALL_BARTER_ASYNC]({ commit, getters }, payload) {
     let loadingType =
       getters.barterList.length == 0
-        ? "loading/TOGGLE_SKELETON_LOADING_LIST"
-        : "loading/TOGGLE_SKELETON_LOADING_MENU";
+        ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
+        : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
     try {
-      commit(loadingType, {}, { root: true });
-      let paginationSelfItem = rootGetters["pagination/paginationSelfItem"];
-      let pagination = rootGetters["pagination/pagination"];
+      commit(loadingType);
+      let paginationSelfItem = getters["pagination/paginationSelfItem"];
+      let pagination = getters["pagination/pagination"];
       if (payload) {
         const { data } = await guildsRepository.getAllBarters({
           pagination: paginationSelfItem,
           userId: payload.currentUserId,
         });
-        commit(
-          "pagination/SET_PAGINATION",
-          {
-            target: "paginationSelfItem",
-            data: {
-              page: data.page,
-              last_page: data.last_page,
-              count: data.count,
-            },
-          },
-          { root: true }
-        );
+        commit("pagination/SET_PAGINATION", {
+          target: "paginationSelfItem",
+          data,
+        });
         commit(GET_ALL_BARTER_SUCCESS, data);
       } else {
         const { data } = await guildsRepository.getAllBarters({
           pagination,
           userId: null,
         });
-        commit(
-          "pagination/SET_PAGINATION",
-          {
-            target: "pagination",
-            data: {
-              page: data.page,
-              last_page: data.last_page,
-              count: data.count,
-            },
-          },
-          { root: true }
-        );
+        commit("pagination/SET_PAGINATION", {
+          target: "pagination",
+          data,
+        });
         commit(GET_ALL_BARTER_SUCCESS, data);
       }
     } catch (error) {
@@ -64,41 +49,28 @@ export default {
       commit(GET_ALL_BARTER_FAILURE, error);
     } finally {
       setTimeout(() => {
-        commit(loadingType, {}, { root: true });
+        commit(loadingType);
       }, 1000);
     }
   },
 
   async [GET_A_BARTER_ASYNC]({ commit }, payload) {
+    let loadingType = router.currentRoute.path.includes("edit")
+      ? "formLoading/TOGGLE_FORM_LOADING"
+      : "skeletonLoading/TOGGLE_SKELETON_LOADING_ONE";
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      commit(loadingType);
       const { data } = await guildsRepository.getABarter(payload);
       if (data.data?.offers)
-        commit(
-          "guilds/barter/request/GET_ALL_OFFER_BARTER_SUCCESS",
-          data.data.offers,
-          {
-            root: true,
-          }
-        );
+        commit("request/GET_ALL_OFFER_BARTER_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
-        commit(
-          "guilds/barter/request/GET_ALL_USER_OFFER_SUCCESS",
-          data.data.user_offer,
-          {
-            root: true,
-          }
-        );
+        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_A_BARTER_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_A_BARTER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      setTimeout(() => {
-        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
-      }, 1000);
+      commit(loadingType);
     }
   },
 };

@@ -27,12 +27,12 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import TYPES from "@packages/polotik/barter/modules/offers/store/types";
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
-  mixins: [FormMixin],
+  mixins: [barterLoadingMixin],
   data() {
     return {
       barterParticipate: {
@@ -55,6 +55,8 @@ export default {
         this.createRequestBarterAsync({
           target: { name: "barter", id: this.$route.params.id },
           participateForm: this.barterParticipate,
+        }).then(() => {
+          this.$router.go(0);
         });
     },
   },

@@ -213,6 +213,7 @@ export default {
           participateForm: this.tenderParticipate,
         }).then(() => {
           this.cansel();
+          this.$router.go(0);
         });
       }
     },

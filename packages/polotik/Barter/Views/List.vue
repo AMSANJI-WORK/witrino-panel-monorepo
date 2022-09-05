@@ -14,11 +14,11 @@
 
 <script>
 import BarterFilters from "@packages/polotik/barter/components/Filters.vue";
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
 import PagesDescription from "@packages/polotik/barter/components/PagesDescription.vue";
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [barterLoadingMixin],
   components: {
     BarterFilters,
     PagesDescription,

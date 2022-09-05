@@ -64,7 +64,7 @@ export default {
 
     token() {
       return import.meta.env.DEV
-        ? this.$route.query.token ?? "asd"
+        ? this.$route.query.token ?? "qwe"
         : this.$route.query.token ?? null;
     },
     redirect() {
@@ -78,8 +78,10 @@ export default {
   },
   created() {
     this.setPermissionAsync(this.token).then(() => {
-      if (!this.redirect || !this.token) this.$router.push("/403");
-      else this.$router.push(this.redirect);
+      setTimeout(() => {
+        if (!this.redirect || !this.token) this.$router.push("/403");
+        else this.$router.push(this.redirect);
+      }, 2000);
     });
   },
 };

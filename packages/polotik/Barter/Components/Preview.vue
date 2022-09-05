@@ -93,7 +93,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import UtilityMixin from "@shared/mixins/utility";
-import FormMixin from "@polotik/mixins/base/form";
+import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import BarterMixin from "@packages/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";
 import VLabel from "@commen/label/components/Label.vue";
@@ -105,7 +105,7 @@ export default {
     Carousel,
     ParticipateForm,
   },
-  mixins: [BarterMixin, FormMixin, UtilityMixin],
+  mixins: [BarterMixin, barterLoadingMixin, UtilityMixin],
 
   computed: {
     ...mapGetters("guilds/services/category", ["categories"]),
