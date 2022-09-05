@@ -21,7 +21,7 @@
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
 import { userTypes } from "@packages/admin/users/store/types";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import Card from "@packages/profile/components/Card/index.vue";
 export default {
   components: {

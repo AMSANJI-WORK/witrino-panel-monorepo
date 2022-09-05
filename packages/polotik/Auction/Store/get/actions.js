@@ -14,9 +14,14 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_AUCTION_ASYNC]({ commit, rootGetters }, payload) {
+  async [GET_ALL_AUCTION_ASYNC]({ commit, rootGetters, getters }, payload) {
+    let loadingType =
+      getters.auctionList.length == 0
+        ? "loading/TOGGLE_SKELETON_LOADING_LIST"
+        : "loading/TOGGLE_SKELETON_LOADING_MENU";
+
     try {
-      commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+      commit(loadingType, {}, { root: true });
       let selfItemPagination = rootGetters["pagination/selfItemPagination"];
       let pagination = rootGetters["pagination/pagination"];
       if (payload) {
@@ -61,7 +66,7 @@ export default {
       commit(GET_ALL_AUCTION_FAILURE, error);
     } finally {
       setTimeout(() => {
-        commit("loading/TOGGLE_SKELETON_LOADING_LIST", {}, { root: true });
+        commit(loadingType, {}, { root: true });
       }, 1000);
     }
   },

@@ -36,7 +36,7 @@
 import boxTopData from "@applets/namayande/src/modules/Dashboard/mock/boxTop";
 import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import Banner from "@applets/namayande/src/modules/Dashboard/components/Banner.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import NotificationProduct from "@commen/card/components/NotificationProduct.vue";
 export default {
   components: {

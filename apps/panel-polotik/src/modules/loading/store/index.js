@@ -3,7 +3,7 @@ export default {
   namespaced: true,
   state: () => ({
     fromLoading: false,
-    skletonLoding: { list: false, one: false },
+    skletonLoding: { list: false, one: false, menu: false },
   }),
   getters: {
     fromLoading(state) {
@@ -27,6 +27,9 @@ export default {
     },
     [LOADING_TYPES.TOGGLE_SKELETON_LOADING_ONE](state) {
       state.skletonLoding.one = !state.skletonLoding.one;
+    },
+    [LOADING_TYPES.TOGGLE_SKELETON_LOADING_MENU](state) {
+      state.skletonLoding.menu = !state.skletonLoding.menu;
     },
   },
 };

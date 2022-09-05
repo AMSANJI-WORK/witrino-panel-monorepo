@@ -1,26 +1,32 @@
 <template>
-  <v-card elevation="0" :loading="fromLoading">
-    <v-slide-x-transition :group="true">
-      <product
-        v-for="sale in userSales"
-        :data-source="sale"
-        :key="sale.id"
-        :current-user-id="currentUserId"
-      />
+  <v-sheet class="transparent">
+    <v-slide-x-transition>
+      <PageListSkeletonMenu v-show="skletonLoding.menu" />
     </v-slide-x-transition>
-    <div class="d-flex pa-2 mt-2">
-      <v-spacer></v-spacer>
-      <v-pagination
-        v-model="userPagination.page"
-        :length="userPagination.lastPage"
-        :total-visible="6"
-      ></v-pagination>
-      <v-spacer></v-spacer>
-      <div class="my-auto grey--text font-weight-thin">
-        تعداد (کل) : {{ userPagination.recordCount }}
+    <v-card elevation="0" v-show="!skletonLoding.menu">
+      <v-slide-x-transition :group="true">
+        <Product
+          v-for="sale in saleListUser"
+          :data-source="sale"
+          :key="sale.id"
+          :current-user-id="currentUserId"
+        />
+      </v-slide-x-transition>
+
+      <div class="d-flex pa-2 mt-2">
+        <v-spacer></v-spacer>
+        <v-pagination
+          v-model="userPagination.page"
+          :length="userPagination.lastPage"
+          :total-visible="6"
+        ></v-pagination>
+        <v-spacer></v-spacer>
+        <div class="my-auto grey--text font-weight-thin">
+          تعداد (کل) : {{ userPagination.recordCount }}
+        </div>
       </div>
-    </div>
-  </v-card>
+    </v-card>
+  </v-sheet>
 </template>
 
 <script>
@@ -28,9 +34,10 @@ import { mapGetters } from "vuex";
 import FormMixin from "@polotik/mixins/base/form";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
+import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 
 export default {
-  components: { Product },
+  components: { Product, PageListSkeletonMenu },
   mixins: [FormMixin],
   watch: {
     "userPagination.page": function (newValue) {
@@ -39,8 +46,9 @@ export default {
   },
   computed: {
     ...mapGetters({
+      skletonLoding: "loading/skletonLoding",
       userPagination: "pagination/selfItemPagination",
-      userSales: "guilds/sale/saleList",
+      saleListUser: "guilds/sale/saleList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

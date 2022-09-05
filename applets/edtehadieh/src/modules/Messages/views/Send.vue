@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import SendForm from "@applets/edtehadieh/src/modules/Messages/components/Send/Form.vue";
 
 export default {

@@ -13,7 +13,7 @@
 
 <script>
 import Card from "../components/Card/index.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 export default {
   components: {
     SectionDivider,

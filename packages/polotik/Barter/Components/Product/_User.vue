@@ -1,34 +1,44 @@
 <template>
-  <v-card elevation="0" :loading="fromLoading">
-    <product
-      v-for="barter in userBarters"
-      :data-source="barter"
-      :key="barter.id"
-      :current-user-id="currentUserId"
-    />
-    <div class="d-flex pa-2 mt-2">
-      <v-spacer></v-spacer>
-      <v-pagination
-        v-model="userPagination.page"
-        :length="userPagination.lastPage"
-        :total-visible="6"
-      ></v-pagination>
-      <v-spacer></v-spacer>
-      <div class="my-auto grey--text font-weight-thin">
-        تعداد (کل) : {{ userPagination.recordCount }}
+  <v-sheet class="transparent">
+    <v-slide-x-transition>
+      <PageListSkeletonMenu v-show="skletonLoding.menu" />
+    </v-slide-x-transition>
+    <v-card elevation="0" v-show="!skletonLoding.menu">
+      <v-slide-x-transition :group="true">
+        <Product
+          v-for="barter in barterListUser"
+          :data-source="barter"
+          :key="barter.id"
+          :current-user-id="currentUserId"
+        />
+      </v-slide-x-transition>
+
+      <div class="d-flex pa-2 mt-2">
+        <v-spacer></v-spacer>
+        <v-pagination
+          v-model="userPagination.page"
+          :length="userPagination.lastPage"
+          :total-visible="6"
+        ></v-pagination>
+        <v-spacer></v-spacer>
+        <div class="my-auto grey--text font-weight-thin">
+          تعداد (کل) : {{ userPagination.recordCount }}
+        </div>
       </div>
-    </div>
-  </v-card>
+    </v-card>
+  </v-sheet>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import FormMixin from "@polotik/mixins/base/form";
+import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
+
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 
 export default {
-  components: { Product },
+  components: { Product, PageListSkeletonMenu },
   mixins: [FormMixin],
   watch: {
     "userPagination.page": function () {
@@ -38,7 +48,8 @@ export default {
   computed: {
     ...mapGetters({
       userPagination: "pagination/selfItemPagination",
-      userBarters: "guilds/barter/barterList",
+      skletonLoding: "loading/skletonLoding",
+      barterListUser: "guilds/barter/barterList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

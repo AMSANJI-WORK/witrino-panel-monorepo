@@ -15,7 +15,7 @@
 <script>
 import DetailTabs from "@applets/edtehadieh/src/modules/TradeUnit/components/Detail/Tabs.vue";
 import DetailCard from "@applets/edtehadieh/src/modules/TradeUnit/components/Detail/Card.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 export default {
     components: {
         DetailTabs,

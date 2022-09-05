@@ -20,7 +20,7 @@
 
 <script>
 import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import boxTopData from "@applets/admin/src/modules/Products/mock/boxTop";
 import DataTable from "./DataTable.vue";
 export default {
