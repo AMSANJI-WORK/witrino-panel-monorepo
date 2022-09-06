@@ -8,10 +8,15 @@ import {
   //   GET_A_CITY_FAILURE,
 } from "./types";
 import RepositoryFactory from "@polotik/repositories/factory";
+import formLoading from "@commen/loading/modules/form/store";
+
 const cityRepository = RepositoryFactory.get("city");
 
 export default {
   namespaced: true,
+  modules: {
+    formLoading,
+  },
   state: () => ({
     cities: [],
     city: {},
@@ -37,7 +42,7 @@ export default {
   actions: {
     async [GET_ALL_CITIES_ASYNC]({ commit, getters }) {
       try {
-        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("formLoading/TOGGLE_FORM_LOADING");
         if (getters.cities.length == 0) {
           const { data } = await cityRepository.getAllCities();
           commit(GET_ALL_CITIES_SUCCESS, data);
@@ -45,7 +50,7 @@ export default {
       } catch (error) {
         commit(GET_ALL_CITIES_FAILURE, error);
       } finally {
-        commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("formLoading/TOGGLE_FORM_LOADING");
       }
     },
   },

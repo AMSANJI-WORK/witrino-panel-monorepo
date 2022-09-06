@@ -77,6 +77,8 @@
 
 <script>
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
+import fromRules from "@commen/form/mixins/rules";
+
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
@@ -84,8 +86,8 @@ import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
-import CategoryService from "@packages/polotik/Service/components/Category.vue";
-import CityService from "@packages/polotik/Service/components/City.vue";
+import CategoryService from "@packages/polotik/service/components/Category.vue";
+import CityService from "@packages/polotik/service/components/City.vue";
 
 export default {
   components: {
@@ -96,7 +98,13 @@ export default {
     VSelectInputNoData,
     VSelectInputSelection,
   },
-  mixins: [auctionLoadingMixin, ServicesMixin, StepperMixin, UtilityMixin],
+  mixins: [
+    auctionLoadingMixin,
+    fromRules,
+    ServicesMixin,
+    StepperMixin,
+    UtilityMixin,
+  ],
   data: () => ({
     formData: {
       auctionBasePrice: null,

@@ -19,16 +19,19 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import fromRules from "@commen/form/mixins/rules";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 export default {
   components: {
     VSelectInputNoData,
   },
-  mixins: [FormMixin],
+  mixins: [fromRules],
   props: ["value"],
   computed: {
-    ...mapGetters("guilds/services/units", ["units"]),
+    ...mapGetters("guilds/services/units", {
+      units: "units",
+      formLoading: "formLoading/formLoading",
+    }),
   },
   methods: {
     updateValue(value) {

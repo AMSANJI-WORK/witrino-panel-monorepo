@@ -29,12 +29,13 @@
 <script>
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
+import fromRules from "@commen/form/mixins/rules";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 export default {
   components: { VFieldSpace, VStepperLevelBtn, UploadImage },
-  mixins: [auctionLoadingMixin, StepperMixin],
+  mixins: [auctionLoadingMixin, fromRules, StepperMixin],
   data: () => ({
     formData: {
       gallery: [],

@@ -10,14 +10,14 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [DELETE_BARTER_ASYNC]({ commit }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
       const { data } = await guildsRepository.deleteBarter(payload);
       commit(DELETE_BARTER_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(DELETE_BARTER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
     }
   },
 };

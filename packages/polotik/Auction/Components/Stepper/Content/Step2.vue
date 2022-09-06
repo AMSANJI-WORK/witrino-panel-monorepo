@@ -105,6 +105,7 @@
 
 <script>
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
+import fromRules from "@commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
@@ -115,7 +116,7 @@ export default {
     VFieldSpace,
     VStepperLevelBtn,
   },
-  mixins: [auctionLoadingMixin, StepperMixin, UtilityMixin],
+  mixins: [auctionLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data: () => ({
     formData: {
       askerInformation: null,

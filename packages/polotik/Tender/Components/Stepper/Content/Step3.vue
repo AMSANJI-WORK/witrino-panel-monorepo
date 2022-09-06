@@ -112,7 +112,7 @@
 <script>
 import moment from "moment-jalaali";
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
-
+import fromRules from "@commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
@@ -122,7 +122,7 @@ export default {
     VFieldSpace,
     VStepperLevelBtn,
   },
-  mixins: [tenderLoadingMixin, StepperMixin, UtilityMixin],
+  mixins: [tenderLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data: () => ({
     collectionDocsTime: [],
     startTenderDate: "",

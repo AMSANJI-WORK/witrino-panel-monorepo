@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
 import UtilityMixin from "@shared/mixins/utility";
 import { createNamespacedHelpers } from "vuex";
-import servicesTypes from "@packages/polotik/Service/store/types";
+import servicesTypes from "@packages/polotik/service/store/types";
+import fromRules from "@commen/form/mixins/rules";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 const { mapActions, mapGetters } = createNamespacedHelpers(
   "guilds/services/units"
@@ -19,7 +19,7 @@ const { mapActions, mapGetters } = createNamespacedHelpers(
 export default {
   inheritAttrs: false,
   components: { VSelectInputNoData },
-  mixins: [FormMixin, UtilityMixin],
+  mixins: [fromRules, UtilityMixin],
   data: () => ({
     selectedUnitName: null,
     amount: null,

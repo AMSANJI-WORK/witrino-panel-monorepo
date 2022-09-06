@@ -22,16 +22,13 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-const { mapGetters, mapActions } = createNamespacedHelpers(
-  "guilds/services/cities"
-);
+import { mapGetters, mapActions } from "vuex";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import servicesTypes from "@packages/polotik/service/store/types";
-import FormMixin from "@polotik/mixins/base/form";
+import fromRules from "@commen/form/mixins/rules";
+
 export default {
   inheritAttrs: false,
-  mixins: [FormMixin],
   props: {
     value: [Number, Object],
     label: {
@@ -39,6 +36,7 @@ export default {
       default: "مکان",
     },
   },
+  mixins: [fromRules],
   components: {
     VSelectInputNoData,
   },
@@ -54,13 +52,16 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["cities"]),
+    ...mapGetters("guilds/services/cities", {
+      cities: "cities",
+      formLoading: "formLoading/formLoading",
+    }),
   },
   methods: {
     updateValue(value) {
       this.$emit("input", value);
     },
-    ...mapActions({
+    ...mapActions("guilds/services/cities", {
       getAllCitiesAsync: `${servicesTypes.GET_ALL_CITIES_ASYNC}`,
     }),
   },

@@ -46,10 +46,11 @@
 import { mapActions } from "vuex";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
+import fromRules from "@commen/form/mixins/rules";
 import TYPES from "@packages/polotik/inquiry/modules/offers/store/types";
 
 export default {
-  mixins: [inquiryLoadingMixin, UtilityMixin],
+  mixins: [inquiryLoadingMixin, UtilityMixin, fromRules],
   data() {
     return {
       inquiryParticipate: {

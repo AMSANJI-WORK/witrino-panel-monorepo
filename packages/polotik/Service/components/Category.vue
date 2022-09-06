@@ -31,18 +31,18 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
-import { createNamespacedHelpers } from "vuex";
-const { mapGetters } = createNamespacedHelpers("guilds/services/category");
+import { mapGetters } from "vuex";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
+import fromRules from "@commen/form/mixins/rules";
+
 export default {
   inheritAttrs: false,
+  mixins: [fromRules],
   components: {
     VSelectInputNoData,
     VSelectInputSelection,
   },
-  mixins: [FormMixin],
   props: {
     value: Array,
     label: {
@@ -74,7 +74,10 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["categories"]),
+    ...mapGetters("guilds/services/category", {
+      categories: "categories",
+      formLoading: "formLoading/formLoading",
+    }),
   },
   methods: {
     updateValue(value) {

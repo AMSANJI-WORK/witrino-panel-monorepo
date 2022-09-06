@@ -9,7 +9,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [CREATE_AUCTION_ASYNC]({ commit }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
 
       delete payload?.offers;
       delete payload?.user_offer;
@@ -19,7 +19,7 @@ export default {
       console.log(error);
       commit(CREATE_AUCTION_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
 
     }
   },

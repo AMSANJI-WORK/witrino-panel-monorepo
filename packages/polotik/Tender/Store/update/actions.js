@@ -10,7 +10,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [UPDATE_TENDER_ASYNC]({ commit }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
       delete payload.created_at;
       delete payload.updated_at;
       delete payload?.offers;
@@ -24,7 +24,7 @@ export default {
       console.log(error);
       commit(UPDATE_TENDER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
     }
   },
 };

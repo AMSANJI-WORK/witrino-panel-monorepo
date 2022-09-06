@@ -239,10 +239,10 @@ import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import servicesTypes from "@packages/polotik/Service/store/types";
 import { mapActions, mapMutations, mapGetters } from "vuex";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
-import CategoryService from "@packages/polotik/Service/components/Category.vue";
-import CityService from "@packages/polotik/Service/components/City.vue";
+import CategoryService from "@packages/polotik/service/components/Category.vue";
+import CityService from "@packages/polotik/service/components/City.vue";
 import UnitService from "@packages/polotik/service/components/Unit/index.vue";
 import UnitServiceSelector from "@packages/polotik/service/components/Unit/Selector.vue";
 import UnitServiceInput from "@packages/polotik/service/components/Unit/Input.vue";
@@ -251,9 +251,10 @@ import LimitPriceInput from "@packages/polotik/sale/components/ModifyLimit/Price
 import LimitPercentInput from "@packages/polotik/sale/components/ModifyLimit/PercentInput.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
+import fromRules from "@commen/form/mixins/rules";
 
 export default {
-  mixins: [SaleMixin, saleLoadingMixin, ServicesMixin, UtilityMixin],
+  mixins: [SaleMixin, fromRules, saleLoadingMixin, ServicesMixin, UtilityMixin],
   components: {
     LimitSection,
     LimitPriceInput,

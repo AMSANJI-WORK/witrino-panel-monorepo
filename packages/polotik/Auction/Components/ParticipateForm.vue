@@ -140,6 +140,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import fromRules from "@commen/form/mixins/rules";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
@@ -150,7 +151,7 @@ export default {
   components: {
     UploadImage,
   },
-  mixins: [auctionLoadingMixin, StepperMixin, UtilityMixin],
+  mixins: [auctionLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data() {
     return {
       dialog: false,

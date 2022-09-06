@@ -8,6 +8,10 @@
     "header": "*",
     "icons": "*",
     "zone": "*",
-    "label": "*"
+    "label": "*",
+    "form": "*",
+    "pagination": "*",
+    "loading": "*",
+    "section-divider": "*"
   }
 }

@@ -134,9 +134,17 @@ import CityService from "@packages/polotik/service/components/City.vue";
 import UnitService from "@packages/polotik/service/components/Unit/index.vue";
 import UnitServiceSelector from "@packages/polotik/service/components/Unit/Selector.vue";
 import UnitServiceInput from "@packages/polotik/service/components/Unit/Input.vue";
-import servicesTypes from "@packages/polotik/Service/store/types";
+import servicesTypes from "@packages/polotik/service/store/types";
+import fromRules from "@commen/form/mixins/rules";
+
 export default {
-  mixins: [InquiryMixin, inquiryLoadingMixin, ServicesMixin, UtilityMixin],
+  mixins: [
+    InquiryMixin,
+    fromRules,
+    inquiryLoadingMixin,
+    ServicesMixin,
+    UtilityMixin,
+  ],
   components: {
     CategoryService,
     CityService,

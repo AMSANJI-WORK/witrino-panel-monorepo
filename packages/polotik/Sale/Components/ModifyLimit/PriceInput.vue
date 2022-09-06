@@ -15,9 +15,10 @@
 
 <script>
 import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
+import fromRules from "@commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 export default {
-  mixins: [saleLoadingMixin, UtilityMixin],
+  mixins: [saleLoadingMixin, UtilityMixin, fromRules],
   props: {
     value: String,
     label: String,

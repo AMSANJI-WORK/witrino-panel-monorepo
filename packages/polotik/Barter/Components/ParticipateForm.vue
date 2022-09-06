@@ -16,6 +16,7 @@
     <v-form ref="barterParticipate">
       <v-textarea
         dense
+        :rules="[rules.required]"
         :loading="formLoading"
         v-model="barterParticipate.description"
         class="rounded-lg pl-4 pr-3"
@@ -29,10 +30,12 @@
 <script>
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import TYPES from "@packages/polotik/barter/modules/offers/store/types";
+import fromRules from "@commen/form/mixins/rules";
+
 import { mapActions } from "vuex";
 
 export default {
-  mixins: [barterLoadingMixin],
+  mixins: [barterLoadingMixin, fromRules],
   data() {
     return {
       barterParticipate: {

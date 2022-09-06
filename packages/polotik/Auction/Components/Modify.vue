@@ -129,6 +129,7 @@
 import AuctionModifyMixin from "@packages/polotik/auction/mixins/modify";
 import ServicesMixin from "@polotik/mixins/base/services";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
+
 export default {
   mixins: [AuctionModifyMixin, ServicesMixin, auctionLoadingMixin],
   created() {

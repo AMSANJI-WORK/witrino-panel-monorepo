@@ -46,7 +46,7 @@
       :multiple="true"
     />
 
-   <CityService
+    <CityService
       sm="6"
       v-model="formData.tenderPlace"
       label="محل برگزاری"
@@ -77,14 +77,14 @@
 
 <script>
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
-
+import fromRules from "@commen/form/mixins/rules";
 import ServicesMixin from "@polotik/mixins/base/services";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
-import CategoryService from "@packages/polotik/Service/components/Category.vue";
-import CityService from "@packages/polotik/Service/components/City.vue";
+import CategoryService from "@packages/polotik/service/components/Category.vue";
+import CityService from "@packages/polotik/service/components/City.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
 export default {
@@ -96,7 +96,13 @@ export default {
     VStepperLevelBtn,
     CategoryService,
   },
-  mixins: [tenderLoadingMixin, ServicesMixin, StepperMixin, UtilityMixin],
+  mixins: [
+    tenderLoadingMixin,
+    fromRules,
+    ServicesMixin,
+    StepperMixin,
+    UtilityMixin,
+  ],
   data: () => ({
     formData: {
       tenderCategory: [],

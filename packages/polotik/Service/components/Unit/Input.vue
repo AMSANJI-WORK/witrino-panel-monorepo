@@ -16,9 +16,9 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import fromRules from "@commen/form/mixins/rules";
 export default {
-  mixins: [FormMixin],
+  mixins: [fromRules],
   props: {
     value: [Number, String],
     selectedUnit: [Object, Number],
@@ -42,6 +42,7 @@ export default {
     ...mapGetters("guilds/services/units", {
       units: "units",
       selectedUnitObject: "selectedUnit",
+      formLoading: "formLoading/formLoading",
     }),
   },
   methods: {

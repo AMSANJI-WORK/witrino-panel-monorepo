@@ -141,17 +141,17 @@
 
 <script>
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
-
+import fromRules from "@commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import TYPES from "@packages/polotik/tender/modules/offers/store/types";
 export default {
   components: {
     UploadImage,
   },
-  mixins: [tenderLoadingMixin, StepperMixin, UtilityMixin],
+  mixins: [tenderLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data() {
     return {
       dialog: false,

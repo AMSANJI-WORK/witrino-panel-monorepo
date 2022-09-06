@@ -175,6 +175,8 @@ import { mapActions, mapGetters, mapMutations } from "vuex";
 import servicesTypes from "@packages/polotik/Service/store/types";
 import BarterMixin from "@packages/polotik/barter/mixins";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
+import fromRules from "@commen/form/mixins/rules";
+
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
@@ -184,7 +186,13 @@ import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
 
 export default {
-  mixins: [BarterMixin, ServicesMixin, barterLoadingMixin, UtilityMixin],
+  mixins: [
+    BarterMixin,
+    ServicesMixin,
+    barterLoadingMixin,
+    fromRules,
+    UtilityMixin,
+  ],
   components: {
     CityService,
     CategoryService,

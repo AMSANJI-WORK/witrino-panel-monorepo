@@ -28,11 +28,11 @@
 </template>
 
 <script>
+import fromRules from "@commen/form/mixins/rules";
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
-
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
-import UploadImage from "@packages/polotik/Upload/components/UploadImage.vue"
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 export default {
   components: {
@@ -40,7 +40,7 @@ export default {
     UploadImage,
     VStepperLevelBtn,
   },
-  mixins: [tenderLoadingMixin, StepperMixin],
+  mixins: [tenderLoadingMixin, fromRules, StepperMixin],
   data: () => ({
     formData: {
       gallery: [],

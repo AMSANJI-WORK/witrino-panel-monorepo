@@ -16,7 +16,7 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [GET_ALL_OFFER_ASYNC]({ commit }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
       let pagination = rootGetters["pagination/pagination"];
       const { data } = await guildsRepository.getAllOffers(
         payload.target,
@@ -40,13 +40,13 @@ export default {
       console.log(error);
       commit(GET_ALL_OFFER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
     }
   },
 
   async [GET_AN_OFFER_ASYNC]({ commit }, payload) {
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
       const { data } = await guildsRepository.getAOffer(
         payload.target,
         payload.id
@@ -56,7 +56,7 @@ export default {
       console.log(error);
       commit(GET_AN_OFFER_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
+      commit("formLoading/TOGGLE_FORM_LOADING");
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
