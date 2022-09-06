@@ -6,6 +6,7 @@ export default {
       list: false,
       one: false,
       menu: false,
+      dashboard: false,
     },
   }),
   getters: {
@@ -30,6 +31,9 @@ export default {
     },
     [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_MENU](state) {
       state.skeletonLoading.menu = !state.skeletonLoading.menu;
+    },
+    [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_DASHBOARD](state) {
+      state.skeletonLoading.dashboard = !state.skeletonLoading.dashboard;
     },
   },
 };

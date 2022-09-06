@@ -14,11 +14,11 @@
 
 <script>
 import SaleFilters from "@packages/polotik/sale/components/Filters.vue";
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
 import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [saleLoadingMixin],
   components: {
     SaleFilters,
     PageListSkeleton,

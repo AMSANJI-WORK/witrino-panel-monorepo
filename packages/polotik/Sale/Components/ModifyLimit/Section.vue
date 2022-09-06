@@ -28,9 +28,9 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 export default {
-  mixins: [FormMixin],
+  mixins: [saleLoadingMixin],
   props: ["value"],
   methods: {
     updateValue(value) {

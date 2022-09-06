@@ -46,9 +46,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({
-      userPagination: "guilds/barter/pagination/paginationSelfItem",
-      barterListUser: "guilds/barter/barterList",
+    ...mapGetters("guilds/barter", {
+      userPagination: "pagination/paginationSelfItem",
+      barterListUser: "barterList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

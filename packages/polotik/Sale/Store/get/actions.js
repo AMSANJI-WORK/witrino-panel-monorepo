@@ -1,3 +1,5 @@
+import router from "@polotik/router";
+
 import {
   // get all methods
   GET_ALL_SALE_ASYNC,
@@ -13,75 +15,60 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_SALE_ASYNC]({ commit, rootGetters, getters }, payload) {
+  async [GET_ALL_SALE_ASYNC]({ commit, getters }, payload) {
     let loadingType =
       getters.saleList.length == 0
-        ? "loading/TOGGLE_SKELETON_LOADING_LIST"
-        : "loading/TOGGLE_SKELETON_LOADING_MENU";
+        ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
+        : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
     try {
-      commit(loadingType, {}, { root: true });
-      let paginationSelfItem = rootGetters["pagination/paginationSelfItem"];
-      let pagination = rootGetters["pagination/pagination"];
+      commit(loadingType);
+      let paginationSelfItem = getters["pagination/paginationSelfItem"];
+      let pagination = getters["pagination/pagination"];
       if (payload) {
         const { data } = await guildsRepository.getsaleList({
           pagination: paginationSelfItem,
           userId: payload.currentUserId,
         });
-        commit(
-          "pagination/SET_PAGINATION",
-          {
-            target: "paginationSelfItem",
-            data: {
-              page: data.page,
-              last_page: data.last_page,
-              count: data.count,
-            },
-          },
-          { root: true }
-        );
+        commit("pagination/SET_PAGINATION", {
+          target: "paginationSelfItem",
+          data,
+        });
         commit(GET_ALL_SALE_SUCCESS, data);
       } else {
         const { data } = await guildsRepository.getsaleList({
           pagination,
           userId: null,
         });
-        commit(
-          "pagination/SET_PAGINATION",
-          {
-            target: "pagination",
-            data: {
-              page: data.page,
-              last_page: data.last_page,
-              count: data.count,
-            },
-          },
-          { root: true }
-        );
+        commit("pagination/SET_PAGINATION", {
+          target: "pagination",
+          data,
+        });
         commit(GET_ALL_SALE_SUCCESS, data);
       }
     } catch (error) {
       console.log(error);
       commit(GET_ALL_SALE_FAILURE, error);
     } finally {
-      setTimeout(() => {
-        commit(loadingType, {}, { root: true });
-      }, 1000);
+      setTimeout(() => commit(loadingType), 1000);
     }
   },
   async [GET_A_SALE_ASYNC]({ commit }, payload) {
+    let loadingType = router.currentRoute.path.includes("edit")
+      ? "formLoading/TOGGLE_FORM_LOADING"
+      : "skeletonLoading/TOGGLE_SKELETON_LOADING_ONE";
     try {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
+      commit(loadingType);
       const { data } = await guildsRepository.getASale(payload);
+      if (data.data?.offers)
+        commit("request/GET_ALL_OFFER_SALE_SUCCESS", data.data.offers);
+      if (data.data?.user_offer)
+        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_A_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_A_SALE_FAILURE, error);
     } finally {
-      commit("loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      setTimeout(() => {
-        commit("loading/TOGGLE_SKELETON_LOADING_ONE", {}, { root: true });
-      }, 1000);
+      setTimeout(() => commit(loadingType), 1000);
     }
   },
 };

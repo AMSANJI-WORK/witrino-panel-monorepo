@@ -8,7 +8,6 @@ import {
 import UserClient from "@polotik/repositories/clients/user";
 import RepositoryFactory from "@polotik/repositories/factory";
 const authRepository = RepositoryFactory.get("auth");
-import boxTopData from "../../home/mock/boxTop";
 
 export default {
   namespaced: true,
@@ -16,7 +15,6 @@ export default {
     indeterminateLoading: false,
     token: null,
     role: null,
-    cards: [],
     user: {
       id: null,
       name: null,
@@ -47,14 +45,7 @@ export default {
       Cookies.remove("site");
       Cookies.remove("cards");
     },
-    SET_DASHBOARD(state, payload) {
-      state.cards = [...payload];
-      state.cards = state.cards.map((card, index) => {
-        return { ...card, icon: boxTopData[index].icon };
-      });
-    },
-    [SET_PERMISSION_SUCCESS](state, { token, user, cards }) {
-      Cookies.set("cards", JSON.stringify(state.cards));
+    [SET_PERMISSION_SUCCESS](state, { token, user }) {
       const {
         id,
         role,
@@ -100,14 +91,6 @@ export default {
     },
   },
   actions: {
-    async GET_DASHBOARD_DATA({ commit }) {
-      try {
-        const { data } = await authRepository.getDashboardData();
-        commit("SET_DASHBOARD", data.cards);
-      } catch (error) {
-        console.log(error);
-      }
-    },
     async [SET_PERMISSION_ASYNC]({ commit, state }, payload) {
       try {
         state.indeterminateLoading = true;

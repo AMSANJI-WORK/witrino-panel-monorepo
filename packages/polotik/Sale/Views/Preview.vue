@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import PagePreviewSkeletonTypeFirst from "@polotik/modules/loading/components/PagePreviewSkeletonTypeFirst.vue";
 import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
 import PreviewForm from "@packages/polotik/sale/components/Preview.vue";
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [saleLoadingMixin],
   components: {
     PreviewForm,
     PagesDescription,

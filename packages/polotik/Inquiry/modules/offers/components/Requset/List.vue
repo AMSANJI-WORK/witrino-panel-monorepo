@@ -13,7 +13,7 @@
           </v-card-subtitle>
 
           <v-card-subtitle
-            class="d-flex flex-wrap align-center justify-md-space-around justify-center green-lighten-5 rounded-t-xl"
+            class="d-flex flex-wrap align-center justify-md-space-between justify-center green-lighten-5 rounded-t-xl"
           >
             <v-sheet class="d-flex transparent align-center">
               <v-avatar size="60" color="grey lighten-2">
@@ -24,10 +24,6 @@
             <v-label
               label="شماره همراه"
               :label-value="offer.user_data.mobile"
-            />
-            <v-label
-              label="تاریخ ثبت درخواست"
-              :label-value="offer.time | convertTodateFa"
             />
             <v-chip class="white--text blue darken-2 font-weight-bold">
               قیمت {{ offer.data.price | toRial }} تومان

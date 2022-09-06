@@ -1,22 +1,27 @@
 <template>
   <v-sheet class="transparent">
-    <v-sheet
-      class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
-    >
-      <CardInfoDashboard
-        v-for="(icon, index) in cards"
-        :key="index"
-        :data-source="icon"
-      />
-    </v-sheet>
-    <notification>
-      <template v-slot:cardTilte>
-        <v-chip small class="white red--text"
-          ><v-icon color="red" small class="mx-1">mdi-bell-outline</v-icon>
-          جدیدترین اخبار ها</v-chip
+    <v-slide-x-transition>
+      <PolotikDashBoardSkeleton v-show="skeletonLoading.dashboard" />
+    </v-slide-x-transition>
+    <v-slide-x-transition>
+      <v-sheet class="transparent" v-show="!skeletonLoading.dashboard">
+        <v-sheet
+          class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
         >
-      </template>
-      <!-- <template v-slot:cardTilteEnd>
+          <CardInfoDashboard
+            v-for="(icon, index) in cards"
+            :key="index"
+            :data-source="icon"
+          />
+        </v-sheet>
+        <notification>
+          <template v-slot:cardTilte>
+            <v-chip small class="white red--text"
+              ><v-icon color="red" small class="mx-1">mdi-bell-outline</v-icon>
+              جدیدترین اخبار ها</v-chip
+            >
+          </template>
+          <!-- <template v-slot:cardTilteEnd>
         <v-tooltip right>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
@@ -49,28 +54,32 @@
           <span class="text-small font-weight-bold white--text">غیر فعال</span>
         </v-tooltip>
       </template> -->
-      <template v-slot:cardSubTilte>
-        <v-sheet class="transparent yellow--text"
-          >فعال شدن امکان مناقصه</v-sheet
+          <template v-slot:cardSubTilte>
+            <v-sheet class="transparent yellow--text"
+              >فعال شدن امکان مناقصه
+            </v-sheet>
+          </template>
+          <template v-slot:cardSubTilteEnd>
+            <!-- <v-sheet class="transparent white--text">2 ساعت پیش</v-sheet> -->
+          </template>
+          <template v-slot:cardText>
+            با فعالسازی امکان مناقصه، از این پس میتوانید با استفاده از این
+            سامانه، اقدام به درج آگهی مناقصه کنید. با درج آگهی در این بخش،
+            میتوانید آگهی خود را در معرض صاحبان اصناف، مشاغل و شرکت ها قرار داده
+            و از این طریق تبادل اطلاعات کنید.
+          </template>
+        </notification>
+        <v-sheet
+          class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
         >
-      </template>
-      <template v-slot:cardSubTilteEnd>
-        <!-- <v-sheet class="transparent white--text">2 ساعت پیش</v-sheet> -->
-      </template>
-      <template v-slot:cardText>
-        با فعالسازی امکان مناقصه، از این پس میتوانید با استفاده از این سامانه،
-        اقدام به درج آگهی مناقصه کنید. با درج آگهی در این بخش، میتوانید آگهی خود
-        را در معرض صاحبان اصناف، مشاغل و شرکت ها قرار داده و از این طریق تبادل
-        اطلاعات کنید.
-      </template>
-    </notification>
-    <div class="d-flex flex-wrap justify-space-around align-self-stretch">
-      <facilities
-        v-for="facility in FacilitiesData"
-        :key="facility.number"
-        :data-source="facility"
-      />
-    </div>
+          <facilities
+            v-for="facility in FacilitiesData"
+            :key="facility.number"
+            :data-source="facility"
+          />
+        </v-sheet>
+      </v-sheet>
+    </v-slide-x-transition>
   </v-sheet>
 </template>
 
@@ -80,9 +89,10 @@ import FacilitiesData from "@packages/polotik/Home/mock/facilities";
 import Notification from "@commen/card/components/Notification.vue";
 import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
 import Facilities from "@packages/polotik/Home/components/Facilities.vue";
-
+import PolotikDashBoardSkeleton from "@commen/loading/modules/skeleton/components/Dashboard/Polotik.vue";
 export default {
   components: {
+    PolotikDashBoardSkeleton,
     CardInfoDashboard,
     Notification,
     Facilities,
@@ -101,7 +111,10 @@ export default {
       return Cookies.get("token") ?? null;
     },
     cards() {
-      return this.$store.getters["auth/cards"];
+      return this.$store.getters["home/cards"];
+    },
+    skeletonLoading() {
+      return this.$store.getters["home/skeletonLoading/skeletonLoading"];
     },
   },
   methods: {
@@ -113,7 +126,7 @@ export default {
       }
     },
     getCardData() {
-      if (this.token) this.$store.dispatch("auth/GET_DASHBOARD_DATA");
+      if (this.token) this.$store.dispatch("home/GET_DASHBOARD_DATA");
     },
   },
   created() {

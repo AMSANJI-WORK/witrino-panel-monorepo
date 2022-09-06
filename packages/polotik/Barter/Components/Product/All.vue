@@ -44,9 +44,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({
-      pagination: "guilds/barter/pagination/pagination",
-      barterList: "guilds/barter/barterList",
+    ...mapGetters("guilds/barter", {
+      pagination: "pagination/pagination",
+      barterList: "barterList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),
     currentUserId() {

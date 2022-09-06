@@ -1,5 +1,5 @@
 import { mapGetters } from "vuex";
-const barterLoadingMixin = {
+const saleLoadingMixin = {
   data() {
     return {
       rules: {
@@ -14,10 +14,10 @@ const barterLoadingMixin = {
     };
   },
   computed: {
-    ...mapGetters("guilds/barter", {
+    ...mapGetters("guilds/sale", {
       skeletonLoading: "skeletonLoading/skeletonLoading",
       formLoading: "formLoading/formLoading",
     }),
   },
 };
-export default barterLoadingMixin;
+export default saleLoadingMixin;

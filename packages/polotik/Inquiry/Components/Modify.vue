@@ -122,7 +122,7 @@
 
 <script>
 import moment from "moment-jalaali";
-import FormMixin from "@polotik/mixins/base/form";
+import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import InquiryMixin from "@packages/polotik/inquiry/mixins";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
@@ -136,7 +136,7 @@ import UnitServiceSelector from "@packages/polotik/service/components/Unit/Selec
 import UnitServiceInput from "@packages/polotik/service/components/Unit/Input.vue";
 import servicesTypes from "@packages/polotik/Service/store/types";
 export default {
-  mixins: [InquiryMixin, FormMixin, ServicesMixin, UtilityMixin],
+  mixins: [InquiryMixin, inquiryLoadingMixin, ServicesMixin, UtilityMixin],
   components: {
     CategoryService,
     CityService,

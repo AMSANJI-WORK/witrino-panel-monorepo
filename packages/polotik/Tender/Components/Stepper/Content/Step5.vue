@@ -63,7 +63,8 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
+
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
@@ -72,7 +73,7 @@ export default {
     VFieldSpace,
     VStepperLevelBtn,
   },
-  mixins: [FormMixin, StepperMixin],
+  mixins: [tenderLoadingMixin, StepperMixin],
   data: () => ({
     formData: {
       uploadable: false,

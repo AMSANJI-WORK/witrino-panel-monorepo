@@ -234,7 +234,7 @@
 <script>
 import moment from "moment-jalaali";
 import SaleMixin from "@packages/polotik/sale/mixins";
-import FormMixin from "@polotik/mixins/base/form";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import servicesTypes from "@packages/polotik/Service/store/types";
@@ -253,7 +253,7 @@ import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
 
 export default {
-  mixins: [SaleMixin, FormMixin, ServicesMixin, UtilityMixin],
+  mixins: [SaleMixin, saleLoadingMixin, ServicesMixin, UtilityMixin],
   components: {
     LimitSection,
     LimitPriceInput,

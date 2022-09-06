@@ -177,7 +177,7 @@ export const dataOne = {
       },
     },
     user_id: 12,
-    type: "inquiry",
+    type: "sale",
     offers: {
       count: 4,
       page: 1,
@@ -195,7 +195,7 @@ export const dataOne = {
           data: {
             price: "20,0000",
           },
-          type: "inquiry",
+          type: "sale",
           request_id: 81,
           user_id: 26,
         },
@@ -211,7 +211,7 @@ export const dataOne = {
           data: {
             price: "200,000",
           },
-          type: "inquiry",
+          type: "sale",
           request_id: 81,
           user_id: 26,
         },
@@ -227,7 +227,7 @@ export const dataOne = {
           data: {
             price: "250,000",
           },
-          type: "inquiry",
+          type: "sale",
           request_id: 81,
           user_id: 26,
         },
@@ -243,7 +243,7 @@ export const dataOne = {
           data: {
             price: "270,000",
           },
-          type: "inquiry",
+          type: "sale",
           request_id: 81,
           user_id: 26,
         },

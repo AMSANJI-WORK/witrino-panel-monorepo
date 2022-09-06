@@ -44,12 +44,12 @@
 
 <script>
 import { mapActions } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import TYPES from "@packages/polotik/inquiry/modules/offers/store/types";
 
 export default {
-  mixins: [FormMixin, UtilityMixin],
+  mixins: [inquiryLoadingMixin, UtilityMixin],
   data() {
     return {
       inquiryParticipate: {

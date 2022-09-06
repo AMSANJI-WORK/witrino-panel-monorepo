@@ -140,7 +140,8 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
+
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
@@ -150,7 +151,7 @@ export default {
   components: {
     UploadImage,
   },
-  mixins: [FormMixin, StepperMixin, UtilityMixin],
+  mixins: [tenderLoadingMixin, StepperMixin, UtilityMixin],
   data() {
     return {
       dialog: false,

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 export default {
-  mixins: [FormMixin, UtilityMixin],
+  mixins: [saleLoadingMixin, UtilityMixin],
   props: {
     value: String,
     label: String,

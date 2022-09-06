@@ -76,7 +76,8 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
+
 import ServicesMixin from "@polotik/mixins/base/services";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
@@ -95,7 +96,7 @@ export default {
     VStepperLevelBtn,
     CategoryService,
   },
-  mixins: [FormMixin, ServicesMixin, StepperMixin, UtilityMixin],
+  mixins: [tenderLoadingMixin, ServicesMixin, StepperMixin, UtilityMixin],
   data: () => ({
     formData: {
       tenderCategory: [],

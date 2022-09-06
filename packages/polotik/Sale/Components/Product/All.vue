@@ -30,24 +30,23 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [saleLoadingMixin],
   watch: {
     "pagination.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("guilds/sale", {
       pagination: "pagination/pagination",
-      skeletonLoading: "loading/skeletonLoading",
-      saleList: "guilds/sale/saleList",
+      saleList: "saleList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

@@ -30,24 +30,25 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
+
+
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [tenderLoadingMixin],
   watch: {
     "pagination.page": function (newValue) {
       this.$emit("changePage");
     },
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("guilds/tender", {
       pagination: "pagination/pagination",
-      skeletonLoading: "loading/skeletonLoading",
-      tenderList: "guilds/tender/tenderList",
+      tenderList: "tenderList",
     }),
     ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),
     currentUserId() {

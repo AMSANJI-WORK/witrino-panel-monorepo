@@ -13,12 +13,12 @@
 
 <script>
 import PreviewForm from "@packages/polotik/tender/components/Preview.vue";
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 
 import PagePreviewTypeSecond from "@polotik/modules/loading/components/PagePreviewSkeletonTypeSecond.vue";
 
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [tenderLoadingMixin],
   components: {
     PreviewForm,
     PagePreviewTypeSecond,

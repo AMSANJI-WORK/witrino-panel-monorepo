@@ -31,24 +31,23 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [inquiryLoadingMixin],
   watch: {
     "userPagination.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("guilds/inquiry", {
       userPagination: "pagination/paginationSelfItem",
-      skeletonLoading: "loading/skeletonLoading",
-      inquiryListUser: "guilds/inquiry/inquiryList",
+      inquiryListUser: "inquiryList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import SaleMixin from "@packages/polotik/sale/mixins";
 import UtilityMixin from "@shared/mixins/utility";
 import VLabel from "@commen/label/components/Label.vue";
@@ -66,7 +66,7 @@ export default {
     Carousel,
     VLabel,
   },
-  mixins: [SaleMixin, FormMixin, UtilityMixin],
+  mixins: [SaleMixin, saleLoadingMixin, UtilityMixin],
   computed: {
     unitAmountToFa() {
       return this.editableSale.data.amount

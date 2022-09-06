@@ -31,24 +31,25 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FormMixin from "@polotik/mixins/base/form";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
+
+
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
-  mixins: [FormMixin],
+  mixins: [tenderLoadingMixin],
   watch: {
     "userPagination.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("guilds/tender", {
       userPagination: "pagination/paginationSelfItem",
-      skeletonLoading: "loading/skeletonLoading",
-      tenderListUser: "guilds/tender/tenderList",
+      tenderListUser: "tenderList",
     }),
     currentUserId() {
       return Number(Cookies.get("user-id"));

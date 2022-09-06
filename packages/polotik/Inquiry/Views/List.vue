@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
 import InquiryFilters from "@packages/polotik/inquiry/components/Filters.vue";
 import PagesDescription from "@packages/polotik/inquiry/components/PagesDescription.vue";
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [inquiryLoadingMixin],
   components: {
     InquiryFilters,
     PageListSkeleton,

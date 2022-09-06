@@ -1,4 +1,4 @@
-const inquiry = {
+const sale = {
     id: Number, // auto
     created_at: Date, // auto
     updated_at: Date, // auto

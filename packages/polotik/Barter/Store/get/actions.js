@@ -48,9 +48,7 @@ export default {
       console.log(error);
       commit(GET_ALL_BARTER_FAILURE, error);
     } finally {
-      setTimeout(() => {
-        commit(loadingType);
-      }, 1000);
+      setTimeout(() => commit(loadingType), 1000);
     }
   },
 
@@ -70,7 +68,7 @@ export default {
       console.log(error);
       commit(GET_A_BARTER_FAILURE, error);
     } finally {
-      commit(loadingType);
+      setTimeout(() => commit(loadingType), 1000);
     }
   },
 };

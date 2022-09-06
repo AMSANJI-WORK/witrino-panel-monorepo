@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import ToggleVisibleMixin from "@polotik/modules/loading/mixins/visible-type";
+import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
 import TenderFilters from "@packages/polotik/tender/components/Filters.vue";
 
 export default {
-  mixins: [ToggleVisibleMixin],
+  mixins: [tenderLoadingMixin],
   components: {
     TenderFilters,
     Notification,

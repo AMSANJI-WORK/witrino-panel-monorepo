@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import FormMixin from "@polotik/mixins/base/form";
+import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import InquiryMixin from "@packages/polotik/inquiry/mixins/index";
 import VLabel from "@commen/label/components/Label.vue";
@@ -94,7 +94,7 @@ export default {
     Carousel,
     VLabel,
   },
-  mixins: [InquiryMixin, FormMixin, UtilityMixin],
+  mixins: [InquiryMixin, inquiryLoadingMixin, UtilityMixin],
   filters: {
     selectedCity(value) {
       return value;
