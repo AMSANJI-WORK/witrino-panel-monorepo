@@ -20,7 +20,4 @@ export default {
   updateOffer(TARGET, payload, id) {
     return UserClient.put(`${Source}/${TARGET}/${POINT}/${id}`, payload);
   },
-  deleteOffer(TARGET, id) {
-    return UserClient.delete(`${Source}/${TARGET}/${POINT}/${id}`);
-  },
 };
