@@ -1,30 +1,37 @@
 <template>
   <filter-tabs service="مزایده" @chage-active-tab="handleTab">
-    <template #list-content>
-      <all-product @changePage="getAllAuctionAsync"
+    <template #request-list>
+      <ProductAll @changePage="getAllAuctionAsync"
     /></template>
-    <template #list-mine-content>
-      <user-product @changePage="getAllAuctionAsync({ currentUserId })" />
+    <template #request-list-user>
+      <ProductUser @changePage="getAllAuctionAsync({ currentUserId })" />
     </template>
-    <template #list-mine-request></template>
+    <template #request-list-user-offered>
+      <ProductUserOffered @changePage="getAllAuctionAsync({ offerUserId })" />
+    </template>
   </filter-tabs>
 </template>
 
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import AllProduct from "./Product/All.vue";
-import UserProduct from "./Product/_User.vue";
+import ProductAll from "./Product/All.vue";
+import ProductUser from "./Product/_User.vue";
+import ProductUserOffered from "./Product/_UserOffered.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
 export default {
   components: {
     FilterTabs,
-    AllProduct,
-    UserProduct,
+    ProductAll,
+    ProductUser,
+    ProductUserOffered,
   },
   computed: {
     currentUserId() {
       return Number(Cookies.get("user-id"));
+    },
+    offerUserId() {
+      return this.currentUserId;
     },
   },
   methods: {
@@ -34,15 +41,16 @@ export default {
     handleTab(tab) {
       switch (tab) {
         case 0:
-          this.getAllAuctionAsync({
-            target: "pagination",
-            currentUserId: null,
-          });
+          this.getAllAuctionAsync();
           break;
         case 1:
           this.getAllAuctionAsync({
-            target: "paginationSelfItem",
             currentUserId: this.currentUserId,
+          });
+          break;
+        case 2:
+          this.getAllAuctionAsync({
+            offerUserId: this.currentUserId,
           });
           break;
         default:

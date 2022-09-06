@@ -23,15 +23,27 @@ export default {
 
     try {
       commit(loadingType);
-      let paginationSelfItem = getters.pagination.paginationSelfItem;
-      let pagination = getters.pagination.pagination;
-      if (payload) {
+      let { paginationSelfItem, pagination, paginationSelfOffered } =
+        getters.pagination;
+      if (payload?.currentUserId) {
         const { data } = await guildsRepository.getAllAuctions({
           pagination: paginationSelfItem,
           userId: payload.currentUserId,
+          offerUserId: null,
         });
         commit("pagination/SET_PAGINATION", {
           target: "paginationSelfItem",
+          data,
+        });
+        commit(GET_ALL_AUCTION_SUCCESS, data);
+      } else if (payload?.offerUserId) {
+        const { data } = await guildsRepository.getAllAuctions({
+          pagination: paginationSelfOffered,
+          userId: null,
+          offerUserId: payload.offerUserId,
+        });
+        commit("pagination/SET_PAGINATION", {
+          target: "paginationSelfOffered",
           data,
         });
         commit(GET_ALL_AUCTION_SUCCESS, data);
@@ -39,6 +51,7 @@ export default {
         const { data } = await guildsRepository.getAllAuctions({
           pagination,
           userId: null,
+          offerUserId: null,
         });
         commit("pagination/SET_PAGINATION", {
           target: "pagination",

@@ -1,27 +1,31 @@
 <template>
   <filter-tabs service="تهاتر" @chage-active-tab="handleTab">
-    <template #list-content>
-      <all-product @changePage="getAllBarterAsync"
+    <template #request-list>
+      <ProductAll @changePage="getAllBarterAsync"
     /></template>
-    <template #list-mine-content>
-      <user-product @changePage="getAllBarterAsync({ currentUserId })" />
+    <template #request-list-user>
+      <ProductUser @changePage="getAllBarterAsync({ currentUserId })" />
     </template>
-    <template #list-mine-request></template>
+    <template #request-list-user-offered>
+      <ProductUserOffered @changePage="getAllBarterAsync({ offerUserId })" />
+    </template>
   </filter-tabs>
 </template>
 
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import AllProduct from "./Product/All.vue";
-import UserProduct from "./Product/_User.vue";
+import ProductAll from "./Product/All.vue";
+import ProductUser from "./Product/_User.vue";
+import ProductUserOffered from "./Product/_UserOffered.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
 
 export default {
   components: {
     FilterTabs,
-    AllProduct,
-    UserProduct,
+    ProductAll,
+    ProductUser,
+    ProductUserOffered,
   },
 
   computed: {
@@ -39,8 +43,14 @@ export default {
           this.getAllBarterAsync();
           break;
         case 1:
-          this.getAllBarterAsync({ currentUserId: this.currentUserId });
+          this.getAllBarterAsync({
+            currentUserId: this.currentUserId,
+          });
           break;
+        case 2:
+          this.getAllBarterAsync({
+            offerUserId: this.currentUserId,
+          });
         default:
           break;
       }

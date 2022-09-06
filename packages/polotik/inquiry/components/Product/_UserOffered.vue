@@ -6,13 +6,12 @@
     <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
-          v-for="inquiry in inquiryListUser"
-          :data-source="inquiry"
+          v-for="inquiry in inquiryList"
           :key="inquiry.id"
+          :data-source="inquiry"
           :current-user-id="currentUserId"
         />
       </v-slide-x-transition>
-
       <div class="d-flex pa-2 mt-2">
         <v-spacer></v-spacer>
         <v-pagination
@@ -30,25 +29,26 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
+import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
-import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
   mixins: [inquiryLoadingMixin],
   watch: {
-    "pagination.page": function () {
+    "pagination.page": function (newValue) {
       this.$emit("changePage");
     },
   },
   computed: {
     ...mapGetters("guilds/inquiry", {
-      pagination: "pagination/paginationSelfItem",
-      inquiryListUser: "inquiryList",
+      pagination: "pagination/paginationSelfOffered",
+      inquiryList: "inquiryList",
     }),
+    ...mapMutations({ changePage: "CHANGE_PAGINATION_PAGE" }),
     currentUserId() {
       return Number(Cookies.get("user-id"));
     },

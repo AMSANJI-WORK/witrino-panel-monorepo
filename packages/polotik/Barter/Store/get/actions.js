@@ -21,14 +21,28 @@ export default {
         : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
     try {
       commit(loadingType);
-      let { paginationSelfItem, pagination } = getters.pagination;
-      if (payload) {
+      let paginationSelfItem = getters["pagination/paginationSelfItem"];
+      let paginationSelfOffered = getters["pagination/paginationSelfOffered"];
+      let pagination = getters["pagination/pagination"];
+      if (payload?.currentUserId) {
         const { data } = await guildsRepository.getAllBarters({
           pagination: paginationSelfItem,
           userId: payload.currentUserId,
+          offerUserId: null,
         });
         commit("pagination/SET_PAGINATION", {
           target: "paginationSelfItem",
+          data,
+        });
+        commit(GET_ALL_BARTER_SUCCESS, data);
+      } else if (payload?.offerUserId) {
+        const { data } = await guildsRepository.getAllBarters({
+          pagination: paginationSelfOffered,
+          userId: null,
+          offerUserId: payload.offerUserId,
+        });
+        commit("pagination/SET_PAGINATION", {
+          target: "paginationSelfOffered",
           data,
         });
         commit(GET_ALL_BARTER_SUCCESS, data);
@@ -36,6 +50,7 @@ export default {
         const { data } = await guildsRepository.getAllBarters({
           pagination,
           userId: null,
+          offerUserId: null,
         });
         commit("pagination/SET_PAGINATION", {
           target: "pagination",

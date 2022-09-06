@@ -16,13 +16,13 @@
       <div class="d-flex pa-2 mt-2">
         <v-spacer></v-spacer>
         <v-pagination
-          v-model="userPagination.page"
-          :length="userPagination.lastPage"
+          v-model="pagination.page"
+          :length="pagination.lastPage"
           :total-visible="6"
         ></v-pagination>
         <v-spacer></v-spacer>
         <div class="my-auto grey--text font-weight-thin">
-          تعداد (کل) : {{ userPagination.recordCount }}
+          تعداد (کل) : {{ pagination.recordCount }}
         </div>
       </div>
     </v-card>
@@ -41,13 +41,13 @@ export default {
   components: { Product, PageListSkeletonMenu },
   mixins: [barterLoadingMixin],
   watch: {
-    "userPagination.page": function () {
+    "pagination.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
     ...mapGetters("guilds/barter", {
-      userPagination: "pagination/paginationSelfItem",
+      pagination: "pagination/paginationSelfItem",
       barterListUser: "barterList",
     }),
     currentUserId() {

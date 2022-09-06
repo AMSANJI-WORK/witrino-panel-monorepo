@@ -16,13 +16,13 @@
       <div class="d-flex pa-2 mt-2">
         <v-spacer></v-spacer>
         <v-pagination
-          v-model="paginationSelfItem.page"
-          :length="paginationSelfItem.lastPage"
+          v-model="pagination.page"
+          :length="pagination.lastPage"
           :total-visible="6"
         ></v-pagination>
         <v-spacer></v-spacer>
         <div class="my-auto grey--text font-weight-thin">
-          تعداد (کل) : {{ paginationSelfItem.recordCount }}
+          تعداد (کل) : {{ pagination.recordCount }}
         </div>
       </div>
     </v-card>
@@ -40,13 +40,13 @@ export default {
   components: { Product, PageListSkeletonMenu },
   mixins: [auctionLoadingMixin],
   watch: {
-    "paginationSelfItem.page": function () {
+    "pagination.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
     ...mapGetters({
-      paginationSelfItem: "guilds/auction/pagination/paginationSelfItem",
+      pagination: "guilds/auction/pagination/paginationSelfItem",
       auctionListUser: "guilds/auction/auctionList",
     }),
     currentUserId() {

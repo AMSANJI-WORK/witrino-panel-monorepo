@@ -1,27 +1,33 @@
 <template>
   <filter-tabs service="حراجی" @chage-active-tab="handleTab">
-    <template #list-content>
-      <all-product @changePage="getAllSaleAsync"
+    <template #request-list>
+      <ProductAll @changePage="getAllSaleAsync"
     /></template>
-    <template #list-mine-content>
-      <user-product @changePage="getAllSaleAsync({ currentUserId })" />
+    <template #request-list-user>
+      <ProductUser @changePage="getAllSaleAsync({ currentUserId })" />
     </template>
-    <template #list-mine-request></template>
+    <template #request-list-user-offered>
+      <ProductUserOffered @changePage="getAllSaleAsync({ offerUserId })" />
+    </template>
   </filter-tabs>
 </template>
 
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import AllProduct from "./Product/All.vue";
-import UserProduct from "./Product/_User.vue";
+import ProductAll from "./Product/All.vue";
+import ProductUser from "./Product/_User.vue";
+import ProductUserOffered from "./Product/_UserOffered.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
+
 export default {
   components: {
     FilterTabs,
-    AllProduct,
-    UserProduct,
+    ProductAll,
+    ProductUser,
+    ProductUserOffered,
   },
+
   computed: {
     currentUserId() {
       return Number(Cookies.get("user-id"));
@@ -37,9 +43,14 @@ export default {
           this.getAllSaleAsync();
           break;
         case 1:
-          this.getAllSaleAsync({ currentUserId: this.currentUserId });
+          this.getAllSaleAsync({
+            currentUserId: this.currentUserId,
+          });
           break;
-
+        case 2:
+          this.getAllSaleAsync({
+            offerUserId: this.currentUserId,
+          });
         default:
           break;
       }
@@ -48,25 +59,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@media screen and (min-width: 768px) {
-  .v-slide-group__content {
-    display: flex;
-    flex: 1 0 auto;
-    position: relative;
-    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-    white-space: nowrap;
-    margin-right: 1rem;
-  }
-}
-.v-window__container {
-  display: flex;
-  flex-direction: column;
-  height: inherit;
-  position: relative;
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-  padding-bottom: 0px;
-  max-height: 600px;
-  overflow-y: auto;
-}
-</style>
+<style lang="scss" scoped></style>

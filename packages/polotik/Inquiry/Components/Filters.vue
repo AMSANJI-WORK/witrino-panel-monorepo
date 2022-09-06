@@ -1,27 +1,33 @@
 <template>
   <filter-tabs service="استعلام" @chage-active-tab="handleTab">
-    <template #list-content>
-      <all-product @changePage="getAllInquiryAsync"
+    <template #request-list>
+      <ProductAll @changePage="getAllInquiryAsync"
     /></template>
-    <template #list-mine-content>
-      <user-product @changePage="getAllInquiryAsync({ currentUserId })" />
+    <template #request-list-user>
+      <ProductUser @changePage="getAllInquiryAsync({ currentUserId })" />
     </template>
-    <template #list-mine-request></template>
+    <template #request-list-user-offered>
+      <ProductUserOffered @changePage="getAllInquiryAsync({ offerUserId })" />
+    </template>
   </filter-tabs>
 </template>
 
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import AllProduct from "./Product/All.vue";
-import UserProduct from "./Product/_User.vue";
+import ProductAll from "./Product/All.vue";
+import ProductUser from "./Product/_User.vue";
+import ProductUserOffered from "./Product/_UserOffered.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
+
 export default {
   components: {
     FilterTabs,
-    AllProduct,
-    UserProduct,
+    ProductAll,
+    ProductUser,
+    ProductUserOffered,
   },
+
   computed: {
     currentUserId() {
       return Number(Cookies.get("user-id"));
@@ -37,8 +43,14 @@ export default {
           this.getAllInquiryAsync();
           break;
         case 1:
-          this.getAllInquiryAsync({ currentUserId: this.currentUserId });
+          this.getAllInquiryAsync({
+            currentUserId: this.currentUserId,
+          });
           break;
+        case 2:
+          this.getAllInquiryAsync({
+            offerUserId: this.currentUserId,
+          });
         default:
           break;
       }

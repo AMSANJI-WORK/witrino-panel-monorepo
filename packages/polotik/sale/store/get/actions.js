@@ -15,7 +15,7 @@ import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
-  async [GET_ALL_SALE_ASYNC]({ commit, getters }, payload) {
+  async [GET_ALL_SALE_ASYNC]({ commit, getters, rootGetters }, payload) {
     let loadingType =
       getters.saleList.length == 0
         ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
@@ -23,21 +23,36 @@ export default {
     try {
       commit(loadingType);
       let paginationSelfItem = getters["pagination/paginationSelfItem"];
+      let paginationSelfOffered = getters["pagination/paginationSelfOffered"];
       let pagination = getters["pagination/pagination"];
-      if (payload) {
-        const { data } = await guildsRepository.getsaleList({
+      if (payload?.currentUserId) {
+        const { data } = await guildsRepository.getAllSales({
           pagination: paginationSelfItem,
           userId: payload.currentUserId,
+          offerUserId: null,
         });
         commit("pagination/SET_PAGINATION", {
           target: "paginationSelfItem",
           data,
         });
+
+        commit(GET_ALL_SALE_SUCCESS, data);
+      } else if (payload?.offerUserId) {
+        const { data } = await guildsRepository.getAllSales({
+          pagination: paginationSelfOffered,
+          userId: null,
+          offerUserId: payload.offerUserId,
+        });
+        commit("pagination/SET_PAGINATION", {
+          target: "paginationSelfOffered",
+          data,
+        });
         commit(GET_ALL_SALE_SUCCESS, data);
       } else {
-        const { data } = await guildsRepository.getsaleList({
+        const { data } = await guildsRepository.getAllSales({
           pagination,
           userId: null,
+          offerUserId: null,
         });
         commit("pagination/SET_PAGINATION", {
           target: "pagination",
