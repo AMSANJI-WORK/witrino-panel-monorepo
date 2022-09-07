@@ -3,7 +3,7 @@
     <v-card
       elevation="2"
       outlined
-      class="d-flex flex-row flex-wrap rounded-lg pa-10 mx-2 my-5"
+      class="d-flex flex-row flex-wrap rounded-lg pa-md-10 py-7 mx-2 my-5"
     >
       <v-col cols="12" sm="6" class="py-0">
         <v-text-field
@@ -80,15 +80,13 @@
           dense
           outlined
         ></v-text-field>
-        <date-picker
+        <CustomDatePicker
           format="jYYYY/jMM/jDD HH:mm"
           element="from-date"
           v-model="fromDate"
-          color="#187968"
           type="datetime"
           :min="minDate"
           compact-time
-          auto-submit
         />
       </v-col>
       <v-col cols="12" sm="6" class="py-0">
@@ -105,15 +103,13 @@
           dense
           outlined
         ></v-text-field>
-        <date-picker
+        <CustomDatePicker
           format="jYYYY/jMM/jDD HH:mm"
           element="end-date"
           type="datetime"
           v-model="endDate"
           :min="minEndDate"
-          color="#187968"
           compact-time
-          auto-submit
         />
       </v-col>
       <CityService
@@ -144,31 +140,31 @@
             <template #percent>
               <v-col cols="6" sm="6" class="pa-0 pr-md-0 pr-3">
                 <limit-percent-input
-                  label="حداقل افزایش قیمت"
+                  label="حداقل افزایش"
                   class="rounded-lg rounded-l-0"
-                  v-model="editableSale.data.price.percent.min"
+                  v-model="editableSale.data.price.present.min"
                 />
               </v-col>
               <v-col cols="6" sm="6" class="pa-0 pl-3">
                 <limit-percent-input
-                  label="حداکثرافزایش قیمت"
+                  label="حداکثر افزایش"
                   class="rounded-lg rounded-r-0"
-                  v-model.number="editableSale.data.price.percent.max"
+                  v-model.number="editableSale.data.price.present.max"
                 />
               </v-col>
             </template>
             <template #price>
               <v-col cols="6" sm="6" class="pa-0 pr-md-0 pr-3">
                 <limit-price-input
-                  label="حداقل افزایش قیمت"
+                  label="حداقل افزایش"
                   class="rounded-lg rounded-l-0"
                   :value="editableSale.data.price.min | toRial"
                   @input="(value) => (editableSale.data.price.min = value)"
                 />
               </v-col>
-              <v-col cols="6" sm="6" class="pa-0 pl-3">
+              <v-col cols="6" sm="6" class="pa-0 pl-sm-3">
                 <limit-price-input
-                  label="حداقل افزایش قیمت"
+                  label="حداکثر افزایش"
                   class="rounded-lg rounded-r-0"
                   :value="editableSale.data.price.max | toRial"
                   @input="(value) => (editableSale.data.price.max = value)"
@@ -178,12 +174,14 @@
           </limit-section>
         </v-sheet>
       </v-expand-transition>
-      <v-col cols="12" sm="6" class="py-0">
-        <v-checkbox
-          dense
-          v-model="editableSale.data.price.limited"
-          label="محدود کردن قیمت پیشنهادی"
-        ></v-checkbox>
+      <v-col cols="12" sm="6" class="py-0 pt-5 pt-md-0">
+        <v-checkbox dense v-model="editableSale.data.price.limited">
+          <template v-slot:label>
+            <span class="text-md-body-1 text-body-2"
+              >مدت محدود کردن قیمت پیشنهادی</span
+            >
+          </template>
+        </v-checkbox>
       </v-col>
       <v-col cols="12" sm="6" class="py-0">
         <v-checkbox
@@ -191,23 +189,39 @@
           v-model="editableSale.data.participate.userPanel"
           label="امکان شرکت کاربران شبکه هوشمند"
           color="primary"
-        ></v-checkbox>
+        >
+          <template v-slot:label>
+            <span class="text-md-body-1 text-body-2"
+              >امکان شرکت کاربران شبکه هوشمند</span
+            >
+          </template>
+        </v-checkbox>
       </v-col>
       <v-col cols="12" sm="6" class="py-0">
         <v-checkbox
           dense
           v-model="editableSale.data.participate.public"
-          label="امکان شرکت افراد عادی"
           color="primary"
-        ></v-checkbox>
+        >
+          <template v-slot:label>
+            <span class="text-md-body-1 text-body-2"
+              >امکان شرکت افراد عادی</span
+            >
+          </template>
+        </v-checkbox>
       </v-col>
       <v-col cols="12" sm="6" class="py-0">
         <v-checkbox
           dense
           v-model="editableSale.data.participate.seeParticipantsInfo"
-          label="نمایش اطلاعات شرکت کنندگان برای یکدیگر"
           color="primary"
-        ></v-checkbox>
+        >
+          <template v-slot:label>
+            <span class="text-md-body-1 text-body-2"
+              >نمایش اطلاعات افراد برای یکدیگر</span
+            >
+          </template>
+        </v-checkbox>
       </v-col>
 
       <v-field-space />

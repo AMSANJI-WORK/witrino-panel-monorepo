@@ -3,9 +3,9 @@
     <v-card
       elevation="2"
       outlined
-      class="d-flex flex-wrap rounded-lg pa-10 mx-2 my-5"
+      class="d-flex flex-wrap rounded-lg pa-md-10 py-3 mx-2 my-5"
     >
-      <carousel
+      <Carousel
         class="d-md-none d-block"
         :gallery="editableBarter.data.gallery"
       />
@@ -36,13 +36,11 @@
             dense
             outlined
           ></v-text-field>
-          <date-picker
+          <CustomDatePicker
             format="jYYYY/jMM/jDD"
             element="from-date"
             v-model="fromDate"
             :min="minDate"
-            color="#187968"
-            auto-submit
           />
         </v-col>
         <v-col cols="12" class="py-0">
@@ -130,10 +128,15 @@
             :max="30"
             step="1"
             label="مدت اعتبار (روز)"
-          ></v-slider>
+          >
+            <template v-slot:label>
+              <span class="d-md-block d-none">مدت اعتبار (روز)</span>
+              <span class="d-flex d-md-none">اعتبار (روز)</span>
+            </template>
+          </v-slider>
         </v-col>
       </v-col>
-      <carousel
+      <Carousel
         class="d-none d-md-block"
         :gallery="editableBarter.data.gallery"
       />

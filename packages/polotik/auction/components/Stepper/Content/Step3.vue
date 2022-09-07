@@ -16,14 +16,12 @@
         dense
         outlined
       ></v-text-field>
-      <date-picker
+      <CustomDatePicker
         range
         v-model="collectionDocsTime"
         format="jYYYY/jMM/jDD"
         element="auction-collect-docs-time"
-        color="#187968"
         :min="minDate"
-        auto-submit
       />
     </v-col>
     <v-col cols="12" sm="6">
@@ -38,13 +36,11 @@
         dense
         outlined
       ></v-text-field>
-      <date-picker
+      <CustomDatePicker
         v-model="sendDocsDate"
         format="jYYYY/jMM/jDD"
         element="auction-send-docs-time"
-        color="#187968"
         :min="minSendDocsDate"
-        auto-submit
       />
     </v-col>
     <v-col cols="12" sm="6">
@@ -59,13 +55,11 @@
         dense
         outlined
       ></v-text-field>
-      <date-picker
+      <CustomDatePicker
         v-model="startAuctionDate"
         format="jYYYY/jMM/jDD"
         element="start-time"
-        color="#187968"
         :min="minStartAuctionDate"
-        auto-submit
       />
     </v-col>
 
@@ -81,12 +75,10 @@
         dense
         outlined
       ></v-text-field>
-      <date-picker
+      <CustomDatePicker
         element="timeStart"
         v-model="formData.time"
         type="time"
-        color="#187968"
-        auto-submit
       />
     </v-col>
     <v-col cols="12">
