@@ -1,13 +1,15 @@
 <template>
   <filter-tabs service="مزایده" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllAuctionAsync"
+      <ProductAll @changePage="getAllAuctionAsync(getAllRequestParams)"
     /></template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllAuctionAsync({ currentUserId })" />
+      <ProductUser @changePage="getAllAuctionAsync(getAllRequestUserParams)" />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered @changePage="getAllAuctionAsync({ offerUserId })" />
+      <ProductUserOffered
+        @changePage="getAllAuctionAsync(getAllRequestUserOfferedParams)"
+      />
     </template>
   </filter-tabs>
 </template>
@@ -27,11 +29,29 @@ export default {
     ProductUserOffered,
   },
   computed: {
-    currentUserId() {
+    userId() {
       return Number(Cookies.get("user-id"));
     },
-    offerUserId() {
-      return this.currentUserId;
+    getAllRequestParams() {
+      return {
+        userId: null,
+        offerUserId: null,
+        target: "pagination",
+      };
+    },
+    getAllRequestUserParams() {
+      return {
+        userId: this.userId,
+        offerUserId: null,
+        target: "paginationSelfItem",
+      };
+    },
+    getAllRequestUserOfferedParams() {
+      return {
+        userId: null,
+        offerUserId: this.userId,
+        target: "paginationSelfOffered",
+      };
     },
   },
   methods: {
@@ -41,17 +61,13 @@ export default {
     handleTab(tab) {
       switch (tab) {
         case 0:
-          this.getAllAuctionAsync();
+          this.getAllAuctionAsync(this.getAllRequestParams);
           break;
         case 1:
-          this.getAllAuctionAsync({
-            currentUserId: this.currentUserId,
-          });
+          this.getAllAuctionAsync(this.getAllRequestUserParams);
           break;
         case 2:
-          this.getAllAuctionAsync({
-            offerUserId: this.currentUserId,
-          });
+          this.getAllAuctionAsync(this.getAllRequestUserOfferedParams);
           break;
         default:
           break;

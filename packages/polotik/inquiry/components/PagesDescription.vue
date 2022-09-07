@@ -1,8 +1,8 @@
 <template>
   <notification>
     <template v-slot:cardTilte>
-      <v-chip small class="white green--text">
-        <v-icon color="green" small class="mx-1">mdi-note-edit-outline</v-icon>
+      <v-chip small class="white p-green-primary--text">
+        <v-icon color="p-green-primary" small class="mx-1">mdi-note-edit-outline</v-icon>
         {{ formTitle }}
       </v-chip>
     </template>

@@ -16,8 +16,8 @@
         </v-sheet>
         <notification>
           <template v-slot:cardTilte>
-            <v-chip small class="white red--text"
-              ><v-icon color="red" small class="mx-1">mdi-bell-outline</v-icon>
+            <v-chip small class="white p-red-primary--text"
+              ><v-icon color="p-red-primary"small class="mx-1">mdi-bell-outline</v-icon>
               جدیدترین اخبار ها</v-chip
             >
           </template>
@@ -25,7 +25,7 @@
         <v-tooltip right>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              color="green"
+              color="p-green-primary"
               x-small
               v-on="on"
               v-bind="attrs"
@@ -41,7 +41,7 @@
         <v-tooltip left>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              color="green"
+              color="p-green-primary"
               x-small
               fab
               v-on="on"

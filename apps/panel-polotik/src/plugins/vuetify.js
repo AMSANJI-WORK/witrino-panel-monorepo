@@ -14,13 +14,16 @@ const opts = {
   theme: {
     themes: {
       light: {
-        red: "#F55861",
-        secondary: "#C7C7C7",
-        dark: "#393939",
-        "blue-lighten-6": "#E6F3FF",
-        green: "#187968",
-        "green-lighten-5": "#DAF5F0",
-        "green-lighten-6": "#EDFAF8",
+        "p-red-primary": "#F55861",
+        "p-secondary-primary": "#8A8A8A",
+        "p-green-primary": "#187968",
+        "p-dark-primary": "#393939",
+        "p-blue-lighten-primary": "#C8F9F0",
+        "p-purple-lighten-primary": "#D9E6FF",
+        "p-brown-primary": "#FFF0D9",
+        "p-blue-lighten-1": "#E6F3FF",
+        "p-green-lighten-1": "#DAF5F0",
+        "p-green-lighten-2": "#EDFAF8",
       },
       dark: {},
     },

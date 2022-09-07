@@ -11,54 +11,30 @@ import {
   GET_A_TENDER_SUCCESS,
   GET_A_TENDER_FAILURE,
 } from "./types";
+import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
   async [GET_ALL_TENDER_ASYNC]({ commit, getters }, payload) {
-    let loadingType =
-      getters.tenderList.length == 0
-        ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
-        : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
+    let loadingType = setLoadingTypes.pageList({
+      pageLoaded: getters["skeletonLoading/pageLoaded"],
+      length: getters.tenderList.length,
+    });
     try {
       commit(loadingType);
-      let { paginationSelfItem, pagination, paginationSelfOffered } =
-        getters.pagination;
-      if (payload?.currentUserId) {
-        const { data } = await guildsRepository.getAllTenders({
-          pagination: paginationSelfItem,
-          userId: payload.currentUserId,
-          offerUserId: null,
-        });
-        commit("pagination/SET_PAGINATION", {
-          target: "paginationSelfItem",
-          data,
-        });
-        commit(GET_ALL_TENDER_SUCCESS, data);
-      } else if (payload?.offerUserId) {
-        const { data } = await guildsRepository.getAllTenders({
-          pagination: paginationSelfOffered,
-          userId: null,
-          offerUserId: payload.offerUserId,
-        });
-        commit("pagination/SET_PAGINATION", {
-          target: "paginationSelfOffered",
-          data,
-        });
-        commit(GET_ALL_TENDER_SUCCESS, data);
-      } else {
-        const { data } = await guildsRepository.getAllTenders({
-          pagination,
-          userId: null,
-          offerUserId: null,
-        });
-        commit("pagination/SET_PAGINATION", {
-          target: "pagination",
-          data,
-        });
-        commit(GET_ALL_TENDER_SUCCESS, data);
-      }
+      const { userId, offerUserId, target } = payload;
+      const { data } = await guildsRepository.getAllTenders({
+        pagination: getters[`pagination/${target}`],
+        userId,
+        offerUserId,
+      });
+      commit("pagination/SET_PAGINATION", {
+        target,
+        data,
+      });
+      commit(GET_ALL_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_ALL_TENDER_FAILURE, error);
@@ -68,9 +44,7 @@ export default {
   },
 
   async [GET_A_TENDER_ASYNC]({ commit }, payload) {
-    let loadingType = router.currentRoute.path.includes("edit")
-      ? "formLoading/TOGGLE_FORM_LOADING"
-      : "skeletonLoading/TOGGLE_SKELETON_LOADING_ONE";
+    let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getATender(payload);

@@ -11,7 +11,7 @@
           </v-card-subtitle>
 
           <v-card-subtitle
-            class="d-flex flex-wrap align-center justify-md-space-between justify-center green-lighten-5 rounded-t-xl"
+            class="d-flex flex-wrap align-center justify-md-space-between justify-center p-green-lighten-1 rounded-t-xl"
           >
             <v-sheet class="d-flex transparent align-center">
               <v-avatar size="60" color="grey lighten-2">
@@ -24,7 +24,7 @@
               :label-value="offer.user_data.mobile"
             />
           </v-card-subtitle>
-          <v-card-text class="green-lighten-6 rounded-lg">
+          <v-card-text class="p-green-lighten-2 rounded-lg">
             <v-sheet class="transparent px-3 pt-5 text-caption"
               >{{ offer.description }}
             </v-sheet>

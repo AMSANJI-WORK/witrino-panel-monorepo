@@ -10,55 +10,30 @@ import {
   GET_AN_INQUIRY_SUCCESS,
   GET_AN_INQUIRY_FAILURE,
 } from "./types";
+import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
   async [GET_ALL_INQUIRY_ASYNC]({ commit, getters }, payload) {
-    let loadingType =
-      getters.inquiryList.length == 0
-        ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
-        : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
+    let loadingType = setLoadingTypes.pageList({
+      pageLoaded: getters["skeletonLoading/pageLoaded"],
+      length: getters.inquiryList.length,
+    });
     try {
       commit(loadingType);
-      let paginationSelfItem = getters["pagination/paginationSelfItem"];
-      let paginationSelfOffered = getters["pagination/paginationSelfOffered"];
-      let pagination = getters["pagination/pagination"];
-      if (payload?.currentUserId) {
-        const { data } = await guildsRepository.getAllInquiries({
-          pagination: paginationSelfItem,
-          userId: payload.currentUserId,
-          offerUserId: null,
-        });
-        commit("pagination/SET_PAGINATION", {
-          target: "paginationSelfItem",
-          data,
-        });
+      const { userId, offerUserId, target } = payload;
+      const { data } = await guildsRepository.getAllInquiries({
+        pagination: getters[`pagination/${target}`],
+        userId,
+        offerUserId,
+      });
 
-        commit(GET_ALL_INQUIRY_SUCCESS, data);
-      } else if (payload?.offerUserId) {
-        const { data } = await guildsRepository.getAllInquiries({
-          pagination: paginationSelfOffered,
-          userId: null,
-          offerUserId: payload.offerUserId,
-        });
-        commit("pagination/SET_PAGINATION", {
-          target: "paginationSelfOffered",
-          data,
-        });
-        commit(GET_ALL_INQUIRY_SUCCESS, data);
-      } else {
-        const { data } = await guildsRepository.getAllInquiries({
-          pagination,
-          userId: null,
-          offerUserId: null,
-        });
-        commit("pagination/SET_PAGINATION", {
-          target: "pagination",
-          data,
-        });
-        commit(GET_ALL_INQUIRY_SUCCESS, data);
-      }
+      commit("pagination/SET_PAGINATION", {
+        target,
+        data,
+      });
+      commit(GET_ALL_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(GET_ALL_INQUIRY_FAILURE, error);
@@ -67,9 +42,7 @@ export default {
     }
   },
   async [GET_AN_INQUIRY_ASYNC]({ commit }, payload) {
-    let loadingType = router.currentRoute.path.includes("edit")
-      ? "formLoading/TOGGLE_FORM_LOADING"
-      : "skeletonLoading/TOGGLE_SKELETON_LOADING_ONE";
+    let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getAnInquiry(payload);

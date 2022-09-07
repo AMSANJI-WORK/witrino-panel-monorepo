@@ -1,6 +1,6 @@
 <template>
   <v-card-title
-    class="d-flex flex-wrap justify-sm-start justify-center blue-lighten-6 black--text"
+    class="d-flex flex-wrap justify-sm-start justify-center p-blue-lighten-1 black--text"
   >
     <v-avatar size="80" class="rounded-lg transparent">
       <img v-if="sale.data?.gallery.length > 0" :src="image" alt="alt" />

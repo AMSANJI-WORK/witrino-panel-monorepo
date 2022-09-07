@@ -8,10 +8,14 @@ export default {
       menu: false,
       dashboard: false,
     },
+    pageLoaded: false,
   }),
   getters: {
     skeletonLoading(state) {
       return state.skeletonLoading;
+    },
+    pageLoaded(state) {
+      return state.pageLoaded;
     },
   },
   mutations: {
@@ -24,6 +28,7 @@ export default {
       );
     },
     [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_LIST](state) {
+      state.pageLoaded = true;
       state.skeletonLoading.list = !state.skeletonLoading.list;
     },
     [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_ONE](state) {

@@ -31,7 +31,7 @@
           :ripple="false"
           @click="handleFileImport"
         >
-          <v-badge left overlap color="red" icon="mdi-plus">
+          <v-badge left overlap color="p-red-primary"icon="mdi-plus">
             <v-icon class="button-upload-icon" large>mdi-image-outline</v-icon>
           </v-badge>
         </v-btn>

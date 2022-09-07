@@ -1,13 +1,15 @@
 <template>
   <filter-tabs service="مناقصه" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllTenderAsync"
+      <ProductAll @changePage="getAllTenderAsync(getAllRequestParams)"
     /></template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllTenderAsync({ currentUserId })" />
+      <ProductUser @changePage="getAllTenderAsync(getAllRequestUserParams)" />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered @changePage="getAllTenderAsync({ offerUserId })" />
+      <ProductUserOffered
+        @changePage="getAllTenderAsync(getAllRequestUserOfferedParams)"
+      />
     </template>
   </filter-tabs>
 </template>
@@ -27,10 +29,30 @@ export default {
     ProductUser,
     ProductUserOffered,
   },
-
   computed: {
-    currentUserId() {
+    userId() {
       return Number(Cookies.get("user-id"));
+    },
+    getAllRequestParams() {
+      return {
+        userId: null,
+        offerUserId: null,
+        target: "pagination",
+      };
+    },
+    getAllRequestUserParams() {
+      return {
+        userId: this.userId,
+        offerUserId: null,
+        target: "paginationSelfItem",
+      };
+    },
+    getAllRequestUserOfferedParams() {
+      return {
+        userId: null,
+        offerUserId: this.userId,
+        target: "paginationSelfOffered",
+      };
     },
   },
   methods: {
@@ -40,17 +62,13 @@ export default {
     handleTab(newValue) {
       switch (newValue) {
         case 0:
-          this.getAllTenderAsync();
+          this.getAllTenderAsync(this.getAllRequestParams);
           break;
         case 1:
-          this.getAllTenderAsync({
-            currentUserId: this.currentUserId,
-          });
+          this.getAllTenderAsync(this.getAllRequestUserParams);
           break;
         case 2:
-          this.getAllTenderAsync({
-            offerUserId: this.currentUserId,
-          });
+          this.getAllTenderAsync(this.getAllRequestUserOfferedParams);
         default:
           break;
       }

@@ -1,13 +1,15 @@
 <template>
   <filter-tabs service="حراجی" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllSaleAsync"
+      <ProductAll @changePage="getAllSaleAsync(getAllRequestParams)"
     /></template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllSaleAsync({ currentUserId })" />
+      <ProductUser @changePage="getAllSaleAsync(getAllRequestUserParams)" />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered @changePage="getAllSaleAsync({ offerUserId })" />
+      <ProductUserOffered
+        @changePage="getAllSaleAsync(getAllRequestUserOfferedParams)"
+      />
     </template>
   </filter-tabs>
 </template>
@@ -29,8 +31,29 @@ export default {
   },
 
   computed: {
-    currentUserId() {
+    userId() {
       return Number(Cookies.get("user-id"));
+    },
+    getAllRequestParams() {
+      return {
+        userId: null,
+        offerUserId: null,
+        target: "pagination",
+      };
+    },
+    getAllRequestUserParams() {
+      return {
+        userId: this.userId,
+        offerUserId: null,
+        target: "paginationSelfItem",
+      };
+    },
+    getAllRequestUserOfferedParams() {
+      return {
+        userId: null,
+        offerUserId: this.userId,
+        target: "paginationSelfOffered",
+      };
     },
   },
   methods: {
@@ -40,17 +63,13 @@ export default {
     handleTab(newValue) {
       switch (newValue) {
         case 0:
-          this.getAllSaleAsync();
+          this.getAllSaleAsync(this.getAllRequestParams);
           break;
         case 1:
-          this.getAllSaleAsync({
-            currentUserId: this.currentUserId,
-          });
+          this.getAllSaleAsync(this.getAllRequestUserParams);
           break;
         case 2:
-          this.getAllSaleAsync({
-            offerUserId: this.currentUserId,
-          });
+          this.getAllSaleAsync(this.getAllRequestUserOfferedParams);
         default:
           break;
       }

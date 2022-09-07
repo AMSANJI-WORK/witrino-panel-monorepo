@@ -7,8 +7,8 @@
       <v-sheet class="transparent" v-show="!skeletonLoading.list">
         <notification>
           <template v-slot:cardTilte>
-            <v-chip small class="white red--text"
-              ><v-icon color="red" small class="mx-1">mdi-bell-outline</v-icon>
+            <v-chip small class="white p-red-primary--text"
+              ><v-icon color="p-red-primary" small class="mx-1">mdi-bell-outline</v-icon>
               توضیحات مزایده</v-chip
             >
           </template>

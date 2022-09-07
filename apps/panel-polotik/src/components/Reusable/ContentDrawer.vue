@@ -39,7 +39,7 @@
         :disabled="item.disabled"
       >
         <v-list-item
-          active-class="green--text"
+          active-class="p-green-primary--text"
           v-if="!item.child"
           v-show="item.visible === true"
           :href="item.href"
@@ -62,7 +62,7 @@
           v-else
           no-action
           :disabled="item.disabled"
-          active-class="green--text"
+          active-class="p-green-primary--text"
         >
           <template v-slot:activator>
             <v-list-item-action>
@@ -73,7 +73,7 @@
           </template>
 
           <v-list-item
-            active-class="green--text  boreder--bold"
+            active-class="p-green-primary--text  boreder--bold"
             v-for="childern in item.child"
             :key="childern.id"
             router

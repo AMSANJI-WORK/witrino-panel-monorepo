@@ -14,7 +14,7 @@
             >
               <v-progress-linear
                 class="my-5"
-                color="green"
+                color="p-green-primary"
                 :indeterminate="indeterminateLoading"
                 rounded
                 height="10"

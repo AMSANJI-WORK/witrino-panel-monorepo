@@ -9,16 +9,17 @@ import {
   GET_A_BARTER_SUCCESS,
   GET_A_BARTER_FAILURE,
 } from "./types";
-
+import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
 
 export default {
   async [GET_ALL_BARTER_ASYNC]({ commit, getters }, payload) {
-    let loadingType =
-      getters.barterList.length == 0
-        ? "skeletonLoading/TOGGLE_SKELETON_LOADING_LIST"
-        : "skeletonLoading/TOGGLE_SKELETON_LOADING_MENU";
+    let loadingType = setLoadingTypes.pageList({
+      pageLoaded: getters["skeletonLoading/pageLoaded"],
+      length: getters.barterList.length,
+    });
+
     try {
       commit(loadingType);
       let paginationSelfItem = getters["pagination/paginationSelfItem"];
@@ -67,9 +68,7 @@ export default {
   },
 
   async [GET_A_BARTER_ASYNC]({ commit }, payload) {
-    let loadingType = router.currentRoute.path.includes("edit")
-      ? "formLoading/TOGGLE_FORM_LOADING"
-      : "skeletonLoading/TOGGLE_SKELETON_LOADING_ONE";
+    let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getABarter(payload);

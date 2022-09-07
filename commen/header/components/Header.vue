@@ -13,7 +13,7 @@
 import HeaderContentEnd from "./HeaderContentEnd.vue";
 export default {
   props: {
-    color: { type: String, default: "#495057" },
+    color: { type: String, default: "p-dark-primary" },
     dark: {
       type: Boolean,
       default: true,

@@ -1,13 +1,15 @@
 <template>
   <filter-tabs service="استعلام" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllInquiryAsync"
+      <ProductAll @changePage="getAllInquiryAsync(getAllRequestParams)"
     /></template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllInquiryAsync({ currentUserId })" />
+      <ProductUser @changePage="getAllInquiryAsync(getAllRequestUserParams)" />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered @changePage="getAllInquiryAsync({ offerUserId })" />
+      <ProductUserOffered
+        @changePage="getAllInquiryAsync(getAllRequestUserOfferedParams)"
+      />
     </template>
   </filter-tabs>
 </template>
@@ -29,8 +31,29 @@ export default {
   },
 
   computed: {
-    currentUserId() {
+    userId() {
       return Number(Cookies.get("user-id"));
+    },
+    getAllRequestParams() {
+      return {
+        userId: null,
+        offerUserId: null,
+        target: "pagination",
+      };
+    },
+    getAllRequestUserParams() {
+      return {
+        userId: this.userId,
+        offerUserId: null,
+        target: "paginationSelfItem",
+      };
+    },
+    getAllRequestUserOfferedParams() {
+      return {
+        userId: null,
+        offerUserId: this.userId,
+        target: "paginationSelfOffered",
+      };
     },
   },
   methods: {
@@ -40,17 +63,13 @@ export default {
     handleTab(newValue) {
       switch (newValue) {
         case 0:
-          this.getAllInquiryAsync();
+          this.getAllInquiryAsync(this.getAllRequestParams);
           break;
         case 1:
-          this.getAllInquiryAsync({
-            currentUserId: this.currentUserId,
-          });
+          this.getAllInquiryAsync(this.getAllRequestUserParams);
           break;
         case 2:
-          this.getAllInquiryAsync({
-            offerUserId: this.currentUserId,
-          });
+          this.getAllInquiryAsync(this.getAllRequestUserOfferedParams);
         default:
           break;
       }

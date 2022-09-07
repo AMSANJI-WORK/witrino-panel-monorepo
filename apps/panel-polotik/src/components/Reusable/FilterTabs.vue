@@ -1,8 +1,8 @@
 <template>
   <v-card elevation="1" outlined class="my-10 mx-2 rounded-t-lg">
     <v-tabs
-      color="green"
-      active-class="green--text"
+      color="p-green-primary"
+      active-class="p-green-primary--text"
       next-icon="mdi-arrow-right-bold-box-outline"
       prev-icon="mdi-arrow-left-bold-box-outline"
       show-arrows
@@ -25,7 +25,7 @@
 
       <v-spacer></v-spacer>
       <v-btn
-        color="green"
+        color="p-green-primary"
         to="create"
         class="white--text my-auto ml-2 d-md-flex d-none"
       >
@@ -33,7 +33,7 @@
         <v-icon class="white--text">mdi-plus</v-icon>
       </v-btn>
       <v-btn
-        color="green"
+        color="p-green-primary"
         small
         tile
         to="create"

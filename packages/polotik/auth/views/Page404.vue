@@ -4,7 +4,7 @@
       <err-404 class="page-404-background d-sm-block d-none" />
       <err-404-moblie class="page-404-background d-block d-sm-none" />
       <h3
-        class="red--text text--accent-4 text-center text-h3 font-weight-bold mt-sm-10 mb-3"
+        class="p-red-primary--text text-center text-h3 font-weight-bold mt-sm-10 mb-3"
       >
         خطای 404
       </h3>

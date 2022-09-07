@@ -13,7 +13,7 @@
           </v-card-subtitle>
 
           <v-card-subtitle
-            class="d-flex flex-wrap align-center justify-md-space-between justify-center green-lighten-5 rounded-t-xl"
+            class="d-flex flex-wrap align-center justify-md-space-between justify-center p-green-lighten-1 rounded-t-xl"
           >
             <v-sheet class="d-flex transparent align-center">
               <v-avatar size="60" color="grey lighten-2">
@@ -29,7 +29,7 @@
               قیمت {{ offer.data.price | toRial }} تومان
             </v-chip>
           </v-card-subtitle>
-          <v-card-text class="green-lighten-6 rounded-lg">
+          <v-card-text class="p-green-lighten-2 rounded-lg">
             <v-sheet class="transparent pa-3 d-flex flex-wrap align-center">
               <v-col class="d-flex flex-wrap justify-sm-start justify-center">
                 <v-avatar
