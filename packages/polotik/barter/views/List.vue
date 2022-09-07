@@ -15,7 +15,7 @@
 <script>
 import BarterFilters from "@packages/polotik/barter/components/Filters.vue";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
-import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
+import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import PagesDescription from "@packages/polotik/barter/components/PagesDescription.vue";
 export default {
   mixins: [barterLoadingMixin],

@@ -31,7 +31,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
-import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
+import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 import Cookies from "js-cookie";
 import Product from "./index.vue";
 

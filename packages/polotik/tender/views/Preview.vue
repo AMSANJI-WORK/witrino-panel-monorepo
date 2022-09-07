@@ -15,7 +15,7 @@
 import PreviewForm from "@packages/polotik/tender/components/Preview.vue";
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 
-import PagePreviewTypeSecond from "@polotik/modules/loading/components/PagePreviewSkeletonTypeSecond.vue";
+import PagePreviewTypeSecond from "@commen/loading/modules/skeleton/components/PageList/SkeletonTypeSecond.vue";
 
 export default {
   mixins: [tenderLoadingMixin],

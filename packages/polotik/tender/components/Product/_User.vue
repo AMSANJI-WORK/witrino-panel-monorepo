@@ -36,7 +36,7 @@ import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 
 import Cookies from "js-cookie";
 import Product from "./index.vue";
-import PageListSkeletonMenu from "@polotik/modules/loading/components/PageListSkeletonMenu.vue";
+import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },

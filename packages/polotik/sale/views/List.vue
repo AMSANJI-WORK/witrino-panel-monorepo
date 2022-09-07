@@ -15,7 +15,7 @@
 <script>
 import SaleFilters from "@packages/polotik/sale/components/Filters.vue";
 import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
-import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
+import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import PagesDescription from "@packages/polotik/sale/components/PagesDescription.vue";
 export default {
   mixins: [saleLoadingMixin],

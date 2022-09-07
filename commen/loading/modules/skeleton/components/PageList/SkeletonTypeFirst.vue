@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import SkeletonLoaderMixin from "../mixins/skeleton";
+import SkeletonLoaderMixin from "../../mixins/skeleton";
 export default {
   mixins: [SkeletonLoaderMixin],
 };

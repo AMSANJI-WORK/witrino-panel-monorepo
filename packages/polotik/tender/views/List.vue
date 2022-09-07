@@ -27,7 +27,7 @@
 
 <script>
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
-import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
+import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
 import TenderFilters from "@packages/polotik/tender/components/Filters.vue";
 

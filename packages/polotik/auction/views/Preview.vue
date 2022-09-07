@@ -14,7 +14,7 @@
 <script>
 import PreviewForm from "@packages/polotik/auction/components/Preview.vue";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
-import PagePreviewTypeSecond from "@polotik/modules/loading/components/PagePreviewSkeletonTypeSecond.vue";
+import PagePreviewTypeSecond from "@commen/loading/modules/skeleton/components/PageList/SkeletonTypeSecond.vue";
 
 export default {
   mixins: [auctionLoadingMixin],

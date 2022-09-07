@@ -14,7 +14,7 @@
 
 <script>
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
-import PageListSkeleton from "@polotik/modules/loading/components/PageListSkeleton.vue";
+import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import InquiryFilters from "@packages/polotik/inquiry/components/Filters.vue";
 import PagesDescription from "@packages/polotik/inquiry/components/PagesDescription.vue";
 export default {

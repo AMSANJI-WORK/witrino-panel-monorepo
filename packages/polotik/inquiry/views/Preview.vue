@@ -14,7 +14,7 @@
 
 <script>
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
-import PagePreviewSkeletonTypeFirst from "@polotik/modules/loading/components/PagePreviewSkeletonTypeFirst.vue";
+import PagePreviewSkeletonTypeFirst from "@commen/loading/modules/skeleton/components/PageList/SkeletonTypeFirst.vue";
 import PagesDescription from "@packages/polotik/inquiry/components/PagesDescription.vue";
 import PreviewForm from "@packages/polotik/inquiry/components/Preview.vue";
 export default {
