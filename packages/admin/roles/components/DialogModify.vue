@@ -55,7 +55,7 @@
         <v-btn
           text
           color="blue darken-1"
-          :loading="submitBtnLoading"
+          :loading="formLoading"
           @click.native="save"
           >بله</v-btn
         >

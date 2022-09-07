@@ -113,7 +113,7 @@
           dark
           class="rounded-lg font-weight-thin px-10 d-sm-flex d-none"
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="formLoading"
           @click="submit"
         >
           {{ submitBtnText }}
@@ -122,7 +122,7 @@
           dark
           class="rounded-lg font-weight-thin d-flex d-sm-none"
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="formLoading"
           block
           large
           @click="submit"

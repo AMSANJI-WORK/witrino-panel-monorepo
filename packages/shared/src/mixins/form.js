@@ -14,7 +14,7 @@ const FormMixin = {
     };
   },
   computed: {
-    ...mapGetters("shared/loading", ["submitBtnLoading", "formLoading"]),
+    ...mapGetters("shared/loading", ["formLoading"]),
   },
 };
 

@@ -104,7 +104,7 @@
               :color="submitBtnColor"
               class="rounded-lg"
               @click="save"
-              :loading="submitBtnLoading"
+              :loading="formLoading"
             >
               {{ submitBtnText }}
               <v-icon right>mdi-plus</v-icon>
