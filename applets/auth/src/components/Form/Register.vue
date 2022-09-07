@@ -8,7 +8,7 @@
         v-model="registerform.mobile"
         :rules="[rules.required]"
         label="شماره همراه"
-        :loading="fromLoading"
+        :loading="formLoading"
         prepend-inner-icon="mdi-phone"
         background-color="#F2F2F2"
       ></v-text-field>

@@ -1,7 +1,7 @@
 <template>
   <v-card-title class="d-md-flex d-none">
     <v-avatar size="150" class="ma-md-3 mx-auto">
-      <img :src="require('@shared/assets/image/png/card-branch-avatar.png')" />
+      <img :src="require('@commen/assets/image/png/card-branch-avatar.png')" />
     </v-avatar>
     <v-sheet>
       <h4 class="font-weight-medium mb-5">{{ user.full_name }}</h4>
@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import WitrinoPage from "@shared/components/Icons/WitrinoPage.vue";
-import PolotikPage from "@shared/components/Icons/PolotikPage.vue";
+import WitrinoPage from "@commen/icons/components/WitrinoPage.vue";
+import PolotikPage from "@commen/icons/components/PolotikPage.vue";
 import { mapGetters } from "vuex";
 export default {
   components: {

@@ -1,4 +1,17 @@
 {
   "name": "shared",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "dependencies": {
+    "bread-crumbs": "*",
+    "card": "*",
+    "assets": "*",
+    "header": "*",
+    "icons": "*",
+    "zone": "*",
+    "label": "*",
+    "form": "*",
+    "pagination": "*",
+    "loading": "*",
+    "section-divider": "*"
+  }
 }

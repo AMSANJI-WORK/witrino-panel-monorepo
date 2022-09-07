@@ -2,7 +2,6 @@
   <v-navigation-drawer
     v-model="navigation.drawer"
     :mini-variant="navigation.miniVariant"
-    class="white"
     right
     app
     temporary

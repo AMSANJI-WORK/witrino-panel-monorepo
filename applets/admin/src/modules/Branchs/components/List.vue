@@ -1,7 +1,7 @@
 <template>
   <v-sheet class="mx-2 transparent">
     <div class="d-flex flex-wrap justify-space-around align-self-stretch my-4">
-      <DashboardProjectIcons
+      <CardInfoDashboard
         v-for="(icon, index) in boxTopData"
         :data-source="icon"
         :col-size-md="3"
@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import LocationList from "@applets/admin/src/modules/Branchs/components/LocationList.vue";
 import DataTable from "@applets/admin/src/modules/Branchs/components/DataTable/BranchList.vue";
 import boxTopData from "@applets/admin/src/modules/Branchs/mock/boxTop";
 export default {
   components: {
-    DashboardProjectIcons,
+    CardInfoDashboard,
     SectionDivider,
     LocationList,
     DataTable,

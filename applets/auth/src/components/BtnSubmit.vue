@@ -4,7 +4,7 @@
     class="rounded-lg mt-5 mb-3"
     color="yellow darken-2"
     elevation="4"
-    :loading="submitBtnLoading"
+    :loading="formLoading"
     x-large
     type="submit"
   >

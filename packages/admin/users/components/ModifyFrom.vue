@@ -39,7 +39,7 @@
       </v-sheet>
       <v-col cols="12" sm="6" class="pb-0">
         <v-text-field
-          :loading="fromLoading"
+          :loading="formLoading"
           v-model="editableUser.full_name"
           :rules="[rules.required]"
           class="rounded-lg"
@@ -58,7 +58,7 @@
           v-model="editableUser.father_name"
           dense
           outlined
-          :loading="fromLoading"
+          :loading="formLoading"
         >
           <template #label>
             <v-icon class="ml-1">mdi-human-cane</v-icon>
@@ -73,7 +73,7 @@
           class="rounded-lg"
           dense
           outlined
-          :loading="fromLoading"
+          :loading="formLoading"
         >
           <template #label>
             <v-icon class="ml-1">mdi-account-key</v-icon>
@@ -88,7 +88,7 @@
           :rules="[rules.required]"
           dense
           outlined
-          :loading="fromLoading"
+          :loading="formLoading"
         >
           <template #label class="pb-0">
             <v-icon class="ml-1 mdi-rotate-270">mdi-phone-in-talk</v-icon>
@@ -102,7 +102,7 @@
           v-model="editableUser.email"
           dense
           outlined
-          :loading="fromLoading"
+          :loading="formLoading"
         >
           <template #label>
             <v-icon class="ml-1">mdi-email</v-icon>
@@ -116,7 +116,7 @@
           v-model="editableUser.phone"
           dense
           outlined
-          :loading="fromLoading"
+          :loading="formLoading"
         >
           <template #label>
             <v-icon class="ml-1">mdi-phone-classic</v-icon>
@@ -133,7 +133,7 @@
           :items="genders"
           v-model="editableUser.jensiat"
           :rules="[rules.required]"
-          :loading="fromLoading"
+          :loading="formLoading"
           dense
           outlined
         >
@@ -148,7 +148,7 @@
           dark
           class="rounded-lg font-weight-thin px-10 d-sm-flex d-none"
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="formLoading"
           @click="submit"
         >
           {{ submitBtnText }}
@@ -157,7 +157,7 @@
           dark
           class="rounded-lg font-weight-thin d-flex d-sm-none"
           :color="submitBtnColor"
-          :loading="submitBtnLoading"
+          :loading="formLoading"
           block
           large
           @click="submit"

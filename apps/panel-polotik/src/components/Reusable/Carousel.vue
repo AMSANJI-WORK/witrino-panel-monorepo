@@ -15,7 +15,7 @@
     <v-img
       v-else
       max-height="350"
-      :src="require('@polotik/assets/image/png/image-default.png')"
+      :src="require('@commen/assets/image/png/image-default.png')"
     />
   </v-col>
 </template>

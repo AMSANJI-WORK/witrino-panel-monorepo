@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import SubHeaderContent from "@shared/components/Reusable/SubHeaderContent.vue";
+import SubHeaderContent from "@commen/header/components/SubHeaderContent.vue";
 export default {
   components: {
     SubHeaderContent,

@@ -3,7 +3,7 @@
     <v-sheet
       class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
     >
-      <ProjectIcons
+      <CardInfoDashboard
         v-for="(icon, index) in boxTopData"
         :data-source="icon"
         :col-size-md="4"
@@ -25,12 +25,12 @@
 
 <script>
 import boxTopData from "@applets/admin/src/modules/Dashboard/mock/boxTop";
-import ProjectIcons from "@shared/components/ProjectIcons.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
-import NotificationProduct from "@shared/components/NotificationProduct.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
+import NotificationProduct from "@commen/card/components/NotificationProduct.vue";
 export default {
   components: {
-    ProjectIcons,
+    CardInfoDashboard,
     SectionDivider,
     NotificationProduct,
   },

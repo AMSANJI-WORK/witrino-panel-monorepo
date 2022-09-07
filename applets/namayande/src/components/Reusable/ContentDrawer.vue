@@ -15,7 +15,7 @@
     >
       <v-avatar size="100" class="mt-6">
         <img
-          :src="require('@shared/assets/image/png/card-branch-avatar.png')"
+          :src="require('@commen/assets/image/png/card-branch-avatar.png')"
         />
       </v-avatar>
       <v-sheet class="text-center mt-5 mb-2 transparent">
@@ -123,7 +123,7 @@ export default {
   border-bottom-right-radius: 75px;
 }
 .sheet--background-image {
-  background: url(@shared/assets/image/svg/SofaDrawerBackground.svg) no-repeat
+  background: url(@commen/assets/image/svg/SofaDrawerBackground.svg) no-repeat
     bottom left;
 }
 </style>

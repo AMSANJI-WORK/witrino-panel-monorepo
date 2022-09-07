@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import LocationList from "@applets/namayande/src/modules/Branchs/components/LocationList.vue";
 import DataTable from "@applets/namayande/src/modules/Branchs/components/DataTable/BranchList.vue";
 export default {

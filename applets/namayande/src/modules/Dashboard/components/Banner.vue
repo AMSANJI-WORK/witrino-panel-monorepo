@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import SofaBanner from "@shared/components/Icons/SofaBanner.vue";
+import SofaBanner from "@commen/icons/components/SofaBanner.vue";
 export default {
   components: {
     SofaBanner,
@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .banner-bg {
-  background: url(@shared/assets/image/svg/WBannerBackground.svg) no-repeat center;
+  background: url(@commen/assets/image/svg/WBannerBackground.svg) no-repeat center;
   background-size: cover;
 }
 .v-application .text-h6 {

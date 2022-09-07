@@ -29,14 +29,12 @@
 </template>
 
 <script>
-import Err404 from "@shared/components/Icons/Err404.vue";
-import Err404Moblie from "@shared/components/Icons/ErrMoblie404.vue";
-import SetPermissionAvatar from "@shared/components/Icons/SetPermissionAvatar.vue";
+import Err404 from "@commen/icons/components/Err404.vue";
+import Err404Moblie from "@commen/icons/components/ErrMoblie404.vue";
 export default {
   components: {
     Err404,
     Err404Moblie,
-    SetPermissionAvatar,
   },
 };
 </script>

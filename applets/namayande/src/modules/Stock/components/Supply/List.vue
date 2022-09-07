@@ -12,10 +12,8 @@
 </template>
 
 <script>
-import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import DataTable from "../Supply/DataTable.vue";
-import boxTopData from "@applets/namayande/src/modules/Stock/mock/boxTop";
 export default {
   data() {
     return {
@@ -24,7 +22,6 @@ export default {
   },
   components: {
     SectionDivider,
-    DashboardProjectIcons,
     DataTable,
   },
 };

@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import Err403 from "@shared/components/Icons/Err403.vue";
-import Err403Moblie from "@shared/components/Icons/ErrMoblie403.vue";
-import SetPermissionAvatar from "@shared/components/Icons/SetPermissionAvatar.vue";
+import Err403 from "@commen/icons/components/Err403.vue";
+import Err403Moblie from "@commen/icons/components/ErrMoblie403.vue";
+import SetPermissionAvatar from "@commen/icons/components/SetPermissionAvatar.vue";
 export default {
   components: {
     Err403,

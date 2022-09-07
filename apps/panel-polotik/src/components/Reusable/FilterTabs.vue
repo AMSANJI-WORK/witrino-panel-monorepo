@@ -1,8 +1,8 @@
 <template>
   <v-card elevation="1" outlined class="my-10 mx-2 rounded-t-lg">
     <v-tabs
-      color="green"
-      active-class="green--text"
+      color="p-green-primary"
+      active-class="p-green-primary--text"
       next-icon="mdi-arrow-right-bold-box-outline"
       prev-icon="mdi-arrow-left-bold-box-outline"
       show-arrows
@@ -19,14 +19,13 @@
       >
       <v-tab
         class="text-caption text-md-body-2 font-weight-medium"
-        :disabled="true"
         key="list-mine-request"
-        >پیگیری درخواست های من</v-tab
+        >پیگیری پیشنهادات من</v-tab
       >
 
       <v-spacer></v-spacer>
       <v-btn
-        color="green"
+        color="p-green-primary"
         to="create"
         class="white--text my-auto ml-2 d-md-flex d-none"
       >
@@ -34,7 +33,7 @@
         <v-icon class="white--text">mdi-plus</v-icon>
       </v-btn>
       <v-btn
-        color="green"
+        color="p-green-primary"
         small
         tile
         to="create"
@@ -46,13 +45,13 @@
       <v-tabs-items v-model="tab">
         <v-divider class="mb-2"></v-divider>
         <v-tab-item key="list">
-          <slot name="list-content" />
+          <slot name="request-list" />
         </v-tab-item>
         <v-tab-item key="list-mine">
-          <slot name="list-mine-content" />
+          <slot name="request-list-user" />
         </v-tab-item>
-        <v-tab-item key="list-mine-request">
-          <slot name="list-mine-request" />
+        <v-tab-item key="list-mine-offered">
+          <slot name="request-list-user-offered" />
         </v-tab-item>
       </v-tabs-items>
     </v-tabs>

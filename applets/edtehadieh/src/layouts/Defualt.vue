@@ -32,7 +32,7 @@
 import AppHeader from "@applets/edtehadieh/src/components/App/Header.vue";
 import AppDrawer from "@applets/edtehadieh/src/components/App/Drawer.vue";
 import AppMobileDrawer from "@applets/edtehadieh/src/components/App/MobileDrawer.vue";
-import AppBreadcrumbs from "@shared/components/App/Breadcrumbs.vue";
+import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
 import MobileSubHeader from "@applets/edtehadieh/src/components/App/MobileSubHeader.vue";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 

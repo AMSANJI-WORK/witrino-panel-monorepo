@@ -90,7 +90,7 @@
 import Cookies from "js-cookie";
 import CardLocation from "./CardLocation.vue";
 import { mapActions, mapGetters } from "vuex";
-import VLabel from "@shared/components/Reusable/VLabel.vue";
+import VLabel from "@commen/label/components/Label.vue";
 import { userTypes } from "@packages/admin/users/store/types";
 import DialogDisable from "@packages/admin/roles/components/DialogDisable.vue";
 import CreateCard from "./CreateCard.vue";

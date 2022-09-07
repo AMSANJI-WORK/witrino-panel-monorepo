@@ -21,7 +21,7 @@
                 <v-col cols="12" class="d-flex justify-center">
                   <v-img
                     height="60%"
-                    :src="require('@shared/assets/image/png/witrino-store.png')"
+                    :src="require('@commen/assets/image/png/witrino-store.png')"
                   ></v-img>
                 </v-col>
               </v-row>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import logo from "@shared/components/Icons/Auth/Logo.vue";
+import logo from "@commen/icons/components/auth/Logo.vue";
 import WAuthTitle from "@applets/auth/src/components/WAuthTitle.vue";
 export default {
   components: {
@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .auth--background {
-  background: url(@shared/components/Icons/Auth/Auth.png) no-repeat;
+  background: url(@commen/icons/components/auth/Auth.png) no-repeat;
   background-size: cover;
 }
 </style>

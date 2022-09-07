@@ -12,7 +12,7 @@
         </v-btn>
         <v-btn
           color="blue darken-1"
-          :loading="submitBtnLoading"
+          :loading="formLoading"
           text
           @click.native="disableItemConfirm"
           >بله</v-btn

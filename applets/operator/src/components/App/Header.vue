@@ -15,8 +15,8 @@
 
 <script>
 import navigation from "@applets/operator/src/constants/data";
-import LogoHeader from "@shared/components/Icons/Operator/LogoHeader.vue";
-import AppHeader from "@shared/components/App/Header.vue";
+import LogoHeader from "@commen/icons/components/operator/LogoHeader.vue";
+import AppHeader from "@commen/header/components/Header.vue";
 
 export default {
   components: {

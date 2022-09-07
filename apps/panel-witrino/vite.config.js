@@ -12,7 +12,7 @@ export default getClientConfiguration({
       "@witrino": fileURLToPath(new URL("./src", import.meta.url)),
       "@shared": path.resolve(__dirname, "../../packages/shared/src"),
       "@packages/admin": path.resolve(__dirname, "../../packages/admin"),
-      "@packages/commen": path.resolve(__dirname, "../../packages/commen"),
+      "@commen": path.resolve(__dirname, "../../commen"),
     },
   },
 });

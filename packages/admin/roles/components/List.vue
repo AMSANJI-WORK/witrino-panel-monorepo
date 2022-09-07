@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import DialogModify from "./DialogModify.vue";
 import DataTable from "./DataTable.vue";
 export default {

@@ -33,7 +33,7 @@ import AppHeader from "@applets/operator/src/components/App/Header.vue";
 import AppDrawer from "@applets/operator/src/components/App/Drawer.vue";
 import AppMobileDrawer from "@applets/operator/src/components/App/MobileDrawer.vue";
 import MobileSubHeader from "@applets/operator/src/components/App/MobileSubHeader.vue";
-import AppBreadcrumbs from "@shared/components/App/Breadcrumbs.vue";
+import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 export default {
   props: {

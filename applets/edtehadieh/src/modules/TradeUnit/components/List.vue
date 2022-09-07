@@ -22,7 +22,7 @@
 <script>
 import boxTopData from "@applets/edtehadieh/src/modules/TradeUnit/mock/boxTop";
 import ProjectIcons from "@applets/edtehadieh/src/modules/TradeUnit/components/ProjectIcons.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import LocationList from "@applets/edtehadieh/src/modules/TradeUnit/components/LocationList.vue";
 import DataTable from "@applets/edtehadieh/src/modules/TradeUnit/components/DataTable/UnitList.vue";
 export default {

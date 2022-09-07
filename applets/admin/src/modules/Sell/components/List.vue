@@ -1,15 +1,15 @@
 <template>
   <v-sheet class="mx-2 rounded-lg transparent">
-    <div
+    <v-sheet
       class="d-flex flex-wrap justify-space-around align-self-stretch transparent"
     >
-      <DashboardProjectIcons
+      <CardInfoDashboard
         v-for="(icon, index) in boxTopData"
         :key="index"
         :col-size-md="4"
         :data-source="icon"
       />
-    </div>
+    </v-sheet>
     <SectionDivider
       bind-class="my-5"
       title-class="font-weight-bold text-h6"
@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import DashboardProjectIcons from "@shared/components/ProjectIcons.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import DataTable from "./DataTable.vue";
 import boxTopData from "@applets/admin/src/modules/Sell/mock/boxTop";
 export default {
@@ -34,7 +34,7 @@ export default {
   },
   components: {
     SectionDivider,
-    DashboardProjectIcons,
+    CardInfoDashboard,
     DataTable,
   },
 };

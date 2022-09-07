@@ -9,7 +9,7 @@
     small-chips
     item-text="name"
     item-value="id"
-    :loading="fromLoading"
+    :loading="formLoading"
     :roles="[rules.required]"
     :value="value"
     @input="updateValue"

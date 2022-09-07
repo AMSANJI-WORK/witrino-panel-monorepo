@@ -15,7 +15,7 @@ const FormMixin = {
     };
   },
   computed: {
-    ...mapGetters("loading", ["fromLoading"]),
+    ...mapGetters("loading", ["formLoading"]),
   },
 };
 

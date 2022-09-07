@@ -34,7 +34,7 @@
 import AppHeader from "@polotik/components/App/Header.vue";
 import AppDrawer from "@polotik/components/App/Drawer.vue";
 import AppMobileDrawer from "@polotik/components/App/MobileDrawer.vue";
-import AppBreadcrumbs from "@polotik/components/App/Breadcrumbs.vue";
+import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
 import AppMobileSubHeader from "@polotik/components/App/MobileSubHeader.vue";
 import AppUserBox from "@polotik/components/App/UserBox.vue";
 export default {

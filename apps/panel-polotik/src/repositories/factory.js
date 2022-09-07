@@ -1,5 +1,5 @@
-import auth from "@packages/polotik/Auth/repositories";
-
+import auth from "@packages/polotik/auth/repositories";
+import home from "@packages/polotik/home/repositories";
 import city from "./city";
 import guilds from "./guilds";
 import upload from "./upload";
@@ -9,6 +9,7 @@ const repositories = new Map(
     guilds,
     upload,
     city,
+    home,
   })
 );
 

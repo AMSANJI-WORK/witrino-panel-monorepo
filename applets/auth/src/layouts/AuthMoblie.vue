@@ -31,13 +31,13 @@ export default {
 
 <style lang="scss" scoped>
 .auth-footer--bg {
-  background: url(@shared/assets/image/png/footer.png) no-repeat top;
+  background: url(@commen/assets/image/png/footer.png) no-repeat top;
   width: 100%;
   height: 50vh;
   background-size: cover;
 }
 .auth-header--bg {
-  background: url(@shared/components/Icons/Auth/header.svg) no-repeat bottom;
+  background: url(@commen/icons/components/auth/header.svg) no-repeat bottom;
   width: 100%;
   height: 100%;
   background-size: cover;

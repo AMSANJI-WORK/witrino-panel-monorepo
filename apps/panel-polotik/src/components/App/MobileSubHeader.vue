@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar dense dark color="green" class="d-md-none mt-14">
+  <v-app-bar dense dark color="white p-green-primary" class="d-md-none mt-14">
     <v-responsive max-width="250">
       <v-text-field
         dense

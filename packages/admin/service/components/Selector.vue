@@ -8,7 +8,7 @@
     small-chips
     item-text="title"
     item-value="id"
-    :loading="fromLoading"
+    :loading="formLoading"
     :services="[rules.required]"
     label="انتخاب سرویس"
     :value="value"

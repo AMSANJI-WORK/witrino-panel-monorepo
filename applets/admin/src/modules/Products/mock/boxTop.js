@@ -1,23 +1,23 @@
-import AllBranch from "@shared/components/Icons/AllBranch.vue";
-import ActiveBranch from "@shared/components/Icons/ActiveBranch.vue";
-import OutDateBranch from "@shared/components/Icons/OutDateBranch.vue";
+import AllBranch from "@commen/icons/components/AllBranch.vue";
+import ActiveBranch from "@commen/icons/components/ActiveBranch.vue";
+import OutDateBranch from "@commen/icons/components/OutDateBranch.vue";
 export default [
   {
     number: 1,
     title: "همه محصولات",
-    present: 25,
+    percent: 25,
     icon: AllBranch,
   },
   {
     number: 2,
     title: "نمایندگی های فعال",
-    present: 10,
+    percent: 10,
     icon: OutDateBranch,
   },
   {
     number: 3,
     title: "محصولات برتر",
-    present: -10,
+    percent: -10,
     icon: ActiveBranch,
   },
 ];

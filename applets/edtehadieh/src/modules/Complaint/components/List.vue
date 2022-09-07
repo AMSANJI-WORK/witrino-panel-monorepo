@@ -22,7 +22,7 @@
 <script>
 import boxTopData from "@applets/edtehadieh/src/modules/Complaint/mock/boxTop";
 import ProjectIcons from "@applets/edtehadieh/src/modules/Complaint/components/ProjectIcons.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 import DataTable from "@applets/edtehadieh/src/modules/Complaint/components/DataTable.vue";
 export default {
   components: {

@@ -15,7 +15,7 @@
     "packages/admin/*",
     "packages/polotik/*",
     "packages/shared/*",
-    "packages/commen/*",
+    "commen/*",
     "packages/*",
     "applets/*",
     "apps/*"

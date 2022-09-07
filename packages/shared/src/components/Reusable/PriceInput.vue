@@ -4,7 +4,7 @@
     @input="updateValue"
     :hint="value | numberToStringFa"
     dense
-    :loading="fromLoading"
+    :loading="formLoading"
     outlined
     :rules="[rules.required]"
     persistent-hint

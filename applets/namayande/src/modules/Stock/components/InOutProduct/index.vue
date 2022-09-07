@@ -22,7 +22,7 @@
 <script>
 import Chart from "@applets/namayande/src/modules/Stock/components/InOutProduct/Chart.vue";
 import DataTable from "@applets/namayande/src/modules/Stock/components/InOutProduct/DataTable.vue";
-import SectionDivider from "@shared/components/Reusable/SectionDivider.vue";
+import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 export default {
     components: { Chart, DataTable, SectionDivider },
 };
