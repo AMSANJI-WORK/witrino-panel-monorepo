@@ -37,6 +37,9 @@ export default {
     auctionId() {
       return this.$route.params.id;
     },
+    cities() {
+      return this.$store.getters["guilds/services/cities/cities"];
+    },
     currentUserId() {
       return Cookies.get("user-id");
     },
@@ -52,6 +55,8 @@ export default {
     ...mapActions({ getAnAuctionData: "GET_AN_AUCTION_ASYNC" }),
   },
   created() {
+    if (this.cities.length == 0)
+      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
     this.getAnAuctionData(this.auctionId);
   },
 };

@@ -1,25 +1,25 @@
 <template>
   <div class="d-flex flex-row flex-wrap" style="width: 100">
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="مهلت تهیه اسناد" />
+      <VLabel label="مهلت تهیه اسناد" />
       از
       {{ collectionDocsStartTimeToFa }}, تا
       {{ collectionDocsEndTimeToFa }}
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="مهلت ارسال اسناد" :label-value="sendDocsDateToFa" />
+      <VLabel label="مهلت ارسال اسناد" :label-value="sendDocsDateToFa" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="تاریخ برگزاری" :label-value="startAuctionDateToFa" />
+      <VLabel label="تاریخ برگزاری" :label-value="startAuctionDateToFa" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="زمان (ساعت)"
         :label-value="auction.data.auctionInfo.time"
       />
     </v-col>
     <v-col cols="12" class="py-0">
-      <v-label label="آدرس" :label-value="auction.data.auctionInfo.address" />
+      <VLabel label="آدرس" :label-value="auction.data.auctionInfo.address" />
     </v-col>
     <v-col cols="12">
       <div

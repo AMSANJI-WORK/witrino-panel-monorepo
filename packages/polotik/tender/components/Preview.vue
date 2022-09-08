@@ -34,6 +34,9 @@ export default {
   },
   computed: {
     ...mapGetters(["tender"]),
+    cities() {
+      return this.$store.getters["guilds/services/cities/cities"];
+    },
     tenderId() {
       return this.$route.params.id;
     },
@@ -52,6 +55,8 @@ export default {
     ...mapMutations({ resetTender: "RESET_TENDER" }),
   },
   created() {
+    if (this.cities.length == 0)
+      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
     this.getTenderData(this.tenderId);
   },
 };

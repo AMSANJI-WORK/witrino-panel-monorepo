@@ -20,7 +20,7 @@
               </v-avatar>
               <h5 class="mx-4">{{ offer.user_data.name }}</h5>
             </v-sheet>
-            <v-label
+            <VLabel
               label="شماره همراه"
               :label-value="offer.user_data.mobile"
             />

@@ -1,10 +1,10 @@
 import Vue from "vue";
 import router from "@polotik/router";
 function responseErrorHandler(error) {
-  const {
-    status,
-    data: { message },
-  } = error.response;
+  // const {
+  //   status,
+  //   data: { message },
+  // } = error.response;
   if (!status) {
     Vue.$toast.error("پیام خطا دریافت شد");
     return router.push("/404");
@@ -40,6 +40,6 @@ function responseErrorHandler(error) {
       Vue.$toast.error("پیام خطا دریافت شد");
       break;
   }
-  return Promise.reject(message);
+  // return Promise.reject(message);
 }
 export default responseErrorHandler;

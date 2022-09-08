@@ -251,7 +251,7 @@ import SaleMixin from "@packages/polotik/sale/mixins";
 import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
-import servicesTypes from "@packages/polotik/Service/store/types";
+import servicesTypes from "@packages/polotik/service/store/types";
 import { mapActions, mapMutations, mapGetters } from "vuex";
 import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
@@ -380,9 +380,7 @@ export default {
       this.$router.push("/sale/list");
     },
     setUploadedImageInGallery(uplaodImages) {
-      const oldGallery = this.editableSale.data.gallery;
-      this.editableSale.data.gallery = [...uplaodImages, ...oldGallery];
-      console.log(this.editableSale.data.gallery);
+      this.editableSale.data.gallery = uplaodImages;
     },
     create() {
       this.editableSale.user_id = this.currentUserId;

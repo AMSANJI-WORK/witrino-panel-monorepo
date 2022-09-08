@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-row flex-wrap" style="width: 100">
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="مبلغ ضمانت"
         :label-value="
           auction.data.conditions.guarantee.price | numberToStringFa
@@ -9,7 +9,7 @@
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="نوع ضمانت" />
+      <VLabel label="نوع ضمانت" />
       <v-chip
         x-small
         v-for="(type, index) in auction.data.conditions.guarantee.type"
@@ -18,25 +18,25 @@
       >
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         v-if="auction.data.conditions.docs.isFree"
         label="مبلغ اسناد"
         label-value="رایگان"
       />
-      <v-label
+      <VLabel
         v-else
         label="مبلغ اسناد"
         :label-value="auction.data.conditions.docs.price | numberToStringFa"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="نحوه تهیه اسناد"
         :label-value="auction.data.conditions.docs.collectType"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="شرکت اشخاص حقیقی"
         :label-value="
           auction.data.conditions.participateRealPerson ? 'دارد' : 'ندارد'
@@ -44,7 +44,7 @@
       />
     </v-col>
     <v-col cols="12" class="py-0">
-      <v-label
+      <VLabel
         label="شرایط متقاضی"
         :label-value="auction.data.conditions.askerInfo"
       />

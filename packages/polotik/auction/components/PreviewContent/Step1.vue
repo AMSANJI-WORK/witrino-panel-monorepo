@@ -1,37 +1,37 @@
 <template>
   <div class="d-flex flex-row flex-wrap" style="width: 100">
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="مزایده گذار"
         :label-value="auction.data.auctionInfo.user.name"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="نوع مزایده"
         :label-value="auction.data.auctionInfo.type"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="عنوان مزایده" :label-value="auction.title" />
+      <VLabel label="عنوان مزایده" :label-value="auction.title" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="دسته مزایده" />
+      <VLabel label="دسته مزایده" />
       <v-chip
         x-small
         v-for="(category, index) in auction.data.category"
         :key="index"
-        >{{ category.name }}</v-chip
+        >{{ getCategoryNameProperty(category) }}</v-chip
       >
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="محل برگزاری"
-        :label-value="auction.data.auctionInfo.place"
+        :label-value="getCityNameProperty(auction.data.auctionInfo.place)"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="برارود اولیه"
         :label-value="auction.data.auctionInfo.basePrice | numberToStringFa"
       />
@@ -58,20 +58,34 @@
 
 <script>
 import UtilityMixin from "@shared/mixins/utility";
-import { createNamespacedHelpers } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
+import { mapGetters, mapMutations } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters(["auction"]),
+    ...mapGetters("guilds/auction", ["auction"]),
+    ...mapGetters("guilds/services/category", ["categories"]),
+    ...mapGetters("guilds/services/cities", ["cities"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("guilds/auction", { changeStep: "CHANGE_STEP" }),
+    getCategoryNameProperty(selectedCategory) {
+      if (!selectedCategory?.name) {
+        let findCategory = this.categories.find(
+          (category) => category.id == selectedCategory
+        );
+        return findCategory.name;
+      }
+      return selectedCategory.name;
+    },
+    getCityNameProperty(selectedCity) {
+      let cityFind = this.cities.find((city) => city.id == selectedCity);
+      return cityFind?.name;
+    },
   },
 };
 </script>

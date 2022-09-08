@@ -175,7 +175,7 @@
 <script>
 import moment from "moment-jalaali";
 import { mapActions, mapGetters, mapMutations } from "vuex";
-import servicesTypes from "@packages/polotik/Service/store/types";
+import servicesTypes from "@packages/polotik/service/store/types";
 import BarterMixin from "@packages/polotik/barter/mixins";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import fromRules from "@commen/form/mixins/rules";

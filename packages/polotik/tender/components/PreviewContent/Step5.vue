@@ -7,7 +7,7 @@
         style="width: 100%"
       >
         <v-col cols="12" sm="6" class="py-0">
-          <v-label label="امکان ثبت اطلاعات" />
+          <VLabel label="امکان ثبت اطلاعات" />
           <v-chip
             :color="chipColor('participation')"
             x-small
@@ -21,7 +21,7 @@
           style="width: 100%"
         >
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان درج قیمت پیشنهادی" />
+            <VLabel label="امکان درج قیمت پیشنهادی" />
             <v-chip
               :color="chipColor('offerPrice')"
               x-small
@@ -30,7 +30,7 @@
             >
           </v-col>
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان پیوست فایل" />
+            <VLabel label="امکان پیوست فایل" />
             <v-chip
               :color="chipColor('uploadable')"
               x-small
@@ -39,7 +39,7 @@
             >
           </v-col>
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان ثبت نظر" />
+            <VLabel label="امکان ثبت نظر" />
             <v-chip
               :color="chipColor('commentable')"
               x-small
@@ -48,7 +48,7 @@
             >
           </v-col>
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان ثبت نظر" />
+            <VLabel label="امکان ثبت نظر" />
             <v-chip
               :color="chipColor('commentable')"
               x-small
@@ -57,7 +57,7 @@
             >
           </v-col>
           <v-col cols="12" class="py-0">
-            <v-label
+            <VLabel
               label="توضیحات راهنمای تکمیل فرم"
               :label-value="tender.data.tenderInfo.settings.description"
             />
@@ -88,6 +88,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
+
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
 import VLabel from "@commen/label/components/Label.vue";
 export default {

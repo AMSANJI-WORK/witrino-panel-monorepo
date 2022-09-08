@@ -1,34 +1,34 @@
 <template>
   <div class="d-flex flex-row flex-wrap" style="width: 100">
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="مناقصه گذار"
         :label-value="tender.data.tenderInfo.user.name"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="نوع مناقصه" :label-value="tender.data.tenderInfo.type" />
+      <VLabel label="نوع مناقصه" :label-value="tender.data.tenderInfo.type" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="عنوان مناقصه" :label-value="tender.title" />
+      <VLabel label="عنوان مناقصه" :label-value="tender.title" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label label="دسته مناقصه" />
+      <VLabel label="دسته مناقصه" />
       <v-chip
         x-small
         v-for="(category, index) in tender.data.category"
         :key="index"
-        >{{ category.name }}</v-chip
+        >{{ getCategoryNameProperty(category) }}</v-chip
       >
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="محل برگزاری"
-        :label-value="tender.data.tenderInfo.place"
+        :label-value="getCityNameProperty(tender.data.tenderInfo.place)"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <v-label
+      <VLabel
         label="برارود اولیه"
         :label-value="tender.data.tenderInfo.basePrice | numberToStringFa"
       />
@@ -54,8 +54,7 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
+import { mapGetters, mapMutations } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 import UtilityMixin from "@shared/mixins/utility";
 
@@ -63,13 +62,28 @@ export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters(["tender"]),
+    ...mapGetters("guilds/tender", ["tender"]),
+    ...mapGetters("guilds/services/category", ["categories"]),
+    ...mapGetters("guilds/services/cities", ["cities"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("guilds/tender", { changeStep: "CHANGE_STEP" }),
+    getCityNameProperty(selectedCity) {
+      let cityFind = this.cities.find((city) => city.id == selectedCity);
+      return cityFind?.name;
+    },
+    getCategoryNameProperty(selectedCategory) {
+      if (!selectedCategory?.name) {
+        let findCategory = this.categories.find(
+          (category) => category.id == selectedCategory
+        );
+        return findCategory.name;
+      }
+      return selectedCategory.name;
+    },
   },
 };
 </script>

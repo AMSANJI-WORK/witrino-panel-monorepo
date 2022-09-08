@@ -69,18 +69,15 @@ export default {
         ? "mdi-pencil"
         : "mdi-check-bold";
     },
-    pageRoute() {
-      return this.$route.path;
-    },
   },
   methods: {
     changeStep(step) {
-      if (this.pageRoute.includes("tender"))
-        return this.$store.commit("guilds/tender/CHANGE_STEP", step);
-      return this.$store.commit("guilds/auction/CHANGE_STEP", step);
+      let activeRoute = this.$route.matched[1].path;
+      return this.$store.commit(`guilds${activeRoute}/CHANGE_STEP`, step);
     },
     validateForm() {
-      if (this.formRefrence.validate()) {
+      if (this.next == 6) this.changeStep(this.next);
+      else if (this.formRefrence?.validate()) {
         this.changeStep(this.next);
         this.$emit("formValidated");
       }

@@ -2,7 +2,7 @@
   <v-card
     elevation="6"
     :loading="formLoading"
-    class="d-flex flex-row flex-wrap rounded-lg mx-2 pa-10"
+    class="d-flex flex-row flex-wrap rounded-lg mx-2 pa-md-10"
   >
     <carousel
       class="d-block d-md-none"
@@ -11,16 +11,16 @@
 
     <v-col cols="12" md="6" class="d-flex flex-wrap">
       <v-col cols="12" class="py-0">
-        <v-label label="عنوان" :label-value="editableInquiry.title" />
+        <VLabel label="عنوان" :label-value="editableInquiry.title" />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label
+        <VLabel
           label="مقدار"
           :label-value="`${editableInquiry.data.amount} ${editableInquiry.data?.unit?.name}`"
         />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label label="دسته بندی" />
+        <VLabel label="دسته بندی" />
         <v-chip
           x-small
           v-for="(category, index) in editableInquiry.data.category"
@@ -29,16 +29,16 @@
         >
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label label="تاریخ شروع" :label-value="fromDate" />
+        <VLabel label="تاریخ شروع" :label-value="fromDate" />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label
+        <VLabel
           label="مکان تحویل"
-          :label-value="editableInquiry.data.place | selectedCity"
+          :label-value="getCityNameProperty(editableInquiry.data.place)"
         />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label
+        <VLabel
           label="مدت اعتبار (از تاریخ شروع)"
           :label-value="`${remainingDays} روز`"
         />
@@ -95,11 +95,6 @@ export default {
     VLabel,
   },
   mixins: [InquiryMixin, inquiryLoadingMixin, UtilityMixin],
-  filters: {
-    selectedCity(value) {
-      return value;
-    },
-  },
   computed: {
     ...mapGetters("guilds/services/cities", ["cities"]),
     compareStartDateWithCurrentDate() {
@@ -123,6 +118,10 @@ export default {
     },
   },
   methods: {
+    getCityNameProperty(selectedCity) {
+      let cityFind = this.cities.find((city) => city.id == selectedCity);
+      return cityFind?.name;
+    },
     getInquiryData() {
       this.getAnInquiryAsync(this.inquiryId).then(() => {
         Object.assign(this.editableInquiry, this.inquiry);
@@ -131,6 +130,8 @@ export default {
     },
   },
   created() {
+    if (this.cities.length == 0)
+      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
     this.getInquiryData();
   },
 };

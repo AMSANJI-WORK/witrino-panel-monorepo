@@ -11,25 +11,25 @@
       />
       <v-col cols="12" md="6" class="d-flex flex-wrap">
         <v-col cols="12" class="py-0">
-          <v-label label="عنوان" :label-value="editableBarter.title" />
+          <VLabel label="عنوان" :label-value="editableBarter.title" />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-label label="تاریخ شروع" :label-value="fromDate" />
+          <VLabel label="تاریخ شروع" :label-value="fromDate" />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-label
+          <VLabel
             label="مکان تحویل"
-            :label-value="editableBarter.data.place"
+            :label-value="getCityNameProperty(editableBarter.data.place)"
           />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-label
+          <VLabel
             label="ارزش تقریبی"
             :label-value="editableBarter.data.price | numberToStringFa"
           />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-label label="محصول / خدمت قابل ارائه" />
+          <VLabel label="محصول / خدمت قابل ارائه" />
           <v-chip
             x-small
             v-for="(category, index) in serviceAvailable"
@@ -38,7 +38,7 @@
           >
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-label label="محصول / خدمت درخواستی" />
+          <VLabel label="محصول / خدمت درخواستی" />
           <v-chip
             x-small
             v-for="(category, index) in serviceRequested"
@@ -47,7 +47,7 @@
           >
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-label
+          <VLabel
             label="مدت اعتبار (از تاریخ شروع)"
             :label-value="`${remainingDays} روز`"
           />
@@ -98,7 +98,7 @@ import BarterMixin from "@packages/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";
 import VLabel from "@commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
-import servicesTypes from "@packages/polotik/Service/store/types";
+import servicesTypes from "@packages/polotik/service/store/types";
 export default {
   components: {
     VLabel,
@@ -109,6 +109,8 @@ export default {
 
   computed: {
     ...mapGetters("guilds/services/category", ["categories"]),
+    ...mapGetters("guilds/services/cities", ["cities"]),
+
     compareStartDateWithCurrentDate() {
       const oneDay = 1000 * 60 * 60 * 24;
       const startDateDefrenceWithCurrentDate =
@@ -142,6 +144,10 @@ export default {
     ...mapActions("guilds/services/category", {
       getAllCategoriesAsync: `${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
+    getCityNameProperty(selectedCity) {
+      let cityFind = this.cities.find((city) => city.id == selectedCity);
+      return cityFind?.name;
+    },
     getBarterData() {
       this.getAllCategoriesAsync({ target: "barter" });
       this.getABarterAsync(this.barterId).then(() => {
@@ -151,6 +157,8 @@ export default {
     },
   },
   created() {
+    if (this.cities.length == 0)
+      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
     this.getBarterData();
   },
 };

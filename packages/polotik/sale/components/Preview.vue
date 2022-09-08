@@ -2,44 +2,47 @@
   <v-card
     elevation="6"
     :loading="formLoading"
-    class="d-flex flex-row flex-wrap rounded-lg mx-2 mx-2 pa-10"
+    class="d-flex flex-row flex-wrap rounded-lg mx-2 mx-2 pa-md-10"
   >
-    <carousel class="d-block d-md-none" :gallery="editableSale.data?.gallery" />
+    <carousel class="d-block d-md-none" :gallery="sale.data?.gallery" />
     <v-col cols="12" md="6" class="d-flex flex-wrap">
       <v-col cols="12" class="py-0">
-        <v-label label="عنوان" :label-value="editableSale.title" />
+        <VLabel label="عنوان" :label-value="sale.title" />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label label="دسته بندی" />
+        <VLabel label="دسته بندی" />
         <v-chip
           x-small
-          v-for="(category, index) in editableSale.data.category"
+          v-for="(category, index) in sale.data.category"
           :key="index"
           >{{ category.name }}</v-chip
         >
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label
+        <VLabel
           label="مقدار"
-          :label-value="`${unitAmountToFa} ${editableSale.data.unit?.name}`"
+          :label-value="`${unitAmountToFa} ${sale.data.unit?.name}`"
         />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label label="تاریخ شروع" :label-value="fromDate" />
+        <VLabel label="تاریخ شروع" :label-value="sale.start | dateToFa" />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label label="تاریخ پایان" :label-value="endDate" />
+        <VLabel label="تاریخ پایان" :label-value="sale.end | dateToFa" />
       </v-col>
       <v-col cols="12" class="py-0">
-        <v-label label="مکان تحویل" :label-value="editableSale.data.place" />
+        <VLabel
+          label="مکان تحویل"
+          :label-value="getCityNameProperty(sale.data.place)"
+        />
       </v-col>
     </v-col>
-    <carousel class="d-md-block d-none" :gallery="editableSale.data?.gallery" />
+    <carousel class="d-md-block d-none" :gallery="sale.data?.gallery" />
     <v-col cols="12" class="py-0">
       <v-card class="transparent" elevation="0">
         <v-card-title class="pt-0 pr-3 text--secondary"> توضیحات </v-card-title>
         <v-card-text class="pr-3">
-          {{ editableSale.description }}
+          {{ sale.description }}
         </v-card-text>
       </v-card>
     </v-col>
@@ -56,35 +59,44 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
-import SaleMixin from "@packages/polotik/sale/mixins";
 import UtilityMixin from "@shared/mixins/utility";
 import VLabel from "@commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
+import moment from "moment-jalaali";
+
 export default {
   components: {
     Carousel,
     VLabel,
   },
-  mixins: [SaleMixin, saleLoadingMixin, UtilityMixin],
+  mixins: [saleLoadingMixin, UtilityMixin],
+  filters: {
+    dateToFa(v) {
+      return moment(v).format("HH:mm | jYYYY/jMM/jDD");
+    },
+  },
   computed: {
+    ...mapGetters("guilds/services/cities", ["cities"]),
+    sale() {
+      return this.$store.getters["guilds/sale/sale"];
+    },
     unitAmountToFa() {
-      return this.editableSale.data.amount
-        ? this.editableSale.data.amount.num2persian()
+      return this.sale?.data.amount
+        ? this.sale?.data.amount.num2persian()
         : "0";
     },
   },
   methods: {
-    getSaleData() {
-      this.getASaleAsync(this.saleId).then(() => {
-        Object.assign(this.editableSale, this.sale);
-        this.fromDate = this.calculateFromDate;
-        this.endDate = this.calculateEndDate;
-      });
+    getCityNameProperty(selectedCity) {
+      console.log(this.cities);
+      let cityFind = this.cities.find((city) => city.id == selectedCity);
+      return cityFind?.name;
     },
   },
   created() {
-    this.getSaleData();
+    this.$store.dispatch("guilds/sale/GET_A_SALE_ASYNC", this.$route.params.id);
   },
 };
 </script>

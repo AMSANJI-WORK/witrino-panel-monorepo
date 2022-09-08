@@ -7,7 +7,7 @@
         style="width: 100%"
       >
         <v-col cols="12" sm="6" class="py-0">
-          <v-label label="امکان ثبت اطلاعات" />
+          <VLabel label="امکان ثبت اطلاعات" />
           <v-chip
             :color="chipColor('participation')"
             x-small
@@ -21,7 +21,7 @@
           style="width: 100%"
         >
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان درج قیمت پیشنهادی" />
+            <VLabel label="امکان درج قیمت پیشنهادی" />
             <v-chip
               :color="chipColor('offerPrice')"
               x-small
@@ -30,7 +30,7 @@
             >
           </v-col>
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان پیوست فایل" />
+            <VLabel label="امکان پیوست فایل" />
             <v-chip
               :color="chipColor('uploadable')"
               x-small
@@ -39,7 +39,7 @@
             >
           </v-col>
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان ثبت نظر" />
+            <VLabel label="امکان ثبت نظر" />
             <v-chip
               :color="chipColor('commentable')"
               x-small
@@ -48,16 +48,16 @@
             >
           </v-col>
           <v-col cols="12" sm="6" class="py-0">
-            <v-label label="امکان ثبت نظر" />
+            <VLabel label="امکان ثبت نظر" />
             <v-chip
-              :color="chipColor('commentable')"
+              :color="settingsAuction.commentable | chipType.color"
               x-small
               class="white--text font-weight-medium"
-              >{{ chipText("commentable") }}</v-chip
+              >{{ settingsAuction.commentable | chipType.text }}</v-chip
             >
           </v-col>
           <v-col cols="12" class="py-0">
-            <v-label
+            <VLabel
               label="توضیحات راهنمای تکمیل فرم"
               :label-value="auction.data.auctionInfo.settings.description"
             />
@@ -88,10 +88,20 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
+
 const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
+  filters: {
+    chipType(value) {
+      if (value) return { text: "دارد", color: "success" };
+      return {
+        text: "ندراد",
+        color: "red",
+      };
+    },
+  },
   computed: {
     ...mapGetters(["auction"]),
     routeIsPreview() {
@@ -102,6 +112,9 @@ export default {
     },
     isCurrentUser() {
       return this.currentUserId == this.auction.data.auctionInfo.user.id;
+    },
+    settingsAuction() {
+      return this.auction.data.auctionInfo.settings;
     },
   },
   methods: {

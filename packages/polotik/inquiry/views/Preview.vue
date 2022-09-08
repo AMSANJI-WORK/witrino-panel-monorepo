@@ -24,7 +24,14 @@ export default {
     PagesDescription,
     PagePreviewSkeletonTypeFirst,
   },
+  computed: {
+    cities() {
+      return this.$store.getters["guilds/services/cities/cities"];
+    },
+  },
   created() {
+    if (this.cities.length == 0)
+      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
     this.$store.commit("CHANGE_SERVICE", "inquiry");
   },
 };

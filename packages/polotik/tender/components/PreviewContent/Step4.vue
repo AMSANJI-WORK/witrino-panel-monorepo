@@ -11,7 +11,7 @@
       </div>
     </v-col>
     <v-col cols="12" class="py-0 mt-10">
-      <v-label label="توضیحات" :label-value="tender.description" />
+      <VLabel label="توضیحات" :label-value="tender.description" />
     </v-col>
     <v-col cols="12">
       <div

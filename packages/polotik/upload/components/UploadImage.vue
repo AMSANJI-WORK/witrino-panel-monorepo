@@ -67,9 +67,6 @@ export default {
     ...mapGetters({
       uploadedImages: "upload/successUploadedImages",
     }),
-    pathRoute() {
-      return this.$route.path;
-    },
   },
   methods: {
     ...mapMutations({
@@ -80,7 +77,6 @@ export default {
     }),
     handleFileImport() {
       this.isSelecting = true;
-      // After obtaining the focus when closing the FilePicker, return the button state to normal
       window.addEventListener(
         "focus",
         () => {
@@ -88,27 +84,22 @@ export default {
         },
         { once: true }
       );
-      // Trigger click on the FileInput
       this.$refs.uploader.click();
     },
-    uploadFileAsync() {
-      return new Promise((resolve, reject) => {
-        this.uploadImageAsync(this.images)
-          .then(() => {
-            resolve("upload file resolve");
-            this.$emit("uploadedImagesSuccess", this.uploadedImages);
-          })
-          .catch(() => {
-            reject("upload file reject");
-          });
-      });
+    async uploadFileAsync() {
+      try {
+        await this.uploadImageAsync(this.images);
+        this.$emit("uploadedImagesSuccess", this.uploadedImages);
+      } catch (error) {
+        console.error("upload file reject");
+      }
     },
     onFileChanged(e) {
       this.selectedFile = e.target.files;
       this.images = [...this.selectedFile, ...this.images];
       this.uploadFileAsync();
     },
-    DeleteImageGalleryActiveRoute(targetImageId) {
+    deleteImageGalleryActiveRoute(targetImageId) {
       let activeService = this.$route.matched[1].path;
       this.$store.commit(
         `guilds${activeService}/DELETE_IMAGE_FROM_GALLERY`,
@@ -118,7 +109,7 @@ export default {
     deleteImage(indexImage) {
       this.images.splice(indexImage, 1);
       this.deleteImageGallery(indexImage);
-      this.DeleteImageGalleryActiveRoute(indexImage);
+      this.deleteImageGalleryActiveRoute(indexImage);
     },
   },
 };
