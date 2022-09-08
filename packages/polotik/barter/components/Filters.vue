@@ -1,13 +1,19 @@
 <template>
   <filter-tabs service="تهاتر" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllBarterAsync"
+      <RequestList @changePage="getAllBarterAsync(getAllRequestParams)"
     /></template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllBarterAsync({ currentUserId })" />
+      <RequestList
+        @changePage="getAllBarterAsync(getAllRequestUserParams)"
+        pagination-type="paginationSelfItem"
+      />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered @changePage="getAllBarterAsync({ offerUserId })" />
+      <RequestList
+        @changePage="getAllBarterAsync(getAllRequestUserParams)"
+        pagination-type="paginationSelfOffered"
+      />
     </template>
   </filter-tabs>
 </template>
@@ -15,22 +21,39 @@
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import ProductAll from "./Product/All.vue";
-import ProductUser from "./Product/_User.vue";
-import ProductUserOffered from "./Product/_UserOffered.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
+import RequestList from "@commen/card/components/polotik/RequestList.vue";
 
 export default {
   components: {
     FilterTabs,
-    ProductAll,
-    ProductUser,
-    ProductUserOffered,
+    RequestList,
   },
 
   computed: {
     currentUserId() {
       return Number(Cookies.get("user-id"));
+    },
+    getAllRequestParams() {
+      return {
+        userId: null,
+        offerUserId: null,
+        target: "pagination",
+      };
+    },
+    getAllRequestUserParams() {
+      return {
+        userId: this.userId,
+        offerUserId: null,
+        target: "paginationSelfItem",
+      };
+    },
+    getAllRequestUserOfferedParams() {
+      return {
+        userId: null,
+        offerUserId: this.userId,
+        target: "paginationSelfOffered",
+      };
     },
   },
   methods: {
@@ -40,17 +63,13 @@ export default {
     handleTab(newValue) {
       switch (newValue) {
         case 0:
-          this.getAllBarterAsync();
+          this.getAllBarterAsync(this.getAllRequestParams);
           break;
         case 1:
-          this.getAllBarterAsync({
-            currentUserId: this.currentUserId,
-          });
+          this.getAllBarterAsync(this.getAllRequestUserParams);
           break;
         case 2:
-          this.getAllBarterAsync({
-            offerUserId: this.currentUserId,
-          });
+          this.getAllBarterAsync(this.getAllRequestUserOfferedParams);
         default:
           break;
       }

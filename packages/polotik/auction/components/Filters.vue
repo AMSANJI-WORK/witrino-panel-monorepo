@@ -1,14 +1,18 @@
 <template>
   <filter-tabs service="مزایده" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllAuctionAsync(getAllRequestParams)"
-    /></template>
+      <RequestList @changePage="getAllAuctionAsync(getAllRequestParams)" />
+    </template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllAuctionAsync(getAllRequestUserParams)" />
+      <RequestList
+        @changePage="getAllAuctionAsync(getAllRequestUserParams)"
+        pagination-type="paginationSelfItem"
+      />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered
+      <RequestList
         @changePage="getAllAuctionAsync(getAllRequestUserOfferedParams)"
+        pagination-type="paginationSelfOffered"
       />
     </template>
   </filter-tabs>

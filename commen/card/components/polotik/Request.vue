@@ -105,7 +105,7 @@ export default {
     },
   },
   computed: {
-    activeRoute() {
+    activeService() {
       return this.$route.matched[1].path;
     },
     isCurrentUser() {
@@ -137,15 +137,15 @@ export default {
   },
   methods: {
     preview() {
-      this.$router.push(`${this.activeRoute}/${this.dataSource.id}/preview`);
+      this.$router.push(`${this.activeService}/${this.dataSource.id}/preview`);
     },
     edit() {
-      this.$router.push(`${this.activeRoute}/${this.dataSource.id}/edit`);
+      this.$router.push(`${this.activeService}/${this.dataSource.id}/edit`);
     },
     deleteRequest(requestId) {
-      const TARGET_SERVICE = this.activeRoute.slice(1).toUpperCase();
+      const TARGET_SERVICE = this.activeService.slice(1).toUpperCase();
       this.$store.dispatch(
-        `guilds${this.activeRoute}/DELETE_${TARGET_SERVICE}_ASYNC`,
+        `guilds${this.activeService}/DELETE_${TARGET_SERVICE}_ASYNC`,
         requestId
       );
     },

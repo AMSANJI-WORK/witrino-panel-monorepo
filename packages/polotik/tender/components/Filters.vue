@@ -1,14 +1,18 @@
 <template>
   <filter-tabs service="مناقصه" @chage-active-tab="handleTab">
     <template #request-list>
-      <ProductAll @changePage="getAllTenderAsync(getAllRequestParams)"
-    /></template>
+      <RequestList @changePage="getAllTenderAsync(getAllRequestParams)" />
+    </template>
     <template #request-list-user>
-      <ProductUser @changePage="getAllTenderAsync(getAllRequestUserParams)" />
+      <RequestList
+        @changePage="getAllTenderAsync(getAllRequestUserParams)"
+        pagination-type="paginationSelfItem"
+      />
     </template>
     <template #request-list-user-offered>
-      <ProductUserOffered
+      <RequestList
         @changePage="getAllTenderAsync(getAllRequestUserOfferedParams)"
+        pagination-type="paginationSelfOffered"
       />
     </template>
   </filter-tabs>
@@ -17,17 +21,13 @@
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import ProductAll from "./Product/All.vue";
-import ProductUser from "./Product/_User.vue";
-import ProductUserOffered from "./Product/_UserOffered.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
+import RequestList from "@commen/card/components/polotik/RequestList.vue";
 
 export default {
   components: {
     FilterTabs,
-    ProductAll,
-    ProductUser,
-    ProductUserOffered,
+    RequestList,
   },
   computed: {
     userId() {

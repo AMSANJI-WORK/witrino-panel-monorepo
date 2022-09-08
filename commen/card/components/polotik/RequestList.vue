@@ -6,12 +6,11 @@
     <v-card elevation="0" v-show="!skeletonLoading.menu">
       <v-slide-x-transition :group="true">
         <Product
-          v-for="inquiry in inquiryList"
-          :key="inquiry.id"
-          :data-source="inquiry"
-          :date-end="inquiry.end"
-          :date-start="inquiry.start"
-          
+          v-for="request in requestList"
+          :key="request.id"
+          :data-source="request"
+          :date-end="dateEnd(request)"
+          :date-start="dateStart(request)"
         />
       </v-slide-x-transition>
       <div class="d-flex pa-2 mt-2">
@@ -31,30 +30,50 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
-import Cookies from "js-cookie";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 import Product from "@commen/card/components/polotik/Request.vue";
 
 export default {
-  components: {
-    Product,
-    PageListSkeletonMenu,
+  components: { Product, PageListSkeletonMenu },
+  props: {
+    paginationType: {
+      type: String,
+      default: "pagination",
+    },
   },
-  mixins: [inquiryLoadingMixin],
   watch: {
-    "pagination.page": function () {
+    "pagination.page": function (newValue) {
       this.$emit("changePage");
     },
   },
   computed: {
-    ...mapGetters("guilds/inquiry", {
-      pagination: "pagination/pagination",
-      inquiryList: "inquiryList",
-    }),
-    currentUserId() {
-      return Number(Cookies.get("user-id"));
+    skeletonLoading() {
+      return this.$store.getters[
+        `guilds${this.acitveService}/skeletonLoading/skeletonLoading`
+      ];
+    },
+    acitveService() {
+      return this.$route.matched[1].path;
+    },
+    requestList() {
+      return this.$store.getters[
+        `guilds${this.acitveService}${this.acitveService}List`
+      ];
+    },
+    pagination() {
+      return this.$store.getters[
+        `guilds${this.acitveService}/pagination/${this.paginationType}`
+      ];
+    },
+  },
+  methods: {
+    dateEnd(request) {
+      return request.end ?? request.start;
+    },
+    dateStart(request) {
+      return !request.end
+        ? request.data.conditions.docs.collectionDocsTime.start
+        : request.start;
     },
   },
 };
