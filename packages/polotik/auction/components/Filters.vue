@@ -21,16 +21,12 @@
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import ProductAll from "./Product/All.vue";
-import ProductUser from "./Product/_User.vue";
-import ProductUserOffered from "./Product/_UserOffered.vue";
+import RequestList from "@commen/card/components/polotik/RequestList.vue";
 import FilterTabs from "@polotik/components/Reusable/FilterTabs.vue";
 export default {
   components: {
     FilterTabs,
-    ProductAll,
-    ProductUser,
-    ProductUserOffered,
+    RequestList,
   },
   computed: {
     userId() {
