@@ -9,7 +9,9 @@
           v-for="tender in tenderList"
           :key="tender.id"
           :data-source="tender"
-          :current-user-id="currentUserId"
+          :date-end="tender.start"
+          :date-start="tender.data.conditions.docs.collectionDocsTime.start"
+          
         />
       </v-slide-x-transition>
       <div class="d-flex pa-2 mt-2">
@@ -32,9 +34,8 @@
 import { mapGetters, mapMutations } from "vuex";
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 
-
 import Cookies from "js-cookie";
-import Product from "./index.vue";
+import Product from "@commen/card/components/polotik/Request.vue";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 
 export default {

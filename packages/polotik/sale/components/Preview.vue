@@ -90,7 +90,6 @@ export default {
   },
   methods: {
     getCityNameProperty(selectedCity) {
-      console.log(this.cities);
       let cityFind = this.cities.find((city) => city.id == selectedCity);
       return cityFind?.name;
     },

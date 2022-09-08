@@ -9,7 +9,9 @@
           v-for="auction in auctionListUser"
           :data-source="auction"
           :key="auction.id"
-          :current-user-id="currentUserId"
+          :date-end="auction.start"
+          :date-start="auction.data.conditions.docs.collectionDocsTime.start"
+          
         />
       </v-slide-x-transition>
 
@@ -34,7 +36,7 @@ import { mapGetters } from "vuex";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import Cookies from "js-cookie";
-import Product from "./index.vue";
+import Product from "@commen/card/components/polotik/Request.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },

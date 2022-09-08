@@ -15,6 +15,8 @@ const opts = {
     themes: {
       light: {
         "p-red-primary": "#F55861",
+        "p-red-primary-darken": "#FF0157",
+        "p-green-primary-darken": "#45D266",
         "p-secondary-primary": "#8A8A8A",
         "p-green-primary": "#187968",
         "p-dark-primary": "#393939",

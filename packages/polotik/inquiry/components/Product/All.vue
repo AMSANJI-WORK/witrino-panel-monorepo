@@ -9,7 +9,9 @@
           v-for="inquiry in inquiryList"
           :key="inquiry.id"
           :data-source="inquiry"
-          :current-user-id="currentUserId"
+          :date-end="inquiry.end"
+          :date-start="inquiry.start"
+          
         />
       </v-slide-x-transition>
       <div class="d-flex pa-2 mt-2">
@@ -32,10 +34,9 @@
 import { mapGetters } from "vuex";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import Cookies from "js-cookie";
-import Product from "./index.vue";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
+import Product from "@commen/card/components/polotik/Request.vue";
 
-// import ProductLoding from "@polotik/components/Reusable/Product/Loding.vue";
 export default {
   components: {
     Product,

@@ -9,20 +9,22 @@
           v-for="tender in tenderListUser"
           :data-source="tender"
           :key="tender.id"
-          :current-user-id="currentUserId"
+          :date-end="tender.start"
+          :date-start="tender.data.conditions.docs.collectionDocsTime.start"
+          
         />
       </v-slide-x-transition>
 
       <div class="d-flex pa-2 mt-2">
         <v-spacer></v-spacer>
         <v-pagination
-          v-model="userPagination.page"
-          :length="userPagination.lastPage"
+          v-model="pagination.page"
+          :length="pagination.lastPage"
           :total-visible="6"
         ></v-pagination>
         <v-spacer></v-spacer>
         <div class="my-auto grey--text font-weight-thin">
-          تعداد (کل) : {{ userPagination.recordCount }}
+          تعداد (کل) : {{ pagination.recordCount }}
         </div>
       </div>
     </v-card>
@@ -33,22 +35,21 @@
 import { mapGetters } from "vuex";
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 
-
 import Cookies from "js-cookie";
-import Product from "./index.vue";
+import Product from "@commen/card/components/polotik/Request.vue";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
   mixins: [tenderLoadingMixin],
   watch: {
-    "userPagination.page": function () {
+    "pagination.page": function () {
       this.$emit("changePage");
     },
   },
   computed: {
     ...mapGetters("guilds/tender", {
-      userPagination: "pagination/paginationSelfItem",
+      pagination: "pagination/paginationSelfItem",
       tenderListUser: "tenderList",
     }),
     currentUserId() {

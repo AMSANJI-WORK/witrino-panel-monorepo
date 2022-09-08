@@ -9,7 +9,9 @@
           v-for="barter in barterList"
           :key="barter.id"
           :data-source="barter"
-          :current-user-id="currentUserId"
+          :date-end="barter.end"
+          :date-start="barter.start"
+          
         />
       </v-slide-x-transition>
       <div class="d-flex pa-2 mt-2">
@@ -33,7 +35,7 @@ import { mapGetters, mapMutations } from "vuex";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 import Cookies from "js-cookie";
-import Product from "./index.vue";
+import Product from "@commen/card/components/polotik/Request.vue";
 
 export default {
   components: { Product, PageListSkeletonMenu },
