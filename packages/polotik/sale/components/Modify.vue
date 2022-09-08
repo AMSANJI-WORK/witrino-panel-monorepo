@@ -139,14 +139,14 @@
           <limit-section v-model="priceType">
             <template #percent>
               <v-col cols="6" sm="6" class="pa-0 pr-md-0 pr-3">
-                <limit-percent-input
+                <LimitPercentInput
                   label="حداقل افزایش"
                   class="rounded-lg rounded-l-0"
                   v-model="editableSale.data.price.present.min"
                 />
               </v-col>
               <v-col cols="6" sm="6" class="pa-0 pl-3">
-                <limit-percent-input
+                <LimitPercentInput
                   label="حداکثر افزایش"
                   class="rounded-lg rounded-r-0"
                   v-model.number="editableSale.data.price.present.max"
@@ -155,7 +155,7 @@
             </template>
             <template #price>
               <v-col cols="6" sm="6" class="pa-0 pr-md-0 pr-3">
-                <limit-price-input
+                <LimitPriceInput
                   label="حداقل افزایش"
                   class="rounded-lg rounded-l-0"
                   :value="editableSale.data.price.min | toRial"
@@ -163,7 +163,7 @@
                 />
               </v-col>
               <v-col cols="6" sm="6" class="pa-0 pl-sm-3">
-                <limit-price-input
+                <LimitPriceInput
                   label="حداکثر افزایش"
                   class="rounded-lg rounded-r-0"
                   :value="editableSale.data.price.max | toRial"
@@ -362,8 +362,8 @@ export default {
     checkPriceType() {
       this.editableSale.data.price.priceType = this.priceType;
       if (this.priceType === "isAmount") {
-        this.editableSale.data.price.percent.min = 0;
-        this.editableSale.data.price.percent.max = 0;
+        this.editableSale.data.price.present.min = 0;
+        this.editableSale.data.price.present.max = 0;
       } else {
         this.editableSale.data.price.min = 0;
         this.editableSale.data.price.max = 0;
@@ -382,6 +382,7 @@ export default {
     setUploadedImageInGallery(uplaodImages) {
       const oldGallery = this.editableSale.data.gallery;
       this.editableSale.data.gallery = [...uplaodImages, ...oldGallery];
+      console.log(this.editableSale.data.gallery);
     },
     create() {
       this.editableSale.user_id = this.currentUserId;

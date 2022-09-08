@@ -31,7 +31,7 @@
           :ripple="false"
           @click="handleFileImport"
         >
-          <v-badge left overlap color="p-red-primary"icon="mdi-plus">
+          <v-badge left overlap color="p-red-primary" icon="mdi-plus">
             <v-icon class="button-upload-icon" large>mdi-image-outline</v-icon>
           </v-badge>
         </v-btn>
@@ -47,7 +47,7 @@
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 
 import VImageItem from "@packages/polotik/upload/components/VImageItem.vue";
-import { UPLOAD_FILE_ASYNC } from "@packages/polotik/Upload/store/types";
+import { UPLOAD_FILE_ASYNC } from "@packages/polotik/upload/store/types";
 export default {
   components: {
     VImageItem,
@@ -73,14 +73,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      deleteImageFromGallery: "upload/DELETE_IMAGE",
-    }),
-    ...mapMutations("guilds", {
-      deleteImageFromInquiryGallery: "inquiry/DELETE_IMAGE_FROM_GALLERY",
-      deleteImageFromBarterGallery: "barter/DELETE_IMAGE_FROM_GALLERY",
-      deleteImageFromSaleGallery: "sale/DELETE_IMAGE_FROM_GALLERY",
-      deleteImageFromTenderGallery: "tender/DELETE_IMAGE_FROM_GALLERY",
-      deleteImageFromAuctionGallery: "auction/DELETE_IMAGE_FROM_GALLERY",
+      deleteImageGallery: "upload/DELETE_IMAGE",
     }),
     ...mapActions({
       uploadImageAsync: `upload/${UPLOAD_FILE_ASYNC}`,
@@ -115,38 +108,33 @@ export default {
       this.images = [...this.selectedFile, ...this.images];
       this.uploadFileAsync();
     },
-    deleteImageFromGalleryEachRoute(targetImageId) {
-      if (this.pathRoute.includes("sale")) {
-        this.deleteImageFromSaleGallery(targetImageId);
-      } else if (this.pathRoute.includes("auction")) {
-        this.deleteImageFromAuctionGallery(targetImageId);
-      } else if (this.pathRoute.includes("tender")) {
-        this.deleteImageFromTenderGallery(targetImageId);
-      } else if (this.pathRoute.includes("inquiry")) {
-        this.deleteImageFromInquiryGallery(targetImageId);
-      } else {
-        this.deleteImageFromBarterGallery(targetImageId);
-      }
+    DeleteImageGalleryActiveRoute(targetImageId) {
+      let activeService = this.$route.matched[1].path;
+      this.$store.commit(
+        `guilds${activeService}/DELETE_IMAGE_FROM_GALLERY`,
+        targetImageId
+      );
     },
     deleteImage(indexImage) {
       this.images.splice(indexImage, 1);
-      this.deleteImageFromGallery(indexImage);
-      this.deleteImageFromGalleryEachRoute(indexImage);
+      this.deleteImageGallery(indexImage);
+      this.DeleteImageGalleryActiveRoute(indexImage);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@commen/assets/styles/scss/variable.scss";
 .button-upload {
   transition: 0.3s all;
   border: gray dashed 2px;
 }
 .button-upload:hover {
-  border: #187968 dashed 2px;
+  border: $p-green-primary dashed 2px;
 }
 .button-upload-icon:hover {
-  color: #187968;
+  color: $p-green-primary;
   cursor: pointer;
 }
 .button-upload-icon {
