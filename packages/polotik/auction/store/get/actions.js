@@ -26,12 +26,11 @@ export default {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
       const { data } = await guildsRepository.getAllAuctions({
-        pagination: getters[`pagination/${target}`],
+        pagination: getters[`${target}/pagination`],
         userId,
         offerUserId,
       });
-      commit("pagination/SET_PAGINATION", {
-        target,
+      commit(`${target}/SET_PAGINATION`, {
         data,
       });
       commit(GET_ALL_AUCTION_SUCCESS, data);
@@ -57,7 +56,7 @@ export default {
       console.log(error);
       commit(GET_AN_AUCTION_FAILURE, error);
     } finally {
-      commit(loadingType);
+      setTimeout(() => commit(loadingType), 1000);
     }
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {

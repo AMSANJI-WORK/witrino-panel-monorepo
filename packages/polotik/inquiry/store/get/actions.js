@@ -24,13 +24,11 @@ export default {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
       const { data } = await guildsRepository.getAllInquiries({
-        pagination: getters[`pagination/${target}`],
+        pagination: getters[`${target}/pagination`],
         userId,
         offerUserId,
       });
-
-      commit("pagination/SET_PAGINATION", {
-        target,
+      commit(`${target}/SET_PAGINATION`, {
         data,
       });
       commit(GET_ALL_INQUIRY_SUCCESS, data);

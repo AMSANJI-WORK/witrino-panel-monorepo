@@ -3,7 +3,6 @@
     class="user-box my-3 d-flex flex-column justify-center grey lighten-3"
     height="103"
     color="grey lighten-3"
-    width="272"
     rounded="lg"
   >
     <v-card-subtitle class="py-1 font-weight-bold">
@@ -50,6 +49,7 @@ export default {
 <style lang="scss" scoped>
 .user-box {
   background: url(@commen/assets/image/svg/UserBoxBackground.svg) no-repeat;
+  background-size: cover;
   color: #fff;
 }
 .user-box .v-card__subtitle,

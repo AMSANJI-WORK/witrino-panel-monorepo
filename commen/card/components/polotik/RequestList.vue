@@ -62,7 +62,7 @@ export default {
     },
     pagination() {
       return this.$store.getters[
-        `guilds${this.acitveService}/pagination/${this.paginationType}`
+        `guilds${this.acitveService}/${this.paginationType}/pagination`
       ];
     },
   },

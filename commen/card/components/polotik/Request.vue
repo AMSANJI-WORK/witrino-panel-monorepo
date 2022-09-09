@@ -1,9 +1,9 @@
 <template>
   <!-- :disabled="remainingDays < 0" -->
-  <v-card elevation="0" class="mx-auto px-4 my-1" max-width="800">
+  <v-card elevation="0" class="mx-auto px-4 my-1">
     <v-card-subtitle
       class="transparent pb-3 pr-0 font-weight-bold d-flex justify-space-between"
-      @click="preview"
+      @click="pushRoute('preview')"
       >{{ dataSource.title }}
       <span class="text-body-2">
         {{ dataSource.created_at | timeTofa }}
@@ -13,12 +13,14 @@
       <template v-slot:default="{ hover }">
         <v-sheet
           class="transition-swing rounded-lg cursor-pointer"
-          :class="hover ? 'elevation-3' : 'elevation-0'"
-          :style="productBackgroundColor"
+          :class="hover | setCardStyle"
+          :style="cardBackgroundColor"
         >
-          <v-card-text @click="preview" class="px-3 pa-6 line-height">{{
-            dataSource.description
-          }}</v-card-text>
+          <v-card-text
+            @click="pushRoute('preview')"
+            class="px-3 pa-6 line-height"
+            >{{ dataSource.description }}</v-card-text
+          >
           <v-card-actions
             class="line-height pt-0 d-flex flex-row flex-wrap justify-lg-start justify-space-between"
           >
@@ -62,7 +64,7 @@
                 small
                 text
                 :ripple="false"
-                @click="edit"
+                @click="pushRoute('edit')"
               >
                 ویرایش
                 <v-icon>mdi-pencil</v-icon>
@@ -103,6 +105,9 @@ export default {
     timeTofa: function (value) {
       return moment(value).format("HH:mm | jYYYY/jMM/jDD");
     },
+    setCardStyle(v) {
+      return v ? "elevation-3" : "elevation-0";
+    },
   },
   computed: {
     activeService() {
@@ -111,7 +116,7 @@ export default {
     isCurrentUser() {
       return this.dataSource.user_id == Cookies.get("user-id");
     },
-    productBackgroundColor() {
+    cardBackgroundColor() {
       return this.isCurrentUser
         ? "background: #C8F9F0;"
         : "background: #d9e6ff;";
@@ -136,12 +141,10 @@ export default {
     },
   },
   methods: {
-    preview() {
-      this.$router.push(`${this.activeService}/${this.dataSource.id}/preview`);
+    pushRoute(path) {
+      this.$router.push(`${this.activeService}/${this.dataSource.id}/${path}`);
     },
-    edit() {
-      this.$router.push(`${this.activeService}/${this.dataSource.id}/edit`);
-    },
+
     deleteRequest(requestId) {
       const TARGET_SERVICE = this.activeService.slice(1).toUpperCase();
       this.$store.dispatch(

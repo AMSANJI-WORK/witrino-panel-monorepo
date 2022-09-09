@@ -31,7 +31,7 @@ export default {
   },
 
   computed: {
-    currentUserId() {
+    userId() {
       return Number(Cookies.get("user-id"));
     },
     getAllRequestParams() {
