@@ -26,12 +26,11 @@ export default {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
       const { data } = await guildsRepository.getAllTenders({
-        pagination: getters[`pagination/${target}`],
+        pagination: getters[`${target}/pagination`],
         userId,
         offerUserId,
       });
-      commit("pagination/SET_PAGINATION", {
-        target,
+      commit(`${target}/SET_PAGINATION`, {
         data,
       });
       commit(GET_ALL_TENDER_SUCCESS, data);
@@ -62,6 +61,6 @@ export default {
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
     commit(CHANGE_PAGE_PAGINATION, payload);
-    dispatch("GET_ALL_TENDER_ASYNC");
+    await dispatch(GET_ALL_TENDER_ASYNC);
   },
 };

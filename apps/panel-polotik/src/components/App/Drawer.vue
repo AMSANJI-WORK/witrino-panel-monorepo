@@ -1,18 +1,21 @@
 <template>
-  <v-sheet rounded="lg" elevation="1" width="100%">
-    <content-drawer></content-drawer>
+  <v-sheet class="transparent" width="100%">
+    <DrawerSkeletonLoder v-if="loading" />
+    <v-sheet v-else rounded="lg" width="100%">
+      <ContentDrawer />
+    </v-sheet>
   </v-sheet>
 </template>
 
 <script>
-import menuItems from "@polotik/constants/menu";
+import mainElementLoading from "@commen/loading/modules/skeleton/mixins/main-element";
 import ContentDrawer from "@polotik/components/Reusable/ContentDrawer.vue";
+import DrawerSkeletonLoder from "@commen/loading/modules/skeleton/components/Drawer.vue";
 export default {
-  components: { ContentDrawer },
-  data() {
-    return {
-      items: menuItems,
-    };
+  mixins: [mainElementLoading],
+  components: { ContentDrawer, DrawerSkeletonLoder },
+  created() {
+    this.elementReady();
   },
 };
 </script>

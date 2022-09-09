@@ -1,7 +1,7 @@
-const SkeletonLoaderMixin = {
+const mainElementLoading = {
   data() {
     return {
-      elementLoading: true,
+      loading: true,
     };
   },
   methods: {
@@ -9,7 +9,7 @@ const SkeletonLoaderMixin = {
       setTimeout(() => {
         const readyHandler = () => {
           if (document.readyState == "complete") {
-            this.elementLoading = false;
+            this.loading = false;
             document.removeEventListener("readystatechange", readyHandler);
           }
         };
@@ -20,4 +20,4 @@ const SkeletonLoaderMixin = {
   },
 };
 
-export default SkeletonLoaderMixin;
+export default mainElementLoading;

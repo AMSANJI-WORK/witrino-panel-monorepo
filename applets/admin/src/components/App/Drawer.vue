@@ -2,7 +2,7 @@
   <v-sheet class="transparent" width="100%">
     <DrawerSkeletonLoder v-if="pageLoading" />
     <v-sheet v-else rounded="lg" width="100%">
-      <content-drawer></content-drawer>
+      <ContentDrawer />
     </v-sheet>
   </v-sheet>
 </template>

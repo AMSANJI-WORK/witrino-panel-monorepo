@@ -61,6 +61,6 @@ export default {
   },
   async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
     commit(CHANGE_PAGE_PAGINATION, payload);
-    dispatch("GET_ALL_AUCTION_ASYNC");
+    await dispatch(GET_ALL_AUCTION_ASYNC);
   },
 };

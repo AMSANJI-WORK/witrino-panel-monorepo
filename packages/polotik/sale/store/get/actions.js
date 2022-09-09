@@ -25,12 +25,11 @@ export default {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
       const { data } = await guildsRepository.getAllSales({
-        pagination: getters[`pagination/${target}`],
+        pagination: getters[`${target}/pagination`],
         userId,
         offerUserId,
       });
-      commit("pagination/SET_PAGINATION", {
-        target,
+      commit(`${target}/SET_PAGINATION`, {
         data,
       });
       commit(GET_ALL_SALE_SUCCESS, data);
@@ -46,10 +45,6 @@ export default {
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getASale(payload);
-      // if (data.data?.offers)
-      //   commit("request/GET_ALL_OFFER_SALE_SUCCESS", data.data.offers);
-      // if (data.data?.user_offer)
-      //   commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_A_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);
