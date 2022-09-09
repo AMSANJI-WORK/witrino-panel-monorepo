@@ -15,8 +15,6 @@ package-lock.json
 *.local
 
 # Editor directories and files
-.vscode
-!.vscode/extensions.json
 *.env
 .idea
 *.zip
