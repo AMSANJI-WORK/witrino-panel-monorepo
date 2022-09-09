@@ -10,7 +10,8 @@
       multiple
       truncate-length="10"
       type="file"
-      @change="onFileChanged"
+      :value="value"
+      @input="updateValue"
     />
     <v-image-item
       v-for="(image, index) in uploadedImages"
@@ -44,37 +45,34 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
-
 import VImageItem from "@packages/polotik/upload/components/VImageItem.vue";
 import { UPLOAD_FILE_ASYNC } from "@packages/polotik/upload/store/types";
 export default {
   components: {
     VImageItem,
   },
+  props: {
+    value: {
+      type: [null, Array],
+      default: null,
+    },
+  },
   data() {
     return {
       isSelecting: false,
       selectedFile: null,
-      images: [],
       host: import.meta.env.VITE_BASE_URL,
     };
   },
   computed: {
-    ...mapState({
-      loading: (state) => state.upload.loading,
-    }),
-    ...mapGetters({
-      uploadedImages: "upload/successUploadedImages",
-    }),
+    loading() {
+      return this.$store.getters[`guilds${this.activeService}/upload/loading`];
+    },
+    activeService() {
+      return this.$route.matched[1].path;
+    },
   },
   methods: {
-    ...mapMutations({
-      deleteImageGallery: "upload/DELETE_IMAGE",
-    }),
-    ...mapActions({
-      uploadImageAsync: `upload/${UPLOAD_FILE_ASYNC}`,
-    }),
     handleFileImport() {
       this.isSelecting = true;
       window.addEventListener(
@@ -86,30 +84,23 @@ export default {
       );
       this.$refs.uploader.click();
     },
-    async uploadFileAsync() {
-      try {
-        await this.uploadImageAsync(this.images);
-        this.$emit("uploadedImagesSuccess", this.uploadedImages);
-      } catch (error) {
-        console.error("upload file reject");
-      }
+    updateValue(e) {
+      this.$store
+        .dispatch(
+          `guilds${this.activeService}/upload/${UPLOAD_FILE_ASYNC}`,
+          e.target.files
+        )
+        .then((response) => this.$emit("upload-resolve", response))
+        .catch((error) => console.log(error));
     },
-    onFileChanged(e) {
-      this.selectedFile = e.target.files;
-      this.images = [...this.selectedFile, ...this.images];
-      this.uploadFileAsync();
-    },
-    deleteImageGalleryActiveRoute(targetImageId) {
-      let activeService = this.$route.matched[1].path;
+    deleteImageGallery(targetImageId) {
       this.$store.commit(
-        `guilds${activeService}/DELETE_IMAGE_FROM_GALLERY`,
+        `guilds${this.activeService}/DELETE_IMAGE_FROM_GALLERY`,
         targetImageId
       );
     },
     deleteImage(indexImage) {
-      this.images.splice(indexImage, 1);
       this.deleteImageGallery(indexImage);
-      this.deleteImageGalleryActiveRoute(indexImage);
     },
   },
 };

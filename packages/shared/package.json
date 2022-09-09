@@ -12,6 +12,7 @@
     "form": "*",
     "pagination": "*",
     "loading": "*",
-    "section-divider": "*"
+    "section-divider": "*",
+    "upload": "*"
   }
 }
