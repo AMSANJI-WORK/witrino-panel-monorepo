@@ -13,10 +13,11 @@ export default {
       const [firstItem, ...otherItems] = state.imageList;
       let formData = new FormData();
       formData.append("file", firstItem);
-      otherItems.forEach((file, index) =>
-        formData.append(`file ${index + 1}`, file)
-      );
-      return state.imageList;
+      if (otherItems.length != 0)
+        otherItems.forEach((file, index) =>
+          formData.append(`file ${index + 1}`, file)
+        );
+      return formData;
     },
     loading(state) {
       return state.loading;
@@ -40,7 +41,7 @@ export default {
       return new Promise((resolve, reject) => {
         uploadRepository
           .uploadFile(getters.imageListFormData)
-          .then(({ data }) => resolve(data))
+          .then(({ data: { data } }) => resolve(data))
           .catch((error) => reject(error))
           .finally(() => {
             commit(TYPES.RESET_IMAGE_LIST);

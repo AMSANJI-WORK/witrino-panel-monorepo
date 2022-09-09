@@ -107,11 +107,7 @@
         <v-divider class="pb-2"></v-divider>
       </v-col>
       <v-col class="d-flex flex-wrap align-center mb-5 pt-0">
-        <UploadImage
-          @upload-reolved="updateGallery"
-          @dalete-image="deleteImage"
-          :data-source="editableInquiry.data.gallery"
-        />
+        <UploadImage @uploadedImagesSuccess="setUploadedImageInGallery" />
       </v-col>
 
       <v-col cols="12" class="d-flex flex-row-reverse">
@@ -134,9 +130,9 @@ import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import InquiryMixin from "@packages/polotik/inquiry/mixins";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
-import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
+import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
 import UnitService from "@packages/polotik/service/components/Unit/index.vue";
@@ -169,9 +165,6 @@ export default {
     };
   },
   watch: {
-    "editableInquiry.data.gallery": function (v) {
-      console.log(v);
-    },
     fromDate(newValue) {
       this.editableInquiry.start = moment(newValue, "jYYYY/jMM/jDD").format(
         "YYYY-MM-DD"
@@ -182,6 +175,7 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({ uploadedImages: "upload/successUploadedImages" }),
     calculateEndDate() {
       let date = new Date(this.editableInquiry.start);
       date.setDate(date.getDate() + this.endDay);
@@ -220,13 +214,17 @@ export default {
     },
   },
   methods: {
+    ...mapMutations({ addImageToUploadedImages: "upload/ADD_IMAGE" }),
     ...mapActions({
       getAllCategoriesAsync: `guilds/services/category/${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     setEditableInquiryData() {
       Object.assign(this.editableInquiry, this.inquiry);
       this.fromDate = this.calculateFromDate;
+      const { gallery } = this.editableInquiry.data;
       this.endDay = this.remainingDays;
+      if (this.uploadedImages.length == 0)
+        this.addImageToUploadedImages(gallery);
     },
     checkRoutePath() {
       this.getAllCategoriesAsync({ target: "inquiry" });
@@ -235,21 +233,17 @@ export default {
           this.setEditableInquiryData()
         );
     },
-    updateGallery(e) {
-      this.editableInquiry.data.gallery = [
-        ...this.editableInquiry.data.gallery,
-        ...e,
-      ];
-    },
-    deleteImage(imageIdx) {
-      this.editableInquiry.data.gallery.splice(imageIdx, 1);
-    },
     submit() {
-      if (this.isFormValidate) this.routeIsCreate ? this.edit() : this.create();
+      if (this.isFormValidate) {
+        this.routeIsCreate ? this.edit() : this.create();
+      }
     },
     resetForm() {
       this.$refs["inquiry"].reset();
       this.$router.push("/inquiry/list");
+    },
+    setUploadedImageInGallery(uplaodImages) {
+      this.editableInquiry.data.gallery = uplaodImages;
     },
     create() {
       this.editableInquiry.user_id = this.currentUserId;

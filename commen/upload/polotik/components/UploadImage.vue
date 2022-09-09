@@ -10,15 +10,14 @@
       multiple
       truncate-length="10"
       type="file"
-      :value="value"
-      @input="updateValue"
+      @change="uploadSelectedImages"
     />
-    <v-image-item
-      v-for="(image, index) in uploadedImages"
+    <VImageItem
+      v-for="(image, index) in dataSource"
       :key="index"
       :data-source="image"
       :data-index="index"
-      @deleteImageFromUpload="deleteImage(index)"
+      @deleteImageFromUpload="(index) => $emit('dalete-image', index)"
     />
     <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
@@ -52,10 +51,7 @@ export default {
     VImageItem,
   },
   props: {
-    value: {
-      type: [null, Array],
-      default: null,
-    },
+    dataSource: Array,
   },
   data() {
     return {
@@ -84,20 +80,14 @@ export default {
       );
       this.$refs.uploader.click();
     },
-    updateValue(e) {
+    uploadSelectedImages(e) {
       this.$store
         .dispatch(
           `guilds${this.activeService}/upload/${UPLOAD_FILE_ASYNC}`,
           e.target.files
         )
-        .then((response) => this.$emit("upload-resolve", response))
+        .then((response) => this.$emit("upload-reolved", response))
         .catch((error) => console.log(error));
-    },
-    deleteImageGallery(targetImageId) {
-      this.$store.commit(
-        `guilds${this.activeService}/DELETE_IMAGE_FROM_GALLERY`,
-        targetImageId
-      );
     },
     deleteImage(indexImage) {
       this.deleteImageGallery(indexImage);

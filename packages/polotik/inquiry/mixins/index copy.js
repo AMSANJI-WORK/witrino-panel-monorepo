@@ -30,6 +30,8 @@ const InquiryMixin = {
   },
   computed: {
     ...mapGetters(["inquiry"]),
+    ...mapGetters(["upload/successUploadedImages"]),
+
     currentUserId() {
       return Cookies.get("user-id");
     },
