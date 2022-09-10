@@ -6,7 +6,6 @@ const guildsRepository = RepositoryFactory.get("guilds");
 export default {
   async [TYPES.GET_ALL_OFFER_ASYNC]({ commit, getters }, payload) {
     try {
-      commit("skeletonLoading/TOGGLE_SKELETON_LOADING_MENU");
       const { data } = await guildsRepository.getAllOffers(
         payload.target,
         payload.id,
@@ -17,8 +16,6 @@ export default {
     } catch (error) {
       console.log(error);
       commit(GET_ALL_OFFER_FAILURE, error);
-    } finally {
-      commit("skeletonLoading/TOGGLE_SKELETON_LOADING_MENU");
     }
   },
 

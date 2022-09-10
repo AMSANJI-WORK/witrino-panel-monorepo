@@ -1,10 +1,10 @@
 <template>
   <v-card class="rounded-lg mx-2">
     <v-card-subtitle class="grey lighten-2 black--text">
-      {{ dataSource.title }}
+      {{ dataSource?.title }}
     </v-card-subtitle>
     <v-card-text>
-      <RequestInfo :date-snd="dateEnd" :date-start="dateStart" />
+      <RequestInfo />
       <!-- <TabFilter /> -->
       <RequestOfferList />
     </v-card-text>
@@ -27,7 +27,9 @@ export default {
       return this.$route.matched[1].path.slice(1);
     },
     dataSource() {
-      this.$store.getters[`guilds/${this.activeService}/${this.activeService}`];
+      return this.$store.getters[
+        `guilds/${this.activeService}/${this.activeService}`
+      ];
     },
     dateEnd() {
       return this.dataSource.end ?? this.dataSource.start;

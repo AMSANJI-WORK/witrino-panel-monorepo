@@ -1,10 +1,10 @@
-import request from "@packages/polotik/inquiry/modules/offers/store";
 import formLoading from "@commen/loading/modules/form/store";
 import skeletonLoading from "@commen/loading/modules/skeleton/store";
 import pagination from "@commen/pagination/polotik/store";
 import paginationSelfItem from "@commen/pagination/polotik/store";
 import paginationSelfOffered from "@commen/pagination/polotik/store";
 import upload from "@commen/upload/polotik/store";
+import request from '@commen/offer/polotik/store';
 export default {
   upload,
   request,

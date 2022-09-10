@@ -1,5 +1,4 @@
 import { resetInquriry } from "@packages/polotik/inquiry/middlewares";
-import offersRoutes from "@packages/polotik/inquiry/modules/offers/routes";
 export default [
   {
     path: "/inquiry",
@@ -7,7 +6,6 @@ export default [
     redirect: "/inquiry/list",
     component: () => import("@packages/polotik/inquiry/views/index.vue"),
     children: [
-      ...offersRoutes,
       {
         path: "list",
         name: "inquiry-list-page",
@@ -69,7 +67,50 @@ export default [
           ],
         },
       },
-
+      {
+        path: ":id/request",
+        name: "inquiry-request-page",
+        component: () => import("@commen/offer/polotik/views/Offer.vue"),
+        beforeEnter: resetInquriry,
+        meta: {
+          breadCrumb: [
+            {
+              text: "خانه",
+              to: "/home",
+            },
+            {
+              text: "استعلام",
+              to: "/inquiry",
+            },
+            {
+              text: "پیشنهادات",
+              disabled: true,
+            },
+          ],
+        },
+      },
+      {
+        path: ":id/outcome",
+        name: "inquiry-follow-page",
+        component: () => import("@commen/offer/polotik/views/Offer.vue"),
+        beforeEnter: resetInquriry,
+        meta: {
+          breadCrumb: [
+            {
+              text: "خانه",
+              to: "/home",
+            },
+            {
+              text: "استعلام",
+              to: "/inquiry",
+            },
+            {
+              text: "پیگیری پیشنهاد من",
+              disabled: true,
+            },
+          ],
+        },
+      },
       {
         path: "create",
         name: "inquiry-create-page",

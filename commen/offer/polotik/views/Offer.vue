@@ -21,7 +21,7 @@ export default {
   methods: {
     requestGetOne() {
       this.$store.dispatch(
-        `guilds/${activeService}/GET_ONE_${activeServiceUpperCase}_ASYNC`,
+        `guilds/${this.activeService}/GET_ONE_${this.activeServiceUpperCase}_ASYNC`,
         this.$route.params.id
       );
     },

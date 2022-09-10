@@ -1,5 +1,5 @@
 <template>
-  <v-item-group v-model="selected" multiple>
+  <v-item-group multiple>
     <v-col v-for="(offer, index) in List" :key="offer.id" cols="12">
       <v-item v-slot="{ active, toggle }">
         <v-card elevation="0">
@@ -7,7 +7,7 @@
             class="d-flex flex-wrap align-center justify-space-between py-0"
           >
             <h4 class="mx-4 my-2">
-              {{ offer.title }}
+              {{ setOfferTitle(offer.title) }}
             </h4>
             {{ offer.time | convertTodateFa }}
           </v-card-subtitle>
@@ -50,7 +50,7 @@
               </v-col>
               <v-col
                 class="pb-0 d-flex justify-end"
-                v-if="offer.user_data.id | isCurrentUser"
+                v-if="!isCurrentUser(offer)"
               >
                 <v-btn
                   color="primary"
@@ -79,9 +79,6 @@ export default {
     VLabel,
   },
   filters: {
-    isCurrentUser(v) {
-      return Cookies.get("user-id") == v;
-    },
     convertTodateFa(value) {
       return moment(value).format("HH:mm | jYYYY/jMM/jDD");
     },
@@ -103,8 +100,15 @@ export default {
     },
   },
   methods: {
+    setOfferTitle(title) {
+      if (this.$route.path.includes("outcome")) return "پیشنهاد شما";
+      return title;
+    },
     redirectToSellerProfile(url) {
       window.location.href = url;
+    },
+    isCurrentUser(offer) {
+      return Cookies.get("user-id") == offer.user_data.id;
     },
   },
 };
