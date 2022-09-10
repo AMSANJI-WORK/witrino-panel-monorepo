@@ -7,7 +7,7 @@
             class="d-flex flex-wrap align-center justify-space-between py-0"
           >
             <h4 class="mx-4 my-2">
-              {{ setOfferTitle(offer.title) }}
+              {{ setOfferTitle(offer.title, index) }}
             </h4>
             {{ offer.time | convertTodateFa }}
           </v-card-subtitle>
@@ -91,7 +91,7 @@ export default {
       return this.$route.matched[1].path.slice(1);
     },
     listOfferType() {
-      return this.$route.path.includes("you") ? "offers" : "userOffers";
+      return this.$route.path.includes("request") ? "offers" : "userOffers";
     },
     List() {
       return this.$store.getters[
@@ -100,8 +100,9 @@ export default {
     },
   },
   methods: {
-    setOfferTitle(title) {
+    setOfferTitle(title, offerIdx) {
       if (this.$route.path.includes("outcome")) return "پیشنهاد شما";
+      if (title == "تست") return `پیشنهاد ${offerIdx + 1}`;
       return title;
     },
     redirectToSellerProfile(url) {

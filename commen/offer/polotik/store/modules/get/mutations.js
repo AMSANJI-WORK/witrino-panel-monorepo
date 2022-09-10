@@ -10,6 +10,7 @@ import {
 export default {
   [GET_ALL_OFFER_SUCCESS](state, payload) {
     state.offers = [...payload.data];
+    console.log(state.offers);
   },
   [GET_ALL_USER_OFFER_SUCCESS](state, payload) {
     state.userOffers = [...payload];

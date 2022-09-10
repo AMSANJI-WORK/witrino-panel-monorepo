@@ -47,8 +47,7 @@ import { mapActions } from "vuex";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import fromRules from "@commen/form/mixins/rules";
-import TYPES from "@packages/polotik/inquiry/modules/offers/store/types";
-
+import OFFER_TYPES from "@commen/offer/polotik/store/types";
 export default {
   mixins: [inquiryLoadingMixin, UtilityMixin, fromRules],
   data() {
@@ -69,7 +68,7 @@ export default {
   },
   methods: {
     ...mapActions("guilds/inquiry/request", {
-      createRequestInquiryAsync: TYPES.CREATE_OFFER_INQUIRY_ASYNC,
+      createRequestInquiryAsync: OFFER_TYPES.CREATE_OFFER_ASYNC,
     }),
     submitRequest() {
       this.inquiryParticipate.price = this.priceToNumber;

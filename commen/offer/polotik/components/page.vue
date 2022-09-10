@@ -1,10 +1,10 @@
 <template>
   <v-card class="rounded-lg mx-2">
     <v-card-subtitle class="grey lighten-2 black--text">
-      {{ dataSource?.title }}
+      {{ dataSource.title }}
     </v-card-subtitle>
     <v-card-text>
-      <RequestInfo />
+      <RequestInfo :date-end="dateEnd" :date-start="dateStart" />
       <!-- <TabFilter /> -->
       <RequestOfferList />
     </v-card-text>
