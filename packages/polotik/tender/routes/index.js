@@ -1,5 +1,4 @@
 import { resetTender } from "@packages/polotik/tender/middlewares";
-import offersRoutes from "@packages/polotik/tender/modules/offers/routes";
 export default [
   {
     path: "/tender",
@@ -7,7 +6,50 @@ export default [
     redirect: "/tender/list",
     component: () => import("@packages/polotik/tender/views/index.vue"),
     children: [
-      ...offersRoutes,
+      {
+        path: ":id/request",
+        name: "tender-request-page",
+        component: () => import("@commen/offer/polotik/views/Offer.vue"),
+        beforeEnter: resetTender,
+        meta: {
+          breadCrumb: [
+            {
+              text: "خانه",
+              to: "/home",
+            },
+            {
+              text: "مناقصه",
+              to: "/tender",
+            },
+            {
+              text: "پیشنهادات",
+              disabled: true,
+            },
+          ],
+        },
+      },
+      {
+        path: ":id/outcome",
+        name: "tender-follow-page",
+        component: () => import("@commen/offer/polotik/views/Offer.vue"),
+        beforeEnter: resetTender,
+        meta: {
+          breadCrumb: [
+            {
+              text: "خانه",
+              to: "/home",
+            },
+            {
+              text: "مناقصه",
+              to: "/tender",
+            },
+            {
+              text: "پیگیری پیشنهاد من",
+              disabled: true,
+            },
+          ],
+        },
+      },
       {
         path: "list",
         name: "tender-list-page",

@@ -1,7 +1,7 @@
 <template>
   <v-item-group multiple>
     <v-col v-for="(offer, index) in List" :key="offer.id" cols="12">
-      <v-item v-slot="{ active, toggle }">
+      <v-item>
         <v-card elevation="0">
           <v-card-subtitle
             class="d-flex flex-wrap align-center justify-space-between py-0"
@@ -27,7 +27,7 @@
               قیمت {{ offer.price | toRial }} تومان
             </v-chip>
           </v-card-subtitle>
-          <v-card-text class="p-green-lighten-2 rounded-lg">
+          <v-card-text class="p-green-lighten-2 rounded-b-lg">
             <v-sheet class="transparent px-3 pt-5 text-caption"
               >{{ offer.description }}
               <br />
@@ -44,7 +44,7 @@
                   <img
                     class="transparent"
                     :src="image.src | getImage"
-                    :alt="image.name"
+                    :alt="image?.name"
                   />
                 </v-avatar>
               </v-col>

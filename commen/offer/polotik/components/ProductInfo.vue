@@ -21,7 +21,7 @@
           v-for="(category, index) in dataSource.data.category"
           :key="index"
           x-small
-          >{{ category.name }}</v-chip
+          >{{ category?.name }}</v-chip
         >
       </v-col>
     </v-card-subtitle>

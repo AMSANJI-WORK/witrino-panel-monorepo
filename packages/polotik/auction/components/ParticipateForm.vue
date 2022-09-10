@@ -150,7 +150,7 @@ import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
-import TYPES from "@packages/polotik/auction/modules/offers/store/types";
+import OFFER_TYPES from "@commen/offer/polotik/store/types";
 
 export default {
   components: {
@@ -205,7 +205,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      createOfferAuctionAsync: `guilds/auction/request/${TYPES.CREATE_OFFER_AUCTION_ASYNC}`,
+      createOfferAuctionAsync: `guilds/auction/request/${OFFER_TYPES.CREATE_OFFER_ASYNC}`,
     }),
     cansel() {
       this.dialog = false;

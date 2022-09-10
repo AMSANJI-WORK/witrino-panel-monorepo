@@ -1,4 +1,4 @@
-import request from "@packages/polotik/tender/modules/offers/store";
+import request from '@commen/offer/polotik/store';
 import formLoading from "@commen/loading/modules/form/store";
 import skeletonLoading from "@commen/loading/modules/skeleton/store";
 import pagination from "@commen/pagination/polotik/store";

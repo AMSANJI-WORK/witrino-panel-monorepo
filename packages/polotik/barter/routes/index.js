@@ -1,5 +1,4 @@
 import { resetBarter } from "@packages/polotik/barter/middlewares";
-import offersRoutes from "@packages/polotik/barter/modules/offers/routes";
 export default [
   {
     path: "/barter",
@@ -7,7 +6,50 @@ export default [
     redirect: "/barter/list",
     component: () => import("@packages/polotik/barter/views/index.vue"),
     children: [
-      ...offersRoutes,
+      {
+        path: ":id/request",
+        name: "barter-request-page",
+        component: () => import("@commen/offer/polotik/views/Offer.vue"),
+        beforeEnter: resetBarter,
+        meta: {
+          breadCrumb: [
+            {
+              text: "خانه",
+              to: "/home",
+            },
+            {
+              text: "تهاتر",
+              to: "/barter",
+            },
+            {
+              text: "پیشنهادات",
+              disabled: true,
+            },
+          ],
+        },
+      },
+      {
+        path: ":id/outcome",
+        name: "barter-follow-page",
+        component: () => import("@commen/offer/polotik/views/Offer.vue"),
+        beforeEnter: resetBarter,
+        meta: {
+          breadCrumb: [
+            {
+              text: "خانه",
+              to: "/home",
+            },
+            {
+              text: "تهاتر",
+              to: "/barter",
+            },
+            {
+              text: "پیگیری پیشنهاد من",
+              disabled: true,
+            },
+          ],
+        },
+      },
       {
         path: "list",
         name: "barter-list-page",

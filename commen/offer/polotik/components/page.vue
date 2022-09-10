@@ -36,7 +36,7 @@ export default {
     },
     dateStart() {
       return !this.dataSource.end
-        ? this.dataSource.data.conditions.docs.collectionDocsTime.start
+        ? this.dataSource.data?.conditions?.docs?.collectionDocsTime?.start
         : this.dataSource.start;
     },
   },

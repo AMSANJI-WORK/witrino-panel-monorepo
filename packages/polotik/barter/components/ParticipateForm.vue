@@ -29,7 +29,7 @@
 
 <script>
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
-import TYPES from "@packages/polotik/barter/modules/offers/store/types";
+import OFFER_TYPES from "@commen/offer/polotik/store/types";
 import fromRules from "@commen/form/mixins/rules";
 
 import { mapActions } from "vuex";
@@ -47,10 +47,9 @@ export default {
   },
   methods: {
     ...mapActions("guilds/barter/request", {
-      createRequestBarterAsync: TYPES.CREATE_OFFER_BARTER_ASYNC,
+      createRequestBarterAsync: OFFER_TYPES.CREATE_OFFER_ASYNC,
     }),
     submitRequest() {
-      console.log(true);
       if (this.$refs.barterParticipate.validate())
         this.createRequestBarterAsync({
           target: { name: "barter", id: this.$route.params.id },

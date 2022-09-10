@@ -151,7 +151,7 @@ import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
-import TYPES from "@packages/polotik/tender/modules/offers/store/types";
+import OFFER_TYPES from "@commen/offer/polotik/store/types";
 export default {
   components: {
     UploadImage,
@@ -205,7 +205,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      createOfferTenderAsync: `guilds/tender/request/${TYPES.CREATE_OFFER_TENDER_ASYNC}`,
+      createOfferTenderAsync: `guilds/tender/request/${OFFER_TYPES.CREATE_OFFER_ASYNC}`,
     }),
     cansel() {
       this.dialog = false;
