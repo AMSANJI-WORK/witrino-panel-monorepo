@@ -31,7 +31,7 @@ describe("inquiry mutations and getters", () => {
   });
 
   it("get one", () => {
-    store.commit(`${SOURCE}/${Types.GET_AN_INQUIRY_SUCCESS}`, dataOne);
+    store.commit(`${SOURCE}/${Types.GET_ONE_INQUIRY_SUCCESS}`, dataOne);
     const inquiry = store.getters[`${SOURCE}/inquiry`];
     expect(inquiry).toMatchObject(dataOne.data);
   });

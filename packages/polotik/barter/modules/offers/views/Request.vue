@@ -6,7 +6,7 @@
 
 <script>
 import Requset from "@packages/polotik/barter/modules/offers/components/Requset/index.vue";
-import { GET_A_BARTER_ASYNC } from "@packages/polotik/barter/store/get/types";
+import { GET_ONE_BARTER_ASYNC } from "@packages/polotik/barter/store/get/types";
 import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     ...mapActions("guilds/barter", {
-      getABarterAsync: GET_A_BARTER_ASYNC,
+      getABarterAsync: GET_ONE_BARTER_ASYNC,
     }),
   },
   created() {

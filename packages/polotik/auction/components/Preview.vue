@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     ...mapMutations({ resetAuction: "RESET_AUCTION" }),
-    ...mapActions({ getAnAuctionData: "GET_AN_AUCTION_ASYNC" }),
+    ...mapActions({ getAnAuctionData: "GET_ONE_AUCTION_ASYNC" }),
   },
   created() {
     if (this.cities.length == 0)

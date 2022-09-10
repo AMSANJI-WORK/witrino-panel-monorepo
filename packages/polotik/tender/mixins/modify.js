@@ -52,7 +52,7 @@ const TenderModifyMixin = {
     ...mapActions("guilds/tender", {
       createTenderAsync: `${Types.CREATE_TENDER_ASYNC}`,
       updateTenderAsync: `${Types.UPDATE_TENDER_ASYNC}`,
-      getATenderAsync: `${Types.GET_A_TENDER_ASYNC}`,
+      getATenderAsync: `${Types.GET_ONE_TENDER_ASYNC}`,
     }),
     ...mapMutations("upload", {
       addUploadedImages: `ADD_IMAGE`,

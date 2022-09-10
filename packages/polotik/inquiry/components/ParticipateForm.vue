@@ -9,9 +9,9 @@
           dense
           :loading="formLoading"
           :rules="[rules.required]"
-          :value="inquiryParticipate.data.price | toRial"
-          @input="(value) => (inquiryParticipate.data.price = value)"
-          :hint="inquiryParticipate.data.price | numberToStringFa"
+          :value="price | toRial"
+          @input="(value) => (price = value)"
+          :hint="price | numberToStringFa"
           persistent-hint
           suffix="تومان"
           name="offerPrice"
@@ -53,27 +53,32 @@ export default {
   mixins: [inquiryLoadingMixin, UtilityMixin, fromRules],
   data() {
     return {
+      price: null,
       inquiryParticipate: {
+        price: null,
         title: "تست",
         description: "تست درخواست استعلام ایجاد",
         status: 1,
-        data: {
-          price: null,
-        },
       },
     };
+  },
+  computed: {
+    priceToNumber() {
+      return parseFloat(this.price.replace(/,/g, ""));
+    },
   },
   methods: {
     ...mapActions("guilds/inquiry/request", {
       createRequestInquiryAsync: TYPES.CREATE_OFFER_INQUIRY_ASYNC,
     }),
     submitRequest() {
+      this.inquiryParticipate.price = this.priceToNumber;
       if (this.$refs.inquiryParticipate.validate())
         this.createRequestInquiryAsync({
           target: { name: "inquiry", id: this.$route.params.id },
           participateForm: this.inquiryParticipate,
         }).then(() => {
-          this.$router.go(0);
+          this.$router.push("outcome");
         });
     },
   },

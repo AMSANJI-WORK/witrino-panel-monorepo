@@ -31,7 +31,7 @@ describe("sale mutations and getters", () => {
   });
 
   it("get one", () => {
-    store.commit(`${SOURCE}/${Types.GET_A_SALE_SUCCESS}`, dataOne);
+    store.commit(`${SOURCE}/${Types.GET_ONE_SALE_SUCCESS}`, dataOne);
     const sale = store.getters[`${SOURCE}/sale`];
     expect(sale).toMatchObject(dataOne.data);
   });

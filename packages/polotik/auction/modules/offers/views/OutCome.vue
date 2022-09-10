@@ -6,7 +6,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import { GET_AN_AUCTION_ASYNC } from "@packages/polotik/auction/store/get/types";
+import { GET_ONE_AUCTION_ASYNC } from "@packages/polotik/auction/store/get/types";
 import OutCome from "@packages/polotik/auction/modules/offers/components/OutCome/index.vue";
 export default {
   components: {
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     ...mapActions("guilds/auction", {
-      getAnAuction: GET_AN_AUCTION_ASYNC,
+      getAnAuction: GET_ONE_AUCTION_ASYNC,
     }),
   },
   created() {

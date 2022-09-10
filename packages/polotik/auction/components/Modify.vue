@@ -4,7 +4,7 @@
       alt-labels
       v-model="step"
       class="elevation-6 rounded-lg mx-2 d-md-block d-none"
-      color="#187968"
+      color="p-green-primay"
     >
       <v-stepper-title :page-title="modifyPageTitle" />
       <auction-stepper-header />
@@ -46,7 +46,7 @@
     </v-stepper>
     <v-stepper v-model="step" vertical class="d-block d-md-none">
       <v-stepper-step
-        color="#02BC77"
+        color="p-green-primay"
         class="font-weight-medium"
         :complete="step > 1"
         step="1"
@@ -58,7 +58,7 @@
         <AuctionStepOne @stepOneComplete="setStepOneData($event)" />
       </v-stepper-content>
       <v-stepper-step
-        color="#02BC77"
+        color="p-green-primay"
         class="font-weight-medium"
         :complete="step > 2"
         step="2"
@@ -70,7 +70,7 @@
         <AuctionStepTwo @stepTwoComplete="setStepTwoData($event)" />
       </v-stepper-content>
       <v-stepper-step
-        color="#02BC77"
+        color="p-green-primay"
         class="font-weight-medium"
         :complete="step > 3"
         step="3"
@@ -81,7 +81,7 @@
         <AuctionStepThree @stepThreeComplete="setStepThreeData($event)" />
       </v-stepper-content>
       <v-stepper-step
-        color="#02BC77"
+        color="p-green-primay"
         class="font-weight-medium"
         :complete="step > 4"
         step="4"
@@ -92,7 +92,7 @@
         <AuctionStepFour @stepFourComplete="setStepFourData($event)" />
       </v-stepper-content>
       <v-stepper-step
-        color="#02BC77"
+        color="p-green-primay"
         class="font-weight-medium"
         :complete="step > 5"
         step="5"
@@ -102,7 +102,11 @@
       <v-stepper-content step="5">
         <AuctionStepFive @stepFiveComplete="setStepFiveData($event)" />
       </v-stepper-content>
-      <v-stepper-step color="#02BC77" class="font-weight-medium" step="6">
+      <v-stepper-step
+        color="p-green-primay"
+        class="font-weight-medium"
+        step="6"
+      >
         ثبت نهایی</v-stepper-step
       >
       <v-stepper-content step="6">

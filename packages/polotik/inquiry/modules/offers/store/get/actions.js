@@ -5,9 +5,9 @@ import {
   GET_ALL_OFFER_INQUIRY_FAILURE,
   CHANGE_PAGE_PAGINATION,
   // get one methods
-  GET_AN_OFFER_INQUIRY_ASYNC,
-  GET_AN_OFFER_INQUIRY_SUCCESS,
-  GET_AN_OFFER_INQUIRY_FAILURE,
+  GET_ONE_OFFER_INQUIRY_ASYNC,
+  GET_ONE_OFFER_INQUIRY_SUCCESS,
+  GET_ONE_OFFER_INQUIRY_FAILURE,
 } from "./types";
 
 import RepositoryFactory from "@polotik/repositories/factory";
@@ -44,7 +44,7 @@ export default {
     }
   },
 
-  async [GET_AN_OFFER_INQUIRY_ASYNC]({ commit }, payload) {
+  async [GET_ONE_OFFER_INQUIRY_ASYNC]({ commit }, payload) {
     try {
       commit("formLoading/TOGGLE_FORM_LOADING");
       const { data } = await guildsRepository.getAOffer(
@@ -67,10 +67,10 @@ export default {
             root: true,
           }
         );
-      commit(GET_AN_OFFER_INQUIRY_SUCCESS, data);
+      commit(GET_ONE_OFFER_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_AN_OFFER_INQUIRY_FAILURE, error);
+      commit(GET_ONE_OFFER_INQUIRY_FAILURE, error);
     } finally {
       commit("formLoading/TOGGLE_FORM_LOADING");
     }

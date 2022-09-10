@@ -13,7 +13,7 @@
           :date-start="dateStart(request)"
         />
       </v-slide-x-transition>
-      <div class="d-flex pa-2 mt-2">
+      <v-sheet class="d-flex pa-2 mt-2 transparent">
         <v-spacer></v-spacer>
         <v-pagination
           v-model="pagination.page"
@@ -21,10 +21,10 @@
           :total-visible="6"
         ></v-pagination>
         <v-spacer></v-spacer>
-        <div class="my-auto grey--text font-weight-thin">
+        <v-sheet class="my-auto grey--text font-weight-thin transparent">
           تعداد (کل) : {{ pagination.recordCount }}
-        </div>
-      </div>
+        </v-sheet>
+      </v-sheet>
     </v-card>
   </v-sheet>
 </template>

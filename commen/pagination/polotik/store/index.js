@@ -10,11 +10,11 @@ export default {
     },
   },
   mutations: {
-    [PAGINATION_TYPES.SET_PAGINATION](state, { data }) {
-      let currentPage = Number(data.page);
+    [PAGINATION_TYPES.SET_PAGINATION](state, payload) {
+      let currentPage = Number(payload.page);
       state.pagination.page = currentPage == 0 ? 1 : currentPage;
-      state.pagination.lastPage = data.last_page;
-      state.pagination.recordCount = data.count;
+      state.pagination.lastPage = payload.last_page;
+      state.pagination.recordCount = payload.count;
     },
   },
 };

@@ -82,7 +82,7 @@ const BarterMixin = {
     ...mapActions({
       createBarterAsync: Types.CREATE_BARTER_ASYNC,
       updateBarterAsync: Types.UPDATE_BARTER_ASYNC,
-      getABarterAsync: Types.GET_A_BARTER_ASYNC,
+      getABarterAsync: Types.GET_ONE_BARTER_ASYNC,
     }),
     ...mapMutations({ toggleLoading: "TOGGLE_LOADING" }),
   },

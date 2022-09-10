@@ -38,9 +38,9 @@
           <v-col cols="12" sm="6" :class="settings.offerPrice ? '' : 'd-none'">
             <v-text-field
               class="rounded-lg"
-              :value="auctionParticipate.price | toRial"
-              @input="(value) => (auctionParticipate.price = value)"
-              :hint="auctionParticipate.price | numberToStringFa"
+              :value="price | toRial"
+              @input="(value) => (price = value)"
+              :hint="price | numberToStringFa"
               dense
               persistent-hint
               :disabled="!settings.offerPrice"
@@ -107,9 +107,14 @@
 
           <v-col cols="12" :class="settings.uploadable ? '' : 'd-none'">
             <v-divider />
-            <div style="width: 100%" class="d-flex flex-wrap">
-              <upload-image @uploadedImagesSuccess="sevaImagesInGallery" />
-            </div>
+            <v-sheet width="100%" class="d-flex flex-wrap transparent">
+              <UploadImage
+                @dalete-image="deleteImage"
+                @upload-reolved="updateGallery"
+                :data-source="auctionParticipate.data.gallery"
+                active-service="guilds/auction/request"
+              />
+            </v-sheet>
           </v-col>
         </v-form>
       </v-card-text>
@@ -144,7 +149,7 @@ import fromRules from "@commen/form/mixins/rules";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
-import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
+import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import TYPES from "@packages/polotik/auction/modules/offers/store/types";
 
 export default {
@@ -154,6 +159,7 @@ export default {
   mixins: [auctionLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data() {
     return {
+      price: null,
       dialog: false,
       comment: false,
       auctionParticipate: {
@@ -180,16 +186,21 @@ export default {
   computed: {
     ...mapGetters({
       auction: "guilds/auction/auction",
-      uploadedImages: "upload/successUploadedImages",
     }),
     auctionId() {
       return this.$route.params.id;
+    },
+    priceToNumber() {
+      return parseFloat(this.price.replace(/,/g, ""));
     },
     form() {
       return this.$refs.participateAuctionForm;
     },
     settings() {
       return this.auction.data.auctionInfo.settings;
+    },
+    priceToNumber() {
+      return this.price.replace(/,/g, "");
     },
   },
   methods: {
@@ -200,19 +211,25 @@ export default {
       this.dialog = false;
       this.form.reset();
     },
-    sevaImagesInGallery(payload) {
-      const oldGallery = this.auctionParticipate.data.gallery;
-      this.auctionParticipate.data.gallery = [...payload, ...oldGallery];
-      console.log(this.auctionParticipate.data.gallery);
+    updateGallery(e) {
+      this.auctionParticipate.data.gallery = [
+        ...this.auctionParticipate.data.gallery,
+        ...e,
+      ];
+    },
+    deleteImage(imageIdx) {
+      this.auctionParticipate.data.gallery.splice(imageIdx, 1);
     },
     submitAuctionParticipate() {
+      this.auctionParticipate.price = this.priceToNumber;
+      console.log(this.priceToNumber);
       if (this.form.validate()) {
         this.createOfferAuctionAsync({
           target: { name: "auction", id: this.auctionId },
           participateForm: this.auctionParticipate,
         }).then(() => {
-          this.$router.go(0);
           this.cansel();
+          this.$router.push("outcome");
         });
       }
     },

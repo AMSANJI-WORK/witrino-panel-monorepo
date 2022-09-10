@@ -6,9 +6,9 @@ import {
   GET_ALL_AUCTION_FAILURE,
   CHANGE_PAGE_PAGINATION,
   // get one methods
-  GET_AN_AUCTION_ASYNC,
-  GET_AN_AUCTION_SUCCESS,
-  GET_AN_AUCTION_FAILURE,
+  GET_ONE_AUCTION_ASYNC,
+  GET_ONE_AUCTION_SUCCESS,
+  GET_ONE_AUCTION_FAILURE,
 } from "./types";
 import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 
@@ -30,9 +30,7 @@ export default {
         userId,
         offerUserId,
       });
-      commit(`${target}/SET_PAGINATION`, {
-        data,
-      });
+      commit(`${target}/SET_PAGINATION`, data);
       commit(GET_ALL_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);
@@ -42,7 +40,7 @@ export default {
     }
   },
 
-  async [GET_AN_AUCTION_ASYNC]({ commit }, payload) {
+  async [GET_ONE_AUCTION_ASYNC]({ commit }, payload) {
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
@@ -51,10 +49,10 @@ export default {
         commit("request/GET_ALL_OFFER_AUCTION_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
         commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
-      commit(GET_AN_AUCTION_SUCCESS, data);
+      commit(GET_ONE_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_AN_AUCTION_FAILURE, error);
+      commit(GET_ONE_AUCTION_FAILURE, error);
     } finally {
       setTimeout(() => commit(loadingType), 1000);
     }

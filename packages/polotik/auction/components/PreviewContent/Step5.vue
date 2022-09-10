@@ -47,15 +47,6 @@
               >{{ chipText("commentable") }}</v-chip
             >
           </v-col>
-          <v-col cols="12" sm="6" class="py-0">
-            <VLabel label="امکان ثبت نظر" />
-            <v-chip
-              :color="settingsAuction.commentable | chipType.color"
-              x-small
-              class="white--text font-weight-medium"
-              >{{ settingsAuction.commentable | chipType.text }}</v-chip
-            >
-          </v-col>
           <v-col cols="12" class="py-0">
             <VLabel
               label="توضیحات راهنمای تکمیل فرم"
@@ -93,15 +84,7 @@ const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
-  filters: {
-    chipType(value) {
-      if (value) return { text: "دارد", color: "success" };
-      return {
-        text: "ندراد",
-        color: "red",
-      };
-    },
-  },
+  filters: {},
   computed: {
     ...mapGetters(["auction"]),
     routeIsPreview() {

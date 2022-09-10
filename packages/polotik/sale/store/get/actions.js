@@ -6,9 +6,9 @@ import {
   GET_ALL_SALE_SUCCESS,
   GET_ALL_SALE_FAILURE,
   // get one methods
-  GET_A_SALE_ASYNC,
-  GET_A_SALE_SUCCESS,
-  GET_A_SALE_FAILURE,
+  GET_ONE_SALE_ASYNC,
+  GET_ONE_SALE_SUCCESS,
+  GET_ONE_SALE_FAILURE,
 } from "./types";
 import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 
@@ -29,9 +29,7 @@ export default {
         userId,
         offerUserId,
       });
-      commit(`${target}/SET_PAGINATION`, {
-        data,
-      });
+      commit(`${target}/SET_PAGINATION`, data);
       commit(GET_ALL_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);
@@ -40,15 +38,15 @@ export default {
       setTimeout(() => commit(loadingType), 1000);
     }
   },
-  async [GET_A_SALE_ASYNC]({ commit }, payload) {
+  async [GET_ONE_SALE_ASYNC]({ commit }, payload) {
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getASale(payload);
-      commit(GET_A_SALE_SUCCESS, data);
+      commit(GET_ONE_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_A_SALE_FAILURE, error);
+      commit(GET_ONE_SALE_FAILURE, error);
     } finally {
       setTimeout(() => commit(loadingType), 1000);
     }

@@ -31,7 +31,7 @@ describe("auction mutations and getters", () => {
   });
 
   it("get one", () => {
-    store.commit(`${SOURCE}/${Types.GET_AN_AUCTION_SUCCESS}`, dataOne);
+    store.commit(`${SOURCE}/${Types.GET_ONE_AUCTION_SUCCESS}`, dataOne);
     const auction = store.getters[`${SOURCE}/auction`];
     expect(auction).toMatchObject(dataOne.data);
   });

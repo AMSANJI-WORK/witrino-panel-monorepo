@@ -17,7 +17,7 @@
     "inquiry": "*",
     "polotik-auth": "*",
     "polotik-dashboard": "*",
-    "polotik-upload": "*",
+    "upload": "*",
     "axios": "^0.27.2",
     "js-cookie": "^3.0.1",
     "moment-jalaali": "^0.9.6",

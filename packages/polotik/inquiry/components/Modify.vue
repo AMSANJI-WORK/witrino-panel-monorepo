@@ -111,12 +111,24 @@
           @upload-reolved="updateGallery"
           @dalete-image="deleteImage"
           :data-source="editableInquiry.data.gallery"
+          active-service="guilds/inquiry"
         />
       </v-col>
 
-      <v-col cols="12" class="d-flex flex-row-reverse">
+      <v-col cols="12" class="d-md-flex flex-row-reverse d-none">
         <v-btn
           dark
+          :color="submitBtnColor"
+          :loading="formLoading"
+          elevation="5"
+          @click="submit"
+          >{{ submitBtnTilte }}</v-btn
+        >
+      </v-col>
+      <v-col cols="12" class="d-md-none d-block">
+        <v-btn
+          dark
+          block
           :color="submitBtnColor"
           :loading="formLoading"
           elevation="5"
@@ -169,9 +181,6 @@ export default {
     };
   },
   watch: {
-    "editableInquiry.data.gallery": function (v) {
-      console.log(v);
-    },
     fromDate(newValue) {
       this.editableInquiry.start = moment(newValue, "jYYYY/jMM/jDD").format(
         "YYYY-MM-DD"
@@ -268,7 +277,6 @@ export default {
       this.editableInquiry.data.category = category.map((el) => {
         return el?.id ? el.id : el;
       });
-      console.log(this.editableInquiry.data.category);
     },
     edit() {
       this.beforeEdit();

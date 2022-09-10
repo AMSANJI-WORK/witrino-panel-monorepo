@@ -56,7 +56,7 @@ export default {
           target: { name: "barter", id: this.$route.params.id },
           participateForm: this.barterParticipate,
         }).then(() => {
-          this.$router.go(0);
+          this.$router.push("outcome");
         });
     },
   },

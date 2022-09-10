@@ -4,7 +4,7 @@
       alt-labels
       v-model="step"
       class="elevation-6 rounded-lg mx-2 d-md-block d-none"
-      color="#187968"
+      color="p-green-primay"
     >
       <v-stepper-title :page-title="modifyPageTitle" />
       <tender-stepper-header />
@@ -45,7 +45,7 @@
     </v-stepper>
     <v-stepper v-model="step" vertical class="d-md-none d-block">
       <v-stepper-step
-        color="#02BC77"
+        color="p-green-primay"
         class="font-weight-medium"
         :complete="step > 1"
         step="1"

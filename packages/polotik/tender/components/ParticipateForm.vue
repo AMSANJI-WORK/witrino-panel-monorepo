@@ -41,9 +41,9 @@
               label="مبلغ پیشنهادی"
               class="rounded-lg"
               persistent-hint
-              :value="tenderParticipate.price | toRial"
-              @input="(value) => (tenderParticipate.price = value)"
-              :hint="tenderParticipate.price | numberToStringFa"
+              :value="price | toRial"
+              @input="(value) => (price = value)"
+              :hint="price | numberToStringFa"
               :disabled="!settings.offerPrice"
               :loading="formLoading"
               :rules="[rules.required]"
@@ -108,7 +108,12 @@
           <v-col cols="12" :class="settings.uploadable ? '' : 'd-none'">
             <v-divider />
             <div style="width: 100%" class="d-flex flex-wrap">
-              <upload-image @uploadedImagesSuccess="sevaImagesInGallery" />
+              <UploadImage
+                @dalete-image="deleteImage"
+                @upload-reolved="updateGallery"
+                :data-source="tenderParticipate.data.gallery"
+                active-service="guilds/tender/request"
+              />
             </div>
           </v-col>
         </v-form>
@@ -145,7 +150,7 @@ import fromRules from "@commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
-import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
+import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import TYPES from "@packages/polotik/tender/modules/offers/store/types";
 export default {
   components: {
@@ -154,6 +159,7 @@ export default {
   mixins: [tenderLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data() {
     return {
+      price: null,
       dialog: false,
       comment: false,
       tenderParticipate: {
@@ -180,8 +186,10 @@ export default {
   computed: {
     ...mapGetters({
       tender: "guilds/tender/tender",
-      uploadedImages: "upload/successUploadedImages",
     }),
+    priceToNumber() {
+      return parseFloat(this.price.replace(/,/g, ""));
+    },
     ...mapState({
       formLoading: (state) => state.formLoading,
     }),
@@ -203,18 +211,24 @@ export default {
       this.dialog = false;
       this.form.reset();
     },
-    sevaImagesInGallery(payload) {
-      const oldGallery = this.tenderParticipate.data.gallery;
-      this.tenderParticipate.data.gallery = [...payload, ...oldGallery];
+    updateGallery(e) {
+      this.tenderParticipate.data.gallery = [
+        ...this.tenderParticipate.data.gallery,
+        ...e,
+      ];
+    },
+    deleteImage(imageIdx) {
+      this.tenderParticipate.data.gallery.splice(imageIdx, 1);
     },
     submitTenderParticipate() {
+      this.tenderParticipate.price = this.priceToNumber;
       if (this.form.validate()) {
         this.createOfferTenderAsync({
           target: { name: "tender", id: this.tenderId },
           participateForm: this.tenderParticipate,
         }).then(() => {
           this.cansel();
-          this.$router.go(0);
+          this.$router.push("outcome");
         });
       }
     },

@@ -17,7 +17,4 @@ export default {
       participateForm
     );
   },
-  updateOffer(TARGET, payload, id) {
-    return UserClient.put(`${Source}/${TARGET}/${POINT}/${id}`, payload);
-  },
 };

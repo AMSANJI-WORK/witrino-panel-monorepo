@@ -156,11 +156,27 @@
         <v-divider class="pb-2"></v-divider>
       </v-col>
       <v-col class="d-flex flex-wrap align-center mb-5 pt-0">
-        <upload-image @uploadedImagesSuccess="setUploadedImageInGallery" />
+        <UploadImage
+          @dalete-image="deleteImage"
+          @upload-reolved="updateGallery"
+          :data-source="editableBarter.data.gallery"
+          active-service="guilds/barter"
+        />
       </v-col>
-      <v-col cols="12" class="d-flex flex-row-reverse">
+      <v-col cols="12" class="d-md-flex flex-row-reverse d-none">
         <v-btn
           dark
+          :color="submitBtnColor"
+          :loading="formLoading"
+          elevation="5"
+          @click="submit"
+          >{{ submitBtnTilte }}</v-btn
+        >
+      </v-col>
+      <v-col cols="12" class="d-md-none d-block">
+        <v-btn
+          dark
+          block
           :color="submitBtnColor"
           :loading="formLoading"
           elevation="5"
@@ -174,16 +190,15 @@
 
 <script>
 import moment from "moment-jalaali";
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapActions } from "vuex";
 import servicesTypes from "@packages/polotik/service/store/types";
 import BarterMixin from "@packages/polotik/barter/mixins";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import fromRules from "@commen/form/mixins/rules";
-
+import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import ServicesMixin from "@polotik/mixins/base/services";
 import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
-import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
@@ -221,7 +236,6 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({ uploadedImages: "upload/successUploadedImages" }),
     calculateEndDate() {
       let date = new Date(this.editableBarter.start);
       date.setDate(date.getDate() + this.endDay);
@@ -259,18 +273,13 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ addImageToUploadedImages: "upload/ADD_IMAGE" }),
     ...mapActions({
       getAllCategoriesAsync: `guilds/services/category/${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     setData() {
       Object.assign(this.editableBarter, this.barter);
-      const { gallery } = this.editableBarter.data;
       this.endDay = this.remainingDays;
       this.fromDate = this.calculateFromDate;
-
-      if (this.uploadedImages.length == 0)
-        this.addImageToUploadedImages(gallery);
     },
     checkRoutePath() {
       this.getAllCategoriesAsync({ target: "barter" });
@@ -282,12 +291,18 @@ export default {
         this.routeIsCreate ? this.edit() : this.create();
       }
     },
+    updateGallery(e) {
+      this.editableBarter.data.gallery = [
+        ...this.editableBarter.data.gallery,
+        ...e,
+      ];
+    },
+    deleteImage(imageIdx) {
+      this.editableBarter.data.gallery.splice(imageIdx, 1);
+    },
     resetForm() {
       this.$refs["barter"].reset();
       this.$router.push("/barter/list");
-    },
-    setUploadedImageInGallery(uplaodImages) {
-      this.editableBarter.data.gallery = uplaodImages;
     },
     create() {
       this.editableBarter.user_id = this.currentUserId;

@@ -31,7 +31,7 @@ describe("tender mutations and getters", () => {
   });
 
   it("get one", () => {
-    store.commit(`${SOURCE}/${Types.GET_A_TENDER_SUCCESS}`, dataOne);
+    store.commit(`${SOURCE}/${Types.GET_ONE_TENDER_SUCCESS}`, dataOne);
     const tender = store.getters[`${SOURCE}/tender`];
     expect(tender).toMatchObject(dataOne.data);
   });

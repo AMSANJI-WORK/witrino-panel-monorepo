@@ -6,9 +6,9 @@ import {
   GET_ALL_INQUIRY_SUCCESS,
   GET_ALL_INQUIRY_FAILURE,
   // get one methods
-  GET_AN_INQUIRY_ASYNC,
-  GET_AN_INQUIRY_SUCCESS,
-  GET_AN_INQUIRY_FAILURE,
+  GET_ONE_INQUIRY_ASYNC,
+  GET_ONE_INQUIRY_SUCCESS,
+  GET_ONE_INQUIRY_FAILURE,
 } from "./types";
 import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 import RepositoryFactory from "@polotik/repositories/factory";
@@ -28,9 +28,7 @@ export default {
         userId,
         offerUserId,
       });
-      commit(`${target}/SET_PAGINATION`, {
-        data,
-      });
+      commit(`${target}/SET_PAGINATION`, data);
       commit(GET_ALL_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
@@ -39,7 +37,7 @@ export default {
       setTimeout(() => commit(loadingType), 1000);
     }
   },
-  async [GET_AN_INQUIRY_ASYNC]({ commit }, payload) {
+  async [GET_ONE_INQUIRY_ASYNC]({ commit }, payload) {
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
@@ -48,10 +46,10 @@ export default {
         commit("request/GET_ALL_OFFER_INQUIRY_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
         commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
-      commit(GET_AN_INQUIRY_SUCCESS, data);
+      commit(GET_ONE_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_AN_INQUIRY_FAILURE, error);
+      commit(GET_ONE_INQUIRY_FAILURE, error);
     } finally {
       setTimeout(() => commit(loadingType), 1000);
     }

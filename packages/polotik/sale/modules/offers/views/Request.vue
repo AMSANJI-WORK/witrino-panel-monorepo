@@ -6,7 +6,7 @@
 
 <script>
 import Requset from "@packages/polotik/sale/modules/offers/components/Requset/index.vue";
-import { GET_A_SALE_ASYNC } from "@packages/polotik/sale/store/get/types";
+import { GET_ONE_SALE_ASYNC } from "@packages/polotik/sale/store/get/types";
 import { mapActions } from "vuex";
 export default {
   components: {
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     ...mapActions("guilds/sale", {
-      getAllSaleAsync: GET_A_SALE_ASYNC,
+      getAllSaleAsync: GET_ONE_SALE_ASYNC,
     }),
   },
   created() {

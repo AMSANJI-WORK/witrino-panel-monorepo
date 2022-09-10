@@ -51,7 +51,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions({ getTenderData: "GET_A_TENDER_ASYNC" }),
+    ...mapActions({ getTenderData: "GET_ONE_TENDER_ASYNC" }),
     ...mapMutations({ resetTender: "RESET_TENDER" }),
   },
   created() {

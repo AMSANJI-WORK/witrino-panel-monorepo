@@ -229,11 +229,27 @@
         <v-divider class="pb-2"></v-divider>
       </v-col>
       <v-col class="d-flex flex-wrap align-center mb-5 pt-0">
-        <upload-image @uploadedImagesSuccess="setUploadedImageInGallery" />
+        <UploadImage
+          @upload-reolved="updateGallery"
+          @dalete-image="deleteImage"
+          :data-source="editableSale.data.gallery"
+          active-service="guilds/sale"
+        />
       </v-col>
-      <v-col cols="12" class="d-flex flex-row-reverse">
+      <v-col cols="12" class="d-md-flex flex-row-reverse d-none">
         <v-btn
           dark
+          :color="submitBtnColor"
+          :loading="formLoading"
+          elevation="5"
+          @click="submit"
+          >{{ submitBtnTilte }}</v-btn
+        >
+      </v-col>
+      <v-col cols="12" class="d-md-none d-block">
+        <v-btn
+          dark
+          block
           :color="submitBtnColor"
           :loading="formLoading"
           elevation="5"
@@ -252,8 +268,8 @@ import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/services";
 import servicesTypes from "@packages/polotik/service/store/types";
-import { mapActions, mapMutations, mapGetters } from "vuex";
-import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
+import { mapActions } from "vuex";
+import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
@@ -303,7 +319,6 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({ uploadedImages: "upload/successUploadedImages" }),
     priceTypeItems() {
       return [
         {
@@ -333,7 +348,6 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ addImageToUploadedImages: "upload/ADD_IMAGE" }),
     ...mapActions({
       getAllCategoriesAsync: `guilds/services/category/${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
@@ -342,10 +356,7 @@ export default {
       Object.assign(this.editableSale, this.sale);
       const {
         price: { priceType },
-        gallery,
       } = this.editableSale.data;
-      if (this.uploadedImages.length == 0)
-        this.addImageToUploadedImages(gallery);
       this.priceType = priceType;
       this.fromDate = this.calculateFromDate;
       this.endDate = this.calculateEndDate;
@@ -369,6 +380,15 @@ export default {
         this.editableSale.data.price.max = 0;
       }
     },
+    updateGallery(e) {
+      this.editableSale.data.gallery = [
+        ...this.editableSale.data.gallery,
+        ...e,
+      ];
+    },
+    deleteImage(imageIdx) {
+      this.editableSale.data.gallery.splice(imageIdx, 1);
+    },
     submit() {
       if (this.isFormValidate) {
         this.checkPriceLimit();
@@ -379,9 +399,7 @@ export default {
       this.$refs["sale"].reset();
       this.$router.push("/sale/list");
     },
-    setUploadedImageInGallery(uplaodImages) {
-      this.editableSale.data.gallery = uplaodImages;
-    },
+
     create() {
       this.editableSale.user_id = this.currentUserId;
       this.createSaleAsync(this.editableSale).then(() => this.resetForm());

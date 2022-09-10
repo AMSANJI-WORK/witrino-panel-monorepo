@@ -75,7 +75,7 @@ const InquiryMixin = {
     ...mapActions({
       createInquiryAsync: Types.CREATE_INQUIRY_ASYNC,
       updateInquiryAsync: Types.UPDATE_INQUIRY_ASYNC,
-      getAnInquiryAsync: Types.GET_AN_INQUIRY_ASYNC,
+      getAnInquiryAsync: Types.GET_ONE_INQUIRY_ASYNC,
     }),
   },
 };

@@ -7,9 +7,9 @@ import {
   GET_ALL_TENDER_FAILURE,
   CHANGE_PAGE_PAGINATION,
   // get one methods
-  GET_A_TENDER_ASYNC,
-  GET_A_TENDER_SUCCESS,
-  GET_A_TENDER_FAILURE,
+  GET_ONE_TENDER_ASYNC,
+  GET_ONE_TENDER_SUCCESS,
+  GET_ONE_TENDER_FAILURE,
 } from "./types";
 import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 
@@ -30,9 +30,7 @@ export default {
         userId,
         offerUserId,
       });
-      commit(`${target}/SET_PAGINATION`, {
-        data,
-      });
+      commit(`${target}/SET_PAGINATION`, data);
       commit(GET_ALL_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);
@@ -42,7 +40,7 @@ export default {
     }
   },
 
-  async [GET_A_TENDER_ASYNC]({ commit }, payload) {
+  async [GET_ONE_TENDER_ASYNC]({ commit }, payload) {
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
@@ -51,10 +49,10 @@ export default {
         commit("request/GET_ALL_OFFER_TENDER_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
         commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
-      commit(GET_A_TENDER_SUCCESS, data);
+      commit(GET_ONE_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_A_TENDER_FAILURE, error);
+      commit(GET_ONE_TENDER_FAILURE, error);
     } finally {
       setTimeout(() => commit(loadingType), 1000);
     }

@@ -49,7 +49,7 @@ const AuctionModifyMixin = {
     ...mapActions("guilds/auction", {
       createAuctionAsync: `${Types.CREATE_AUCTION_ASYNC}`,
       updateAuctionAsync: `${Types.UPDATE_AUCTION_ASYNC}`,
-      getAnAuctionAsync: `${Types.GET_AN_AUCTION_ASYNC}`,
+      getAnAuctionAsync: `${Types.GET_ONE_AUCTION_ASYNC}`,
     }),
     ...mapMutations("upload", {
       addUploadedImages: `ADD_IMAGE`,

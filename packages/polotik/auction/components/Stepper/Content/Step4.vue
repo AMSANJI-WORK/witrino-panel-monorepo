@@ -14,7 +14,12 @@
       ></v-textarea>
     </v-col>
     <v-col cols="12" class="d-flex flex-wrap align-center mb-5 pt-0">
-      <upload-image @uploadedImagesSuccess="setUploadedImageInGallery" />
+      <UploadImage
+        @dalete-image="deleteImage"
+        @upload-reolved="updateGallery"
+        :data-source="formData.gallery"
+        active-service="guilds/auction"
+      />
     </v-col>
     <v-field-space style-class="my-sm-4 d-md-block d-none" />
     <v-stepper-level-btn
@@ -32,7 +37,7 @@ import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import fromRules from "@commen/form/mixins/rules";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
-import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
+import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 export default {
   components: { VFieldSpace, VStepperLevelBtn, UploadImage },
   mixins: [auctionLoadingMixin, fromRules, StepperMixin],
@@ -51,8 +56,11 @@ export default {
       this.formData.gallery = [...gallery];
       this.formData.description = description;
     },
-    setUploadedImageInGallery(uplaodImages) {
-      this.formData.gallery = uplaodImages;
+    updateGallery(e) {
+      this.formData.gallery = [...this.formData.gallery, ...e];
+    },
+    deleteImage(imageIdx) {
+      this.formData.gallery.splice(imageIdx, 1);
     },
     submit() {
       this.$emit("stepFourComplete", this.formData);
@@ -60,20 +68,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.button-upload {
-  transition: 0.3s all;
-  border: gray dashed 2px;
-}
-.button-upload:hover {
-  border: #187968 dashed 2px;
-}
-.button-upload-icon:hover {
-  color: #187968;
-  cursor: pointer;
-}
-.button-upload-icon {
-  transition: 0.3s all;
-}
-</style>

@@ -14,7 +14,12 @@
       ></v-textarea>
     </v-col>
     <v-col cols="12" class="d-flex flex-wrap align-center mb-5 pt-0">
-      <upload-image @uploadedImagesSuccess="setUploadedImageInGallery" />
+      <UploadImage
+        @dalete-image="deleteImage"
+        @upload-reolved="updateGallery"
+        :data-source="formData.gallery"
+        active-service="guilds/tender"
+      />
     </v-col>
 
     <v-field-space style-class="my-sm-4 d-md-block d-none" />
@@ -32,7 +37,7 @@ import fromRules from "@commen/form/mixins/rules";
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
-import UploadImage from "@packages/polotik/upload/components/UploadImage.vue";
+import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 export default {
   components: {
@@ -56,9 +61,11 @@ export default {
       this.formData.gallery = gallery;
       this.formData.description = description;
     },
-    setUploadedImageInGallery(uplaodImages) {
-      console.log(uplaodImages);
-      this.formData.gallery = uplaodImages;
+    updateGallery(e) {
+      this.formData.gallery = [...this.formData.gallery, ...e];
+    },
+    deleteImage(imageIdx) {
+      this.formData.gallery.splice(imageIdx, 1);
     },
     submit() {
       this.$emit("stepFourComplete", this.formData);

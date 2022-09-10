@@ -16,7 +16,6 @@ export default {
       console.log(error);
       commit(CREATE_OFFER_TENDER_FAILURE, error);
     } finally {
-      commit("upload/REST_IMAGES", {}, { root: true });
       commit("formLoading/TOGGLE_FORM_LOADING");
     }
   },

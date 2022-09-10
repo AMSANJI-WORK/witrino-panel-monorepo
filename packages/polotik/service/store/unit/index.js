@@ -3,9 +3,9 @@ import {
   GET_ALL_UNITS_ASYNC,
   GET_ALL_UNITS_SUCCESS,
   GET_ALL_UNITS_FAILURE,
-  GET_A_UNIT_ASYNC,
-  GET_A_UNITS_SUCCESS,
-  GET_A_UNITS_FAILURE,
+  GET_ONE_UNIT_ASYNC,
+  GET_ONE_UNITS_SUCCESS,
+  GET_ONE_UNITS_FAILURE,
 } from "./types";
 import RepositoryFactory from "@polotik/repositories/factory";
 import formLoading from "@commen/loading/modules/form/store";
@@ -48,10 +48,10 @@ export default {
     [GET_ALL_UNITS_FAILURE]() {
       Vue.$toast.error("دریافت واحد ها با خطا مواجه شد");
     },
-    [GET_A_UNITS_SUCCESS](state, payload) {
+    [GET_ONE_UNITS_SUCCESS](state, payload) {
       Object.assign(state.unit, payload);
     },
-    [GET_A_UNITS_FAILURE]() {
+    [GET_ONE_UNITS_FAILURE]() {
       Vue.$toast.error("دریافت واحد  با خطا مواجه شد");
     },
   },
@@ -64,7 +64,7 @@ export default {
           commit(GET_ALL_UNITS_SUCCESS, data);
         } else commit(GET_ALL_UNITS_SUCCESS, getters.units);
       } catch (error) {
-        commit(GET_A_UNITS_FAILURE, error);
+        commit(GET_ONE_UNITS_FAILURE, error);
       } finally {
         commit("formLoading/TOGGLE_FORM_LOADING");
       }

@@ -31,7 +31,7 @@ describe("barter mutations and getters", () => {
   });
 
   it("get one", () => {
-    store.commit(`${SOURCE}/${Types.GET_A_BARTER_SUCCESS}`, dataOne);
+    store.commit(`${SOURCE}/${Types.GET_ONE_BARTER_SUCCESS}`, dataOne);
     const barter = store.getters[`${SOURCE}/barter`];
     expect(barter).toMatchObject(dataOne.data);
   });

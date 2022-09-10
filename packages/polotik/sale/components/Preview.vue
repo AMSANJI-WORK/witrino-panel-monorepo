@@ -95,7 +95,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("guilds/sale/GET_A_SALE_ASYNC", this.$route.params.id);
+    this.$store.dispatch("guilds/sale/GET_ONE_SALE_ASYNC", this.$route.params.id);
   },
 };
 </script>

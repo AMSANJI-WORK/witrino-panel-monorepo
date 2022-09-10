@@ -7,7 +7,6 @@ export default {
     );
     if (targetIndex === -1) Vue.$toast.error("این درخواست یافت نشد");
     state.inquiryList.splice(targetIndex, 1);
-    Vue.$toast.success("این درخواست با موفقیت حذف شد");
   },
   [DELETE_INQUIRY_FAILURE](_, error) {
     Vue.$toast.error("حذف این آیتم با خطا مواجه شد");

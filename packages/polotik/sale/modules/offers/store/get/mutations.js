@@ -5,8 +5,8 @@ import {
   GET_ALL_OFFER_FAILURE,
   CHANGE_PAGE_PAGINATION,
   // get one methods
-  GET_AN_OFFER_SUCCESS,
-  GET_AN_OFFER_FAILURE,
+  GET_ONE_OFFER_SUCCESS,
+  GET_ONE_OFFER_FAILURE,
 } from "./types";
 export default {
   [GET_ALL_OFFER_SUCCESS](state, payload) {
@@ -16,11 +16,11 @@ export default {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");
     console.log(error);
   },
-  [GET_AN_OFFER_SUCCESS](state, payload) {
+  [GET_ONE_OFFER_SUCCESS](state, payload) {
     state.offer = Object.assign({}, payload.data);
   },
 
-  [GET_AN_OFFER_FAILURE](_, error) {
+  [GET_ONE_OFFER_FAILURE](_, error) {
     Vue.$toast.error("دریافت اطلاعات با خطا مواجه شد");
     console.log(error);
   },

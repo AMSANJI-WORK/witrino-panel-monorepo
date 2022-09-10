@@ -31,7 +31,7 @@ const SaleMixin = {
             max: null,
             min: null,
             priceType: null,
-            percent: {
+            present: {
               limited: false,
               max: null,
               min: null,
@@ -92,7 +92,7 @@ const SaleMixin = {
     ...mapActions({
       createSaleAsync: Types.CREATE_SALE_ASYNC,
       updateSaleAsync: Types.UPDATE_SALE_ASYNC,
-      getASaleAsync: Types.GET_A_SALE_ASYNC,
+      getASaleAsync: Types.GET_ONE_SALE_ASYNC,
     }),
     ...mapMutations({ toggleLoading: "TOGGLE_LOADING" }),
   },

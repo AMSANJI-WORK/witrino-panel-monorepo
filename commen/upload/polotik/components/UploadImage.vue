@@ -44,14 +44,15 @@
 </template>
 
 <script>
-import VImageItem from "@packages/polotik/upload/components/VImageItem.vue";
-import { UPLOAD_FILE_ASYNC } from "@packages/polotik/upload/store/types";
+import VImageItem from "./VImageItem.vue";
+import { UPLOAD_FILE_ASYNC } from "../store/types";
 export default {
   components: {
     VImageItem,
   },
   props: {
     dataSource: Array,
+    activeService: String,
   },
   data() {
     return {
@@ -62,10 +63,7 @@ export default {
   },
   computed: {
     loading() {
-      return this.$store.getters[`guilds${this.activeService}/upload/loading`];
-    },
-    activeService() {
-      return this.$route.matched[1].path;
+      return this.$store.getters[`${this.activeService}/upload/loading`];
     },
   },
   methods: {
@@ -83,7 +81,7 @@ export default {
     uploadSelectedImages(e) {
       this.$store
         .dispatch(
-          `guilds${this.activeService}/upload/${UPLOAD_FILE_ASYNC}`,
+          `${this.activeService}/upload/${UPLOAD_FILE_ASYNC}`,
           e.target.files
         )
         .then((response) => this.$emit("upload-reolved", response))

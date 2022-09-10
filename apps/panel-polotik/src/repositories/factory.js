@@ -1,6 +1,6 @@
 import auth from "@packages/polotik/auth/repositories";
 import home from "@packages/polotik/home/repositories";
-import upload from "@packages/polotik/upload/repositories";
+import upload from "@commen/upload/polotik/repositories";
 import city from "./city";
 import guilds from "./guilds";
 const repositories = new Map(

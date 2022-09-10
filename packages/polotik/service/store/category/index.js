@@ -3,9 +3,9 @@ import {
   GET_ALL_CATEGORIES_ASYNC,
   GET_ALL_CATEGORIES_SUCCESS,
   GET_ALL_CATEGORIES_FAILURE,
-  //   GET_A_CATEGORY_ASYNC,
-  //   GET_A_CATEGORY_SUCCESS,
-  //   GET_A_CATEGORY_FAILURE,
+  //   GET_ONE_CATEGORY_ASYNC,
+  //   GET_ONE_CATEGORY_SUCCESS,
+  //   GET_ONE_CATEGORY_FAILURE,
 } from "./types";
 import RepositoryFactory from "@polotik/repositories/factory";
 import formLoading from "@commen/loading/modules/form/store";

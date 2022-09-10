@@ -6,7 +6,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import { GET_AN_INQUIRY_ASYNC } from "@packages/polotik/inquiry/store/get/types";
+import { GET_ONE_INQUIRY_ASYNC } from "@packages/polotik/inquiry/store/get/types";
 import OutCome from "@packages/polotik/inquiry/modules/offers/components/OutCome/index.vue";
 export default {
   components: {
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     ...mapActions("guilds/inquiry", {
-      getAnInquiryAsync: GET_AN_INQUIRY_ASYNC,
+      getAnInquiryAsync: GET_ONE_INQUIRY_ASYNC,
     }),
   },
   created() {
