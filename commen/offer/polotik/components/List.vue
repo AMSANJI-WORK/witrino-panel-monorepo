@@ -23,7 +23,10 @@
             </v-sheet>
             <VLabel label="شماره همراه" :label-value="offer.user_data.mobile" />
 
-            <v-chip class="white--text blue darken-2 font-weight-bold">
+            <v-chip
+              v-if="offer?.price"
+              class="white--text blue darken-2 font-weight-bold"
+            >
               قیمت {{ offer.price | toRial }} تومان
             </v-chip>
           </v-card-subtitle>

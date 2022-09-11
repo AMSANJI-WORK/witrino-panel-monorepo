@@ -5,14 +5,12 @@
     </v-card-subtitle>
     <v-card-text>
       <RequestInfo :date-end="dateEnd" :date-start="dateStart" />
-      <!-- <TabFilter /> -->
       <RequestOfferList />
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-// import TabFilter from "./TabFilter.vue";
 import RequestInfo from "./ProductInfo.vue";
 import RequestOfferList from "./List.vue";
 
@@ -20,7 +18,6 @@ export default {
   components: {
     RequestInfo,
     RequestOfferList,
-    // TabFilter,
   },
   computed: {
     activeService() {

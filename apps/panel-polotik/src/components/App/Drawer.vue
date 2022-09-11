@@ -2,29 +2,35 @@
   <v-sheet class="transparent" width="100%">
     <DrawerSkeletonLoder v-if="loading" />
     <v-sheet v-else rounded="lg" width="100%">
-      <ContentDrawer />
+      <content-drawer
+        list-group-active-class="p-green-primary--text"
+        list-item-active-class="p-green-primary--text  boreder--bold"
+        :menu-items="menuItems"
+      >
+        <template #drawer-top>
+          <DrawerCardTop />
+        </template>
+      </content-drawer>
     </v-sheet>
   </v-sheet>
 </template>
 
 <script>
+import menuItems from "@polotik/constants/menu";
+import ContentDrawer from "@commen/drawer/components/List.vue";
 import mainElementLoading from "@commen/loading/modules/skeleton/mixins/main-element";
-import ContentDrawer from "@polotik/components/Reusable/ContentDrawer.vue";
 import DrawerSkeletonLoder from "@commen/loading/modules/skeleton/components/Drawer.vue";
+import DrawerCardTop from "@polotik/components/App/DrawerCardTop.vue";
 export default {
   mixins: [mainElementLoading],
-  components: { ContentDrawer, DrawerSkeletonLoder },
+  components: { ContentDrawer, DrawerSkeletonLoder, DrawerCardTop },
+  data() {
+    return {
+      menuItems,
+    };
+  },
   created() {
     this.elementReady();
   },
 };
 </script>
-<style lang="scss" scoped>
-.boreder--bold {
-  border-right: solid 3px #187968;
-}
-.v-sheet--offset {
-  top: 3.3rem;
-  position: relative;
-}
-</style>

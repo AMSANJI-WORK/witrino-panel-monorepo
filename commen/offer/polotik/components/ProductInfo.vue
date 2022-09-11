@@ -15,7 +15,13 @@
           :label-value="dateEnd | convertTodateFa"
         />
       </v-col>
-      <v-col cols="12" sm="6" md="4" class="px-0 py-0">
+      <v-col
+        cols="12"
+        sm="6"
+        md="4"
+        class="px-0 py-0"
+        v-if="dataSource.data.category.length > 0"
+      >
         <VLabel class="black--text" label="دسته بندی" />
         <v-chip
           v-for="(category, index) in dataSource.data.category"
@@ -52,6 +58,11 @@ export default {
   filters: {
     convertTodateFa(value) {
       return moment(value).format("jDD  jMMMM  jYYYY");
+    },
+  },
+  methods: {
+    getCategoryName(categoryId) {
+      return;
     },
   },
 };

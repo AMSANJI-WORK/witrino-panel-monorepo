@@ -1,39 +1,17 @@
 <template>
-  <v-card class="mx-2 pa-0" width="110" elevation="0">
-    <v-card-title class="pa-0">
-      <v-spacer></v-spacer>
-      <v-btn
-        color="red"
-        x-small
-        icon
-        class="rounded-circle"
-        @click="deleteImage(DataIndex)"
-        ><v-icon small color="red">mdi-close</v-icon></v-btn
-      >
-    </v-card-title>
-    <v-card class="pa-0">
+  <v-card class="mx-2 pa-0 rounded-lg" height="110" width="110" elevation="1">
+    <v-badge right offset-x="30" offset-y="10" overlap color="transparent">
+      <template v-slot:badge>
+        <v-btn fab x-small color="white" @click="deleteImage(DataIndex)">
+          <v-icon small color="red">mdi-delete</v-icon>
+        </v-btn>
+      </template>
+
       <v-img
-        v-if="!DataSource.src"
-        :src="getImage(DataSource)"
-        height="110"
-        width="110"
-      >
-        <template v-slot:placeholder>
-          <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-linear
-              color="yellow darken-4"
-              indeterminate
-              rounded
-              height="6"
-            ></v-progress-linear>
-          </v-row>
-        </template>
-      </v-img>
-      <v-img
-        v-else
         :src="getImageBySrc(DataSource.src)"
         height="110"
         width="110"
+        class="rounded-lg"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
@@ -46,7 +24,7 @@
           </v-row>
         </template>
       </v-img>
-    </v-card>
+    </v-badge>
   </v-card>
 </template>
 
@@ -62,12 +40,8 @@ export default {
     };
   },
   methods: {
-    getImage(image) {
-      return URL.createObjectURL(image);
-    },
     getImageBySrc(image) {
-      if (image.includes("polotik")) return image;
-      return this.host + image;
+      return import.meta.env.VITE_BASE_URL + image;
     },
     deleteImage() {
       this.$emit("deleteImageFromUpload");

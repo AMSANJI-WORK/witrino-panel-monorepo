@@ -3,7 +3,7 @@
     <v-card
       elevation="2"
       outlined
-      class="d-flex flex-row flex-wrap rounded-lg pa-md-10 py-3 mx-2 my-5"
+      class="d-flex flex-row flex-wrap rounded-lg pa-md-10 py-3 mx-2 my-5 align-stretch"
     >
       <Carousel
         class="d-md-none d-block"

@@ -1,8 +1,5 @@
 <template>
-  <v-card
-    elevation="0"
-    class="pa-0 ma-0 d-flex flex-wrap align-center mb-5 pt-0"
-  >
+  <v-card elevation="0" class="pa-0 ma-0 align-center mb-5 pt-0">
     <input
       ref="uploader"
       accept="image/png, image/jpeg, image/bmp"
@@ -12,34 +9,38 @@
       type="file"
       @change="uploadSelectedImages"
     />
-    <VImageItem
-      v-for="(image, index) in dataSource"
-      :key="index"
-      :data-source="image"
-      :data-index="index"
-      @deleteImageFromUpload="(index) => $emit('dalete-image', index)"
-    />
-    <v-tooltip left>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          class="v-btn--outlined button-upload rounded-lg mt-5"
-          height="110"
-          width="110"
-          v-bind="attrs"
-          v-on="on"
-          :loading="loading"
-          :ripple="false"
-          @click="handleFileImport"
+    <v-sheet class="d-flex flex-wrap align-center transparent">
+      <VImageItem
+        v-for="(image, index) in dataSource"
+        :key="index"
+        :data-source="image"
+        :data-index="index"
+        @deleteImageFromUpload="(index) => $emit('dalete-image', index)"
+      />
+      <v-tooltip left>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            class="v-btn--outlined button-upload rounded-lg mr-4"
+            height="110"
+            width="110"
+            v-bind="attrs"
+            v-on="on"
+            :loading="loading"
+            :ripple="false"
+            @click="handleFileImport"
+          >
+            <v-badge left overlap color="p-red-primary" icon="mdi-plus">
+              <v-icon class="button-upload-icon" large
+                >mdi-image-outline</v-icon
+              >
+            </v-badge>
+          </v-btn>
+        </template>
+        <span class="font-weight-medium text-small white--text"
+          >بارگذاری تصویر</span
         >
-          <v-badge left overlap color="p-red-primary" icon="mdi-plus">
-            <v-icon class="button-upload-icon" large>mdi-image-outline</v-icon>
-          </v-badge>
-        </v-btn>
-      </template>
-      <span class="font-weight-medium text-small white--text"
-        >بارگذاری تصویر</span
-      >
-    </v-tooltip>
+      </v-tooltip>
+    </v-sheet>
   </v-card>
 </template>
 
