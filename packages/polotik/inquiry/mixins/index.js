@@ -2,8 +2,7 @@ import Cookies from "js-cookie";
 import moment from "moment-jalaali";
 
 import { createNamespacedHelpers } from "vuex";
-const { mapActions, mapGetters } =
-  createNamespacedHelpers("guilds/inquiry");
+const { mapActions, mapGetters } = createNamespacedHelpers("guilds/inquiry");
 import Types from "@packages/polotik/inquiry/store/modules/root/types";
 const InquiryMixin = {
   data() {
@@ -23,6 +22,13 @@ const InquiryMixin = {
           amount: null,
           endDay: 1,
           placeDelivery: null,
+        },
+        user_offer: [],
+        offers: {
+          count: null,
+          page: null,
+          last_page: null,
+          data: [],
         },
         user_id: null,
       },

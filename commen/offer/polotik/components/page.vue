@@ -1,7 +1,10 @@
 <template>
   <v-card class="rounded-lg mx-2">
-    <v-card-subtitle class="grey lighten-2 black--text">
+    <v-card-subtitle
+      class="d-flex grey lighten-2 black--text justify-space-between align-center"
+    >
       {{ dataSource.title }}
+      <v-btn color="primary" small @click="viewTheAd">مشاهده آگهی</v-btn>
     </v-card-subtitle>
     <v-card-text>
       <RequestInfo :date-end="dateEnd" :date-start="dateStart" />
@@ -35,6 +38,11 @@ export default {
       return !this.dataSource.end
         ? this.dataSource.data?.conditions?.docs?.collectionDocsTime?.start
         : this.dataSource.start;
+    },
+  },
+  methods: {
+    viewTheAd() {
+      this.$router.push(`preview`);
     },
   },
 };

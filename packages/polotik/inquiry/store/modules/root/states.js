@@ -15,6 +15,13 @@ const state = () => ({
       amount: null,
       placeDelivery: null,
     },
+    user_offer: [],
+    offers: {
+      count: null,
+      page: null,
+      last_page: null,
+      data: [],
+    },
     user_id: null,
   },
 });

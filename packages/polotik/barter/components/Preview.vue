@@ -70,20 +70,22 @@
       <ParticipateForm
         v-if="
           currentUserId != editableBarter.user_id &&
-          editableBarter?.user_offer?.length == 0
+          editableInquiry?.user_offer[0] != null
         "
       />
-      <v-col
-        cols="12"
-        class="d-flex"
-        v-if="
-          currentUserId != editableBarter.user_id &&
-          editableBarter?.user_offer?.length >= 1
-        "
-      >
+      <v-col cols="12" class="d-flex">
         <v-spacer></v-spacer>
-        <v-btn color="success" @click="$router.push('outcome')"
+        <v-btn
+          v-if="editableBarter?.user_offer"
+          color="success"
+          @click="$router.push('outcome')"
           >پیگیری پیشنهاد من</v-btn
+        >
+        <v-btn
+          v-if="editableBarter?.offers"
+          color="success"
+          @click="$router.push('request')"
+          >دیدن پیشنهادات</v-btn
         >
       </v-col>
     </v-card>

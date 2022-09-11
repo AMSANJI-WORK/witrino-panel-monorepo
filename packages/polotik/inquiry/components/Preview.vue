@@ -4,7 +4,7 @@
     :loading="formLoading"
     class="d-flex flex-row flex-wrap rounded-lg mx-2 pa-md-10"
   >
-    <carousel
+    <Carousel
       class="d-block d-md-none"
       :gallery="editableInquiry.data?.gallery"
     />
@@ -44,7 +44,7 @@
         />
       </v-col>
     </v-col>
-    <carousel
+    <Carousel
       class="d-md-block d-none"
       :gallery="editableInquiry.data?.gallery"
     />
@@ -61,15 +61,28 @@
     <ParticipateForm
       v-if="
         currentUserId != editableInquiry.user_id &&
-        editableInquiry?.user_offer?.length == 0
+        !editableInquiry.user_offer.length != 0
       "
     />
     <v-col
       cols="12"
       class="d-flex"
       v-if="
+        currentUserId == editableInquiry.user_id &&
+        editableInquiry.offers.data.length != 0
+      "
+    >
+      <v-spacer></v-spacer>
+      <v-btn color="success" @click="$router.push('request')"
+        >دیدن پیشنهادات</v-btn
+      >
+    </v-col>
+    <v-col
+      cols="12"
+      class="d-flex"
+      v-if="
         currentUserId != editableInquiry.user_id &&
-        editableInquiry?.user_offer?.length >= 1
+        editableInquiry.user_offer.length != 0
       "
     >
       <v-spacer></v-spacer>
@@ -124,7 +137,7 @@ export default {
     },
     getInquiryData() {
       this.getAnInquiryAsync(this.inquiryId).then(() => {
-        Object.assign(this.editableInquiry, this.inquiry);
+        this.editableInquiry = Object.assign({}, this.inquiry);
         this.fromDate = this.calculateFromDate;
       });
     },

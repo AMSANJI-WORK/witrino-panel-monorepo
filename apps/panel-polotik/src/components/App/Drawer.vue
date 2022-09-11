@@ -1,7 +1,7 @@
 <template>
   <v-sheet class="transparent" width="100%">
     <DrawerSkeletonLoder v-if="loading" />
-    <v-sheet v-else rounded="lg" width="100%">
+    <v-sheet v-else rounded="lg" width="100%" elevation="2">
       <content-drawer
         list-group-active-class="p-green-primary--text"
         list-item-active-class="p-green-primary--text  boreder--bold"

@@ -62,16 +62,16 @@ export default {
       indeterminateLoading: (state) => state.indeterminateLoading,
     }),
 
-    // token() {
-    //   return import.meta.env.DEV
-    //     ? this.$route.query.token ?? "qwe"
-    //     : this.$route.query.token ?? null;
-    // },
     token() {
       return import.meta.env.DEV
-        ? this.$route.query.token ?? "asd"
+        ? this.$route.query.token ?? "qwe"
         : this.$route.query.token ?? null;
     },
+    // token() {
+    //   return import.meta.env.DEV
+    //     ? this.$route.query.token ?? "asd"
+    //     : this.$route.query.token ?? null;
+    // },
     redirect() {
       return import.meta.env.DEV
         ? this.$route.query.page ?? "/"

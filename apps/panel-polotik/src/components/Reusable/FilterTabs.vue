@@ -20,7 +20,7 @@
       <v-tab
         class="text-caption text-md-body-2 font-weight-medium"
         key="list-mine-request"
-        >پیگیری پیشنهادات من</v-tab
+        >پیشنهادات من</v-tab
       >
 
       <v-spacer></v-spacer>

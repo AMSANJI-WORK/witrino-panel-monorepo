@@ -5,10 +5,16 @@
       <v-spacer></v-spacer>
       <auction-participate-form v-if="showDialogBtn" />
       <v-btn
-        v-if="auction?.user_offer?.length >= 1"
+        v-if="auction?.user_offer"
         color="success"
         @click="$router.push('outcome')"
         >پیگیری پیشنهاد من</v-btn
+      >
+      <v-btn
+        v-if="auction?.offers"
+        color="success"
+        @click="$router.push('request')"
+        >دیدن پیشنهادات</v-btn
       >
     </v-card-actions>
   </v-card>
