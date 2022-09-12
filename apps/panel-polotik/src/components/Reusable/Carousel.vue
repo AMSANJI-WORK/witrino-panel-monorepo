@@ -6,7 +6,12 @@
       style="border-radius: 8px"
     >
       <v-carousel-item eager v-for="(image, index) in gallery" :key="index">
-        <v-img :src="getImageBySrc(image.src)" height="100%" eager>
+        <v-img
+          :src="getImageBySrc(image.src)"
+          height="100%"
+          style="object-fit: cover"
+          eager
+        >
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">
               <v-progress-linear
@@ -23,6 +28,7 @@
     <v-img
       v-else
       max-height="350"
+      style="object-fit: cover"
       :src="require('@commen/assets/image/png/image-default.png')"
     />
   </v-col>

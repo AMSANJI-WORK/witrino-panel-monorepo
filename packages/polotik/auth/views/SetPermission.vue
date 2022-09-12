@@ -46,12 +46,6 @@ import SetPermissionAvatar from "@commen/icons/components/polotik/SetPermissionA
 import SetPermissionMobile from "@commen/icons/components/polotik/SetPermissionMobile.vue";
 import SetPermission from "@commen/icons/components/polotik/SetPermission.vue";
 export default {
-  beforeRouteEnter(to, from, next) {
-    console.log("SetPermission.vue");
-    console.log(to);
-    console.log(from);
-    next();
-  },
   components: {
     SetPermissionAvatar,
     SetPermissionMobile,
@@ -63,15 +57,11 @@ export default {
     }),
 
     token() {
+      // asd
       return import.meta.env.DEV
         ? this.$route.query.token ?? "qwe"
         : this.$route.query.token ?? null;
     },
-    // token() {
-    //   return import.meta.env.DEV
-    //     ? this.$route.query.token ?? "asd"
-    //     : this.$route.query.token ?? null;
-    // },
     redirect() {
       return import.meta.env.DEV
         ? this.$route.query.page ?? "/"
@@ -96,7 +86,6 @@ export default {
 .set-permission {
   padding: 40px 0;
   background: #fff !important;
-  /* text-align: center; */
 }
 
 .set-permission img {

@@ -29,7 +29,8 @@
         to="create"
         class="white--text my-auto ml-2 d-md-flex d-none"
       >
-        درخواست {{ service }}
+        <slot name="btn-create-title" />
+        <span v-if="!$slots['btn-create-title']"> درخواست {{ service }} </span>
         <v-icon class="white--text">mdi-plus</v-icon>
       </v-btn>
       <v-btn

@@ -4,17 +4,26 @@
       <RequestList @changePage="getAllInquiryAsync(getAllRequestParams)" />
     </template>
     <template #request-list-user>
-      <RequestList
+      <request-List
         @changePage="getAllInquiryAsync(getAllRequestUserParams)"
         pagination-type="paginationSelfItem"
-      />
+      >
+        <template #no-data>
+          <span>هنوز هیچ درخواست استعلامی ایجاد نکرده اید</span>
+        </template>
+      </request-List>
     </template>
     <template #request-list-user-offered>
-      <RequestList
+      <request-List
         @changePage="getAllInquiryAsync(getAllRequestUserParams)"
         pagination-type="paginationSelfOffered"
-      />
+      >
+        <template #no-data>
+          <span>هنوز پیشنهادی ایجاد نکرده اید</span>
+        </template>
+      </request-List>
     </template>
+    <template #btn-create-title>استعلام قیمت</template>
   </filter-tabs>
 </template>
 

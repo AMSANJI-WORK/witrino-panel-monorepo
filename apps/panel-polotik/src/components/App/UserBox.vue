@@ -7,39 +7,33 @@
   >
     <v-card-subtitle class="py-1 font-weight-bold">
       <v-icon color="#fff" class="mx-1">mdi-basket</v-icon>تعداد محصول :
-      {{ userInfo.numOfProducts | productCount }}
+      {{ userInfo.num_of_products | productCount }}
     </v-card-subtitle>
     <v-card-subtitle class="py-1 font-weight-bold">
       <v-icon color="#fff" class="mx-1">mdi-calendar-month-outline</v-icon>تاریخ
-      عضویت : {{ userInfo.registerDate | dateToFa }}
+      عضویت : {{ userInfo.register_date | dateToFa }}
     </v-card-subtitle>
   </v-card>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import Cookies from "js-cookie";
 import moment from "moment-jalaali";
 export default {
   computed: {
     ...mapGetters("auth", ["user"]),
     userInfo() {
-      if (this.user.id !== null) return this.user;
-      else
-        return {
-          numOfProducts: Cookies.get("num-of-products"),
-          registerDate: Cookies.get("register-date"),
-        };
+      var storedUser = JSON.parse(localStorage.getItem("currentUser"));
+      return this.user.id == null ? { ...storedUser } : { ...this.user };
     },
   },
   filters: {
     productCount(value) {
-      if (!value || value === "undefined") return 0;
+      if (!value || value === "undefined") return "محصولی ثبت نشده";
       return value;
     },
     dateToFa(value) {
-      if (!value || value === "undefined")
-        return moment(new Date()).format("jYYYY/jMM/jDD");
+      if (!value || value === "undefined") return "ندارد";
       return moment(value).format("jYYYY/jMM/jDD");
     },
   },

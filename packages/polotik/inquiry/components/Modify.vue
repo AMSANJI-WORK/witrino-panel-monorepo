@@ -9,85 +9,90 @@
         class="d-md-none d-block"
         :gallery="editableInquiry.data.gallery"
       />
-      <v-col cols="12" md="6" class="d-flex flex-row flex-wrap">
-        <v-col cols="12" class="py-0">
-          <v-text-field
-            v-model="editableInquiry.title"
-            name="title"
-            class="rounded-lg"
-            dense
-            :loading="formLoading"
-            outlined
-            :rules="[rules.required]"
-            label="عنوان"
-          ></v-text-field>
-        </v-col>
-        <unit-service class="py-0 d-flex mt-3 rounded-lg" max-width-unit="130">
-          <template #selector>
-            <UnitServiceSelector
-              class="rounded-l-0 rounded-r-lg"
-              v-model="editableInquiry.data.unit"
-            />
-          </template>
-          <template #input>
-            <UnitServiceInput
-              class="rounded-l-lg rounded-r-0"
-              :selected-unit="editableInquiry.data.unit"
-              v-model="editableInquiry.data.amount"
-            />
-          </template>
-        </unit-service>
-        <CategoryService
-          v-model="editableInquiry.data.category"
-          :multiple="true"
-        />
-        <v-col cols="12" class="py-0">
-          <v-text-field
-            id="from-date"
-            readonly
-            label="تاریخ شروع"
-            class="rounded-lg"
-            :loading="formLoading"
-            name="fromDate"
-            append-icon="mdi-calendar"
-            :rules="[rules.required, fromDateRule]"
-            v-model="fromDate"
-            dense
-            outlined
-          ></v-text-field>
-          <CustomDatePicker
-            format="jYYYY/jMM/jDD"
-            element="from-date"
-            v-model="fromDate"
-            :min="minDate"
-          />
-        </v-col>
-        <CityService v-model="editableInquiry.data.place" :multiple="true" />
-        <v-col cols="12" class="py-0">
-          <v-slider
-            v-model="endDay"
-            danse
-            :rules="[rules.required]"
-            thumb-color="yellow darken-4"
-            track-fill-color="yellow darken-4"
-            track-color="yellow darken-2"
-            :tick-labels="tickLables"
-            tick-color="white"
-            :loading="formLoading"
-            thumb-label="always"
-            ticks="always"
-            tick-size="1"
-            :min="1"
-            :max="30"
-            step="1"
-            label="مدت اعتبار (روز)"
+      <v-col cols="12" md="6">
+        <v-sheet class="d-flex flex-row flex-wrap transparent">
+          <v-col cols="12" class="py-0">
+            <v-text-field
+              v-model="editableInquiry.title"
+              name="title"
+              class="rounded-lg"
+              dense
+              :loading="formLoading"
+              outlined
+              :rules="[rules.required]"
+              label="عنوان"
+            ></v-text-field>
+          </v-col>
+          <unit-service
+            class="py-0 d-flex mt-3 rounded-lg"
+            max-width-unit="130"
           >
-            <template v-slot:label>
-              <span class="d-md-block d-none">مدت اعتبار (روز)</span>
-              <span class="d-flex d-md-none">اعتبار (روز)</span>
+            <template #selector>
+              <UnitServiceSelector
+                class="rounded-l-0 rounded-r-lg"
+                v-model="editableInquiry.data.unit"
+              />
             </template>
-          </v-slider>
-        </v-col>
+            <template #input>
+              <UnitServiceInput
+                class="rounded-l-lg rounded-r-0"
+                :selected-unit="editableInquiry.data.unit"
+                v-model="editableInquiry.data.amount"
+              />
+            </template>
+          </unit-service>
+          <CategoryService
+            v-model="editableInquiry.data.category"
+            :multiple="true"
+          />
+          <v-col cols="12" class="py-0">
+            <v-text-field
+              id="from-date"
+              readonly
+              label="تاریخ شروع"
+              class="rounded-lg"
+              :loading="formLoading"
+              name="fromDate"
+              append-icon="mdi-calendar"
+              :rules="[rules.required, fromDateRule]"
+              v-model="fromDate"
+              dense
+              outlined
+            ></v-text-field>
+            <CustomDatePicker
+              format="jYYYY/jMM/jDD"
+              element="from-date"
+              v-model="fromDate"
+              :min="minDate"
+            />
+          </v-col>
+          <CityService v-model="editableInquiry.data.place" :multiple="true" />
+          <v-col cols="12" class="py-0">
+            <v-slider
+              v-model="endDay"
+              danse
+              :rules="[rules.required]"
+              thumb-color="yellow darken-4"
+              track-fill-color="yellow darken-4"
+              track-color="yellow darken-2"
+              :tick-labels="tickLables"
+              tick-color="white"
+              :loading="formLoading"
+              thumb-label="always"
+              ticks="always"
+              tick-size="1"
+              :min="1"
+              :max="30"
+              step="1"
+              label="مدت اعتبار (روز)"
+            >
+              <template v-slot:label>
+                <span class="d-md-block d-none">مدت اعتبار (روز)</span>
+                <span class="d-flex d-md-none">اعتبار (روز)</span>
+              </template>
+            </v-slider>
+          </v-col>
+        </v-sheet>
       </v-col>
       <Carousel
         class="d-none d-md-block"

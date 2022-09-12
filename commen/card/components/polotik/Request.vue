@@ -2,7 +2,7 @@
   <!-- :disabled="remainingDays < 0" -->
   <v-card elevation="0" class="mx-auto px-4 my-1">
     <v-card-subtitle
-      class="transparent pb-3 pr-0 font-weight-bold d-flex justify-space-between"
+      class="transparent pb-1 px-2 font-weight-bold d-flex justify-space-between"
       @click="pushRoute('preview')"
       >{{ dataSource.title }}
       <span class="text-body-2">
@@ -16,17 +16,33 @@
           :class="hover | setCardStyle"
           :style="cardBackgroundColor"
         >
-          <v-card-text
-            @click="pushRoute('preview')"
-            class="px-3 pa-6 line-height"
-            >{{ dataSource.description }}</v-card-text
-          >
-          <v-card-actions
-            class="line-height pt-0 d-flex flex-row flex-wrap justify-lg-start justify-space-between"
-          >
+          <v-card-text @click="pushRoute('preview')" class="px-3 line-height">
+            <v-card-subtitle class="px-1 py-0">
+              {{ dataSource.description }}
+            </v-card-subtitle>
+
+            <v-sheet
+              class="d-flex flex-wrap transparent pt-2"
+              v-if="dataSource.data.category"
+            >
+              <v-chip
+                v-for="category in dataSource.data.category"
+                class="mx-1"
+                :key="category.id"
+                x-small
+                text-color="p-green-primary"
+              >
+                {{ `# ${category.name}` }}
+              </v-chip>
+            </v-sheet>
+          </v-card-text>
+          <v-divider></v-divider>
+
+          <v-card-actions class="line-height">
             <v-chip
               :ripple="false"
               color="white"
+              small
               text-color="p-red-primary-darken"
               class="ml-md-2 my-2 my-sm-0 text-body-2"
               >مدت اعتبار (از تاریخ شروع) :
@@ -37,6 +53,7 @@
             <v-chip
               :ripple="false"
               color="white"
+              small
               v-show="dataSource.data?.unit"
               text-color="p-green-primary-darken"
               class="mx-md-2 my-2 mx-1"
@@ -69,17 +86,44 @@
                 ویرایش
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
+              <v-dialog v-model="dialog" width="500">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    color="p-red-primary"
+                    small
+                    text
+                    v-bind="attrs"
+                    v-on="on"
+                    :ripple="false"
+                  >
+                    حذف
+                    <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                </template>
 
-              <v-btn
-                color="p-red-primary"
-                small
-                text
-                :ripple="false"
-                @click="deleteRequest(dataSource.id)"
-              >
-                حذف
-                <v-icon>mdi-delete</v-icon>
-              </v-btn>
+                <v-card>
+                  <v-card-title>
+                    آیا از حذف درخواست {{ ` ${dataSource.title} ` }}مطمئن هستید
+                    ؟
+                  </v-card-title>
+                  <v-card-text> </v-card-text>
+
+                  <v-divider></v-divider>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="red" text @click="dialog = false">
+                      خیر
+                    </v-btn>
+                    <v-btn
+                      color="primary"
+                      @click="deleteRequest(dataSource.id)"
+                    >
+                      بله
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
             </v-sheet>
           </v-card-actions>
         </v-sheet>
@@ -95,6 +139,11 @@ import Cookies from "js-cookie";
 export default {
   components: {
     RequestLink,
+  },
+  data() {
+    return {
+      dialog: false,
+    };
   },
   props: {
     dataSource: Object,

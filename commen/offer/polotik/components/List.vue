@@ -109,7 +109,7 @@ export default {
       return title;
     },
     redirectToSellerProfile(url) {
-      window.location.href = url;
+      window.open(url);
     },
     isCurrentUser(offer) {
       return Cookies.get("user-id") == offer.user_data.id;

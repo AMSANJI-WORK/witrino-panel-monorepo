@@ -15,14 +15,25 @@
         half-increments
         size="18"
       ></v-rating>
-      <v-avatar size="100" color="grey" class="my-2 v-sheet-avatar--offset">
-        <img :src="userInfo.image" alt="alt" />
-      </v-avatar>
+      <v-dialog v-model="dialog" max-width="300">
+        <template v-slot:activator="{ on, attrs }">
+          <v-avatar
+            size="100"
+            color="grey"
+            class="my-2 v-sheet-avatar--offset"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <img :src="userInfo.image" alt="alt" style="object-fit: cover" />
+          </v-avatar>
+        </template>
+        <img :src="userInfo.image" alt="alt" style="object-fit: cover" />
+      </v-dialog>
     </v-sheet>
     <v-sheet class="text-center mt-12 mb-2 transparent">
-      <h4 class="my-1">{{ userInfo.companyName }}</h4>
+      <h4 class="my-1">{{ userInfo.company_name | campanyName }}</h4>
       <span class="my-1" style="font-size: 0.875rem; font-weight: 200">{{
-        userInfo.name
+        userInfo.name | userName
       }}</span>
     </v-sheet>
   </v-sheet>
@@ -30,7 +41,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Cookies from "js-cookie";
 export default {
   props: {
     rounded: {
@@ -38,16 +48,24 @@ export default {
       default: "lg",
     },
   },
+  data() {
+    return {
+      dialog: false,
+    };
+  },
+  filters: {
+    campanyName: function (value) {
+      return !value || value == undefined ? "" : value;
+    },
+    userName: function (value) {
+      return !value || value == undefined ? "" : value;
+    },
+  },
   computed: {
     ...mapGetters("auth", ["user"]),
     userInfo() {
-      if (this.user.id !== null) return this.user;
-      else
-        return {
-          name: Cookies.get("user-name"),
-          companyName: Cookies.get("company-name"),
-          image: Cookies.get("image"),
-        };
+      var storedUser = JSON.parse(localStorage.getItem("currentUser"));
+      return this.user.id == null ? { ...storedUser } : { ...this.user };
     },
   },
 };

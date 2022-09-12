@@ -3,7 +3,7 @@
     <v-slide-x-transition>
       <PageListSkeletonMenu v-show="skeletonLoading.menu" />
     </v-slide-x-transition>
-    <v-card elevation="0" v-show="!skeletonLoading.menu">
+    <v-card elevation="0" v-show="!skeletonLoading.menu" class="pb-5">
       <v-slide-x-transition :group="true">
         <Product
           v-for="request in requestList"
@@ -13,7 +13,23 @@
           :date-start="dateStart(request)"
         />
       </v-slide-x-transition>
-      <v-sheet class="d-flex pa-2 mt-2 transparent">
+      <v-card
+        class="grey lighten-1 ma-3 rounded-lg"
+        v-show="requestList.length == 0"
+      >
+        <v-card-text>
+          <v-card-title class="font-weight-bold white--text">
+            <v-spacer></v-spacer>
+            <slot name="no-data" />
+            <span v-if="!$slots['no-data']"> هیچ آگهی یافت نشد </span>
+            <v-spacer></v-spacer>
+          </v-card-title>
+        </v-card-text>
+      </v-card>
+      <v-sheet
+        class="d-flex pa-2 transparent"
+        v-if="pagination.recordCount > 5"
+      >
         <v-spacer></v-spacer>
         <v-pagination
           v-model="pagination.page"
@@ -49,20 +65,20 @@ export default {
   computed: {
     skeletonLoading() {
       return this.$store.getters[
-        `guilds${this.acitveService}/skeletonLoading/skeletonLoading`
+        `guilds/${this.acitveService}/skeletonLoading/skeletonLoading`
       ];
     },
     acitveService() {
-      return this.$route.matched[1].path;
+      return this.$route.matched[1].path.slice(1);
     },
     requestList() {
       return this.$store.getters[
-        `guilds${this.acitveService}${this.acitveService}List`
+        `guilds/${this.acitveService}/${this.acitveService}List`
       ];
     },
     pagination() {
       return this.$store.getters[
-        `guilds${this.acitveService}/${this.paginationType}/pagination`
+        `guilds/${this.acitveService}/${this.paginationType}/pagination`
       ];
     },
   },
