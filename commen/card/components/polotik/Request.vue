@@ -38,7 +38,7 @@
           </v-card-text>
           <v-divider></v-divider>
 
-          <v-card-actions class="line-height">
+          <v-card-actions class="line-height pa-1">
             <v-chip
               :ripple="false"
               color="white"
@@ -72,59 +72,50 @@
             />
 
             <v-spacer></v-spacer>
-            <v-sheet
+
+            <v-btn
+              color="p-secondary-primary"
               v-if="isCurrentUser"
-              class="d-flex flex-row flex-wrap mt-2 transparent"
+              small
+              text
+              :ripple="false"
+              @click="pushRoute('edit')"
             >
-              <v-btn
-                color="p-secondary-primary"
-                small
-                text
-                :ripple="false"
-                @click="pushRoute('edit')"
-              >
-                ویرایش
-                <v-icon>mdi-pencil</v-icon>
-              </v-btn>
-              <v-dialog v-model="dialog" width="500">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    color="p-red-primary"
-                    small
-                    text
-                    v-bind="attrs"
-                    v-on="on"
-                    :ripple="false"
-                  >
-                    حذف
-                    <v-icon>mdi-delete</v-icon>
+              ویرایش
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+            <v-dialog v-model="dialog" width="500" v-if="isCurrentUser">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  color="p-red-primary"
+                  small
+                  text
+                  v-bind="attrs"
+                  v-on="on"
+                  :ripple="false"
+                >
+                  حذف
+                  <v-icon>mdi-delete</v-icon>
+                </v-btn>
+              </template>
+
+              <v-card>
+                <v-card-title>
+                  آیا از حذف درخواست {{ ` ${dataSource.title} ` }}مطمئن هستید ؟
+                </v-card-title>
+                <v-card-text> </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="red" text @click="dialog = false"> خیر </v-btn>
+                  <v-btn color="primary" @click="deleteRequest(dataSource.id)">
+                    بله
                   </v-btn>
-                </template>
-
-                <v-card>
-                  <v-card-title>
-                    آیا از حذف درخواست {{ ` ${dataSource.title} ` }}مطمئن هستید
-                    ؟
-                  </v-card-title>
-                  <v-card-text> </v-card-text>
-
-                  <v-divider></v-divider>
-
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="red" text @click="dialog = false">
-                      خیر
-                    </v-btn>
-                    <v-btn
-                      color="primary"
-                      @click="deleteRequest(dataSource.id)"
-                    >
-                      بله
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-sheet>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-card-actions>
         </v-sheet>
       </template>

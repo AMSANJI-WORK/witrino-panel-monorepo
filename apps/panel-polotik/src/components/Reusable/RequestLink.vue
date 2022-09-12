@@ -1,15 +1,14 @@
 <template>
-  <v-badge
-    overlap
-    color="#339987"
-    :content="newRequestCount"
-    class="font-weight-medium"
-  >
+  <v-badge overlap color="p-green-primary" class="pa-0">
+    <template #badge>
+      <span class="text-caption font-weight-bold">{{ newRequestCount }}</span>
+    </template>
     <v-chip
       link
       :to="`${productId}/request`"
       :ripple="false"
       color="white"
+      small
       class="mx-1 cursor-pointer"
     >
       <component :is="MassageIcon"></component>
@@ -31,4 +30,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+:deep(.v-badge__badge) {
+  padding: 1px;
+}
+</style>
