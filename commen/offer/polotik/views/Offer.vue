@@ -19,6 +19,12 @@ export default {
     OfferPage,
     OfferSkeleton,
   },
+  beforeRouteLeave(to, from, next) {
+    next();
+    this.$store.commit(
+      `guilds/${this.$route.matched[1].path.slice(1)}/request/RESET_OFFERS`
+    );
+  },
   computed: {
     activeService() {
       return this.$route.matched[1].path.slice(1);
