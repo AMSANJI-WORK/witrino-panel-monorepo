@@ -3,7 +3,6 @@
     v-bind="$attrs"
     outlined
     dense
-    :loading="formLoading"
     :value="price | toRial"
     @input="updateValue"
     :hint="price | numberToStringFa"
@@ -17,22 +16,40 @@ export default {
   inheritAttrs: false,
   props: {
     value: {
-      type: String,
+      type: [String, Number],
     },
   },
   data() {
     return {
-      price: null,
+      price: "",
     };
+  },
+  filters: {
+    numberToStringFa(value) {
+      if (!value || value == 0) return "0".num2persian() + " تومان";
+      return value.num2persian() + " تومان";
+    },
+    toRial(str) {
+      if (str) {
+        var tempStr = String(str);
+        tempStr = tempStr.replace(/\,/g, "");
+        var objRegex = new RegExp("(-?[0-9]+)([0-9]{3})");
+        while (objRegex.test(tempStr)) {
+          tempStr = tempStr.replace(objRegex, "$1,$2");
+        }
+        if (tempStr === "") return "0";
+        return tempStr;
+      }
+    },
   },
   computed: {
     priceToNumber() {
-      return parseFloat(this.price.replace(/,/g, ""));
+      return parseFloat(this.price.replace(/,/g, "")) || 0;
     },
   },
   methods: {
-    updateValue() {
-      this.price = this.price.replace(/[^a-zA-Z]+/g, "");
+    updateValue(e) {
+      this.price = e.replace(/[a-zA-Z]+/g, "");
       this.$emit("input", this.priceToNumber);
     },
   },

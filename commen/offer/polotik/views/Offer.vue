@@ -26,6 +26,11 @@ export default {
     );
   },
   computed: {
+    dataSource() {
+      return this.$store.getters[
+        `guilds/${this.activeService}/${this.activeService}`
+      ];
+    },
     activeService() {
       return this.$route.matched[1].path.slice(1);
     },
@@ -56,7 +61,7 @@ export default {
     },
   },
   created() {
-    this.requestOffersGetAll();
+    if (!this.$route.path.includes("outcome")) this.requestOffersGetAll();
     this.requestGetOne();
   },
 };

@@ -13,7 +13,7 @@
       </v-col>
     </v-sheet>
     <v-sheet class="d-flex flex-wrap">
-      <v-col cols="12" v-for="product in 4" :key="product">
+      <v-col cols="12" v-for="product in cardNumber" :key="product">
         <v-card class="rounded-lg" elevation="4">
           <v-skeleton-loader v-bind="attrs" type="article"></v-skeleton-loader>
           <v-card-actions class="pa-0">
@@ -43,6 +43,14 @@ export default {
         class: "rounded-lg px-0",
       },
     };
+  },
+  computed: {
+    cardNumber() {
+      return this.activePageIsUserOffer ? 1 : 4;
+    },
+    activePageIsUserOffer() {
+      return this.$route.path.includes("outcome");
+    },
   },
 };
 </script>

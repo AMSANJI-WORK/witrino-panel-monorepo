@@ -3,19 +3,12 @@
     <label for="offerPrice" class="ml-md-7 ml-3 pr-3">قیمت پیشنهادی شما</label>
     <v-responsive max-width="250" class="d-flex">
       <v-form ref="inquiryParticipate">
-        <v-text-field
+        <PriceInput
           class="rounded-l-0 white mt-7"
-          outlined
-          dense
+          v-model="inquiryParticipate.price"
           :loading="formLoading"
           :rules="[rules.required]"
-          :value="price | toRial"
-          @input="(value) => (price = value)"
-          :hint="price | numberToStringFa"
-          persistent-hint
-          suffix="تومان"
-          name="offerPrice"
-        ></v-text-field>
+        />
       </v-form>
     </v-responsive>
 
@@ -45,14 +38,17 @@
 <script>
 import { mapActions } from "vuex";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
-import UtilityMixin from "@shared/mixins/utility";
 import fromRules from "@commen/form/mixins/rules";
 import OFFER_TYPES from "@commen/offer/polotik/store/types";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+
 export default {
-  mixins: [inquiryLoadingMixin, UtilityMixin, fromRules],
+  mixins: [inquiryLoadingMixin, fromRules],
+  components: {
+    PriceInput,
+  },
   data() {
     return {
-      price: null,
       inquiryParticipate: {
         price: null,
         title: "تست",
@@ -61,17 +57,11 @@ export default {
       },
     };
   },
-  computed: {
-    priceToNumber() {
-      return parseFloat(this.price.replace(/,/g, ""));
-    },
-  },
   methods: {
     ...mapActions("guilds/inquiry/request", {
       createRequestInquiryAsync: OFFER_TYPES.CREATE_OFFER_ASYNC,
     }),
     submitRequest() {
-      this.inquiryParticipate.price = this.priceToNumber;
       if (this.$refs.inquiryParticipate.validate())
         this.createRequestInquiryAsync({
           target: { name: "inquiry", id: this.$route.params.id },

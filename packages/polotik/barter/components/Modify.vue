@@ -44,22 +44,17 @@
           />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-text-field
-            :value="editableBarter.data.price | toRial"
-            @input="(value) => (editableBarter.data.price = value)"
-            :hint="editableBarter.data.price | numberToStringFa"
-            :loading="formLoading"
+          <PriceInput
             class="rounded-lg"
-            :rules="[rules.required]"
-            label="ارزش تقریبی"
-            suffix="تومان"
-            dense
+            v-model="editableBarter.data.price"
+            :loading="formLoading"
             persistent-hint
-            outlined
-          ></v-text-field>
+            label="ارزش تقریبی"
+          />
         </v-col>
         <CityService
-          class="py-0"
+          class="py-0 rounded-lg"
+          :rules="[rules.required]"
           v-model="editableBarter.data.place"
           :multiple="true"
         />
@@ -202,7 +197,7 @@ import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
-
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 export default {
   mixins: [
     BarterMixin,
@@ -217,6 +212,7 @@ export default {
     VSelectInputNoData,
     UploadImage,
     Carousel,
+    PriceInput,
   },
   data() {
     return {

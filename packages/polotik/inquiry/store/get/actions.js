@@ -38,12 +38,13 @@ export default {
     }
   },
   async [GET_ONE_INQUIRY_ASYNC]({ commit }, payload) {
+    let activePageIsUserOffer = router.currentRoute.path.includes("outcome");
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
-      commit(loadingType);
+      if (activePageIsUserOffer)
+        commit("request/skeletonLoading/TOGGLE_SKELETON_LOADING_OFFERS");
+      else commit(loadingType);
       const { data } = await guildsRepository.getAnInquiry(payload);
-      if (data.data?.offers)
-        commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
         commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_ONE_INQUIRY_SUCCESS, data);
@@ -51,7 +52,11 @@ export default {
       console.log(error);
       commit(GET_ONE_INQUIRY_FAILURE, error);
     } finally {
-      setTimeout(() => commit(loadingType), 1000);
+      setTimeout(() => {
+        if (activePageIsUserOffer)
+          commit("request/skeletonLoading/TOGGLE_SKELETON_LOADING_OFFERS");
+        else commit(loadingType);
+      }, 1000);
     }
   },
 };
