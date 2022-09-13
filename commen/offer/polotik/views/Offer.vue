@@ -1,14 +1,23 @@
 <template>
   <v-sheet class="transparent">
-    <OfferPage />
+    <v-slide-x-transition>
+      <OfferSkeleton v-show="skeletonLoading.offers" />
+    </v-slide-x-transition>
+    <v-slide-x-transition>
+      <v-sheet class="transparent">
+        <OfferPage v-show="!skeletonLoading.offers" />
+      </v-sheet>
+    </v-slide-x-transition>
   </v-sheet>
 </template>
 
 <script>
 import OfferPage from "../components/page.vue";
+import OfferSkeleton from "@commen/loading/modules/skeleton/components/Offer.vue";
 export default {
   components: {
     OfferPage,
+    OfferSkeleton,
   },
   computed: {
     activeService() {
@@ -16,6 +25,11 @@ export default {
     },
     activeServiceUpperCase() {
       return this.activeService.toUpperCase();
+    },
+    skeletonLoading() {
+      return this.$store.getters[
+        `guilds/${this.activeService}/request/skeletonLoading/skeletonLoading`
+      ];
     },
   },
   methods: {
@@ -25,8 +39,18 @@ export default {
         this.$route.params.id
       );
     },
+    requestOffersGetAll() {
+      this.$store.dispatch(
+        `guilds/${this.activeService}/request/GET_ALL_OFFER_ASYNC`,
+        {
+          target: this.activeService,
+          id: this.$route.params.id,
+        }
+      );
+    },
   },
   created() {
+    this.requestOffersGetAll();
     this.requestGetOne();
   },
 };

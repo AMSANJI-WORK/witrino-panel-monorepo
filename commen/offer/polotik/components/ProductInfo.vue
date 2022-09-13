@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="0" class="transparent">
+  <v-card elevation="0" class="transparent" v-show="skeletonLoading.offerMenu">
     <v-card-subtitle class="d-flex flex-wrap">
       <v-col cols="12" sm="6" md="4" class="px-0 py-0">
         <VLabel
@@ -37,6 +37,11 @@ export default {
     dataSource() {
       return this.$store.getters[
         `guilds/${this.activeService}/${this.activeService}`
+      ];
+    },
+    skeletonLoading() {
+      return this.$store.getters[
+        `guilds/${this.activeService}/request/skeletonLoading/skeletonLoading`
       ];
     },
   },

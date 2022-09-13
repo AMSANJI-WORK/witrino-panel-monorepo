@@ -1,10 +1,11 @@
 import * as TYPES from "./types";
-
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
-
+import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
 export default {
   async [TYPES.GET_ALL_OFFER_ASYNC]({ commit, getters }, payload) {
+    let loadingType = setLoadingTypes.pageListOffers(getters.offers.length);
+    commit(loadingType);
     try {
       const { data } = await guildsRepository.getAllOffers(
         payload.target,
@@ -15,7 +16,9 @@ export default {
       commit(TYPES.GET_ALL_OFFER_SUCCESS, data);
     } catch (error) {
       console.log(error);
-      commit(GET_ALL_OFFER_FAILURE, error);
+      commit(TYPES.GET_ALL_OFFER_FAILURE, error);
+    } finally {
+      commit(loadingType);
     }
   },
 

@@ -45,10 +45,10 @@ export default {
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getAnAuction(payload);
-      if (data.data?.offers)
-      commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
-      if (data.data?.user_offer)
-        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
+      // if (data.data?.offers)
+      // commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
+      // if (data.data?.user_offer)
+      //   commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_ONE_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);
@@ -57,8 +57,8 @@ export default {
       setTimeout(() => commit(loadingType), 1000);
     }
   },
-  async [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
+  [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
     commit(CHANGE_PAGE_PAGINATION, payload);
-    await dispatch(GET_ALL_AUCTION_ASYNC);
+    dispatch(GET_ALL_AUCTION_ASYNC);
   },
 };

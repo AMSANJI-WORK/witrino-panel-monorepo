@@ -7,6 +7,8 @@ export default {
       one: false,
       menu: false,
       dashboard: false,
+      offers: false,
+      offersMenu: false,
     },
     pageLoaded: false,
   }),
@@ -39,6 +41,12 @@ export default {
     },
     [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_DASHBOARD](state) {
       state.skeletonLoading.dashboard = !state.skeletonLoading.dashboard;
+    },
+    [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_OFFERS](state) {
+      state.skeletonLoading.offers = !state.skeletonLoading.offers;
+    },
+    [LOADING_TYPES_SKELETON.TOGGLE_SKELETON_LOADING_OFFERS_MENU](state) {
+      state.skeletonLoading.offersMenu = !state.skeletonLoading.offersMenu;
     },
   },
 };
