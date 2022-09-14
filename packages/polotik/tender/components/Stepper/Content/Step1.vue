@@ -53,17 +53,13 @@
       :multiple="true"
     />
     <v-col cols="12" sm="6">
-      <v-text-field
-        dense
-        :value="formData.tenderBasePrice | toRial"
-        @input="(value) => (formData.tenderBasePrice = value)"
-        persistent-hint
-        suffix="تومان"
-        :hint="formData.tenderBasePrice | numberToStringFa"
+      <PriceInput
+        class="rounded-lg"
+        v-model="formData.tenderBasePrice"
         :loading="formLoading"
-        outlined
+        :rules="[rules.required]"
         label="برارود اولیه"
-      ></v-text-field>
+      />
     </v-col>
     <v-field-space styleClass="my-sm-4 d-md-block d-none" />
     <v-stepper-level-btn
@@ -87,8 +83,11 @@ import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+
 export default {
   components: {
+    PriceInput,
     CityService,
     VSelectInputNoData,
     VSelectInputSelection,

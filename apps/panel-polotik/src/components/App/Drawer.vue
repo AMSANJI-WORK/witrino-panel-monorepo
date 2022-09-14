@@ -18,9 +18,9 @@
 <script>
 import menuItems from "@polotik/constants/menu";
 import ContentDrawer from "@commen/drawer/components/List.vue";
-import mainElementLoading from "@commen/loading/modules/skeleton/mixins/main-element";
-import DrawerSkeletonLoder from "@commen/loading/modules/skeleton/components/Drawer.vue";
 import DrawerCardTop from "@polotik/components/App/DrawerCardTop.vue";
+import DrawerSkeletonLoder from "@commen/loading/modules/skeleton/components/Drawer.vue";
+import mainElementLoading from "@commen/loading/modules/skeleton/mixins/main-element";
 export default {
   mixins: [mainElementLoading],
   components: { ContentDrawer, DrawerSkeletonLoder, DrawerCardTop },

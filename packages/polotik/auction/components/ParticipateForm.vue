@@ -36,20 +36,14 @@
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" :class="settings.offerPrice ? '' : 'd-none'">
-            <v-text-field
+            <PriceInput
               class="rounded-lg"
-              :value="price | toRial"
-              @input="(value) => (price = value)"
-              :hint="price | numberToStringFa"
-              dense
-              persistent-hint
-              :disabled="!settings.offerPrice"
-              suffix="تومان"
+              v-model="auctionParticipate.price"
               :loading="formLoading"
-              outlined
               :rules="[rules.required]"
+              persistent-hint
               label="مبلغ پیشنهادی"
-            ></v-text-field>
+            />
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -151,9 +145,11 @@ import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import OFFER_TYPES from "@commen/offer/polotik/store/types";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 
 export default {
   components: {
+    PriceInput,
     UploadImage,
   },
   mixins: [auctionLoadingMixin, fromRules, StepperMixin, UtilityMixin],
@@ -199,9 +195,6 @@ export default {
     settings() {
       return this.auction.data.auctionInfo.settings;
     },
-    priceToNumber() {
-      return this.price.replace(/,/g, "");
-    },
   },
   methods: {
     ...mapActions({
@@ -221,8 +214,6 @@ export default {
       this.auctionParticipate.data.gallery.splice(imageIdx, 1);
     },
     submitAuctionParticipate() {
-      this.auctionParticipate.price = this.priceToNumber;
-      console.log(this.priceToNumber);
       if (this.form.validate()) {
         this.createOfferAuctionAsync({
           target: { name: "auction", id: this.auctionId },

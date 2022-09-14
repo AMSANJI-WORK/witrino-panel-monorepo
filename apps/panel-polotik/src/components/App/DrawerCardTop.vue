@@ -32,9 +32,9 @@
     </v-sheet>
     <v-sheet class="text-center mt-12 mb-2 transparent">
       <h4 class="my-1">{{ userInfo.company_name | campanyName }}</h4>
-      <span class="my-1" style="font-size: 0.875rem; font-weight: 200">{{
-        userInfo.name | userName
-      }}</span>
+      <span class="my-1" style="font-size: 0.875rem; font-weight: 200">
+        {{ userInfo.name | userName }}
+      </span>
     </v-sheet>
   </v-sheet>
 </template>

@@ -15,8 +15,11 @@
 export default {
   inheritAttrs: false,
   props: {
-    value: {
-      type: [String, Number],
+    value: [String, Number],
+  },
+  watch: {
+    value(newValue) {
+      this.price = newValue.toString();
     },
   },
   data() {
@@ -44,11 +47,13 @@ export default {
   },
   computed: {
     priceToNumber() {
+      if (!this.price) return "0";
       return parseFloat(this.price.replace(/,/g, "")) || 0;
     },
   },
   methods: {
     updateValue(e) {
+      if (!e) e = "0";
       this.price = e.replace(/[a-zA-Z]+/g, "");
       this.$emit("input", this.priceToNumber);
     },

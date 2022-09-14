@@ -5,18 +5,13 @@
     class="my-md-12 my-4 d-flex flex-wrap"
   >
     <v-col cols="12" sm="6">
-      <v-text-field
-        dense
-        persistent-hint
-        suffix="تومان"
-        :value="formData.guaranteePrice | toRial"
-        @input="(value) => (formData.guaranteePrice = value)"
-        :hint="formData.guaranteePrice | numberToStringFa"
+      <PriceInput
+        class="rounded-lg"
+        v-model="formData.guaranteePrice"
         :loading="formLoading"
-        outlined
         :rules="[rules.required]"
         label="مبلغ ضمانت"
-      ></v-text-field>
+      />
     </v-col>
     <v-col cols="12" sm="6">
       <v-select
@@ -110,8 +105,11 @@ import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+
 export default {
   components: {
+    PriceInput,
     VFieldSpace,
     VStepperLevelBtn,
   },

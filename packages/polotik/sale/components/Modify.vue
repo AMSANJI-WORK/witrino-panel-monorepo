@@ -10,6 +10,7 @@
           v-model="editableSale.user_id"
           class="rounded-lg"
           dense
+          readonly
           :loading="formLoading"
           outlined
           :rules="[rules.required]"
@@ -52,19 +53,14 @@
         :multiple="true"
       />
       <v-col cols="12" sm="6" class="py-0">
-        <v-text-field
-          dense
+        <PriceInput
           class="rounded-lg"
-          persistent-hint
-          suffix="تومان"
-          :value="editableSale.data.price.base | toRial"
-          @input="(value) => (editableSale.data.price.base = value)"
-          :hint="editableSale.data.price.base | numberToStringFa"
+          v-model="editableSale.data.price.base"
           :loading="formLoading"
           :rules="[rules.required]"
-          outlined
+          persistent-hint
           label="قیمت پایه"
-        ></v-text-field>
+        />
       </v-col>
       <v-col cols="12" sm="6" class="py-0">
         <v-text-field
@@ -142,6 +138,7 @@
                 <LimitPercentInput
                   label="حداقل افزایش"
                   class="rounded-lg rounded-l-0"
+                  :loading="formLoading"
                   v-model="editableSale.data.price.present.min"
                 />
               </v-col>
@@ -158,6 +155,7 @@
                 <LimitPriceInput
                   label="حداقل افزایش"
                   class="rounded-lg rounded-l-0"
+                  :loading="formLoading"
                   :value="editableSale.data.price.min | toRial"
                   @input="(value) => (editableSale.data.price.min = value)"
                 />
@@ -165,6 +163,7 @@
               <v-col cols="6" sm="6" class="pa-0 pl-sm-3">
                 <LimitPriceInput
                   label="حداکثر افزایش"
+                  :loading="formLoading"
                   class="rounded-lg rounded-r-0"
                   :value="editableSale.data.price.max | toRial"
                   @input="(value) => (editableSale.data.price.max = value)"
@@ -282,10 +281,12 @@ import LimitPercentInput from "@packages/polotik/sale/components/ModifyLimit/Per
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
 import fromRules from "@commen/form/mixins/rules";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 
 export default {
   mixins: [SaleMixin, fromRules, saleLoadingMixin, ServicesMixin, UtilityMixin],
   components: {
+    PriceInput,
     LimitSection,
     LimitPriceInput,
     LimitPercentInput,
@@ -331,6 +332,7 @@ export default {
         },
       ];
     },
+    
     minEndDate() {
       return moment(this.editableSale.start).format("jYYYY/jMM/jDD HH:mm");
     },

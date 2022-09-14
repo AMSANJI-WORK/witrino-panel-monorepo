@@ -4,28 +4,37 @@
     @input="updateValue"
     :hint="value | numberToStringFa"
     dense
-    :loading="formLoading"
+    v-bind="$attrs"
     outlined
-    :rules="[rules.required]"
-    :label="label"
     persistent-hint
     suffix="تومان"
   ></v-text-field>
 </template>
 
 <script>
-import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 export default {
-  mixins: [saleLoadingMixin, UtilityMixin, fromRules],
+  inheritAttrs: false,
+  mixins: [UtilityMixin],
   props: {
-    value: String,
-    label: String,
+    value: [String, Number],
+  },
+  data() {
+    return {
+      price: null,
+    };
+  },
+  computed: {
+    priceToNumber() {
+      if (!this.price) return "0";
+      return parseFloat(this.price.replace(/,/g, "")) || 0;
+    },
   },
   methods: {
-    updateValue(value) {
-      this.$emit("input", value);
+    updateValue(e) {
+      if (!e) e = "0";
+      this.price = e.replace(/[a-zA-Z]+/g, "");
+      this.$emit("input", this.priceToNumber);
     },
   },
 };

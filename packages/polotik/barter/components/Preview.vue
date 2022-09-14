@@ -69,8 +69,7 @@
       </v-col>
       <ParticipateForm
         v-if="
-          currentUserId != editableBarter.user_id &&
-          editableBarter?.user_offer[0] != null
+          currentUserId != editableBarter.user_id && editableBarter?.user_offer
         "
       />
       <v-col cols="12" class="d-flex">

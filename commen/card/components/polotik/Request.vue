@@ -1,6 +1,10 @@
 <template>
-  <!-- :disabled="remainingDays < 0" -->
-  <v-card elevation="0" class="mx-auto px-4 my-1">
+  <!--  -->
+  <v-card
+    :disabled="remainingDays > 0 && remainingDays < 1"
+    elevation="0"
+    class="mx-auto px-4 my-1"
+  >
     <v-card-subtitle
       class="transparent pb-1 px-2 font-weight-bold d-flex justify-space-between"
       @click="pushRoute('preview')"
@@ -13,8 +17,12 @@
       <template v-slot:default="{ hover }">
         <v-sheet
           class="transition-swing rounded-lg cursor-pointer"
-          :class="hover | setCardStyle"
-          :style="cardBackgroundColor"
+          :class="[
+            hover ? 'elevation-3' : 'elevation-0',
+            isCurrentUser
+              ? 'p-blue-lighten-primary'
+              : 'p-purple-lighten-primary',
+          ]"
         >
           <v-card-text @click="pushRoute('preview')" class="px-3 line-height">
             <v-card-subtitle class="px-1 py-0">
@@ -145,9 +153,6 @@ export default {
     timeTofa: function (value) {
       return moment(value).format("HH:mm | jYYYY/jMM/jDD");
     },
-    setCardStyle(v) {
-      return v ? "elevation-3" : "elevation-0";
-    },
   },
   computed: {
     activeService() {
@@ -155,11 +160,6 @@ export default {
     },
     isCurrentUser() {
       return this.dataSource.user_id == Cookies.get("user-id");
-    },
-    cardBackgroundColor() {
-      return this.isCurrentUser
-        ? "background: #C8F9F0;"
-        : "background: #d9e6ff;";
     },
     compareStartDateWithCurrentDate() {
       const oneDay = 1000 * 60 * 60 * 24;
@@ -177,6 +177,7 @@ export default {
         this.compareStartDateWithCurrentDate - new Date(this.dateEnd)
       );
       const oneDay = 1000 * 60 * 60 * 24;
+      console.log(Math.ceil(timeDefrence / oneDay));
       return Math.ceil(timeDefrence / oneDay);
     },
   },

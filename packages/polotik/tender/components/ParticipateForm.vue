@@ -36,20 +36,14 @@
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" :class="settings.offerPrice ? '' : 'd-none'">
-            <v-text-field
-              suffix="تومان"
-              label="مبلغ پیشنهادی"
+            <PriceInput
               class="rounded-lg"
-              persistent-hint
-              :value="price | toRial"
-              @input="(value) => (price = value)"
-              :hint="price | numberToStringFa"
-              :disabled="!settings.offerPrice"
+              label="مبلغ پیشنهادی"
+              v-model="tenderParticipate.price"
               :loading="formLoading"
               :rules="[rules.required]"
-              dense
-              outlined
-            ></v-text-field>
+              persistent-hint
+            />
           </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -151,15 +145,16 @@ import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 import OFFER_TYPES from "@commen/offer/polotik/store/types";
 export default {
   components: {
+    PriceInput,
     UploadImage,
   },
   mixins: [tenderLoadingMixin, fromRules, StepperMixin, UtilityMixin],
   data() {
     return {
-      price: null,
       dialog: false,
       comment: false,
       tenderParticipate: {
@@ -187,9 +182,7 @@ export default {
     ...mapGetters({
       tender: "guilds/tender/tender",
     }),
-    priceToNumber() {
-      return parseFloat(this.price.replace(/,/g, ""));
-    },
+  
     ...mapState({
       formLoading: (state) => state.formLoading,
     }),
@@ -221,7 +214,6 @@ export default {
       this.tenderParticipate.data.gallery.splice(imageIdx, 1);
     },
     submitTenderParticipate() {
-      this.tenderParticipate.price = this.priceToNumber;
       if (this.form.validate()) {
         this.createOfferTenderAsync({
           target: { name: "tender", id: this.tenderId },

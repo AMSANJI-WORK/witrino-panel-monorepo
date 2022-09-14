@@ -51,10 +51,6 @@ const AuctionModifyMixin = {
       updateAuctionAsync: `${Types.UPDATE_AUCTION_ASYNC}`,
       getAnAuctionAsync: `${Types.GET_ONE_AUCTION_ASYNC}`,
     }),
-    ...mapMutations("upload", {
-      addUploadedImages: `ADD_IMAGE`,
-      resetImages: `REST_IMAGES`,
-    }),
     ...mapMutations("guilds/auction", {
       changeStep: "CHANGE_STEP",
       toggleLoading: "TOGGLE_LOADING",
@@ -66,13 +62,11 @@ const AuctionModifyMixin = {
     }),
     isEditPage() {
       if (this.$route.path.includes("edit"))
-        this.getAnAuctionAsync(this.auctionId).then(() => {
-          this.addUploadedImages(this.auction.data.gallery);
-        });
+        this.getAnAuctionAsync(this.auctionId);
     },
     submitFormAction() {
-      if (this.$route.path.includes("edit")) return this.edit();
-      return this.create();
+      if (this.$route.path.includes("edit")) this.edit();
+      this.create();
     },
     submit() {
       this.submitFormAction();
@@ -80,7 +74,6 @@ const AuctionModifyMixin = {
     resetForm() {
       this.$router.push("/auction/list");
       this.changeStep(1);
-      this.resetImages();
     },
     create() {
       this.createAuctionAsync(this.auction).then(() => this.resetForm());

@@ -48,6 +48,7 @@
             class="rounded-lg"
             v-model="editableBarter.data.price"
             :loading="formLoading"
+            :rules="[rules.required]"
             persistent-hint
             label="ارزش تقریبی"
           />
@@ -198,6 +199,7 @@ import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import CategoryService from "@packages/polotik/service/components/Category.vue";
 import CityService from "@packages/polotik/service/components/City.vue";
 import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+
 export default {
   mixins: [
     BarterMixin,
