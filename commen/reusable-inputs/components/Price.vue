@@ -19,7 +19,7 @@ export default {
   },
   watch: {
     value(newValue) {
-      this.price = newValue.toString();
+      this.price = newValue.toString().replace(/[^0-9]+/g, "");
     },
   },
   data() {
@@ -54,7 +54,7 @@ export default {
   methods: {
     updateValue(e) {
       if (!e) e = "0";
-      this.price = e.replace(/[a-zA-Z]+/g, "");
+      this.price = e.replace(/[^0-9]+/g, "");
       this.$emit("input", this.priceToNumber);
     },
   },

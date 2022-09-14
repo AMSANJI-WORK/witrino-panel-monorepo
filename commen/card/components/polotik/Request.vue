@@ -177,7 +177,6 @@ export default {
         this.compareStartDateWithCurrentDate - new Date(this.dateEnd)
       );
       const oneDay = 1000 * 60 * 60 * 24;
-      console.log(Math.ceil(timeDefrence / oneDay));
       return Math.ceil(timeDefrence / oneDay);
     },
   },
@@ -185,7 +184,6 @@ export default {
     pushRoute(path) {
       this.$router.push(`${this.activeService}/${this.dataSource.id}/${path}`);
     },
-
     deleteRequest(requestId) {
       const TARGET_SERVICE = this.activeService.slice(1).toUpperCase();
       this.$store.dispatch(
