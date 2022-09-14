@@ -1,7 +1,7 @@
 <template>
   <v-sheet class="d-flex flex-column transparent" style="width: 100%">
     <v-sheet
-      :class="`rounded-t-${rounded} d-flex flex-column align-center`"
+      :class="`rounded-t-${$attrs.rounded} d-flex flex-column align-center`"
       color="red"
       width="100%"
       height="100%"
@@ -42,12 +42,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  props: {
-    rounded: {
-      type: String,
-      default: "lg",
-    },
-  },
+  inheritAttrs: false,
   data() {
     return {
       dialog: false,

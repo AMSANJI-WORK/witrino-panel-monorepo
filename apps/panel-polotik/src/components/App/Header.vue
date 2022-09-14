@@ -1,5 +1,5 @@
 <template>
-  <app-header color="#393939" :has-slot-end="true">
+  <app-header color="p-dark-primary">
     <template #header-title>
       <v-btn icon class="d-lg-none mb-1" @click="toggleDrawer">
         <v-icon>mdi-dots-vertical</v-icon>

@@ -71,7 +71,7 @@
 <script>
 import FormMixin from "@shared/mixins/form";
 import PlanMixin from "@packages/admin/plan/mixins/modify";
-import PriceInput from "@shared/components/Reusable/PriceInput.vue";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 import ServiceSelector from "@packages/admin/service/components/Selector.vue";
 export default {
   mixins: [PlanMixin, FormMixin],

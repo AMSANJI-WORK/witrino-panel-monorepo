@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import PriceInput from "@shared/components/Reusable/PriceInput.vue";
+import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 import SelectorTheme from "@packages/admin/theme/components/Selector.vue";
 import { planTypes } from "@packages/admin/plan/store/types";
 import { mapMutations } from "vuex";
