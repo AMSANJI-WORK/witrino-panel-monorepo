@@ -10,7 +10,6 @@
     label="مقدار"
     :hint="value | unitAmountToFa"
     persistent-hint
-    :suffix="selectedUnit | selectedUnitToFa"
   ></v-text-field>
 </template>
 
@@ -25,17 +24,7 @@ export default {
   },
   filters: {
     unitAmountToFa(value) {
-      // return `${value.num2persian()} ${this.selectedUnitName}`;
       if (value) return value.num2persian();
-    },
-    // later
-    selectedUnitToFa(value) {
-      // if (typeof value == Object) return value.name;
-      // else if (value != null && typeof value == Number) {
-      //   this.getSelectedUnit(value);
-      //   console.log(value);
-      //   return this.selectedUnit.name;
-      // }
     },
   },
   computed: {

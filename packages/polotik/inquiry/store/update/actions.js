@@ -18,7 +18,6 @@ export default {
         payload.id,
         payload
       );
-      // console.log(data);
       commit(UPDATE_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);

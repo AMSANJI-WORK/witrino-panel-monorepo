@@ -34,6 +34,7 @@
         <v-pagination
           v-model="pagination.page"
           :length="pagination.lastPage"
+          @input="() => $emit('changePage')"
           :total-visible="6"
         ></v-pagination>
         <v-spacer></v-spacer>
@@ -46,39 +47,33 @@
 </template>
 
 <script>
+import Product from "./One.vue";
 import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
-import Product from "@commen/card/components/polotik/Request.vue";
+import CommenMixin from "../mixins/commen";
 
 export default {
   components: { Product, PageListSkeletonMenu },
+  mixins: [CommenMixin],
   props: {
     paginationType: {
       type: String,
       default: "pagination",
     },
   },
-  watch: {
-    "pagination.page": function (newValue) {
-      this.$emit("changePage");
-    },
-  },
   computed: {
     skeletonLoading() {
       return this.$store.getters[
-        `guilds/${this.acitveService}/skeletonLoading/skeletonLoading`
+        `guilds/${this.activeService}/skeletonLoading/skeletonLoading`
       ];
-    },
-    acitveService() {
-      return this.$route.matched[1].path.slice(1);
     },
     requestList() {
       return this.$store.getters[
-        `guilds/${this.acitveService}/${this.acitveService}List`
+        `guilds/${this.activeService}/${this.activeService}List`
       ];
     },
     pagination() {
       return this.$store.getters[
-        `guilds/${this.acitveService}/${this.paginationType}/pagination`
+        `guilds/${this.activeService}/${this.paginationType}/pagination`
       ];
     },
   },

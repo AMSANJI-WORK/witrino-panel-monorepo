@@ -67,9 +67,7 @@ export default {
     }),
   },
   methods: {
-    isFormValidate() {
-      console.log(this.$refs.basicInformation);
-    },
+    isFormValidate() {},
   },
 };
 </script>

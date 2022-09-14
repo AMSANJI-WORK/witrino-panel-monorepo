@@ -65,8 +65,6 @@ export default {
     state.step = payload;
   },
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
-    console.log(payload);
     state.auction.data.gallery.splice(payload, 1);
-    console.log(state.auction.data.gallery);
   },
 };

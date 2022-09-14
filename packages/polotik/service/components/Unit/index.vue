@@ -28,12 +28,6 @@ export default {
   computed: {
     ...mapGetters(["units"]),
   },
-  filters: {
-    unitAmountToFa(value) {
-      if (!this.unit || !value) return "";
-      return `${value.num2persian()} ${this.selectedUnitName}`;
-    },
-  },
   methods: {
     ...mapActions({
       getAllUnitsAsync: `${servicesTypes.GET_ALL_UNITS_ASYNC}`,

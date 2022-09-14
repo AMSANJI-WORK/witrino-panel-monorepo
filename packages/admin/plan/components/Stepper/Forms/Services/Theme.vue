@@ -82,7 +82,6 @@ export default {
         ...this.serviceThemeData.attributes,
         ...attributes,
       ];
-      console.log(this.serviceThemeData.attributes);
     },
     validataTheme() {
       return this.$refs["theme-form"].validate();

@@ -45,7 +45,6 @@ const mutations = {
   },
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
     state.sale.data.gallery.splice(payload, 1);
-    console.log(state.sale.data.gallery);
   },
 };
 export default mutations;

@@ -9,7 +9,6 @@ const mutations = {
   ...updateMutations,
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
     state.inquiry.data.gallery.splice(payload, 1);
-    console.log(state.inquiry.data.gallery);
   },
   REST_INQURIRY(state) {
     state.inquiry = {

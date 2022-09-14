@@ -6,6 +6,7 @@
     "reusable-inputs": "*",
     "bread-crumbs": "*",
     "pagination": "*",
+    "request": "*",
     "loading": "*",
     "upload": "*",
     "drawer": "*",

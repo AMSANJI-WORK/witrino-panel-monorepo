@@ -32,7 +32,6 @@ export default {
   mutations: {
     [GET_ALL_CITIES_SUCCESS](state, payload) {
       state.cities = payload;
-      console.log("cities get");
     },
     [GET_ALL_CITIES_FAILURE](_, payload) {
       Vue.$toast.error("دریافت دسته بندی ها با خطا مواجه شد");

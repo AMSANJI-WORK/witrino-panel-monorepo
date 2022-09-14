@@ -73,7 +73,7 @@
                 }}</span
               >
             </v-chip>
-            <RequestLink
+            <LinkToOffer
               v-if="isCurrentUser && dataSource.offers_count != 0"
               :new-request-count="dataSource.offers_count"
               :productId="dataSource.id"
@@ -118,7 +118,11 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="red" text @click="dialog = false"> خیر </v-btn>
-                  <v-btn color="primary" @click="deleteRequest(dataSource.id)">
+                  <v-btn
+                    color="primary"
+                    :loading="formLoading"
+                    @click="deleteRequest(dataSource.id)"
+                  >
                     بله
                   </v-btn>
                 </v-card-actions>
@@ -132,13 +136,15 @@
 </template>
 
 <script>
-import moment from "moment-jalaali";
-import RequestLink from "@polotik/components/Reusable/RequestLink.vue";
 import Cookies from "js-cookie";
+import moment from "moment-jalaali";
+import LinkToOffer from "./LinkToOffer.vue";
+import CommenMixin from "../mixins/commen";
 export default {
   components: {
-    RequestLink,
+    LinkToOffer,
   },
+  mixins: [CommenMixin],
   data() {
     return {
       dialog: false,
@@ -155,8 +161,10 @@ export default {
     },
   },
   computed: {
-    activeService() {
-      return this.$route.matched[1].path;
+    formLoading() {
+      return this.$store.getters[
+        `guilds/${this.activeService}/formLoading/formLoading`
+      ];
     },
     isCurrentUser() {
       return this.dataSource.user_id == Cookies.get("user-id");
@@ -185,9 +193,10 @@ export default {
       this.$router.push(`${this.activeService}/${this.dataSource.id}/${path}`);
     },
     deleteRequest(requestId) {
-      const TARGET_SERVICE = this.activeService.slice(1).toUpperCase();
       this.$store.dispatch(
-        `guilds${this.activeService}/DELETE_${TARGET_SERVICE}_ASYNC`,
+        `guilds/${
+          this.activeService
+        }/DELETE_${this.activeService.toUpperCase()}_ASYNC`,
         requestId
       );
     },

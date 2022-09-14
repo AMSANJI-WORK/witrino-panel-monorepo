@@ -19,7 +19,7 @@
             و از این طریق تبادل اطلاعات کنید.
           </template>
         </notification>
-        <AuctionFilters />
+        <RequestFilters />
       </v-sheet>
     </v-slide-x-transition>
   </v-sheet>
@@ -29,13 +29,13 @@
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
-import AuctionFilters from "@packages/polotik/auction/components/Filters.vue";
+import RequestFilters from "@commen/request/components/Filters.vue";
 
 export default {
   mixins: [auctionLoadingMixin],
   components: {
     PageListSkeleton,
-    AuctionFilters,
+    RequestFilters,
     Notification,
   },
   created() {

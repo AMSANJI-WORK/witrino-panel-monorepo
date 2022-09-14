@@ -19,7 +19,7 @@
             و از این طریق تبادل اطلاعات کنید.
           </template>
         </notification>
-        <TenderFilters />
+        <RequestFilters />
       </v-sheet>
     </v-slide-x-transition>
   </v-sheet>
@@ -29,12 +29,11 @@
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
-import TenderFilters from "@packages/polotik/tender/components/Filters.vue";
-
+import RequestFilters from "@commen/request/components/Filters.vue";
 export default {
   mixins: [tenderLoadingMixin],
   components: {
-    TenderFilters,
+    RequestFilters,
     Notification,
     PageListSkeleton,
   },

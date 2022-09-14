@@ -36,11 +36,9 @@ export default {
     state.formLoading = !state.formLoading;
   },
   CHANGE_PAGE_PAGINATION(state, payload) {
-    console.log(changePagePagination);
     state.pagination.page = payload;
   },
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
     state.barter.data.gallery.splice(payload, 1);
-    console.log(state.barter.data.gallery);
   },
 };

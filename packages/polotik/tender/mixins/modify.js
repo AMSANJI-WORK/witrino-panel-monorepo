@@ -93,8 +93,6 @@ const TenderModifyMixin = {
     },
   },
   created() {
-    console.log(this.$store.state);
-
     this.isEditPage();
   },
 };

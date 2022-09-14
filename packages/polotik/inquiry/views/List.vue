@@ -6,21 +6,21 @@
     <v-slide-x-transition>
       <v-sheet v-show="!skeletonLoading.list" class="transparent">
         <PagesDescription />
-        <InquiryFilters />
+        <RequestFilters />
       </v-sheet>
     </v-slide-x-transition>
   </v-sheet>
 </template>
 
 <script>
+import RequestFilters from "@commen/request/components/Filters.vue";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
-import InquiryFilters from "@packages/polotik/inquiry/components/Filters.vue";
 import PagesDescription from "@packages/polotik/inquiry/components/PagesDescription.vue";
 export default {
   mixins: [inquiryLoadingMixin],
   components: {
-    InquiryFilters,
+    RequestFilters,
     PageListSkeleton,
     PagesDescription,
   },

@@ -229,7 +229,6 @@ export default {
       );
     },
     calculateEndDate(newValue) {
-      console.log(this.editableBarter.end);
       this.editableBarter.end = moment(newValue).format("YYYY-MM-DD");
     },
   },
