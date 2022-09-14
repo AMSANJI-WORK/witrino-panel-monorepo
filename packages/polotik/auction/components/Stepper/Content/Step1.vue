@@ -7,7 +7,7 @@
   >
     <v-col cols="12" sm="6">
       <v-text-field
-        v-model="formData.auctionCreator"
+        :value="currentUser.name"
         dense
         readonly
         :loading="formLoading"
@@ -115,6 +115,11 @@ export default {
       auctionType: null,
     },
   }),
+  computed: {
+    currentUser() {
+      return JSON.parse(localStorage.getItem("currentUser"));
+    },
+  },
   methods: {
     setData() {
       const {
@@ -133,6 +138,8 @@ export default {
     },
 
     submit() {
+      this.formData.auctionCreator = this.currentUser.name;
+
       this.$emit("stepOneComplete", this.formData);
     },
   },

@@ -7,7 +7,7 @@
     >
       <v-col cols="12" sm="6" class="py-0">
         <v-text-field
-          v-model="editableSale.user_id"
+          v-model="currentUser.name"
           class="rounded-lg"
           dense
           readonly
@@ -304,10 +304,6 @@ export default {
     priceType: null,
   }),
   watch: {
-    "editableSale.data.gallery": {
-      handler(newValue) {},
-      deep: true,
-    },
     fromDate: function (v) {
       this.editableSale.start = moment(v, "jYYYY/jMM/jDD HH:mm:ss").format(
         "YYYY-MM-DD HH:mm:ss"
@@ -332,7 +328,9 @@ export default {
         },
       ];
     },
-    
+    currentUser() {
+      return JSON.parse(localStorage.getItem("currentUser"));
+    },
     minEndDate() {
       return moment(this.editableSale.start).format("jYYYY/jMM/jDD HH:mm");
     },

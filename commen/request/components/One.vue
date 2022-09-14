@@ -107,19 +107,23 @@
                 </v-btn>
               </template>
 
-              <v-card>
-                <v-card-title>
-                  آیا از حذف درخواست {{ ` ${dataSource.title} ` }}مطمئن هستید ؟
+              <v-card elevation="2" class="rounded-lg">
+                <v-card-title class="grey lighten-2 text-h5">
+                  درخواست {{ dataSource.title }}
                 </v-card-title>
-                <v-card-text> </v-card-text>
-
+                <v-card-text class="pa-4">
+                  آیا از حذف این درخواست مطمئن هستید ؟
+                </v-card-text>
                 <v-divider></v-divider>
 
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="red" text @click="dialog = false"> خیر </v-btn>
+                  <v-btn text color="rounded-lg" @click="dialog = false">
+                    خیر
+                  </v-btn>
                   <v-btn
-                    color="primary"
+                    dark
+                    color="p-green-primary rounded-lg"
                     :loading="formLoading"
                     @click="deleteRequest(dataSource.id)"
                   >
@@ -190,7 +194,7 @@ export default {
   },
   methods: {
     pushRoute(path) {
-      this.$router.push(`${this.activeService}/${this.dataSource.id}/${path}`);
+      this.$router.push(`${this.dataSource.id}/${path}`);
     },
     deleteRequest(requestId) {
       this.$store.dispatch(
