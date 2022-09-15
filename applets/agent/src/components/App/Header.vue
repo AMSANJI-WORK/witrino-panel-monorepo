@@ -1,5 +1,5 @@
 <template>
-  <app-header>
+  <app-header color="w-primary-dark">
     <template #header-title>
       <v-btn icon class="d-lg-none mb-1" @click="toggleDrawer">
         <v-icon color="white">mdi-dots-vertical</v-icon>
@@ -30,12 +30,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.v-application .text-caption {
-  font-size: 0.75rem !important;
-  font-weight: 400;
-  line-height: 1.25rem;
-  letter-spacing: 0.0333333333em !important;
-  font-family: Vazir !important;
-}
-</style>
+<style lang="scss" scoped></style>

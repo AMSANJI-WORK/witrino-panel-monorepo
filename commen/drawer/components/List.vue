@@ -61,7 +61,6 @@
 </template>
 
 <script>
-import menuItems from "@polotik/constants/menu";
 export default {
   props: {
     menuItems: Array,
@@ -71,11 +70,6 @@ export default {
       type: String,
       default: "lg",
     },
-  },
-  data() {
-    return {
-      items: menuItems,
-    };
   },
 };
 </script>

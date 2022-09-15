@@ -1,17 +1,28 @@
 <template>
   <v-app>
-    <app-mobile-drawer />
-    <app-header />
-    <mobile-sub-header />
-    <v-main class="bg--color">
+    <AppMobileDrawer
+      active-class-list-group="red darken-4 white--text"
+      active-class-list-item="red darken-4 white--text  boreder--bold"
+      :menuItems="menuItems"
+      :drawerSectionTop="DrawerCardTop"
+      :navigation="navigation"
+    />
+    <AppHeader />
+    <AppMobileSubHeader />
+    <v-main class="w-primary-secondary">
       <v-container>
         <v-row>
           <v-col class="d-lg-block d-none" cols="3">
-            <app-drawer />
+            <AppDrawerDesktop
+              active-class-list-group="red darken-4 white--text"
+              active-class-list-item="red darken-4 white--text  boreder--bold"
+              :menuItems="menuItems"
+              :drawerSectionTop="DrawerCardTop"
+            />
           </v-col>
 
           <v-col class="pt-1" cols="12" lg="9">
-            <app-breadcrumbs />
+            <AppBreadcrumbs />
             <v-sheet
               min-height="100vh"
               rounded="lg"
@@ -30,11 +41,14 @@
 
 <script>
 import AppHeader from "@applets/operator/src/components/App/Header.vue";
-import AppDrawer from "@applets/operator/src/components/App/Drawer.vue";
-import AppMobileDrawer from "@applets/operator/src/components/App/MobileDrawer.vue";
-import MobileSubHeader from "@applets/operator/src/components/App/MobileSubHeader.vue";
+import AppDrawerDesktop from "@commen/drawer/components/Desktop.vue";
+import AppMobileDrawer from "@commen/drawer/components/Mobile.vue";
+import AppMobileSubHeader from "@applets/operator/src/components/App/MobileSubHeader.vue";
 import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
+import menuItems from "@applets/operator/src/constants/menu";
+import navigation from "@applets/operator/src/constants/data";
+
 export default {
   props: {
     haveSlot: {
@@ -42,18 +56,22 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      DrawerCardTop: () =>
+        import("@applets/operator/src/components/App/DrawerCardTop.vue"),
+      menuItems,
+      navigation,
+    };
+  },
   components: {
     AppHeader,
-    AppDrawer,
+    AppDrawerDesktop,
     VRouterView,
     AppMobileDrawer,
     AppBreadcrumbs,
-    MobileSubHeader,
+    AppMobileSubHeader,
   },
 };
 </script>
-<style lang="scss" scoped>
-.bg--color {
-  background: #F0F1FA;
-}
-</style>
+<style lang="scss" scoped></style>
