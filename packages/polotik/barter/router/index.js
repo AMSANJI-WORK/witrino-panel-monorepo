@@ -4,6 +4,18 @@ const barterRoutes = {
   name: "barter-page",
   redirect: "/barter/list",
   component: () => import("@polotik/layouts/Defualt.vue"),
+  meta: {
+    breadCrumb: [
+      {
+        text: "خانه",
+        to: "/",
+      },
+      {
+        text: "تهاتر",
+        to: "/barter",
+      },
+    ],
+  },
   children: [
     {
       path: ":id/request",
@@ -13,16 +25,7 @@ const barterRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "تهاتر",
-            to: "/barter",
-          },
-          {
             text: "پیشنهادات",
-            disabled: true,
           },
         ],
       },
@@ -35,16 +38,7 @@ const barterRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "تهاتر",
-            to: "/barter",
-          },
-          {
             text: "پیگیری پیشنهاد من",
-            disabled: true,
           },
         ],
       },
@@ -56,12 +50,8 @@ const barterRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: { path: "/" },
-          },
-          {
-            text: "تهاتر ها",
-            disabled: true,
+            text: "لیست آگهی ها",
+            to: "/barter/list",
           },
         ],
       },
@@ -74,16 +64,7 @@ const barterRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "تهاتر",
-            to: "/barter",
-          },
-          {
             text: "مشاهده تهاتر",
-            disabled: true,
           },
         ],
       },
@@ -95,14 +76,6 @@ const barterRoutes = {
       beforeEnter: resetBarter,
       meta: {
         breadCrumb: [
-          {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "تهاتر",
-            to: "/barter",
-          },
           {
             text: "ویرایش تهاتر",
             disabled: true,
@@ -117,14 +90,6 @@ const barterRoutes = {
       beforeEnter: resetBarter,
       meta: {
         breadCrumb: [
-          {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "تهاتر",
-            to: "/barter",
-          },
           {
             text: "ایجاد تهاتر",
             disabled: true,

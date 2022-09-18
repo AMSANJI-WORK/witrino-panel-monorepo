@@ -9,8 +9,7 @@
       <template v-slot:item="{ item }">
         <v-breadcrumbs-item
           :to="item.to"
-          class="crumb-item"
-          :disabled="item.disabled"
+          :disabled="disabled(item)"
           exact
         >
           {{ item.text }}
@@ -27,8 +26,20 @@
 export default {
   computed: {
     breadCrumbs() {
-      return this.$route.meta.breadCrumb;
+      let array = [];
+      this.$route.matched.forEach((matcher) => {
+        matcher.meta?.breadCrumb.forEach((object) => {
+          array = [...array, object];
+        });
+      });
+      return array;
     },
   },
+  methods: {
+    disabled(item) {
+      return this.breadCrumbs[this.breadCrumbs.length - 1] == item;
+    },
+  },
+  created() {},
 };
 </script>

@@ -4,6 +4,18 @@ const auctionRoutes = {
   name: "auction-page",
   redirect: "/auction/list",
   component: () => import("@polotik/layouts/Defualt.vue"),
+  meta: {
+    breadCrumb: [
+      {
+        text: "خانه",
+        to: "/",
+      },
+      {
+        text: "مزایده ها",
+        to: "/auction",
+      },
+    ],
+  },
   children: [
     {
       path: ":id/request",
@@ -13,16 +25,7 @@ const auctionRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مزایده",
-            to: "/auction",
-          },
-          {
             text: "پیشنهادات",
-            disabled: true,
           },
         ],
       },
@@ -35,16 +38,7 @@ const auctionRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مزایده",
-            to: "/auction",
-          },
-          {
             text: "پیگیری پیشنهاد من",
-            disabled: true,
           },
         ],
       },
@@ -56,12 +50,8 @@ const auctionRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مزایده ها",
-            disabled: true,
+            text: "لیست آگهی ها",
+            to: "/auction/list",
           },
         ],
       },
@@ -74,16 +64,7 @@ const auctionRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مزایده",
-            to: "/auction",
-          },
-          {
             text: "مشاهده مزایده",
-            disabled: true,
           },
         ],
       },
@@ -96,16 +77,7 @@ const auctionRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مزایده",
-            to: "/auction",
-          },
-          {
             text: "ویرایش مزایده",
-            disabled: true,
           },
         ],
       },
@@ -118,16 +90,7 @@ const auctionRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مزایده",
-            to: "/auction",
-          },
-          {
             text: "ایجاد مزایده",
-            disabled: true,
           },
         ],
       },

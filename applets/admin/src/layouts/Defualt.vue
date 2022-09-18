@@ -3,8 +3,8 @@
     <AppMobileDrawer
       active-class-list-group="amber lighten-3"
       active-class-list-item="amber lighten-3  boreder--bold"
-      :menuItems="menuItems"
-      :drawerSectionTop="DrawerCardTop"
+      :menu-items="menuItems"
+      :drawer-section-top="DrawerCardTop"
       :navigation="navigation"
     />
     <app-header />
@@ -16,13 +16,13 @@
             <AppDrawerDesktop
               active-class-list-group="amber lighten-3"
               active-class-list-item="amber lighten-3  boreder--bold"
-              :menuItems="menuItems"
-              :drawerSectionTop="DrawerCardTop"
+              :menu-items="menuItems"
+              :drawer-section-top="DrawerCardTop"
             />
           </v-col>
 
           <v-col class="pt-1" cols="12" lg="9">
-            <app-breadcrumbs />
+            <AppBreadcrumbs />
             <v-sheet
               min-height="100vh"
               rounded="lg"

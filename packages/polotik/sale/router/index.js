@@ -4,6 +4,18 @@ const saleRoutes = {
   name: "sale-page",
   redirect: "/sale/list",
   component: () => import("@polotik/layouts/Defualt.vue"),
+  meta: {
+    breadCrumb: [
+      {
+        text: "خانه",
+        to: "/",
+      },
+      {
+        text: "حراجی",
+        to: "/sale",
+      },
+    ],
+  },
   children: [
     {
       path: "list",
@@ -12,12 +24,8 @@ const saleRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: { path: "/" },
-          },
-          {
-            text: "حراجی ها",
-            disabled: true,
+            text: "لیست آگهی ها",
+            to: "/sale/list",
           },
         ],
       },
@@ -30,16 +38,7 @@ const saleRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "حراجی",
-            to: "/sale",
-          },
-          {
             text: "مشاهده حراجی",
-            disabled: true,
           },
         ],
       },
@@ -52,16 +51,7 @@ const saleRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "حراجی",
-            to: "/sale",
-          },
-          {
             text: "ویرایش حراجی",
-            disabled: true,
           },
         ],
       },
@@ -75,16 +65,7 @@ const saleRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "حراجی",
-            to: "/sale",
-          },
-          {
             text: "ایجاد حراجی",
-            disabled: true,
           },
         ],
       },

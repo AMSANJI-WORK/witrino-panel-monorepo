@@ -27,7 +27,7 @@ const router = new VueRouter({
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
+            text: "پلتیک",
           },
         ],
       },

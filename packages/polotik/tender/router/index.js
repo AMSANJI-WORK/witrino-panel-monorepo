@@ -4,6 +4,18 @@ const tenderRoutes = {
   name: "tender-page",
   redirect: "/tender/list",
   component: () => import("@polotik/layouts/Defualt.vue"),
+  meta: {
+    breadCrumb: [
+      {
+        text: "خانه",
+        to: "/home",
+      },
+      {
+        text: "مناقصه ها",
+        to: "/tender",
+      },
+    ],
+  },
   children: [
     {
       path: ":id/request",
@@ -13,16 +25,7 @@ const tenderRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مناقصه",
-            to: "/tender",
-          },
-          {
             text: "پیشنهادات",
-            disabled: true,
           },
         ],
       },
@@ -35,16 +38,7 @@ const tenderRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مناقصه",
-            to: "/tender",
-          },
-          {
             text: "پیگیری پیشنهاد من",
-            disabled: true,
           },
         ],
       },
@@ -56,12 +50,8 @@ const tenderRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: { path: "/" },
-          },
-          {
-            text: "مناقصه ها",
-            disabled: true,
+            text: "لیست آگهی ها",
+            to: "/tender/list",
           },
         ],
       },
@@ -74,16 +64,7 @@ const tenderRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مناقصه",
-            to: "/tender",
-          },
-          {
             text: "مشاهده مناقصه",
-            disabled: true,
           },
         ],
       },
@@ -93,20 +74,10 @@ const tenderRoutes = {
       name: "tender-edit-page",
       component: () => import("@packages/polotik/tender/views/Edit.vue"),
       beforeEnter: resetTender,
-
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مناقصه",
-            to: "/tender",
-          },
-          {
             text: "ویرایش مناقصه",
-            disabled: true,
           },
         ],
       },
@@ -119,16 +90,7 @@ const tenderRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "مناقصه",
-            to: "/tender",
-          },
-          {
             text: "ایجاد مناقصه",
-            disabled: true,
           },
         ],
       },

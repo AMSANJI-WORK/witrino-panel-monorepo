@@ -49,10 +49,7 @@ export default {
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getOneRequest(payload, "auction");
-      if (data.data?.offers)
-        commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
-      if (data.data?.user_offer)
-        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
+      commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data?.user_offer ?? []);
       commit(GET_ONE_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);

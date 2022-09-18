@@ -45,7 +45,6 @@ const opts = {
         "lemon-green": "#D0FF0B",
         "light-pink": "#FF00FF",
         "dark-grey": "#555B6E",
-        "light-blue": "#25CED1",
         "grey-blue": "#487BEA",
         "dark-blue": "#0710FF",
         "auth-blue": "#303C87",

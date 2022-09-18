@@ -1,6 +1,9 @@
 const homeRoutes = {
   path: "/",
   component: () => import("@polotik/layouts/Defualt.vue"),
+  meta: {
+    breadCrumb: [{ text: "پلتیک", to: "/" }],
+  },
   children: [
     {
       path: "/home",
@@ -8,10 +11,8 @@ const homeRoutes = {
       component: () => import("@packages/polotik/Home/views/Home.vue"),
       meta: {
         breadCrumb: [
-          { text: "پلتیک", to: "/" },
           {
             text: "خانه",
-            disabled: true,
           },
         ],
       },

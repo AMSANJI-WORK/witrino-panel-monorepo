@@ -4,6 +4,18 @@ const inquiryRoutes = {
   name: "inquiry-page",
   redirect: "/inquiry/list",
   component: () => import("@polotik/layouts/Defualt.vue"),
+  meta: {
+    breadCrumb: [
+      {
+        text: "خانه",
+        to: "/",
+      },
+      {
+        text: "استعلام ها",
+        to: "/inquiry",
+      },
+    ],
+  },
   children: [
     {
       path: "list",
@@ -12,12 +24,8 @@ const inquiryRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: { path: "/" },
-          },
-          {
-            text: "استعلام ها",
-            disabled: true,
+            text: "لیست آگهی ها",
+            to: "/inquiry/list",
           },
         ],
       },
@@ -30,16 +38,7 @@ const inquiryRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "استعلام",
-            to: "/inquiry",
-          },
-          {
             text: "مشاهده استعلام",
-            disabled: true,
           },
         ],
       },
@@ -52,16 +51,7 @@ const inquiryRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "استعلام",
-            to: "/inquiry",
-          },
-          {
             text: "ویرایش استعلام",
-            disabled: true,
           },
         ],
       },
@@ -74,16 +64,7 @@ const inquiryRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "استعلام",
-            to: "/inquiry",
-          },
-          {
             text: "پیشنهادات",
-            disabled: true,
           },
         ],
       },
@@ -96,16 +77,7 @@ const inquiryRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "استعلام",
-            to: "/inquiry",
-          },
-          {
             text: "پیگیری پیشنهاد من",
-            disabled: true,
           },
         ],
       },
@@ -118,16 +90,7 @@ const inquiryRoutes = {
       meta: {
         breadCrumb: [
           {
-            text: "خانه",
-            to: "/home",
-          },
-          {
-            text: "استعلام",
-            to: "/inquiry",
-          },
-          {
             text: "ایجاد استعلام",
-            disabled: true,
           },
         ],
       },

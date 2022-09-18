@@ -41,14 +41,14 @@ export default {
   },
 
   async [GET_ONE_TENDER_ASYNC]({ commit }, payload) {
-    let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
+    let activePageIsUserOffer = router.currentRoute.path.includes("outcome");
+    let loadingType = activePageIsUserOffer
+      ? "request/skeletonLoading/TOGGLE_SKELETON_LOADING_OFFERS"
+      : setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getOneRequest(payload, "tender");
-      if (data.data?.offers)
-        commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
-      if (data.data?.user_offer)
-        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
+      commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data?.user_offer ?? []);
       commit(GET_ONE_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);

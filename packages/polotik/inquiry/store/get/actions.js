@@ -36,11 +36,7 @@ export default {
     try {
       commit(loadingType);
       const { data } = await guildsRepository.getOneRequest(payload, "inquiry");
-      if (data.data?.user_offer)
-        commit(
-          "request/TYPES.GET_ALL_USER_OFFER_SUCCESS",
-          data.data.user_offer
-        );
+      commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data?.user_offer ?? []);
       commit(TYPES.GET_ONE_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
