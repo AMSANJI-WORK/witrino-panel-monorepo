@@ -74,7 +74,7 @@
 <script>
 import tenderLoadingMixin from "@packages/polotik/tender/mixins/loading";
 import fromRules from "@commen/form/mixins/rules";
-import ServicesMixin from "@polotik/mixins/base/services";
+import ServicesMixin from "@polotik/mixins/base/service";
 import StepperMixin from "@packages/polotik/tender/mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";

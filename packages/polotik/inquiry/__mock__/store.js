@@ -301,4 +301,4 @@ export const defualtState = {
     user_id: null,
   },
 };
-export const SOURCE = "guilds/inquiry";
+export const SOURCE = "inquiry";

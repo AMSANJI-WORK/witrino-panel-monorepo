@@ -167,7 +167,7 @@ export default {
   computed: {
     formLoading() {
       return this.$store.getters[
-        `guilds/${this.activeService}/formLoading/formLoading`
+        `${this.activeService}/formLoading/formLoading`
       ];
     },
     isCurrentUser() {
@@ -198,7 +198,7 @@ export default {
     },
     deleteRequest(requestId) {
       this.$store.dispatch(
-        `guilds/${
+        `${
           this.activeService
         }/DELETE_${this.activeService.toUpperCase()}_ASYNC`,
         requestId

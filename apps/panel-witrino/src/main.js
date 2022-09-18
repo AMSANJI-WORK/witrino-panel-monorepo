@@ -8,13 +8,11 @@ import num2persian from "./plugins/num.to.persian";
 import vueApexCharts from "./plugins/apex.chart";
 import datepiker from "./plugins/datepiker";
 import { lmap, lmarker, ltilelayer } from "./plugins/map";
+
 import "@commen/assets/styles/scss/base.scss";
 
 import VJsf from "@koumoul/vjsf";
 import "@koumoul/vjsf/dist/main.css";
-// load third-party dependencies (markdown-it, vuedraggable)
-// you can also load them separately based on your needs
-//import '@koumoul/vjsf/dist/third-party.js'
 import Draggable from "vuedraggable";
 const _global =
   (typeof window !== "undefined" && window) ||

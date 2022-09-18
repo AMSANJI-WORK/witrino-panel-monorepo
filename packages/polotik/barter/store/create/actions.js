@@ -14,7 +14,7 @@ export default {
 
       delete payload.offers;
       delete payload.user_offer;
-      const { data } = await guildsRepository.createBarter(payload);
+      const { data } = await guildsRepository.createRequset(payload, "barter");
       commit(CREATE_BARTER_SUCCESS, data);
     } catch (error) {
       console.log(error);

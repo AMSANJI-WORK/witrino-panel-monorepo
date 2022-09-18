@@ -11,7 +11,7 @@ export default {
   async [DELETE_BARTER_ASYNC]({ commit }, payload) {
     try {
       commit("formLoading/TOGGLE_FORM_LOADING");
-      const { data } = await guildsRepository.deleteBarter(payload);
+      const { data } = await guildsRepository.deleteRequset(payload, "barter");
       commit(DELETE_BARTER_SUCCESS, data);
     } catch (error) {
       console.log(error);

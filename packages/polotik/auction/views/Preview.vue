@@ -23,7 +23,6 @@ export default {
     PagePreviewTypeSecond,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "auction");
   },
 };
 </script>

@@ -32,16 +32,14 @@ export default {
   },
   computed: {
     activeService() {
-      return this.$route.matched[1].path.slice(1);
+      return this.$route.matched[0].path.slice(1);
     },
     dataSource() {
-      return this.$store.getters[
-        `guilds/${this.activeService}/${this.activeService}`
-      ];
+      return this.$store.getters[`${this.activeService}/${this.activeService}`];
     },
     skeletonLoading() {
       return this.$store.getters[
-        `guilds/${this.activeService}/request/skeletonLoading/skeletonLoading`
+        `${this.activeService}/request/skeletonLoading/skeletonLoading`
       ];
     },
   },

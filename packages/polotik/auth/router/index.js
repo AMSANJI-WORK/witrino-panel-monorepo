@@ -1,4 +1,4 @@
-export default [
+const authRoutes = [
   {
     path: "/set-permission",
     name: "set-permission",
@@ -15,3 +15,6 @@ export default [
     component: () => import("@packages/polotik/Auth/views/Page403.vue"),
   },
 ];
+export default (router) => {
+  router.addRoutes(authRoutes);
+};

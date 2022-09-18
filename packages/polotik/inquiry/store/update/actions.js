@@ -14,8 +14,9 @@ export default {
 
       delete payload.offers;
       delete payload.user_offer;
-      const { data } = await guildsRepository.updateInquiry(
+      const { data } = await guildsRepository.updateRequset(
         payload.id,
+        "inquiry",
         payload
       );
       commit(UPDATE_INQUIRY_SUCCESS, data);

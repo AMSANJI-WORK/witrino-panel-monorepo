@@ -1,9 +1,7 @@
 import Cookies from "js-cookie";
 import moment from "moment-jalaali";
 import Types from "@packages/polotik/barter/store/modules/root/types";
-import { createNamespacedHelpers } from "vuex";
-const { mapActions, mapGetters, mapMutations } =
-  createNamespacedHelpers("guilds/barter");
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 const BarterMixin = {
   data() {
@@ -36,7 +34,7 @@ const BarterMixin = {
     };
   },
   computed: {
-    ...mapGetters(["barter"]),
+    ...mapGetters("barter", ["barter"]),
     currentUserId() {
       return Cookies.get("user-id");
     },
@@ -79,12 +77,12 @@ const BarterMixin = {
     },
   },
   methods: {
-    ...mapActions({
+    ...mapActions("barter", {
       createBarterAsync: Types.CREATE_BARTER_ASYNC,
       updateBarterAsync: Types.UPDATE_BARTER_ASYNC,
       getABarterAsync: Types.GET_ONE_BARTER_ASYNC,
     }),
-    ...mapMutations({ toggleLoading: "TOGGLE_LOADING" }),
+    ...mapMutations("barter", { toggleLoading: "TOGGLE_LOADING" }),
   },
 };
 export default BarterMixin;

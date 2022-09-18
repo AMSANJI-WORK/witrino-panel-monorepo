@@ -1,9 +1,8 @@
 import Cookies from "js-cookie";
 import moment from "moment-jalaali";
 
-import { createNamespacedHelpers } from "vuex";
-const { mapActions, mapGetters, mapMutations } =
-  createNamespacedHelpers("guilds/sale");
+import { mapActions, mapGetters, mapMutations } from "vuex";
+
 import Types from "@packages/polotik/sale/store/modules/root/types";
 const SaleMixin = {
   data() {
@@ -47,8 +46,7 @@ const SaleMixin = {
     };
   },
   computed: {
-    ...mapGetters(["sale"]),
-    ...mapGetters(["upload/successUploadedImages"]),
+    ...mapGetters("sale", ["sale"]),
     currentUserId() {
       return Cookies.get("user-id");
     },
@@ -89,12 +87,11 @@ const SaleMixin = {
     },
   },
   methods: {
-    ...mapActions({
+    ...mapActions("sale", {
       createSaleAsync: Types.CREATE_SALE_ASYNC,
       updateSaleAsync: Types.UPDATE_SALE_ASYNC,
       getASaleAsync: Types.GET_ONE_SALE_ASYNC,
     }),
-    ...mapMutations({ toggleLoading: "TOGGLE_LOADING" }),
   },
 };
 export default SaleMixin;

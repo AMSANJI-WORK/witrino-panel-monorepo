@@ -106,7 +106,7 @@
                 @dalete-image="deleteImage"
                 @upload-reolved="updateGallery"
                 :data-source="auctionParticipate.data.gallery"
-                active-service="guilds/auction/request"
+                active-service="auction/request"
               />
             </v-sheet>
           </v-col>
@@ -181,7 +181,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      auction: "guilds/auction/auction",
+      auction: "auction/auction",
     }),
     auctionId() {
       return this.$route.params.id;
@@ -198,7 +198,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      createOfferAuctionAsync: `guilds/auction/request/${OFFER_TYPES.CREATE_OFFER_ASYNC}`,
+      createOfferAuctionAsync: `auction/request/${OFFER_TYPES.CREATE_OFFER_ASYNC}`,
     }),
     cansel() {
       this.dialog = false;

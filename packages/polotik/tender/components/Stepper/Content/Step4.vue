@@ -18,7 +18,7 @@
         @dalete-image="deleteImage"
         @upload-reolved="updateGallery"
         :data-source="formData.gallery"
-        active-service="guilds/tender"
+        active-service="tender"
       />
     </v-col>
 

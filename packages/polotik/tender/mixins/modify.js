@@ -24,7 +24,7 @@ const TenderModifyMixin = {
     TenderStepFive,
   },
   computed: {
-    ...mapGetters("guilds/tender", ["tender", "step"]),
+    ...mapGetters("tender", ["tender", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     ...mapState({
       formLoading: (state) => state.formLoading,
@@ -49,7 +49,7 @@ const TenderModifyMixin = {
     },
   },
   methods: {
-    ...mapActions("guilds/tender", {
+    ...mapActions("tender", {
       createTenderAsync: `${Types.CREATE_TENDER_ASYNC}`,
       updateTenderAsync: `${Types.UPDATE_TENDER_ASYNC}`,
       getATenderAsync: `${Types.GET_ONE_TENDER_ASYNC}`,
@@ -58,7 +58,7 @@ const TenderModifyMixin = {
       addUploadedImages: `ADD_IMAGE`,
       resetImages: `REST_IMAGES`,
     }),
-    ...mapMutations("guilds/tender", {
+    ...mapMutations("tender", {
       changeStep: "CHANGE_STEP",
       toggleLoading: "TOGGLE_LOADING",
       setStepOneData: "SET_STEP_ONE_DATA",

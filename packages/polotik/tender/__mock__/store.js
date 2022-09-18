@@ -549,4 +549,4 @@ export const defualtState = {
   },
   step: 1,
 };
-export const SOURCE = "guilds/tender";
+export const SOURCE = "tender";

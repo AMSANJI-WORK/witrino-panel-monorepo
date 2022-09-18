@@ -106,7 +106,7 @@
                 @dalete-image="deleteImage"
                 @upload-reolved="updateGallery"
                 :data-source="tenderParticipate.data.gallery"
-                active-service="guilds/tender/request"
+                active-service="tender/request"
               />
             </div>
           </v-col>
@@ -180,7 +180,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      tender: "guilds/tender/tender",
+      tender: "tender/tender",
     }),
   
     ...mapState({
@@ -198,7 +198,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      createOfferTenderAsync: `guilds/tender/request/${OFFER_TYPES.CREATE_OFFER_ASYNC}`,
+      createOfferTenderAsync: `tender/request/${OFFER_TYPES.CREATE_OFFER_ASYNC}`,
     }),
     cansel() {
       this.dialog = false;

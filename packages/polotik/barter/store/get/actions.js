@@ -23,9 +23,10 @@ export default {
     try {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
-      const { data } = await guildsRepository.getAllBarters({
+      const { data } = await guildsRepository.getAllRequest({
         pagination: getters[`${target}/pagination`],
         userId,
+        service: "barter",
         offerUserId,
       });
       commit(`${target}/SET_PAGINATION`, data);
@@ -39,10 +40,13 @@ export default {
   },
 
   async [GET_ONE_BARTER_ASYNC]({ commit }, payload) {
-    let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
+    let activePageIsUserOffer = router.currentRoute.path.includes("outcome");
+    let loadingType = activePageIsUserOffer
+      ? "request/skeletonLoading/TOGGLE_SKELETON_LOADING_OFFERS"
+      : setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
-      const { data } = await guildsRepository.getABarter(payload);
+      const { data } = await guildsRepository.getOneRequest(payload, "barter");
       if (data.data?.offers)
         commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
@@ -52,7 +56,9 @@ export default {
       console.log(error);
       commit(GET_ONE_BARTER_FAILURE, error);
     } finally {
-      setTimeout(() => commit(loadingType), 1000);
+      setTimeout(() => {
+        commit(loadingType);
+      }, 1000);
     }
   },
 };

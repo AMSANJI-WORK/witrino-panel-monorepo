@@ -232,7 +232,7 @@
           @upload-reolved="updateGallery"
           @dalete-image="deleteImage"
           :data-source="editableSale.data.gallery"
-          active-service="guilds/sale"
+          active-service="sale"
         />
       </v-col>
       <v-col cols="12" class="d-md-flex flex-row-reverse d-none">
@@ -265,8 +265,8 @@ import moment from "moment-jalaali";
 import SaleMixin from "@packages/polotik/sale/mixins";
 import saleLoadingMixin from "@packages/polotik/sale/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
-import ServicesMixin from "@polotik/mixins/base/services";
-import servicesTypes from "@packages/polotik/service/store/types";
+import ServicesMixin from "@polotik/mixins/base/service";
+import serviceTypes from "@packages/polotik/service/store/types";
 import { mapActions } from "vuex";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
@@ -349,7 +349,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getAllCategoriesAsync: `guilds/services/category/${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
+      getAllCategoriesAsync: `service/category/${serviceTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
 
     setEditableSaleData() {

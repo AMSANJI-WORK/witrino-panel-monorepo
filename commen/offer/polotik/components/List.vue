@@ -119,23 +119,23 @@ export default {
   computed: {
     pagination() {
       return this.$store.getters[
-        `guilds/${this.activeService}/request/pagination/pagination`
+        `${this.activeService}/request/pagination/pagination`
       ];
     },
     skeletonLoading() {
       return this.$store.getters[
-        `guilds/${this.activeService}/request/skeletonLoading/skeletonLoading`
+        `${this.activeService}/request/skeletonLoading/skeletonLoading`
       ];
     },
     activeService() {
-      return this.$route.matched[1].path.slice(1);
+      return this.$route.matched[0].path.slice(1);
     },
     listOfferType() {
       return this.$route.path.includes("request") ? "offers" : "userOffers";
     },
     List() {
       return this.$store.getters[
-        `guilds/${this.activeService}/request/${this.listOfferType}`
+        `${this.activeService}/request/${this.listOfferType}`
       ];
     },
   },
@@ -153,7 +153,7 @@ export default {
     },
     paginationChange(e) {
       this.$store.dispatch(
-        `guilds/${this.activeService}/request/GET_ALL_OFFER_ASYNC`,
+        `${this.activeService}/request/GET_ALL_OFFER_ASYNC`,
         {
           target: this.activeService,
           id: this.$route.params.id,

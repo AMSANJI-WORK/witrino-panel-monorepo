@@ -4,7 +4,7 @@ import * as getTypes from "./get/types";
 import * as updateTypes from "./update/types";
 
 export default {
-  RESOURCE: "guilds/services/offer",
+  RESOURCE: "service/offer",
   ...createTypes,
   ...deleteTypes,
   ...getTypes,

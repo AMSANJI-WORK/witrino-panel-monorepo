@@ -25,7 +25,7 @@ export default {
     PagesDescription,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "inquiry");
+    
   },
 };
 </script>

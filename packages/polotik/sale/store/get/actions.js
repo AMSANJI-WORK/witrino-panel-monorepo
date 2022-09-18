@@ -24,9 +24,10 @@ export default {
     try {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
-      const { data } = await guildsRepository.getAllSales({
+      const { data } = await guildsRepository.getAllRequest({
         pagination: getters[`${target}/pagination`],
         userId,
+        service: "sales",
         offerUserId,
       });
       commit(`${target}/SET_PAGINATION`, data);
@@ -42,7 +43,7 @@ export default {
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
-      const { data } = await guildsRepository.getASale(payload);
+      const { data } = await guildsRepository.getOneRequest(payload, "sales");
       commit(GET_ONE_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);

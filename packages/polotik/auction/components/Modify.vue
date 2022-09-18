@@ -131,7 +131,7 @@
 
 <script>
 import AuctionModifyMixin from "@packages/polotik/auction/mixins/modify";
-import ServicesMixin from "@polotik/mixins/base/services";
+import ServicesMixin from "@polotik/mixins/base/service";
 import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 
 export default {

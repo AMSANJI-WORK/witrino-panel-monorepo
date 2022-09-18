@@ -11,9 +11,8 @@ export default {
   async [DELETE_INQUIRY_ASYNC]({ commit }, payload) {
     try {
       commit("formLoading/TOGGLE_FORM_LOADING");
-      const data = await guildsRepository.deleteInquiry(payload);
-      if (data.status === 204 && data.data === "")
-        commit(DELETE_INQUIRY_SUCCESS, payload);
+      const { data } = await guildsRepository.deleteRequset(payload, "inquiry");
+      commit(DELETE_INQUIRY_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(DELETE_INQUIRY_FAILURE, error);

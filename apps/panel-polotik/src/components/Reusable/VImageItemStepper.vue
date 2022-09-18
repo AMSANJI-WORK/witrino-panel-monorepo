@@ -50,7 +50,7 @@ export default {
       return this.$store.getters.serviceName;
     },
     currentStep() {
-      return this.$store.getters[`guilds/${this.serviceName}/step`];
+      return this.$store.getters[`${this.serviceName}/step`];
     },
   },
   methods: {

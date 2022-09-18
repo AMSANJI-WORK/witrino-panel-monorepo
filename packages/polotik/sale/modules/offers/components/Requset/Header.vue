@@ -30,7 +30,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters("guilds/sale", ["sale"]),
+    ...mapGetters("sale", ["sale"]),
     image() {
       return import.meta.env.VITE_BASE_URL + this.sale.data.gallery[0].src;
     },

@@ -1,5 +1,4 @@
-import { createNamespacedHelpers, mapState } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
+import { mapMutations, mapGetters } from "vuex";
 const TenderStepperMixin = {
   watch: {
     isDataSourceUpdated: {
@@ -12,11 +11,7 @@ const TenderStepperMixin = {
     },
   },
   computed: {
-    ...mapGetters({ dataSource: "tender" }),
-    ...mapState({
-      formLoading: (state) => state.formLoading,
-      formLoading: (state) => state.formLoading,
-    }),
+    ...mapGetters("tender", { dataSource: "tender" }),
     isDataSourceUpdated() {
       return this.dataSource.data;
     },
@@ -25,7 +20,7 @@ const TenderStepperMixin = {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("tender", { changeStep: "CHANGE_STEP" }),
     isEditPage() {
       this.isRouteEdit ? this.setData() : "";
     },

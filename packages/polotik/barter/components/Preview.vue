@@ -99,7 +99,7 @@ import BarterMixin from "@packages/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";
 import VLabel from "@commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
-import servicesTypes from "@packages/polotik/service/store/types";
+import serviceTypes from "@packages/polotik/service/store/types";
 export default {
   components: {
     VLabel,
@@ -109,8 +109,8 @@ export default {
   mixins: [BarterMixin, barterLoadingMixin, UtilityMixin],
 
   computed: {
-    ...mapGetters("guilds/services/category", ["categories"]),
-    ...mapGetters("guilds/services/cities", ["cities"]),
+    ...mapGetters("service/category", ["categories"]),
+    ...mapGetters("service/cities", ["cities"]),
 
     compareStartDateWithCurrentDate() {
       const oneDay = 1000 * 60 * 60 * 24;
@@ -142,8 +142,8 @@ export default {
     },
   },
   methods: {
-    ...mapActions("guilds/services/category", {
-      getAllCategoriesAsync: `${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
+    ...mapActions("service/category", {
+      getAllCategoriesAsync: `${serviceTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     getCityNameProperty(selectedCity) {
       let cityFind = this.cities.find((city) => city.id == selectedCity);
@@ -159,7 +159,7 @@ export default {
   },
   created() {
     if (this.cities.length == 0)
-      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
+      this.$store.dispatch("service/cities/GET_ALL_CITIES_ASYNC");
     this.getBarterData();
   },
 };

@@ -9,11 +9,11 @@ export default {
     ModifyTender,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "tender");
+    
   },
   beforeRouteLeave(to, from, next) {
     next();
-    this.$store.commit("guilds/tender/CHANGE_STEP", 1);
+    this.$store.commit("tender/CHANGE_STEP", 1);
   },
 };
 </script>

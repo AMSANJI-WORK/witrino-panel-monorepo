@@ -16,7 +16,7 @@ export default {
     PagesDescription,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "barter");
+    
   },
 };
 </script>

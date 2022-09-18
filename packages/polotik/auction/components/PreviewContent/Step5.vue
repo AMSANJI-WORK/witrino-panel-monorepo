@@ -78,15 +78,14 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   filters: {},
   computed: {
-    ...mapGetters(["auction"]),
+    ...mapGetters("auction", ["auction"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
@@ -101,7 +100,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
     chipColor(property) {
       return this.auction.data.auctionInfo.settings[`${property}`]
         ? "success"

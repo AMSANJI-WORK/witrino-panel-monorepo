@@ -116,7 +116,7 @@
           @upload-reolved="updateGallery"
           @dalete-image="deleteImage"
           :data-source="editableInquiry.data.gallery"
-          active-service="guilds/inquiry"
+          active-service="inquiry"
         />
       </v-col>
 
@@ -149,7 +149,7 @@
 import moment from "moment-jalaali";
 import inquiryLoadingMixin from "@packages/polotik/inquiry/mixins/loading";
 import InquiryMixin from "@packages/polotik/inquiry/mixins";
-import ServicesMixin from "@polotik/mixins/base/services";
+import ServicesMixin from "@polotik/mixins/base/service";
 import UtilityMixin from "@shared/mixins/utility";
 import { mapActions } from "vuex";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
@@ -159,7 +159,7 @@ import CityService from "@packages/polotik/service/components/City.vue";
 import UnitService from "@packages/polotik/service/components/Unit/index.vue";
 import UnitServiceSelector from "@packages/polotik/service/components/Unit/Selector.vue";
 import UnitServiceInput from "@packages/polotik/service/components/Unit/Input.vue";
-import servicesTypes from "@packages/polotik/service/store/types";
+import serviceTypes from "@packages/polotik/service/store/types";
 import fromRules from "@commen/form/mixins/rules";
 
 export default {
@@ -235,7 +235,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getAllCategoriesAsync: `guilds/services/category/${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
+      getAllCategoriesAsync: `service/category/${serviceTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     setEditableInquiryData() {
       Object.assign(this.editableInquiry, this.inquiry);

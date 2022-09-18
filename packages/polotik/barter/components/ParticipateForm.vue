@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions("guilds/barter/request", {
+    ...mapActions("barter/request", {
       createRequestBarterAsync: OFFER_TYPES.CREATE_OFFER_ASYNC,
     }),
     submitRequest() {

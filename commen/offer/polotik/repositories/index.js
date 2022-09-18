@@ -10,8 +10,7 @@ export default {
   getAnOffer(TARGET, id) {
     return UserClient.get(`${Source}/${TARGET}/${POINT}/${id}`);
   },
-  createOffer(payload) {
-    const { target, participateForm } = payload;
+  createOffer({ target, participateForm }) {
     return UserClient.post(
       `${Source}/${target.name}/${target.id}/${POINT}`,
       participateForm

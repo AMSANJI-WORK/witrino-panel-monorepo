@@ -13,7 +13,7 @@ export default {
     Requset,
   },
   methods: {
-    ...mapActions("guilds/sale", {
+    ...mapActions("sale", {
       getAllSaleAsync: GET_ONE_SALE_ASYNC,
     }),
   },

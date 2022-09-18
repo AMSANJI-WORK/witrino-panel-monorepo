@@ -16,9 +16,7 @@
 
 <script>
 import Cookies from "js-cookie";
-import { createNamespacedHelpers } from "vuex";
-const { mapActions, mapGetters, mapMutations } =
-  createNamespacedHelpers("guilds/tender");
+import { mapActions, mapGetters } from "vuex";
 import PreviewContent from "./PreviewContent/index.vue";
 import TenderParticipateForm from "./ParticipateForm.vue";
 export default {
@@ -33,9 +31,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["tender"]),
+    ...mapGetters("tender", ["tender"]),
     cities() {
-      return this.$store.getters["guilds/services/cities/cities"];
+      return this.$store.getters["service/cities/cities"];
     },
     tenderId() {
       return this.$route.params.id;
@@ -51,12 +49,11 @@ export default {
     },
   },
   methods: {
-    ...mapActions({ getTenderData: "GET_ONE_TENDER_ASYNC" }),
-    ...mapMutations({ resetTender: "RESET_TENDER" }),
+    ...mapActions("tender", { getTenderData: "GET_ONE_TENDER_ASYNC" }),
   },
   created() {
     if (this.cities.length == 0)
-      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
+      this.$store.dispatch("service/cities/GET_ALL_CITIES_ASYNC");
     this.getTenderData(this.tenderId);
   },
 };

@@ -18,7 +18,7 @@
         @dalete-image="deleteImage"
         @upload-reolved="updateGallery"
         :data-source="formData.gallery"
-        active-service="guilds/auction"
+        active-service="auction"
       />
     </v-col>
     <v-field-space style-class="my-sm-4 d-md-block d-none" />

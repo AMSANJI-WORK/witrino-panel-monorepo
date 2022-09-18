@@ -28,7 +28,7 @@ export default {
   mixins: [fromRules],
   props: ["value"],
   computed: {
-    ...mapGetters("guilds/services/units", {
+    ...mapGetters("service/units", {
       units: "units",
       formLoading: "formLoading/formLoading",
     }),

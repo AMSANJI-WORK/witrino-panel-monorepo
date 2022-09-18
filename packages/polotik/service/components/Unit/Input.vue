@@ -28,14 +28,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("guilds/services/units", {
+    ...mapGetters("service/units", {
       units: "units",
       selectedUnitObject: "selectedUnit",
       formLoading: "formLoading/formLoading",
     }),
   },
   methods: {
-    ...mapMutations("guilds/services/units", ["getSelectedUnit"]),
+    ...mapMutations("service/units", ["getSelectedUnit"]),
     updateValue(value) {
       this.$emit("input", value);
     },

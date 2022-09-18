@@ -22,8 +22,9 @@ export default {
       payload.data.category = payload.data.category.map((el) => {
         return el?.id ? el.id : el;
       });
-      const { data } = await guildsRepository.updateAuction(
+      const { data } = await guildsRepository.updateRequset(
         payload.id,
+        "auction",
         payload
       );
       commit(UPDATE_AUCTION_SUCCESS, data);

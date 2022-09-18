@@ -25,9 +25,10 @@ export default {
     try {
       commit(loadingType);
       const { userId, offerUserId, target } = payload;
-      const { data } = await guildsRepository.getAllAuctions({
+      const { data } = await guildsRepository.getAllRequest({
         pagination: getters[`${target}/pagination`],
         userId,
+        service: "auction",
         offerUserId,
       });
       commit(`${target}/SET_PAGINATION`, data);
@@ -41,14 +42,17 @@ export default {
   },
 
   async [GET_ONE_AUCTION_ASYNC]({ commit }, payload) {
-    let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
+    let activePageIsUserOffer = router.currentRoute.path.includes("outcome");
+    let loadingType = activePageIsUserOffer
+      ? "request/skeletonLoading/TOGGLE_SKELETON_LOADING_OFFERS"
+      : setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
-      const { data } = await guildsRepository.getAnAuction(payload);
-      // if (data.data?.offers)
-      // commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
-      // if (data.data?.user_offer)
-      //   commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
+      const { data } = await guildsRepository.getOneRequest(payload, "auction");
+      if (data.data?.offers)
+        commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
+      if (data.data?.user_offer)
+        commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_ONE_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);

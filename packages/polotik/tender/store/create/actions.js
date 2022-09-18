@@ -12,14 +12,13 @@ export default {
       commit("formLoading/TOGGLE_FORM_LOADING");
       delete payload?.offers;
       delete payload?.user_offer;
-      const { data } = await guildsRepository.createTender(payload);
+      const { data } = await guildsRepository.createRequset(payload, "tender");
       commit(CREATE_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(CREATE_TENDER_FAILURE, error);
     } finally {
       commit("formLoading/TOGGLE_FORM_LOADING");
-
     }
   },
 };

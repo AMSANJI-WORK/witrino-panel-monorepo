@@ -87,14 +87,12 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
+import {  mapMutations, mapGetters  } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {
-    ...mapGetters(["tender"]),
+    ...mapGetters("tender",["tender"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
@@ -106,7 +104,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("tender",{ changeStep: "CHANGE_STEP" }),
     chipColor(property) {
       return this.tender.data.tenderInfo.settings[`${property}`]
         ? "success"

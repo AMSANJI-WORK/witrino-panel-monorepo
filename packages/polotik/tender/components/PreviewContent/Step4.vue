@@ -34,18 +34,16 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
+import { mapMutations, mapGetters } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 import VImageItemStepper from "@polotik/components/Reusable/VImageItemStepper.vue";
 export default {
   components: { VLabel, VImageItemStepper },
   watch: {
-    gallery(newValue) {
-    },
+    gallery(newValue) {},
   },
   computed: {
-    ...mapGetters(["tender"]),
+    ...mapGetters("tender", ["tender"]),
     gallery() {
       return this.tender.data.gallery;
     },
@@ -54,7 +52,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("tender", { changeStep: "CHANGE_STEP" }),
   },
 };
 </script>

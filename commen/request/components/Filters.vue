@@ -63,6 +63,7 @@ export default {
       return {
         userId: null,
         offerUserId: null,
+        service: this.activeService,
         target: "pagination",
       };
     },
@@ -70,6 +71,7 @@ export default {
       return {
         userId: this.userId,
         offerUserId: null,
+        service: this.activeService,
         target: "paginationSelfItem",
       };
     },
@@ -77,6 +79,7 @@ export default {
       return {
         userId: null,
         offerUserId: this.userId,
+        service: this.activeService,
         target: "paginationSelfOffered",
       };
     },
@@ -84,7 +87,7 @@ export default {
   methods: {
     requestGetAll(payload) {
       this.$store.dispatch(
-        `guilds/${
+        `${
           this.activeService
         }/GET_ALL_${this.activeService.toUpperCase()}_ASYNC`,
         payload

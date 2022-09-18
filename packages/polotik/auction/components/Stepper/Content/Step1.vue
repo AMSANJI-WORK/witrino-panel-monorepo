@@ -80,7 +80,7 @@ import auctionLoadingMixin from "@packages/polotik/auction/mixins/loading";
 import fromRules from "@commen/form/mixins/rules";
 
 import UtilityMixin from "@shared/mixins/utility";
-import ServicesMixin from "@polotik/mixins/base/services";
+import ServicesMixin from "@polotik/mixins/base/service";
 import StepperMixin from "@packages/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";

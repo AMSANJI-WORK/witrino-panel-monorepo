@@ -11,7 +11,7 @@ export default {
   async [DELETE_AUCTION_ASYNC]({ commit }, payload) {
     try {
       commit("formLoading/TOGGLE_FORM_LOADING");
-      const data = await guildsRepository.deleteAuction(payload);
+      const data = await guildsRepository.deleteRequset(payload, "auction");
       if (data.status === 204 && data.data === "")
         commit(DELETE_AUCTION_SUCCESS, payload);
     } catch (error) {

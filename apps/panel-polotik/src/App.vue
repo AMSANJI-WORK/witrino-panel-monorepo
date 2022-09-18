@@ -20,6 +20,7 @@ export default {
   },
   created() {
     // this.isAuthorizate();
+    console.dir(this.$router.options.routes);
   },
 };
 </script>

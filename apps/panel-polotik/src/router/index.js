@@ -1,7 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import DashboardRoutes from "./dashboard";
-import AuthRoutes from "@packages/polotik/Auth/router";
 import ScrollMiddleware from "@polotik/middlewares/scroll";
 import store from "@polotik/store";
 
@@ -11,7 +9,6 @@ const router = new VueRouter({
   mode: "history",
   base: import.meta.env.BASE_URL,
   routes: [
-    ...AuthRoutes,
     {
       path: "/logout",
       name: "logout",
@@ -34,7 +31,6 @@ const router = new VueRouter({
           },
         ],
       },
-      children: [...DashboardRoutes],
     },
   ],
 });

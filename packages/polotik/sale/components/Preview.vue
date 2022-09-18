@@ -78,9 +78,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("guilds/services/cities", ["cities"]),
+    ...mapGetters("service/cities", ["cities"]),
     sale() {
-      return this.$store.getters["guilds/sale/sale"];
+      return this.$store.getters["sale/sale"];
     },
     unitAmountToFa() {
       return this.sale?.data.amount
@@ -95,7 +95,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("guilds/sale/GET_ONE_SALE_ASYNC", this.$route.params.id);
+    this.$store.dispatch("sale/GET_ONE_SALE_ASYNC", this.$route.params.id);
   },
 };
 </script>

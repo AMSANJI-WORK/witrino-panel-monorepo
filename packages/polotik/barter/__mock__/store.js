@@ -269,4 +269,4 @@ export const defualtState = {
     type: null,
   },
 };
-export const SOURCE = "guilds/barter";
+export const SOURCE = "barter";

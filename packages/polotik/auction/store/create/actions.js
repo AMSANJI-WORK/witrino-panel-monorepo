@@ -13,14 +13,13 @@ export default {
 
       delete payload?.offers;
       delete payload?.user_offer;
-      const { data } = await guildsRepository.createAuction(payload);
+      const { data } = await guildsRepository.createRequset(payload, "auction");
       commit(CREATE_AUCTION_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(CREATE_AUCTION_FAILURE, error);
     } finally {
       commit("formLoading/TOGGLE_FORM_LOADING");
-
     }
   },
 };

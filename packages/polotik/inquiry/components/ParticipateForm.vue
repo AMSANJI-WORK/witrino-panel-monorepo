@@ -58,7 +58,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions("guilds/inquiry/request", {
+    ...mapActions("inquiry/request", {
       createRequestInquiryAsync: OFFER_TYPES.CREATE_OFFER_ASYNC,
     }),
     submitRequest() {

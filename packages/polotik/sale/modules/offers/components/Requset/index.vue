@@ -40,7 +40,7 @@ export default {
     PriceTimeLine,
   },
   computed: {
-    ...mapGetters("guilds/sale", ["sale"]),
+    ...mapGetters("sale", ["sale"]),
     showPrice() {
       return this.sale.user_id != Cookies.get("user-id") ? true : false;
     },

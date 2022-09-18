@@ -24,7 +24,7 @@ const AuctionModifyMixin = {
     AuctionStepFive,
   },
   computed: {
-    ...mapGetters("guilds/auction", ["auction", "step"]),
+    ...mapGetters("auction", ["auction", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     auctionId() {
       return this.$route.params.id;
@@ -46,12 +46,12 @@ const AuctionModifyMixin = {
     },
   },
   methods: {
-    ...mapActions("guilds/auction", {
+    ...mapActions("auction", {
       createAuctionAsync: `${Types.CREATE_AUCTION_ASYNC}`,
       updateAuctionAsync: `${Types.UPDATE_AUCTION_ASYNC}`,
       getAnAuctionAsync: `${Types.GET_ONE_AUCTION_ASYNC}`,
     }),
-    ...mapMutations("guilds/auction", {
+    ...mapMutations("auction", {
       changeStep: "CHANGE_STEP",
       toggleLoading: "TOGGLE_LOADING",
       setStepOneData: "SET_STEP_ONE_DATA",

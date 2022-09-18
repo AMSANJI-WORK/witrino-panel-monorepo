@@ -14,14 +14,17 @@ export default {
 
       delete payload.offers;
       delete payload.user_offer;
-      const { data } = await guildsRepository.updateSale(payload.id, payload);
+      const { data } = await guildsRepository.updateRequset(
+        payload.id,
+        "sales",
+        payload
+      );
       commit(UPDATE_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);
       commit(UPDATE_SALE_FAILURE, error);
     } finally {
       commit("formLoading/TOGGLE_FORM_LOADING");
-
     }
   },
 };

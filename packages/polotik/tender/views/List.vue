@@ -38,7 +38,7 @@ export default {
     PageListSkeleton,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "tender");
+    
   },
 };
 </script>

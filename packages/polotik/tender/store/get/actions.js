@@ -24,16 +24,16 @@ export default {
     });
     try {
       commit(loadingType);
-      const { userId, offerUserId, target } = payload;
-      const { data } = await guildsRepository.getAllTenders({
+      const { userId, offerUserId, target, service } = payload;
+      const { data } = await guildsRepository.getAllRequest({
         pagination: getters[`${target}/pagination`],
         userId,
+        service,
         offerUserId,
       });
       commit(`${target}/SET_PAGINATION`, data);
       commit(GET_ALL_TENDER_SUCCESS, data);
     } catch (error) {
-      console.log(error);
       commit(GET_ALL_TENDER_FAILURE, error);
     } finally {
       setTimeout(() => commit(loadingType), 1000);
@@ -44,9 +44,9 @@ export default {
     let loadingType = setLoadingTypes.pagePreview(router.currentRoute.path);
     try {
       commit(loadingType);
-      const { data } = await guildsRepository.getATender(payload);
+      const { data } = await guildsRepository.getOneRequest(payload, "tender");
       if (data.data?.offers)
-      commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
+        commit("request/GET_ALL_OFFER_SUCCESS", data.data.offers);
       if (data.data?.user_offer)
         commit("request/GET_ALL_USER_OFFER_SUCCESS", data.data.user_offer);
       commit(GET_ONE_TENDER_SUCCESS, data);

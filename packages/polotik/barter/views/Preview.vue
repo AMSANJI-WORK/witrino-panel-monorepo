@@ -25,7 +25,6 @@ export default {
     PagePreviewSkeletonTypeFirst,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "barter");
   },
 };
 </script>

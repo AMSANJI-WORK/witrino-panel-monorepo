@@ -8,7 +8,9 @@
         <notification>
           <template v-slot:cardTilte>
             <v-chip small class="white p-red-primary--text"
-              ><v-icon color="p-red-primary" small class="mx-1">mdi-bell-outline</v-icon>
+              ><v-icon color="p-red-primary" small class="mx-1"
+                >mdi-bell-outline</v-icon
+              >
               توضیحات مزایده</v-chip
             >
           </template>
@@ -39,7 +41,7 @@ export default {
     Notification,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "auction");
+    
   },
 };
 </script>

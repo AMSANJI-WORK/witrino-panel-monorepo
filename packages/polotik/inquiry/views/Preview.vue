@@ -26,13 +26,13 @@ export default {
   },
   computed: {
     cities() {
-      return this.$store.getters["guilds/services/cities/cities"];
+      return this.$store.getters["service/cities/cities"];
     },
   },
   created() {
     if (this.cities.length == 0)
-      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
-    this.$store.commit("CHANGE_SERVICE", "inquiry");
+      this.$store.dispatch("service/cities/GET_ALL_CITIES_ASYNC");
+    
   },
 };
 </script>

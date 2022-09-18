@@ -1,5 +1,4 @@
-import { createNamespacedHelpers,  } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
+import { mapMutations, mapGetters } from "vuex";
 const TenderStepperMixin = {
   watch: {
     isDataSourceUpdated: {
@@ -12,7 +11,7 @@ const TenderStepperMixin = {
     },
   },
   computed: {
-    ...mapGetters({ dataSource: "auction" }),
+    ...mapGetters("auction", { dataSource: "auction" }),
     isDataSourceUpdated() {
       return this.dataSource.data;
     },
@@ -21,7 +20,7 @@ const TenderStepperMixin = {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
     isEditPage() {
       this.isRouteEdit ? this.setData() : "";
     },

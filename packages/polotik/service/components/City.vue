@@ -24,7 +24,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
-import servicesTypes from "@packages/polotik/service/store/types";
+import serviceTypes from "@packages/polotik/service/store/types";
 import fromRules from "@commen/form/mixins/rules";
 
 export default {
@@ -52,7 +52,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("guilds/services/cities", {
+    ...mapGetters("service/cities", {
       cities: "cities",
       formLoading: "formLoading/formLoading",
     }),
@@ -61,8 +61,8 @@ export default {
     updateValue(value) {
       this.$emit("input", value);
     },
-    ...mapActions("guilds/services/cities", {
-      getAllCitiesAsync: `${servicesTypes.GET_ALL_CITIES_ASYNC}`,
+    ...mapActions("service/cities", {
+      getAllCitiesAsync: `${serviceTypes.GET_ALL_CITIES_ASYNC}`,
     }),
   },
   created() {

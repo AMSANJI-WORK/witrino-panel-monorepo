@@ -74,7 +74,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("guilds/services/category", {
+    ...mapGetters("service/category", {
       categories: "categories",
       formLoading: "formLoading/formLoading",
     }),

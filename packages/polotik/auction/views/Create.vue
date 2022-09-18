@@ -10,11 +10,10 @@ export default {
     ModifyAuction,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "auction");
   },
   beforeRouteLeave(to, from, next) {
     next();
-    this.$store.commit("guilds/auction/CHANGE_STEP", 1);
+    this.$store.commit("auction/CHANGE_STEP", 1);
   },
 };
 </script>

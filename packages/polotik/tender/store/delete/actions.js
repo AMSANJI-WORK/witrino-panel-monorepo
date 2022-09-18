@@ -11,7 +11,7 @@ export default {
   async [DELETE_TENDER_ASYNC]({ commit }, payload) {
     try {
       commit("formLoading/TOGGLE_FORM_LOADING");
-      const data = await guildsRepository.deleteTender(payload);
+      const data = await guildsRepository.deleteRequset(payload, "tender");
       if (data.status === 204 && data.data === "")
         commit(DELETE_TENDER_SUCCESS, payload);
     } catch (error) {

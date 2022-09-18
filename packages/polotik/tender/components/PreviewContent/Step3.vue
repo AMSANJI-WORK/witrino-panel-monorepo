@@ -13,10 +13,7 @@
       <VLabel label="تاریخ برگزاری" :label-value="startTenderDateToFa" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <VLabel
-        label="زمان (ساعت)"
-        :label-value="tender.data.tenderInfo.time"
-      />
+      <VLabel label="زمان (ساعت)" :label-value="tender.data.tenderInfo.time" />
     </v-col>
     <v-col cols="12" class="py-0">
       <VLabel label="آدرس" :label-value="tender.data.tenderInfo.address" />
@@ -43,13 +40,12 @@
 
 <script>
 import moment from "moment-jalaali";
-import { createNamespacedHelpers } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/tender");
+import { mapMutations, mapGetters } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {
-    ...mapGetters(["tender"]),
+    ...mapGetters("tender", ["tender"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
@@ -73,7 +69,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("tender", { changeStep: "CHANGE_STEP" }),
   },
 };
 </script>

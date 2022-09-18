@@ -24,7 +24,7 @@ export default {
     PagePreviewTypeSecond,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "tender");
+    
   },
 };
 </script>

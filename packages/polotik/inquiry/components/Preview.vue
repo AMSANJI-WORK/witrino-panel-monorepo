@@ -92,7 +92,7 @@ export default {
   },
   mixins: [InquiryMixin, inquiryLoadingMixin, UtilityMixin],
   computed: {
-    ...mapGetters("guilds/services/cities", ["cities"]),
+    ...mapGetters("service/cities", ["cities"]),
     showOfferUserButton() {
       return (
         this.currentUserId != this.editableInquiry.user_id &&
@@ -145,7 +145,7 @@ export default {
   },
   created() {
     if (this.cities.length == 0)
-      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
+      this.$store.dispatch("service/cities/GET_ALL_CITIES_ASYNC");
     this.getInquiryData();
   },
 };

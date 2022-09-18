@@ -156,7 +156,7 @@
           @dalete-image="deleteImage"
           @upload-reolved="updateGallery"
           :data-source="editableBarter.data.gallery"
-          active-service="guilds/barter"
+          active-service="barter"
         />
       </v-col>
       <v-col cols="12" class="d-md-flex flex-row-reverse d-none">
@@ -187,12 +187,12 @@
 <script>
 import moment from "moment-jalaali";
 import { mapActions } from "vuex";
-import servicesTypes from "@packages/polotik/service/store/types";
+import serviceTypes from "@packages/polotik/service/store/types";
 import BarterMixin from "@packages/polotik/barter/mixins";
 import barterLoadingMixin from "@packages/polotik/barter/mixins/loading";
 import fromRules from "@commen/form/mixins/rules";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
-import ServicesMixin from "@polotik/mixins/base/services";
+import ServicesMixin from "@polotik/mixins/base/service";
 import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
@@ -271,7 +271,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getAllCategoriesAsync: `guilds/services/category/${servicesTypes.GET_ALL_CATEGORIES_ASYNC}`,
+      getAllCategoriesAsync: `service/category/${serviceTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     setData() {
       Object.assign(this.editableBarter, this.barter);

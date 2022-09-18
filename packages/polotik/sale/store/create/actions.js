@@ -12,7 +12,7 @@ export default {
       commit("formLoading/TOGGLE_FORM_LOADING");
       delete payload?.offers;
       delete payload?.user_offer;
-      const { data } = await guildsRepository.createSale(payload);
+      const { data } = await guildsRepository.createSale(payload, "sales");
       commit(CREATE_SALE_SUCCESS, data);
     } catch (error) {
       console.log(error);

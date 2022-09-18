@@ -546,4 +546,4 @@ export const defualtState = {
   },
   step: 1,
 };
-export const SOURCE = "guilds/auction";
+export const SOURCE = "auction";

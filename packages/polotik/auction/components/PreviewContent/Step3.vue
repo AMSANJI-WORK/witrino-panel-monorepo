@@ -43,13 +43,12 @@
 
 <script>
 import moment from "moment-jalaali";
-import { createNamespacedHelpers } from "vuex";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
+import { mapMutations, mapGetters } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {
-    ...mapGetters(["auction"]),
+    ...mapGetters("auction", ["auction"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
@@ -73,7 +72,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
   },
 };
 </script>

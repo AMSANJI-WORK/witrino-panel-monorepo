@@ -70,21 +70,20 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 import UtilityMixin from "@shared/mixins/utility";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 import VLabel from "@commen/label/components/Label.vue";
 export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters(["auction"]),
+    ...mapGetters("auction", ["auction"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
   },
 };
 </script>

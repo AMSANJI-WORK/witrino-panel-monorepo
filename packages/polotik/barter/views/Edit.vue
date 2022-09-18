@@ -14,7 +14,7 @@ export default {
     ModifyBarter,
   },
   created() {
-    this.$store.commit("CHANGE_SERVICE", "barter");
+    
   },
 };
 </script>

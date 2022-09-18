@@ -22,9 +22,8 @@
 
 <script>
 import Cookies from "js-cookie";
-import { createNamespacedHelpers } from "vuex";
-const { mapActions, mapGetters, mapMutations } =
-  createNamespacedHelpers("guilds/auction");
+import { mapActions, mapGetters, mapMutations } from "vuex";
+
 import PreviewContent from "./PreviewContent/index.vue";
 import AuctionParticipateForm from "./ParticipateForm.vue";
 export default {
@@ -39,12 +38,12 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["auction"]),
+    ...mapGetters("auction", ["auction"]),
     auctionId() {
       return this.$route.params.id;
     },
     cities() {
-      return this.$store.getters["guilds/services/cities/cities"];
+      return this.$store.getters["service/cities/cities"];
     },
     currentUserId() {
       return Cookies.get("user-id");
@@ -57,12 +56,12 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ resetAuction: "RESET_AUCTION" }),
-    ...mapActions({ getAnAuctionData: "GET_ONE_AUCTION_ASYNC" }),
+    ...mapMutations("auction", { resetAuction: "RESET_AUCTION" }),
+    ...mapActions("auction", { getAnAuctionData: "GET_ONE_AUCTION_ASYNC" }),
   },
   created() {
     if (this.cities.length == 0)
-      this.$store.dispatch("guilds/services/cities/GET_ALL_CITIES_ASYNC");
+      this.$store.dispatch("service/cities/GET_ALL_CITIES_ASYNC");
     this.getAnAuctionData(this.auctionId);
   },
 };

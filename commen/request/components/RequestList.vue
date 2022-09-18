@@ -63,17 +63,17 @@ export default {
   computed: {
     skeletonLoading() {
       return this.$store.getters[
-        `guilds/${this.activeService}/skeletonLoading/skeletonLoading`
+        `${this.activeService}/skeletonLoading/skeletonLoading`
       ];
     },
     requestList() {
       return this.$store.getters[
-        `guilds/${this.activeService}/${this.activeService}List`
+        `${this.activeService}/${this.activeService}List`
       ];
     },
     pagination() {
       return this.$store.getters[
-        `guilds/${this.activeService}/${this.paginationType}/pagination`
+        `${this.activeService}/${this.paginationType}/pagination`
       ];
     },
   },

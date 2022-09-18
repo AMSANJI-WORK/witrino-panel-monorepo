@@ -22,37 +22,35 @@ export default {
   beforeRouteLeave(to, from, next) {
     next();
     this.$store.commit(
-      `guilds/${this.$route.matched[1].path.slice(1)}/request/RESET_OFFERS`
+      `${this.$route.matched[0].path.slice(1)}/request/RESET_OFFERS`
     );
   },
   computed: {
     dataSource() {
-      return this.$store.getters[
-        `guilds/${this.activeService}/${this.activeService}`
-      ];
+      return this.$store.getters[`${this.activeService}/${this.activeService}`];
     },
     activeService() {
-      return this.$route.matched[1].path.slice(1);
+      return this.$route.matched[0].path.slice(1);
     },
     activeServiceUpperCase() {
       return this.activeService.toUpperCase();
     },
     skeletonLoading() {
       return this.$store.getters[
-        `guilds/${this.activeService}/request/skeletonLoading/skeletonLoading`
+        `${this.activeService}/request/skeletonLoading/skeletonLoading`
       ];
     },
   },
   methods: {
     requestGetOne() {
       this.$store.dispatch(
-        `guilds/${this.activeService}/GET_ONE_${this.activeServiceUpperCase}_ASYNC`,
+        `${this.activeService}/GET_ONE_${this.activeServiceUpperCase}_ASYNC`,
         this.$route.params.id
       );
     },
     requestOffersGetAll() {
       this.$store.dispatch(
-        `guilds/${this.activeService}/request/GET_ALL_OFFER_ASYNC`,
+        `${this.activeService}/request/GET_ALL_OFFER_ASYNC`,
         {
           target: this.activeService,
           id: this.$route.params.id,

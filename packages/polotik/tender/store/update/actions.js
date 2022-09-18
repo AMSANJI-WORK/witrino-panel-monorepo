@@ -18,7 +18,11 @@ export default {
       payload.data.category = payload.data.category.map((el) => {
         return el?.id ? el.id : el;
       });
-      const { data } = await guildsRepository.updateTender(payload.id, payload);
+      const { data } = await guildsRepository.updateRequset(
+        payload.id,
+        "tender",
+        payload
+      );
       commit(UPDATE_TENDER_SUCCESS, data);
     } catch (error) {
       console.log(error);

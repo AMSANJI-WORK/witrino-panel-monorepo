@@ -34,25 +34,23 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 import VImageItemStepper from "@polotik/components/Reusable/VImageItemStepper.vue";
-const { mapMutations, mapGetters } = createNamespacedHelpers("guilds/auction");
 export default {
   components: { VLabel, VImageItemStepper },
   watch: {
-    gallery(newValue) {
-    },
+    gallery(newValue) {},
   },
   computed: {
-    ...mapGetters(["auction"]),
-    
+    ...mapGetters("auction", ["auction"]),
+
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
   },
   methods: {
-    ...mapMutations({ changeStep: "CHANGE_STEP" }),
+    ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
   },
 };
 </script>

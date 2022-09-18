@@ -14,7 +14,11 @@ export default {
 
       delete payload.offers;
       delete payload.user_offer;
-      const { data } = await guildsRepository.updateBarter(payload.id, payload);
+      const { data } = await guildsRepository.updateRequset(
+        payload.id,
+        "barter",
+        payload
+      );
       commit(UPDATE_BARTER_SUCCESS, data);
     } catch (error) {
       console.log(error);

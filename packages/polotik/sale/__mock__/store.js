@@ -391,4 +391,4 @@ export const defualtState = {
     },
   },
 };
-export const SOURCE = "guilds/sale";
+export const SOURCE = "sale";

@@ -64,15 +64,15 @@ export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters("guilds/auction", ["auction"]),
-    ...mapGetters("guilds/services/category", ["categories"]),
-    ...mapGetters("guilds/services/cities", ["cities"]),
+    ...mapGetters("auction", ["auction"]),
+    ...mapGetters("service/category", ["categories"]),
+    ...mapGetters("service/cities", ["cities"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
   },
   methods: {
-    ...mapMutations("guilds/auction", { changeStep: "CHANGE_STEP" }),
+    ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
     getCategoryNameProperty(selectedCategory) {
       if (!selectedCategory?.name) {
         let findCategory = this.categories.find(

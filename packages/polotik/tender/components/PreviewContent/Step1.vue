@@ -62,15 +62,15 @@ export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters("guilds/tender", ["tender"]),
-    ...mapGetters("guilds/services/category", ["categories"]),
-    ...mapGetters("guilds/services/cities", ["cities"]),
+    ...mapGetters("tender", ["tender"]),
+    ...mapGetters("service/category", ["categories"]),
+    ...mapGetters("service/cities", ["cities"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
   },
   methods: {
-    ...mapMutations("guilds/tender", { changeStep: "CHANGE_STEP" }),
+    ...mapMutations("tender", { changeStep: "CHANGE_STEP" }),
     getCityNameProperty(selectedCity) {
       let cityFind = this.cities.find((city) => city.id == selectedCity);
       return cityFind?.name;
