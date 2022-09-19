@@ -1,31 +1,28 @@
 export default [
   {
-    path: "/edtehadieh/messages",
+    path: "messages",
     name: "messages",
-    redirect: "/edtehadieh/messages/all",
-    component: () => import("@applets/edtehadieh/src/modules/Messages/views/index.vue"),
+    redirect: "messages/all",
+    meta: {
+      breadCrumb: [
+        {
+          text: "پیام ها",
+          to: "/edtehadieh/messages",
+        },
+      ],
+    },
+    component: () =>
+      import("@applets/edtehadieh/src/modules/Messages/views/index.vue"),
     children: [
       {
         path: "all",
         name: "messages-all-page",
-        component: () => import("@applets/edtehadieh/src/modules/Messages/views/All.vue"),
+        component: () =>
+          import("@applets/edtehadieh/src/modules/Messages/views/All.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/",
-            },
-            {
-              text: "اتحادیه",
-              to: "/edtehadieh/home",
-            },
-            {
-              text: "پیام ها",
-              to: "/edtehadieh/messages",
-            },
-            {
               text: "همه پیام ها",
-              disabled: true,
             },
           ],
         },
@@ -33,24 +30,12 @@ export default [
       {
         path: "unread",
         name: "messages-unread-page",
-        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Unread.vue"),
+        component: () =>
+          import("@applets/edtehadieh/src/modules/Messages/views/Unread.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/",
-            },
-            {
-              text: "اتحادیه",
-              to: "/edtehadieh/home",
-            },
-            {
-              text: "پیام ها",
-              to: "/edtehadieh/messages",
-            },
-            {
               text: "پیام های خوانده نشده",
-              disabled: true,
             },
           ],
         },
@@ -58,24 +43,12 @@ export default [
       {
         path: "sent",
         name: "messages-sent-page",
-        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Sent.vue"),
+        component: () =>
+          import("@applets/edtehadieh/src/modules/Messages/views/Sent.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/",
-            },
-            {
-              text: "اتحادیه",
-              to: "/edtehadieh/home",
-            },
-            {
-              text: "پیام ها",
-              to: "/edtehadieh/messages",
-            },
-            {
               text: "پیام های ارسال شده",
-              disabled: true,
             },
           ],
         },
@@ -83,24 +56,12 @@ export default [
       {
         path: ":id/detail",
         name: "messages-detail-page",
-        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Preview.vue"),
+        component: () =>
+          import("@applets/edtehadieh/src/modules/Messages/views/Preview.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/",
-            },
-            {
-              text: "اتحادیه",
-              to: "/edtehadieh/home",
-            },
-            {
-              text: "پیام ها",
-              to: "/edtehadieh/messages/list",
-            },
-            {
               text: "جزئیات پیام",
-              disabled: true,
             },
           ],
         },
@@ -108,24 +69,12 @@ export default [
       {
         path: "send",
         name: "messages-send-page",
-        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Send.vue"),
+        component: () =>
+          import("@applets/edtehadieh/src/modules/Messages/views/Send.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/",
-            },
-            {
-              text: "اتحادیه",
-              to: "/edtehadieh/home",
-            },
-            {
-              text: "پیام ها",
-              to: "/edtehadieh/messages/list",
-            },
-            {
               text: "ارسال پیام",
-              disabled: true,
             },
           ],
         },
@@ -133,24 +82,12 @@ export default [
       {
         path: "circular",
         name: "messages-circular-page",
-        component: () => import("@applets/edtehadieh/src/modules/Messages/views/Circular.vue"),
+        component: () =>
+          import("@applets/edtehadieh/src/modules/Messages/views/Circular.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/",
-            },
-            {
-              text: "اتحادیه",
-              to: "/edtehadieh/home",
-            },
-            {
-              text: "پیام ها",
-              to: "/edtehadieh/messages",
-            },
-            {
               text: "ارسال بخشنامه",
-              disabled: true,
             },
           ],
         },

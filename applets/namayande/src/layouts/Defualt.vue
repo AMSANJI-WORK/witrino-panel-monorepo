@@ -29,8 +29,8 @@
               elevation="0"
               class="pa-0 transparent"
             >
-              <slot v-if="haveSlot" />
-              <VRouterView v-else />
+              <slot />
+              <VRouterView v-if="!$slots.default" />
             </v-sheet>
           </v-col>
         </v-row>
@@ -50,12 +50,6 @@ import navigation from "@applets/namayande/src/constants/data";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 
 export default {
-  props: {
-    haveSlot: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
       menuItems,

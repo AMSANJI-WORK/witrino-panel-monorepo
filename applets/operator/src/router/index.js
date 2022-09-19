@@ -10,11 +10,11 @@ export const OperatorPanelRoutes = [
       breadCrumb: [
         {
           text: "ویترینو",
-          to: "/operator/home",
+          to: "/",
         },
         {
           text: "اپراتور",
-          disabled: true,
+          to: "/operator/home",
         },
       ],
     },

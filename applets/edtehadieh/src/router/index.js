@@ -10,7 +10,8 @@ export const EdtehadiehPanelRoutes = [
   {
     path: "/edtehadieh",
     redirect: "/edtehadieh/home",
-    component: () => import("@applets/edtehadieh/src/modules/Dashboard/views/index.vue"),
+    component: () =>
+      import("@applets/edtehadieh/src/modules/Dashboard/views/index.vue"),
     meta: {
       breadCrumb: [
         {
@@ -19,7 +20,7 @@ export const EdtehadiehPanelRoutes = [
         },
         {
           text: "اتحادیه",
-          disabled: true,
+          to: "/edtehadieh",
         },
       ],
     },

@@ -1,14 +1,11 @@
 export default [
   {
-    path: "/agent/home",
+    path: "home",
     name: "agent-home",
-    component: () => import("@applets/agent/src/modules/Dashboard/views/Home.vue"),
+    component: () =>
+      import("@applets/agent/src/modules/Dashboard/views/Home.vue"),
     meta: {
       breadCrumb: [
-        {
-          text: "ویترینو",
-          to: "/agent",
-        },
         {
           text: "ایجنت",
           to: "/agent/home",

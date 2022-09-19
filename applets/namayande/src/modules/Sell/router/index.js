@@ -1,83 +1,32 @@
 export default [
-    {
-        path: "/namayande/sell",
-        name: "sell",
-        redirect: "/namayande/sell/list",
-        component: () => import("@applets/namayande/src/modules/Sell/views/index.vue"),
-        children: [
-            {
-                path: "list",
-                name: "sell-list-page",
-                component: () => import("@applets/namayande/src/modules/Sell/views/List.vue"),
-                meta: {
-                    breadCrumb: [
-                        {
-                            text: "ویترینو",
-                            to: "/",
-                          },
-                          {
-                            text: "نماینده",
-                            to: "/namayande/home",
-                            disabled: true,
-                          },
-                        {
-                            text: "فروش",
-                            to: "/namayande/sell/list",
-                            disabled: true,
-                        },
-                    ],
-                },
-            },
-            // {
-            //     path: "/namayande/sell/:id/edit",
-            //     name: "sell-edit-page",
-            //     component: () => import("@applets/namayande/src/modules/Sell/views/Edit.vue"),
-            //     meta: {
-            //         breadCrumb: [
-            //             {
-            //                 text: "ویترینو",
-            //                 to: "",
-            //             },
-            //             {
-            //                 text: "نماینده",
-            //                 to: "/home",
-            //             },
-            //             {
-            //                 text: "فروش",
-            //                 to: "/namayande/sell/list",
-            //             },
-            //             {
-            //                 text: "ویرایش فروش",
-            //                 disabled: true,
-            //             },
-            //         ],
-            //     },
-            // },
-            // {
-            //     path: "/namayande/sell/create",
-            //     name: "sell-create-page",
-            //     component: () => import("@applets/namayande/src/modules/Sell/views/Create.vue"),
-            //     meta: {
-            //         breadCrumb: [
-            //             {
-            //                 text: "ویترینو",
-            //                 to: "",
-            //             },
-            //             {
-            //                 text: "نماینده",
-            //                 to: "/home",
-            //             },
-            //             {
-            //                 text: "فروش",
-            //                 to: "/namayande/sell/list",
-            //             },
-            //             {
-            //                 text: "افزودن محصول",
-            //                 disabled: true,
-            //             },
-            //         ],
-            //     },
-            // },
-        ],
+  {
+    path: "sell",
+    name: "sell",
+    redirect: "sell/list",
+    meta: {
+      breadCrumb: [
+        {
+          text: "فروش",
+          to: "/namayande/sell",
+        },
+      ],
     },
+    component: () =>
+      import("@applets/namayande/src/modules/Sell/views/index.vue"),
+    children: [
+      {
+        path: "list",
+        name: "sell-list-page",
+        component: () =>
+          import("@applets/namayande/src/modules/Sell/views/List.vue"),
+        meta: {
+          breadCrumb: [
+            {
+              text: "لیست فروش",
+            },
+          ],
+        },
+      },
+    ],
+  },
 ];

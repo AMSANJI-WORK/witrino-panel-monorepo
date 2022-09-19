@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-export const ProfileRoutes =  [
+export const ProfileRoutes = [
   {
     path: "/profile/:userId",
     name: "profile",
@@ -8,9 +8,12 @@ export const ProfileRoutes =  [
     meta: {
       breadCrumb: [
         {
+          text: "ویترینو",
+          to: "/",
+        },
+        {
           text: "پروفایل",
           to: `/profile/${Cookies.get("userId")}`,
-          disabled: true,
         },
       ],
     },
@@ -22,12 +25,7 @@ export const ProfileRoutes =  [
         meta: {
           breadCrumb: [
             {
-              text: "پروفایل",
-              to: `/profile/${Cookies.get("userId")}`,
-            },
-            {
               text: "مشاهده پروفایل",
-              disabled: true,
             },
           ],
         },
@@ -39,12 +37,7 @@ export const ProfileRoutes =  [
         meta: {
           breadCrumb: [
             {
-              text: "پروفایل",
-              to: `/profile/${Cookies.get("userId")}`,
-            },
-            {
               text: "ویرایش پروفایل",
-              disabled: true,
             },
           ],
         },

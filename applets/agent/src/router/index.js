@@ -10,11 +10,7 @@ export const AgentPanelRoutes = [
       breadCrumb: [
         {
           text: "ویترینو",
-          to: "/agent/home",
-        },
-        {
-          text: "سوپروایزر",
-          disabled: true,
+          to: "/",
         },
       ],
     },
