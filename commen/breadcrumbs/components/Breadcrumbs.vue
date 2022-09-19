@@ -7,11 +7,7 @@
   >
     <v-breadcrumbs dense :items="breadCrumbs" class="py-2 px-4">
       <template v-slot:item="{ item }">
-        <v-breadcrumbs-item
-          :to="item.to"
-          :disabled="disabled(item)"
-          exact
-        >
+        <v-breadcrumbs-item :to="item.to" :disabled="disabled(item)" exact>
           {{ item.text }}
         </v-breadcrumbs-item>
       </template>
@@ -32,7 +28,7 @@ export default {
           array = [...array, object];
         });
       });
-      return array;
+      return [...new Set(array)];
     },
   },
   methods: {

@@ -1,9 +1,17 @@
 export default [
   {
-    path: "/admin/theme",
+    path: "theme",
     name: "theme",
-    redirect: "/admin/theme/list",
+    redirect: "theme/list",
     component: () => import("../views/index.vue"),
+    meta: {
+      breadCrumb: [
+        {
+          text: "تم ها",
+          to: "theme",
+        },
+      ],
+    },
     children: [
       {
         path: "list",
@@ -12,17 +20,7 @@ export default [
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/admin",
-            },
-            {
-              text: "ادمین",
-              to: "/admin/home",
-            },
-            {
-              text: "تم ها",
-              to: "/admin/theme/list",
-              disabled: true,
+              text: "لیست آگهی",
             },
           ],
         },

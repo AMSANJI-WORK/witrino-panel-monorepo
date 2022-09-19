@@ -1,17 +1,14 @@
 export default [
   {
-    path: "/supervisor/home",
+    path: "home",
     name: "supervisor-home",
-    component: () => import("@applets/supervisor/src/modules/Dashboard/views/Home.vue"),
+    component: () =>
+      import("@applets/supervisor/src/modules/Dashboard/views/Home.vue"),
     meta: {
       breadCrumb: [
         {
-          text: "ویترینو",
+          text: "سوپروایزر",
           to: "/supervisor",
-        },
-        {
-          text: "سوپر وایزر",
-          to: "/supervisor/home",
         },
       ],
     },

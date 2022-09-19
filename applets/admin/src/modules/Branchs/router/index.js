@@ -1,27 +1,28 @@
 export default [
   {
-    path: "/admin/branch",
+    path: "branch",
     name: "admin-branch",
-    redirect: "/admin/branch/list",
-    component: () => import("@applets/admin/src/modules/Branchs/views/index.vue"),
+    redirect: "branch/list",
+    component: () =>
+      import("@applets/admin/src/modules/Branchs/views/index.vue"),
+    meta: {
+      breadCrumb: [
+        {
+          text: "نمایندگی ها",
+          to: "/admin/branch",
+        },
+      ],
+    },
     children: [
       {
         path: "list",
         name: "admin-branch-list-page",
-        component: () => import("@applets/admin/src/modules/Branchs/views/List.vue"),
+        component: () =>
+          import("@applets/admin/src/modules/Branchs/views/List.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/admin",
-            },
-            {
-              text: "ادمین",
-              to: "/admin/home",
-            },
-            {
-              text: "نمایندگی ها",
-              disabled: true,
+              text: "لیست نمایندگی ها",
             },
           ],
         },
@@ -29,24 +30,12 @@ export default [
       {
         path: ":id/detail",
         name: "admin-branch-detail-page",
-        component: () => import("@applets/admin/src/modules/Branchs/views/Preview.vue"),
+        component: () =>
+          import("@applets/admin/src/modules/Branchs/views/Preview.vue"),
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/admin",
-            },
-            {
-              text: "ادمین",
-              to: "/home",
-            },
-            {
-              text: "نمایندگی ها",
-              to: "/admin/branch/list",
-            },
-            {
               text: "جزئیات نماینده",
-              disabled: true,
             },
           ],
         },

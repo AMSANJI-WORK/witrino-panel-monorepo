@@ -24,24 +24,17 @@ const router = new VueRouter({
       redirect: "/admin",
       component: () => import("@witrino/App.vue"),
       meta: {
-        breadCrumb: [
-          {
-            text: "ویترینو",
-            to: "/",
-          },
-        ],
+        breadCrumb: [],
       },
-      children: [
-        ...NamayandePanelRoutes,
-        ...EdtehadiehPanelRoutes,
-        ...SupervisorPanelRoutes,
-        ...OperatorPanelRoutes,
-        ...AgentPanelRoutes,
-        ...AdminPanelRoutes,
-        ...SharedRoutes,
-        ...ProfileRoutes,
-      ],
     },
+    ...NamayandePanelRoutes,
+    ...EdtehadiehPanelRoutes,
+    ...SupervisorPanelRoutes,
+    ...OperatorPanelRoutes,
+    ...AgentPanelRoutes,
+    ...AdminPanelRoutes,
+    ...SharedRoutes,
+    ...ProfileRoutes,
   ],
 });
 

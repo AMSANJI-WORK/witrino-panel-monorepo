@@ -1,9 +1,17 @@
 export default [
   {
-    path: "/admin/role",
+    path: "role",
     name: "role",
-    redirect: "/admin/role/list",
+    redirect: "role/list",
     component: () => import("../views/index.vue"),
+    meta: {
+      breadCrumb: [
+        {
+          text: "سطوح دسترسی",
+          to: "role/list",
+        },
+      ],
+    },
     children: [
       {
         path: "list",
@@ -12,17 +20,8 @@ export default [
         meta: {
           breadCrumb: [
             {
-              text: "ویترینو",
-              to: "/admin",
-            },
-            {
-              text: "ادمین",
-              to: "/admin/home",
-            },
-            {
-              text: "اتحادیه ها",
-              to: "/admin/role/list",
-              disabled: true,
+              text: "لیست سطوح دسترسی",
+              to: "list",
             },
           ],
         },

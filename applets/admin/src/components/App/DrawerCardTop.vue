@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    class="rounded-t-xl ma-3 d-flex flex-column align-center sheet--boreder-bottom w-primary-blue"
+    class="bg-drawer--main rounded-t-xl ma-3 d-flex flex-column align-center sheet--boreder-bottom w-primary-blue"
     height="250"
     elevation="5"
   >
@@ -25,6 +25,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bg-drawer--main {
+  background: url(@commen/assets/image/png/bg-drawer-main.png) no-repeat;
+  background-position: center;
+  background-size: 150%;
+}
 .sheet--boreder-bottom {
   border-bottom-left-radius: 75px;
   border-bottom-right-radius: 75px;

@@ -44,7 +44,7 @@ import AppHeader from "@applets/namayande/src/components/App/Header.vue";
 import AppDrawerDesktop from "@commen/drawer/components/Desktop.vue";
 import AppMobileDrawer from "@commen/drawer/components/Mobile.vue";
 import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
-import MobileSubHeader from "@applets/namayande/src/components/App/MobileSubHeader.vue";
+import AppMobileSubHeader from "@applets/namayande/src/components/App/MobileSubHeader.vue";
 import menuItems from "@applets/namayande/src/constants/menu";
 import navigation from "@applets/namayande/src/constants/data";
 import VRouterView from "@shared/components/Reusable/VRouterView.vue";
@@ -68,7 +68,7 @@ export default {
     AppHeader,
     AppDrawerDesktop,
     VRouterView,
-    MobileSubHeader,
+    AppMobileSubHeader,
     AppMobileDrawer,
     AppBreadcrumbs,
   },

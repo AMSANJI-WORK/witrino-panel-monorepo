@@ -15,16 +15,13 @@ export const AdminPanelRoutes = [
   {
     path: "/admin",
     redirect: "/admin/home",
-    component: () => import("@applets/admin/src/modules/Dashboard/views/index.vue"),
+    component: () =>
+      import("@applets/admin/src/modules/Dashboard/views/index.vue"),
     meta: {
       breadCrumb: [
         {
           text: "ویترینو",
-          to: "/admin/home",
-        },
-        {
-          text: "ادمین",
-          disabled: true,
+          to: "/admin",
         },
       ],
     },
