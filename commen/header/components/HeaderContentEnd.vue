@@ -1,7 +1,7 @@
 <template>
   <v-sheet elevation="0" class="transparent d-flex">
     <change-panel-drop-down class="d-none d-md-block" />
-    <v-btn dark icon :ripple="false" class="d-md-flex ml-2 d-none">
+    <v-btn dark icon :ripple="false" class="d-md-flex d-none">
       <v-badge dot overlap left color="error" offset-x="10" offset-y="10">
         <v-icon color="gray">mdi-bell-outline</v-icon>
       </v-badge>
@@ -10,9 +10,9 @@
       icon
       dark
       link
-      :to="`/profile/${userId}`"
+      :to="`${routeActive}/profile/${userId}`"
       :ripple="false"
-      class="d-md-flex ml-2 d-none"
+      class="d-md-flex d-none"
     >
       <v-icon color="gray">mdi-account-outline</v-icon>
     </v-btn>
@@ -26,7 +26,7 @@
           link
           to="/auth/logout"
           :ripple="false"
-          class="d-md-flex ml-2 d-none"
+          class="d-md-flex d-none"
         >
           <v-icon color="gray">mdi-power</v-icon>
         </v-btn>
@@ -46,6 +46,9 @@ export default {
   computed: {
     userId() {
       return Cookies.get("userId");
+    },
+    routeActive() {
+      return this.$route.matched[0].path;
     },
   },
 };

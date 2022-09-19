@@ -6,32 +6,20 @@
       title="پروفایل کاربری"
       cardTitleClass="px-0"
     >
-      <template #action>
-        <v-btn color="primary" small :to="`/${activeLayout}/home`">
-          بازگشت به داشبورد
-          <v-icon dark small right> mdi-arrow-left</v-icon>
-        </v-btn>
-      </template>
     </section-divider>
     <Card />
   </v-sheet>
 </template>
 
 <script>
-import Cookies from "js-cookie";
 import { mapActions } from "vuex";
 import { userTypes } from "@packages/admin/users/store/types";
 import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
-import Card from "@packages/profile/components/Card/index.vue";
+import Card from "../components/Card/index.vue";
 export default {
   components: {
     SectionDivider,
     Card,
-  },
-  computed: {
-    activeLayout() {
-      return Cookies.get("from-path");
-    },
   },
   methods: {
     ...mapActions({

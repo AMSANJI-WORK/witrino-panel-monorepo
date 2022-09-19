@@ -2,7 +2,7 @@
   <v-sheet elevation="0" class="transparent d-flex" width="100%">
     <change-panel-drop-down />
     <v-spacer></v-spacer>
-    <v-btn dark icon :ripple="false" class="ml-2">
+    <v-btn dark icon :ripple="false">
       <v-badge dot overlap left color="error" offset-x="10" offset-y="10">
         <v-icon color="gray">mdi-bell-outline</v-icon>
       </v-badge>
@@ -11,9 +11,8 @@
       icon
       dark
       link
-      :to="`/profile/${userId}`"
+      :to="`${routeActive}/profile/${userId}`"
       :ripple="false"
-      class="ml-2"
     >
       <v-icon color="gray">mdi-account-outline</v-icon>
     </v-btn>
@@ -47,6 +46,9 @@ export default {
   computed: {
     userId() {
       return Cookies.get("userId");
+    },
+    routeActive() {
+      return this.$route.matched[0].path;
     },
   },
 };

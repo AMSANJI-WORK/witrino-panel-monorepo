@@ -29,8 +29,9 @@
               elevation="0"
               class="pa-0 transparent"
             >
-              <slot />
-              <VRouterView v-if="!$slots.default" />
+              <v-slide-x-transition>
+                <router-view />
+              </v-slide-x-transition>
             </v-sheet>
           </v-col>
         </v-row>
@@ -47,7 +48,6 @@ import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
 import AppMobileSubHeader from "@applets/namayande/src/components/App/MobileSubHeader.vue";
 import menuItems from "@applets/namayande/src/constants/menu";
 import navigation from "@applets/namayande/src/constants/data";
-import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 
 export default {
   data() {
@@ -61,7 +61,6 @@ export default {
   components: {
     AppHeader,
     AppDrawerDesktop,
-    VRouterView,
     AppMobileSubHeader,
     AppMobileDrawer,
     AppBreadcrumbs,

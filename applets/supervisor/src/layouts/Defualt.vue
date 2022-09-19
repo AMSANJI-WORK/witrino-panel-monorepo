@@ -29,8 +29,9 @@
               elevation="0"
               class="pa-0 transparent"
             >
-              <slot />
-              <VRouterView v-if="!$slots.default" />
+              <v-slide-x-transition>
+                <router-view />
+              </v-slide-x-transition>
             </v-sheet>
           </v-col>
         </v-row>
@@ -45,7 +46,6 @@ import AppDrawerDesktop from "@commen/drawer/components/Desktop.vue";
 import AppMobileDrawer from "@commen/drawer/components/Mobile.vue";
 import AppMobileSubHeader from "@applets/supervisor/src/components/App/MobileSubHeader.vue";
 import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
-import VRouterView from "@shared/components/Reusable/VRouterView.vue";
 import menuItems from "@applets/supervisor/src/constants/menu";
 import navigation from "@applets/supervisor/src/constants/data";
 
@@ -53,7 +53,6 @@ export default {
   components: {
     AppHeader,
     AppDrawerDesktop,
-    VRouterView,
     AppMobileDrawer,
     AppBreadcrumbs,
     AppMobileSubHeader,

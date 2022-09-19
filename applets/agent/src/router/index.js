@@ -1,4 +1,5 @@
 import DashboardRoutes from "@applets/agent/src/modules/Dashboard/router";
+import { ProfileRoutes } from "@commen/profile/router";
 
 export const AgentPanelRoutes = [
   {
@@ -14,6 +15,6 @@ export const AgentPanelRoutes = [
         },
       ],
     },
-    children: [...DashboardRoutes],
+    children: [...DashboardRoutes, ...ProfileRoutes],
   },
 ];

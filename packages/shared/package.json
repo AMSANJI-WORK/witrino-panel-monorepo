@@ -4,6 +4,7 @@
   "dependencies": {
     "section-divider": "*",
     "reusable-inputs": "*",
+    "commen-profile": "*",
     "bread-crumbs": "*",
     "pagination": "*",
     "request": "*",

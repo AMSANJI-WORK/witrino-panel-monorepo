@@ -5,6 +5,7 @@ import ComplaintRoutes from "@applets/edtehadieh/src/modules/Complaint/router";
 import InspectorRoutes from "@applets/edtehadieh/src/modules/Inspector/router";
 import ArchiveRoutes from "@applets/edtehadieh/src/modules/Archive/router";
 import MessagesRoutes from "@applets/edtehadieh/src/modules/Messages/router";
+import { ProfileRoutes } from "@commen/profile/router";
 
 export const EdtehadiehPanelRoutes = [
   {
@@ -32,6 +33,7 @@ export const EdtehadiehPanelRoutes = [
       ...InspectorRoutes,
       ...ArchiveRoutes,
       ...MessagesRoutes,
+      ...ProfileRoutes,
     ],
   },
 ];

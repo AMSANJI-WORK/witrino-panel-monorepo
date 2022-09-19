@@ -1,4 +1,5 @@
 import DashboardRoutes from "@applets/supervisor/src/modules/Dashboard/router";
+import { ProfileRoutes } from "@commen/profile/router";
 
 export const SupervisorPanelRoutes = [
   {
@@ -8,6 +9,6 @@ export const SupervisorPanelRoutes = [
     meta: {
       breadCrumb: [],
     },
-    children: [...DashboardRoutes],
+    children: [...DashboardRoutes, ...ProfileRoutes],
   },
 ];

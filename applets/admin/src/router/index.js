@@ -10,7 +10,7 @@ import BranchsRoutes from "@applets/admin/src/modules/Branchs/router";
 import FinancialRoutes from "@applets/admin/src/modules/Financial/router";
 import ProductsRoutes from "@applets/admin/src/modules/Products/router";
 import DashboardRoutes from "@applets/admin/src/modules/Dashboard/router";
-
+import { ProfileRoutes } from "@commen/profile/router";
 export const AdminPanelRoutes = [
   {
     path: "/admin",
@@ -21,6 +21,10 @@ export const AdminPanelRoutes = [
       breadCrumb: [
         {
           text: "ویترینو",
+          to: "/",
+        },
+        {
+          text: "ادمین",
           to: "/admin",
         },
       ],
@@ -38,6 +42,7 @@ export const AdminPanelRoutes = [
       ...RolesRoutes,
       ...ThemeRoutes,
       ...UserRoutes,
+      ...ProfileRoutes,
     ],
   },
 ];

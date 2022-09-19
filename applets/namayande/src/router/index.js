@@ -1,4 +1,5 @@
 import DashboardRoutes from "@applets/namayande/src/modules/Dashboard/router";
+import { ProfileRoutes } from "@commen/profile/router";
 
 export const NamayandePanelRoutes = [
   {
@@ -18,6 +19,6 @@ export const NamayandePanelRoutes = [
         },
       ],
     },
-    children: [...DashboardRoutes],
+    children: [...DashboardRoutes, ...ProfileRoutes],
   },
 ];

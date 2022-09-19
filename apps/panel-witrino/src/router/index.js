@@ -9,7 +9,6 @@ import { NamayandePanelRoutes } from "@applets/namayande/src/router";
 import { EdtehadiehPanelRoutes } from "@applets/edtehadieh/src/router";
 import { OperatorPanelRoutes } from "@applets/operator/src/router";
 import { AgentPanelRoutes } from "@applets/agent/src/router";
-import { ProfileRoutes } from "@packages/profile/router";
 
 Vue.use(VueRouter);
 
@@ -34,7 +33,6 @@ const router = new VueRouter({
     ...AgentPanelRoutes,
     ...AdminPanelRoutes,
     ...SharedRoutes,
-    ...ProfileRoutes,
   ],
 });
 
