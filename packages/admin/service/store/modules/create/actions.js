@@ -5,7 +5,7 @@ export default {
   async [serviceTypes.CREATE_SERVICE_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await baseRepository.createService(payload);
+      const { data } = await baseRepository.create("Service", payload);
       commit(`admin/service/${serviceTypes.CRAETE_SERVICE}`, data.data[0], {
         root: true,
       });

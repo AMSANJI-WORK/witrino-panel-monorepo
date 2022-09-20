@@ -10,13 +10,10 @@ export default {
   getters: {
     imageListFormData(state) {
       if (state.imageList.length == 0) return state.imageList;
-      const [firstItem, ...otherItems] = state.imageList;
       let formData = new FormData();
-      formData.append("file", firstItem);
-      if (otherItems.length != 0)
-        otherItems.forEach((file, index) =>
-          formData.append(`file ${index + 1}`, file)
-        );
+      state.imageList.forEach((image) => {
+        formData.append("file[]", image);
+      });
       return formData;
     },
     loading(state) {
@@ -47,6 +44,14 @@ export default {
             commit(TYPES.RESET_IMAGE_LIST);
             commit(TYPES.UPLOAD_FILE_LOADING_TOGGLE);
           });
+      });
+    },
+    [TYPES.DELETE_FILE_ASYNC](_, payload) {
+      return new Promise((resolve, reject) => {
+        uploadRepository
+          .deleteFile(payload)
+          .then(() => resolve(payload))
+          .catch((error) => reject(error));
       });
     },
   },

@@ -17,43 +17,13 @@
         <notification>
           <template v-slot:cardTilte>
             <v-chip small class="white p-red-primary--text"
-              ><v-icon color="p-red-primary"small class="mx-1">mdi-bell-outline</v-icon>
+              ><v-icon color="p-red-primary" small class="mx-1"
+                >mdi-bell-outline</v-icon
+              >
               جدیدترین اخبار ها</v-chip
             >
           </template>
-          <!-- <template v-slot:cardTilteEnd>
-        <v-tooltip right>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="p-green-primary"
-              x-small
-              v-on="on"
-              v-bind="attrs"
-              fab
-              outlined
-              :ripple="false"
-              class="mx-2"
-              ><v-icon color="green darken-1">mdi-chevron-right</v-icon></v-btn
-            >
-          </template>
-          <span class="text-small font-weight-bold white--text">غیر فعال</span>
-        </v-tooltip>
-        <v-tooltip left>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="p-green-primary"
-              x-small
-              fab
-              v-on="on"
-              v-bind="attrs"
-              outlined
-              :ripple="false"
-              ><v-icon color="green darken-1  ">mdi-chevron-left</v-icon></v-btn
-            >
-          </template>
-          <span class="text-small font-weight-bold white--text">غیر فعال</span>
-        </v-tooltip>
-      </template> -->
+
           <template v-slot:cardSubTilte>
             <v-sheet class="transparent yellow--text"
               >فعال شدن امکان مناقصه

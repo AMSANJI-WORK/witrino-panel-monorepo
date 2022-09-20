@@ -1,4 +1,3 @@
-import router from "@witrino/router";
 import { serviceTypes } from "@packages/admin/service/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
 const baseRepository = RepositoryFactory.get("base");
@@ -7,7 +6,11 @@ export default {
   async [serviceTypes.UPDATE_SERVICE_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await baseRepository.updateService(payload.id, payload);
+      const { data } = await baseRepository.update(
+        "Service",
+        payload.id,
+        payload
+      );
       commit(`admin/service/${serviceTypes.UPDATE_SERVICE}`, data.data[0], {
         root: true,
       });

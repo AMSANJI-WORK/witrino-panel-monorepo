@@ -3,8 +3,8 @@
     <AppMobileDrawer
       active-class-list-group="p-green-primary--text"
       active-class-list-item="p-green-primary--text  boreder--bold"
-      :menuItems="menuItems"
-      :drawerSectionTop="DrawerCardTop"
+      :menu-items="menuItems"
+      :drawer-section-top="DrawerCardTop"
       :navigation="navigation"
     />
     <AppHeader />
@@ -16,8 +16,9 @@
             <AppDrawerDesktop
               active-class-list-group="p-green-primary--text"
               active-class-list-item="p-green-primary--text  boreder--bold"
-              :menuItems="menuItems"
-              :drawerSectionTop="DrawerCardTop"
+              :menu-items="menuItems"
+              :drawer-section-top="DrawerCardTop"
+              :padding-top="0"
             />
             <AppUserBox />
           </v-col>

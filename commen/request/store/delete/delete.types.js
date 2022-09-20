@@ -1,0 +1,3 @@
+export const DELETE_ASYNC = "DELETE_ASYNC";
+export const DELETE_SUCCESS = "DELETE_SUCCESS";
+export const DELETE_FAILURE = "DELETE_FAILURE";

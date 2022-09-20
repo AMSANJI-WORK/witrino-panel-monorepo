@@ -1,7 +1,13 @@
 <template>
   <v-sheet class="transparent" width="100%">
     <DrawerSkeletonLoder v-show="loading" />
-    <v-sheet v-show="!loading" rounded="lg" width="100%" elevation="2">
+    <v-sheet
+      v-show="!loading"
+      rounded="lg"
+      width="100%"
+      elevation="2"
+      :class="`pt-${paddingTop}`"
+    >
       <content-drawer
         :list-group-active-class="activeClassListGroup"
         :list-item-active-class="activeClassListItem"
@@ -25,8 +31,12 @@ export default {
   props: {
     activeClassListGroup: String,
     activeClassListItem: String,
-    menuItems: Array,
     drawerSectionTop: Function,
+    menuItems: Array,
+    paddingTop: {
+      type: Number,
+      default: 2,
+    },
   },
   created() {
     this.elementReady();

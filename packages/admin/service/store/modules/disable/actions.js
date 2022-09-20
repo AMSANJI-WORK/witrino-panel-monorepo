@@ -7,7 +7,7 @@ export default {
   async [serviceTypes.DISABLE_SERVICE_ASYNC]({ commit }, { id, updated_id }) {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
-      const { data } = await baseRepository.disableService(id, { updated_id });
+      const { data } = await baseRepository.disable("Service", id, { updated_id });
       commit(`admin/service/${serviceTypes.DISABLE_SERVICE}`, id, { root: true });
       commit(serviceTypes.DISABLE_SERVICE_SUCCESS, data);
     } catch (error) {
