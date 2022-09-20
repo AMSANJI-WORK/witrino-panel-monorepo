@@ -1,6 +1,6 @@
 const state = () => ({
-  barterList: [],
-  barter: {
+  list: [],
+  item: {
     title: null,
     description: null,
     start: null,

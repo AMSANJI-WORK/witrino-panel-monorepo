@@ -15,11 +15,11 @@
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="زمان (ساعت)"
-        :label-value="auction.data.auctionInfo.time"
+        :label-value="item.data.auctionInfo.time"
       />
     </v-col>
     <v-col cols="12" class="py-0">
-      <VLabel label="آدرس" :label-value="auction.data.auctionInfo.address" />
+      <VLabel label="آدرس" :label-value="item.data.auctionInfo.address" />
     </v-col>
     <v-col cols="12">
       <div
@@ -48,26 +48,26 @@ import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {
-    ...mapGetters("auction", ["auction"]),
+    ...mapGetters("auction", ["item"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
     startAuctionDateToFa() {
-      return moment(this.auction.start).format("jYYYY/jMM/jDD");
+      return moment(this.item.start).format("jYYYY/jMM/jDD");
     },
     sendDocsDateToFa() {
-      return moment(this.auction.data.conditions.docs.sendDocsDate).format(
+      return moment(this.item.data.conditions.docs.sendDocsDate).format(
         "jYYYY/jMM/jDD"
       );
     },
     collectionDocsStartTimeToFa() {
       return moment(
-        this.auction.data.conditions.docs.collectionDocsTime.start
+        this.item.data.conditions.docs.collectionDocsTime.start
       ).format("jYYYY/jMM/jDD");
     },
     collectionDocsEndTimeToFa() {
       return moment(
-        this.auction.data.conditions.docs.collectionDocsTime.end
+        this.item.data.conditions.docs.collectionDocsTime.end
       ).format("jYYYY/jMM/jDD");
     },
   },

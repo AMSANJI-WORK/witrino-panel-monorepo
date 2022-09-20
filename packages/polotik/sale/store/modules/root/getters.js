@@ -1,9 +1,9 @@
 const getters = {
-  saleList(state) {
-    return state.sales;
+  list(state) {
+    return state.list;
   },
-  sale(state) {
-    return state.sale;
+  item(state) {
+    return state.item;
   },
 };
 export default getters;

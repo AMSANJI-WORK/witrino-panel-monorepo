@@ -1,17 +1,17 @@
-import { getMutations } from "@packages/polotik/inquiry/store/get";
-import { createMutations } from "@packages/polotik/inquiry/store/create";
-import { deleteMutations } from "@packages/polotik/inquiry/store/delete";
-import { updateMutations } from "@packages/polotik/inquiry/store/update";
+import { createMutations } from "@commen/request/store/create/create.module";
+import { deleteMutations } from "@commen/request/store/delete/delete.module";
+import { getMutations } from "@commen/request/store/get/get.module";
+import { updateMutations } from "@commen/request/store/update/update.module";
 const mutations = {
   ...getMutations,
   ...createMutations,
   ...deleteMutations,
   ...updateMutations,
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
-    state.inquiry.data.gallery.splice(payload, 1);
+    state.item.data.gallery.splice(payload, 1);
   },
   REST_INQURIRY(state) {
-    state.inquiry = {
+    state.item = {
       title: null,
       description: null,
       start: null,
@@ -19,10 +19,19 @@ const mutations = {
       status: 1,
       data: {
         gallery: [],
-        category: null,
+        category: [],
         count: 0,
         endDay: 1,
+        unit: null,
+        amount: null,
         placeDelivery: null,
+      },
+      user_offer: [],
+      offers: {
+        count: null,
+        page: null,
+        last_page: null,
+        data: [],
       },
       user_id: null,
     };

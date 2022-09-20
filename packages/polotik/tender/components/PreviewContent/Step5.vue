@@ -17,7 +17,7 @@
         </v-col>
         <div
           class="d-flex flex-wrap"
-          v-if="tender.data.tenderInfo.settings.participation"
+          v-if="item.data.tenderInfo.settings.participation"
           style="width: 100%"
         >
           <v-col cols="12" sm="6" class="py-0">
@@ -59,7 +59,7 @@
           <v-col cols="12" class="py-0">
             <VLabel
               label="توضیحات راهنمای تکمیل فرم"
-              :label-value="tender.data.tenderInfo.settings.description"
+              :label-value="item.data.tenderInfo.settings.description"
             />
           </v-col>
         </div>
@@ -92,7 +92,7 @@ import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {
-    ...mapGetters("tender",["tender"]),
+    ...mapGetters("tender",["item"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
@@ -100,18 +100,18 @@ export default {
       return this.isCurrentUser || !this.routeIsPreview ? "" : "d-none";
     },
     isCurrentUser() {
-      return this.currentUserId == this.tender.data.tenderInfo.user.id;
+      return this.currentUserId == this.item.data.tenderInfo.user.id;
     },
   },
   methods: {
     ...mapMutations("tender",{ changeStep: "CHANGE_STEP" }),
     chipColor(property) {
-      return this.tender.data.tenderInfo.settings[`${property}`]
+      return this.item.data.tenderInfo.settings[`${property}`]
         ? "success"
         : "red";
     },
     chipText(property) {
-      return this.tender.data.tenderInfo.settings[`${property}`]
+      return this.item.data.tenderInfo.settings[`${property}`]
         ? "دارد"
         : "ندارد";
     },

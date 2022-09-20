@@ -152,7 +152,7 @@ export default {
     getBarterData() {
       this.getAllCategoriesAsync({ target: "barter" });
       this.getABarterAsync(this.barterId).then(() => {
-        Object.assign(this.editableBarter, this.barter);
+        Object.assign(this.editableBarter, this.item);
         this.fromDate = this.calculateFromDate;
       });
     },

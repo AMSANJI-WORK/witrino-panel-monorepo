@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <tender-participate-form v-if="showDialogBtn" />
       <v-btn
-        v-if="tender?.user_offer?.length >= 1"
+        v-if="item?.user_offer?.length >= 1"
         color="success"
         @click="$router.push('outcome')"
         >پیگیری پیشنهاد من</v-btn
@@ -25,13 +25,13 @@ export default {
     TenderParticipateForm,
   },
   watch: {
-    tender: {
+    item: {
       handler(newValue) {},
       immediate: true,
     },
   },
   computed: {
-    ...mapGetters("tender", ["tender"]),
+    ...mapGetters("tender", ["item"]),
     cities() {
       return this.$store.getters["service/cities/cities"];
     },
@@ -40,8 +40,8 @@ export default {
     },
     showDialogBtn() {
       return (
-        this.currentUserId != this.tender.user_id &&
-        !this.tender?.user_offer?.length >= 1
+        this.currentUserId != this.item.user_id &&
+        !this.item?.user_offer?.length >= 1
       );
     },
     currentUserId() {
@@ -49,7 +49,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions("tender", { getTenderData: "GET_ONE_TENDER_ASYNC" }),
+    ...mapActions("tender", { getTenderData: "GET_ONE_ASYNC" }),
   },
   created() {
     if (this.cities.length == 0)

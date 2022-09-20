@@ -27,7 +27,7 @@ export default {
       return this.$route.matched[0].path.slice(1);
     },
     dataSource() {
-      return this.$store.getters[`${this.activeService}/${this.activeService}`];
+      return this.$store.getters[`${this.activeService}/item`];
     },
     dateEnd() {
       return this.dataSource.end ?? this.dataSource.start;

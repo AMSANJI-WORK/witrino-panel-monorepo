@@ -34,7 +34,7 @@ const BarterMixin = {
     };
   },
   computed: {
-    ...mapGetters("barter", ["barter"]),
+    ...mapGetters("barter", ["item"]),
     currentUserId() {
       return Cookies.get("user-id");
     },
@@ -78,9 +78,9 @@ const BarterMixin = {
   },
   methods: {
     ...mapActions("barter", {
-      createBarterAsync: Types.CREATE_BARTER_ASYNC,
-      updateBarterAsync: Types.UPDATE_BARTER_ASYNC,
-      getABarterAsync: Types.GET_ONE_BARTER_ASYNC,
+      createBarterAsync: Types.CREATE_ASYNC,
+      updateBarterAsync: Types.UPDATE_ASYNC,
+      getABarterAsync: Types.GET_ONE_ASYNC,
     }),
     ...mapMutations("barter", { toggleLoading: "TOGGLE_LOADING" }),
   },

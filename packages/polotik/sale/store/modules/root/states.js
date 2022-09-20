@@ -1,6 +1,6 @@
 const state = () => ({
-  sales: [],
-  sale: {
+  list: [],
+  item: {
     title: null,
     description: null,
     start: null,

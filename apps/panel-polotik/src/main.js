@@ -25,7 +25,7 @@ registerModules({
   inquiry: inquiryModule,
   auth: AuthModule,
   home: homeModule,
-  sale: saleModule,
+  sales: saleModule,
   service: serviceModule,
 });
 

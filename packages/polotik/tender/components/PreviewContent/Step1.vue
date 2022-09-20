@@ -3,20 +3,20 @@
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="مناقصه گذار"
-        :label-value="tender.data.tenderInfo.user.name"
+        :label-value="item.data.tenderInfo.user.name"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <VLabel label="نوع مناقصه" :label-value="tender.data.tenderInfo.type" />
+      <VLabel label="نوع مناقصه" :label-value="item.data.tenderInfo.type" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <VLabel label="عنوان مناقصه" :label-value="tender.title" />
+      <VLabel label="عنوان مناقصه" :label-value="item.title" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
       <VLabel label="دسته مناقصه" />
       <v-chip
         x-small
-        v-for="(category, index) in tender.data.category"
+        v-for="(category, index) in item.data.category"
         :key="index"
         >{{ getCategoryNameProperty(category) }}</v-chip
       >
@@ -24,13 +24,13 @@
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="محل برگزاری"
-        :label-value="getCityNameProperty(tender.data.tenderInfo.place)"
+        :label-value="getCityNameProperty(item.data.tenderInfo.place)"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="برارود اولیه"
-        :label-value="tender.data.tenderInfo.basePrice | numberToStringFa"
+        :label-value="item.data.tenderInfo.basePrice | numberToStringFa"
       />
     </v-col>
     <v-col cols="12">
@@ -62,7 +62,7 @@ export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters("tender", ["tender"]),
+    ...mapGetters("tender", ["item"]),
     ...mapGetters("service/category", ["categories"]),
     ...mapGetters("service/cities", ["cities"]),
     routeIsPreview() {

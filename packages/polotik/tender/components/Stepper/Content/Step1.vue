@@ -111,12 +111,12 @@ export default {
       tenderCreator: "رونيا مارکت",
       tenderType: null,
     },
-    computed: {
-      currentUser() {
-        return JSON.parse(localStorage.getItem("currentUser"));
-      },
-    },
   }),
+  computed: {
+    currentUser() {
+      return JSON.parse(localStorage.getItem("currentUser"));
+    },
+  },
   methods: {
     setData() {
       const {

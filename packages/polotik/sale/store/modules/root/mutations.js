@@ -1,14 +1,14 @@
-import { getMutations } from "../../get";
-import { createMutations } from "../../create";
-import { deleteMutations } from "../../delete";
-import { updateMutations } from "../../update";
+import { createMutations } from "@commen/request/store/create/create.module";
+import { deleteMutations } from "@commen/request/store/delete/delete.module";
+import { getMutations } from "@commen/request/store/get/get.module";
+import { updateMutations } from "@commen/request/store/update/update.module";
 const mutations = {
   ...getMutations,
   ...createMutations,
   ...deleteMutations,
   ...updateMutations,
   REST_SALE(state) {
-    state.sale = {
+    state.item = {
       title: null,
       description: null,
       start: null,
@@ -44,7 +44,7 @@ const mutations = {
     };
   },
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
-    state.sale.data.gallery.splice(payload, 1);
+    state.item.data.gallery.splice(payload, 1);
   },
 };
 export default mutations;

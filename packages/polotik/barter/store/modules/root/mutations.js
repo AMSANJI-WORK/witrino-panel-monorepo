@@ -1,7 +1,7 @@
-import { createMutations } from "../../create";
-import { deleteMutations } from "../../delete";
-import { getMutations } from "../../get";
-import { updateMutations } from "../../update";
+import { createMutations } from "@commen/request/store/create/create.module";
+import { deleteMutations } from "@commen/request/store/delete/delete.module";
+import { getMutations } from "@commen/request/store/get/get.module";
+import { updateMutations } from "@commen/request/store/update/update.module";
 
 export default {
   ...getMutations,

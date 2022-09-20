@@ -138,7 +138,8 @@ export default {
     },
     getInquiryData() {
       this.getAnInquiryAsync(this.inquiryId).then(() => {
-        this.editableInquiry = Object.assign({}, this.inquiry);
+        console.log(this.item);
+        this.editableInquiry = Object.assign({}, this.item);
         this.fromDate = this.calculateFromDate;
       });
     },

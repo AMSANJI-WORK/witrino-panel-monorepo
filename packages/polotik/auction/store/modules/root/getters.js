@@ -1,21 +1,12 @@
-import Cookies from "js-cookie";
 const getters = {
-  currentUserAuctions(state) {
-    return state.auctionList.filter(
-      (auction) => auction.user_id === Cookies.get("user-id")
-    );
-  },
-  auctionList(state) {
-    return state.auctionList;
-  },
-  pagination(state) {
-    return state.pagination;
+  list(state) {
+    return state.list;
   },
   step(state) {
     return state.step;
   },
-  auction(state) {
-    return state.auction;
+  item(state) {
+    return state.item;
   },
 };
 export default getters;

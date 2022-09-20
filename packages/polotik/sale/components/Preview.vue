@@ -4,16 +4,16 @@
     :loading="formLoading"
     class="d-flex flex-row flex-wrap rounded-lg mx-2 mx-2 pa-md-10"
   >
-    <carousel class="d-block d-md-none" :gallery="sale.data?.gallery" />
+    <carousel class="d-block d-md-none" :gallery="item.data?.gallery" />
     <v-col cols="12" md="6" class="d-flex flex-wrap">
       <v-col cols="12" class="py-0">
-        <VLabel label="عنوان" :label-value="sale.title" />
+        <VLabel label="عنوان" :label-value="item.title" />
       </v-col>
       <v-col cols="12" class="py-0">
         <VLabel label="دسته بندی" />
         <v-chip
           x-small
-          v-for="(category, index) in sale.data.category"
+          v-for="(category, index) in item.data.category"
           :key="index"
           >{{ category.name }}</v-chip
         >
@@ -21,40 +21,31 @@
       <v-col cols="12" class="py-0">
         <VLabel
           label="مقدار"
-          :label-value="`${unitAmountToFa} ${sale.data.unit?.name}`"
+          :label-value="`${unitAmountToFa} ${item.data.unit?.name}`"
         />
       </v-col>
       <v-col cols="12" class="py-0">
-        <VLabel label="تاریخ شروع" :label-value="sale.start | dateToFa" />
+        <VLabel label="تاریخ شروع" :label-value="item.start | dateToFa" />
       </v-col>
       <v-col cols="12" class="py-0">
-        <VLabel label="تاریخ پایان" :label-value="sale.end | dateToFa" />
+        <VLabel label="تاریخ پایان" :label-value="item.end | dateToFa" />
       </v-col>
       <v-col cols="12" class="py-0">
         <VLabel
           label="مکان تحویل"
-          :label-value="getCityNameProperty(sale.data.place)"
+          :label-value="getCityNameProperty(item.data.place)"
         />
       </v-col>
     </v-col>
-    <carousel class="d-md-block d-none" :gallery="sale.data?.gallery" />
+    <carousel class="d-md-block d-none" :gallery="item.data?.gallery" />
     <v-col cols="12" class="py-0">
       <v-card class="transparent" elevation="0">
         <v-card-title class="pt-0 pr-3 text--secondary"> توضیحات </v-card-title>
         <v-card-text class="pr-3">
-          {{ sale.description }}
+          {{ item.description }}
         </v-card-text>
       </v-card>
     </v-col>
-    <!-- <v-btn
-      v-if="currentUserId != editableSale.user_id"
-      color="red"
-      dark
-      link
-      to="request"
-      class="mr-auto"
-      >شرکت در حراجی</v-btn
-    > -->
   </v-card>
 </template>
 
@@ -79,12 +70,12 @@ export default {
   },
   computed: {
     ...mapGetters("service/cities", ["cities"]),
-    sale() {
-      return this.$store.getters["sale/sale"];
+    item() {
+      return this.$store.getters["sales/item"];
     },
     unitAmountToFa() {
-      return this.sale?.data.amount
-        ? this.sale?.data.amount.num2persian()
+      return this.item?.data.amount
+        ? this.item?.data.amount.num2persian()
         : "0";
     },
   },
@@ -95,7 +86,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("sale/GET_ONE_SALE_ASYNC", this.$route.params.id);
+    this.$store.dispatch("sales/GET_ONE_ASYNC", this.$route.params.id);
   },
 };
 </script>

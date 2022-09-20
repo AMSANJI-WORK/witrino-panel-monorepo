@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     dataSource() {
-      return this.$store.getters[`${this.activeService}/${this.activeService}`];
+      return this.$store.getters[`${this.activeService}/item`];
     },
     activeService() {
       return this.$route.matched[0].path.slice(1);
@@ -44,7 +44,7 @@ export default {
   methods: {
     requestGetOne() {
       this.$store.dispatch(
-        `${this.activeService}/GET_ONE_${this.activeServiceUpperCase}_ASYNC`,
+        `${this.activeService}/GET_ONE_ASYNC`,
         this.$route.params.id
       );
     },

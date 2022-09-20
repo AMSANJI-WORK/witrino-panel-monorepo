@@ -13,10 +13,10 @@
       <VLabel label="تاریخ برگزاری" :label-value="startTenderDateToFa" />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
-      <VLabel label="زمان (ساعت)" :label-value="tender.data.tenderInfo.time" />
+      <VLabel label="زمان (ساعت)" :label-value="item.data.tenderInfo.time" />
     </v-col>
     <v-col cols="12" class="py-0">
-      <VLabel label="آدرس" :label-value="tender.data.tenderInfo.address" />
+      <VLabel label="آدرس" :label-value="item.data.tenderInfo.address" />
     </v-col>
     <v-col cols="12">
       <div
@@ -45,26 +45,26 @@ import VLabel from "@commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {
-    ...mapGetters("tender", ["tender"]),
+    ...mapGetters("tender", ["item"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
     startTenderDateToFa() {
-      return moment(this.tender.start).format("jYYYY/jMM/jDD");
+      return moment(this.item.start).format("jYYYY/jMM/jDD");
     },
     sendDocsDateToFa() {
-      return moment(this.tender.data.conditions.docs.sendDocsDate).format(
+      return moment(this.item.data.conditions.docs.sendDocsDate).format(
         "jYYYY/jMM/jDD"
       );
     },
     collectionDocsStartTimeToFa() {
       return moment(
-        this.tender.data.conditions.docs.collectionDocsTime.start
+        this.item.data.conditions.docs.collectionDocsTime.start
       ).format("jYYYY/jMM/jDD");
     },
     collectionDocsEndTimeToFa() {
       return moment(
-        this.tender.data.conditions.docs.collectionDocsTime.end
+        this.item.data.conditions.docs.collectionDocsTime.end
       ).format("jYYYY/jMM/jDD");
     },
   },

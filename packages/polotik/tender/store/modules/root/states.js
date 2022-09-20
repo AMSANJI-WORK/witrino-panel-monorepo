@@ -1,6 +1,6 @@
 const state = () => ({
-  tenderList: [],
-  tender: {
+  list: [],
+  item: {
     id: null,
     title: null,
     description: null,

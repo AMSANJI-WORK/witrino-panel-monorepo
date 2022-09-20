@@ -24,7 +24,7 @@ const TenderModifyMixin = {
     TenderStepFive,
   },
   computed: {
-    ...mapGetters("tender", ["tender", "step"]),
+    ...mapGetters("tender", ["item", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     ...mapState({
       formLoading: (state) => state.formLoading,
@@ -50,9 +50,9 @@ const TenderModifyMixin = {
   },
   methods: {
     ...mapActions("tender", {
-      createTenderAsync: `${Types.CREATE_TENDER_ASYNC}`,
-      updateTenderAsync: `${Types.UPDATE_TENDER_ASYNC}`,
-      getATenderAsync: `${Types.GET_ONE_TENDER_ASYNC}`,
+      createTenderAsync: `${Types.CREATE_ASYNC}`,
+      updateTenderAsync: `${Types.UPDATE_ASYNC}`,
+      getATenderAsync: `${Types.GET_ONE_ASYNC}`,
     }),
     ...mapMutations("upload", {
       addUploadedImages: `ADD_IMAGE`,
@@ -70,7 +70,7 @@ const TenderModifyMixin = {
     isEditPage() {
       if (this.$route.path.includes("edit"))
         this.getATenderAsync(this.tenderId).then(() => {
-          this.addUploadedImages(this.tender.data.gallery);
+          this.addUploadedImages(this.item.data.gallery);
         });
     },
     submitFormAction() {
@@ -81,15 +81,14 @@ const TenderModifyMixin = {
       this.submitFormAction();
     },
     resetForm() {
-      this.$router.push("/tender/list");
+      this.$router.push("/tender");
       this.changeStep(1);
-      this.resetImages();
     },
     create() {
-      this.createTenderAsync(this.tender).then(() => this.resetForm());
+      this.createTenderAsync(this.item).then(() => this.resetForm());
     },
     edit() {
-      this.updateTenderAsync(this.tender).then(() => this.resetForm());
+      this.updateTenderAsync(this.item).then(() => this.resetForm());
     },
   },
   created() {

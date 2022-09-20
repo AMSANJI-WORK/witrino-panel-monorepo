@@ -1,7 +1,7 @@
 import { mapGetters } from "vuex";
 const saleLoadingMixin = {
   computed: {
-    ...mapGetters("sale", {
+    ...mapGetters("sales", {
       skeletonLoading: "skeletonLoading/skeletonLoading",
       formLoading: "formLoading/formLoading",
     }),

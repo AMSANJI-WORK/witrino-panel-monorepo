@@ -11,7 +11,7 @@ const TenderStepperMixin = {
     },
   },
   computed: {
-    ...mapGetters("auction", { dataSource: "auction" }),
+    ...mapGetters("auction", { dataSource: "item" }),
     isDataSourceUpdated() {
       return this.dataSource.data;
     },

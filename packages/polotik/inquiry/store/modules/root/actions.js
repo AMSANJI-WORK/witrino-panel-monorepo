@@ -1,7 +1,8 @@
-import { getActions } from "@packages/polotik/inquiry/store/get";
-import { createActions } from "@packages/polotik/inquiry/store/create";
-import { deleteActions } from "@packages/polotik/inquiry/store/delete";
-import { updateActions } from "@packages/polotik/inquiry/store/update";
+import { createActions } from "@commen/request/store/create/create.module";
+import { deleteActions } from "@commen/request/store/delete/delete.module";
+import { getActions } from "@commen/request/store/get/get.module";
+import { updateActions } from "@commen/request/store/update/update.module";
+
 const actions = {
   ...getActions,
   ...createActions,

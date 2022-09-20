@@ -72,8 +72,8 @@ export default {
   },
   methods: {
     changeStep(step) {
-      let activeRoute = this.$route.matched[1].path;
-      this.$store.commit(`guilds${activeRoute}/CHANGE_STEP`, step);
+      let activeRoute = this.$route.matched[0].path.slice(1);
+      this.$store.commit(`${activeRoute}/CHANGE_STEP`, step);
     },
     validateForm() {
       if (this.next == 6) {

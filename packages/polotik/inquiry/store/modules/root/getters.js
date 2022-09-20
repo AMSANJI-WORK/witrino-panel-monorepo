@@ -1,9 +1,9 @@
 const getters = {
-  inquiryList(state) {
-    return state.inquiryList;
+  list(state) {
+    return state.list;
   },
-  inquiry(state) {
-    return state.inquiry;
+  item(state) {
+    return state.item;
   },
 };
 export default getters;

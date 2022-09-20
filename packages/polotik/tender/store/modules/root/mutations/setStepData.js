@@ -10,43 +10,43 @@ export default {
       tenderType,
     }
   ) {
-    state.tender.title = tenderTitle;
-    state.tender.data.category = tenderCategory;
-    state.tender.data.tenderInfo.basePrice = tenderBasePrice;
-    state.tender.data.tenderInfo.type = tenderType;
-    state.tender.data.tenderInfo.place = tenderPlace;
-    state.tender.data.tenderInfo.user.name = tenderCreator;
+    state.item.title = tenderTitle;
+    state.item.data.category = tenderCategory;
+    state.item.data.tenderInfo.basePrice = tenderBasePrice;
+    state.item.data.tenderInfo.type = tenderType;
+    state.item.data.tenderInfo.place = tenderPlace;
+    state.item.data.tenderInfo.user.name = tenderCreator;
   },
   SET_STEP_TWO_DATA(state, payload) {
-    state.tender.data.conditions.guarantee.type = payload.guaranteeType;
-    state.tender.data.conditions.guarantee.price = payload.guaranteePrice;
-    state.tender.data.conditions.docs.price = payload.docsPrice;
-    state.tender.data.conditions.docs.collectType = payload.docsCollectType;
-    state.tender.data.conditions.docs.isFree = payload.isDocsFree;
-    state.tender.data.conditions.askerInfo = payload.askerInformation;
-    state.tender.data.conditions.participateRealPerson =
+    state.item.data.conditions.guarantee.type = payload.guaranteeType;
+    state.item.data.conditions.guarantee.price = payload.guaranteePrice;
+    state.item.data.conditions.docs.price = payload.docsPrice;
+    state.item.data.conditions.docs.collectType = payload.docsCollectType;
+    state.item.data.conditions.docs.isFree = payload.isDocsFree;
+    state.item.data.conditions.askerInfo = payload.askerInformation;
+    state.item.data.conditions.participateRealPerson =
       payload.isRealPersonParticipate;
   },
   SET_STEP_THREE_DATA(state, payload) {
-    state.tender.data.tenderInfo.time = payload.time;
-    state.tender.start = payload.startTenderDate;
-    state.tender.data.tenderInfo.address = payload.tenderAddress;
-    state.tender.data.conditions.docs.sendDocsDate = payload.sendDocsDate;
-    state.tender.data.conditions.docs.collectionDocsTime.start =
+    state.item.data.tenderInfo.time = payload.time;
+    state.item.start = payload.startTenderDate;
+    state.item.data.tenderInfo.address = payload.tenderAddress;
+    state.item.data.conditions.docs.sendDocsDate = payload.sendDocsDate;
+    state.item.data.conditions.docs.collectionDocsTime.start =
       payload.collectionDocsTimeStart;
-    state.tender.data.conditions.docs.collectionDocsTime.end =
+    state.item.data.conditions.docs.collectionDocsTime.end =
       payload.collectionDocsTimeEnd;
   },
   SET_STEP_FOUR_DATA(state, payload) {
-    state.tender.data.gallery = payload.gallery;
-    state.tender.description = payload.description;
+    state.item.data.gallery = payload.gallery;
+    state.item.description = payload.description;
   },
   SET_STEP_FIVE_DATA(state, payload) {
-    state.tender.data.tenderInfo.settings.offerPrice = payload.offerPrice;
-    state.tender.data.tenderInfo.settings.uploadable = payload.uploadable;
-    state.tender.data.tenderInfo.settings.commentable = payload.commentable;
-    state.tender.data.tenderInfo.settings.participation = payload.participation;
-    state.tender.data.tenderInfo.settings.description =
+    state.item.data.tenderInfo.settings.offerPrice = payload.offerPrice;
+    state.item.data.tenderInfo.settings.uploadable = payload.uploadable;
+    state.item.data.tenderInfo.settings.commentable = payload.commentable;
+    state.item.data.tenderInfo.settings.participation = payload.participation;
+    state.item.data.tenderInfo.settings.description =
       payload.participateFormDescription;
   },
 };

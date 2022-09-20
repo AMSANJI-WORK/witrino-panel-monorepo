@@ -5,7 +5,6 @@
       class="font-weight-medium"
       :complete="step > 1"
       step="1"
-      @click="isFormValidate"
     >
       مشخصات
     </v-stepper-step>
@@ -59,15 +58,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
-  computed: {
-    ...mapState({
-      step: (state) => state.guilds.tender.step,
-    }),
-  },
-  methods: {
-    isFormValidate() {},
-  },
+  data: () => ({
+    step: 1,
+  }),
 };
 </script>

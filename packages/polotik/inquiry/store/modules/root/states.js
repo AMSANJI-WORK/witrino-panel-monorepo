@@ -1,6 +1,6 @@
 const state = () => ({
-  inquiryList: [],
-  inquiry: {
+  list: [],
+  item: {
     title: null,
     description: null,
     start: null,

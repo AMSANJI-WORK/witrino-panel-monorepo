@@ -5,13 +5,13 @@
       <v-spacer></v-spacer>
       <auction-participate-form v-if="showDialogBtn" />
       <v-btn
-        v-if="auction?.user_offer"
+        v-if="item?.user_offer"
         color="success"
         @click="$router.push('outcome')"
         >پیگیری پیشنهاد من</v-btn
       >
       <v-btn
-        v-if="auction?.offers"
+        v-if="item?.offers"
         color="success"
         @click="$router.push('request')"
         >دیدن پیشنهادات</v-btn
@@ -38,7 +38,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("auction", ["auction"]),
+    ...mapGetters("auction", ["item"]),
     auctionId() {
       return this.$route.params.id;
     },
@@ -50,14 +50,14 @@ export default {
     },
     showDialogBtn() {
       return (
-        this.currentUserId != this.auction.user_id &&
-        !this.auction?.user_offer?.length >= 1
+        this.currentUserId != this.item.user_id &&
+        !this.item?.user_offer?.length >= 1
       );
     },
   },
   methods: {
     ...mapMutations("auction", { resetAuction: "RESET_AUCTION" }),
-    ...mapActions("auction", { getAnAuctionData: "GET_ONE_AUCTION_ASYNC" }),
+    ...mapActions("auction", { getAnAuctionData: "GET_ONE_ASYNC" }),
   },
   created() {
     if (this.cities.length == 0)

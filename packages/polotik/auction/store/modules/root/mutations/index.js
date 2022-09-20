@@ -1,7 +1,7 @@
-import { getMutations } from "../../../get";
-import { createMutations } from "../../../create";
-import { deleteMutations } from "../../../delete";
-import { updateMutations } from "../../../update";
+import { createMutations } from "@commen/request/store/create/create.module";
+import { deleteMutations } from "@commen/request/store/delete/delete.module";
+import { getMutations } from "@commen/request/store/get/get.module";
+import { updateMutations } from "@commen/request/store/update/update.module";
 import setStepData from "./setStepData";
 export default {
   ...getMutations,
@@ -10,7 +10,7 @@ export default {
   ...updateMutations,
   ...setStepData,
   RESET_AUCTION(state) {
-    state.auction = {
+    state.item = {
       id: null,
       title: null,
       description: null,
@@ -65,6 +65,6 @@ export default {
     state.step = payload;
   },
   DELETE_IMAGE_FROM_GALLERY(state, payload) {
-    state.auction.data.gallery.splice(payload, 1);
+    state.item.data.gallery.splice(payload, 1);
   },
 };

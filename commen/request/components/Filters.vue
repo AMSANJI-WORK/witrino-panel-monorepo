@@ -50,7 +50,7 @@ export default {
           return "مزایده";
         case "inquiry":
           return "استعلام";
-        case "sale":
+        case "sales":
           return "حراجی";
         default:
           return "";
@@ -86,12 +86,7 @@ export default {
   },
   methods: {
     requestGetAll(payload) {
-      this.$store.dispatch(
-        `${
-          this.activeService
-        }/GET_ALL_${this.activeService.toUpperCase()}_ASYNC`,
-        payload
-      );
+      this.$store.dispatch(`${this.activeService}/GET_ALL_ASYNC`, payload);
     },
 
     handleTab(tab) {

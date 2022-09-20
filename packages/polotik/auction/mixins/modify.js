@@ -24,7 +24,7 @@ const AuctionModifyMixin = {
     AuctionStepFive,
   },
   computed: {
-    ...mapGetters("auction", ["auction", "step"]),
+    ...mapGetters("auction", ["item", "step"]),
     ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     auctionId() {
       return this.$route.params.id;
@@ -47,9 +47,9 @@ const AuctionModifyMixin = {
   },
   methods: {
     ...mapActions("auction", {
-      createAuctionAsync: `${Types.CREATE_AUCTION_ASYNC}`,
-      updateAuctionAsync: `${Types.UPDATE_AUCTION_ASYNC}`,
-      getAnAuctionAsync: `${Types.GET_ONE_AUCTION_ASYNC}`,
+      createAuctionAsync: `${Types.CREATE_ASYNC}`,
+      updateAuctionAsync: `${Types.UPDATE_ASYNC}`,
+      getAnAuctionAsync: `${Types.GET_ONE_ASYNC}`,
     }),
     ...mapMutations("auction", {
       changeStep: "CHANGE_STEP",
@@ -72,14 +72,14 @@ const AuctionModifyMixin = {
       this.submitFormAction();
     },
     resetForm() {
-      this.$router.push("/auction/list");
+      this.$router.push("/auction");
       this.changeStep(1);
     },
     create() {
-      this.createAuctionAsync(this.auction).then(() => this.resetForm());
+      this.createAuctionAsync(this.item).then(() => this.resetForm());
     },
     edit() {
-      this.updateAuctionAsync(this.auction).then(() => this.resetForm());
+      this.updateAuctionAsync(this.item).then(() => this.resetForm());
     },
   },
   created() {

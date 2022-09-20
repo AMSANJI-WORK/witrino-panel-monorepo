@@ -15,7 +15,7 @@
         half-increments
         size="18"
       ></v-rating>
-      <v-dialog v-model="dialog" max-width="300">
+      <v-dialog v-model="dialog" max-width="500">
         <template v-slot:activator="{ on, attrs }">
           <v-avatar
             size="100"
@@ -27,7 +27,7 @@
             <img :src="userInfo.image" alt="alt" style="object-fit: cover" />
           </v-avatar>
         </template>
-        <img :src="userInfo.image" alt="alt" style="object-fit: cover" />
+        <img ref="image" :src="userInfo.image" alt="alt" style="object-fit: cover" />
       </v-dialog>
     </v-sheet>
     <v-sheet class="text-center mt-12 mb-2 transparent">

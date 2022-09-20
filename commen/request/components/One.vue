@@ -197,12 +197,7 @@ export default {
       this.$router.push(`${this.dataSource.id}/${path}`);
     },
     deleteRequest(requestId) {
-      this.$store.dispatch(
-        `${
-          this.activeService
-        }/DELETE_${this.activeService.toUpperCase()}_ASYNC`,
-        requestId
-      );
+      this.$store.dispatch(`${this.activeService}/DELETE_ASYNC`, requestId);
     },
   },
 };

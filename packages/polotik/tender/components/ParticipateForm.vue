@@ -173,16 +173,16 @@ export default {
     };
   },
   watch: {
-    tender: {
+    item: {
       handler(newValue) {},
       immediate: true,
     },
   },
   computed: {
     ...mapGetters({
-      tender: "tender/tender",
+      item: "tender/item",
     }),
-  
+
     ...mapState({
       formLoading: (state) => state.formLoading,
     }),
@@ -193,7 +193,7 @@ export default {
       return this.$refs.participateTenderForm;
     },
     settings() {
-      return this.tender.data.tenderInfo.settings;
+      return this.item.data.tenderInfo.settings;
     },
   },
   methods: {

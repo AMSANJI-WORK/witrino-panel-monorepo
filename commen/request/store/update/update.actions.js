@@ -15,9 +15,10 @@ export default {
       delete payload?.user_offer;
       delete payload?.data?.offers;
       delete payload?.data?.user_offer;
-      payload.data.category = payload.data.category.map((el) => {
-        return el?.id ? el.id : el;
-      });
+      if (payload.data?.category)
+        payload.data.category = payload.data.category.map((el) => {
+          return el?.id ? el.id : el;
+        });
       const { data } = await guildsRepository.updateRequset(
         payload.id,
         service,

@@ -1,8 +1,8 @@
 import { resetSale } from "@packages/polotik/sale/middlewares";
 const saleRoutes = {
-  path: "/sale",
+  path: "/sales",
   name: "sale-page",
-  redirect: "/sale/list",
+  redirect: "/sales/list",
   component: () => import("@polotik/layouts/Defualt.vue"),
   meta: {
     breadCrumb: [

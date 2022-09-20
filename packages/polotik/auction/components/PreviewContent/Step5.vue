@@ -17,7 +17,7 @@
         </v-col>
         <div
           class="d-flex flex-wrap"
-          v-if="auction.data.auctionInfo.settings.participation"
+          v-if="item.data.auctionInfo.settings.participation"
           style="width: 100%"
         >
           <v-col cols="12" sm="6" class="py-0">
@@ -50,7 +50,7 @@
           <v-col cols="12" class="py-0">
             <VLabel
               label="توضیحات راهنمای تکمیل فرم"
-              :label-value="auction.data.auctionInfo.settings.description"
+              :label-value="item.data.auctionInfo.settings.description"
             />
           </v-col>
         </div>
@@ -85,7 +85,7 @@ export default {
   components: { VLabel },
   filters: {},
   computed: {
-    ...mapGetters("auction", ["auction"]),
+    ...mapGetters("auction", ["item"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },
@@ -93,21 +93,21 @@ export default {
       return this.isCurrentUser || !this.routeIsPreview ? "" : "d-none";
     },
     isCurrentUser() {
-      return this.currentUserId == this.auction.data.auctionInfo.user.id;
+      return this.currentUserId == this.item.data.auctionInfo.user.id;
     },
     settingsAuction() {
-      return this.auction.data.auctionInfo.settings;
+      return this.item.data.auctionInfo.settings;
     },
   },
   methods: {
     ...mapMutations("auction", { changeStep: "CHANGE_STEP" }),
     chipColor(property) {
-      return this.auction.data.auctionInfo.settings[`${property}`]
+      return this.item.data.auctionInfo.settings[`${property}`]
         ? "success"
         : "red";
     },
     chipText(property) {
-      return this.auction.data.auctionInfo.settings[`${property}`]
+      return this.item.data.auctionInfo.settings[`${property}`]
         ? "دارد"
         : "ندارد";
     },

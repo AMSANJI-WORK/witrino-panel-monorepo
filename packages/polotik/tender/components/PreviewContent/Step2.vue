@@ -3,48 +3,48 @@
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="مبلغ ضمانت"
-        :label-value="tender.data.conditions.guarantee.price | numberToStringFa"
+        :label-value="item.data.conditions.guarantee.price | numberToStringFa"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
       <VLabel label="نوع ضمانت" />
       <v-chip
         x-small
-        v-for="(type, index) in tender.data.conditions.guarantee.type"
+        v-for="(type, index) in item.data.conditions.guarantee.type"
         :key="index"
         >{{ type }}</v-chip
       >
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
-        v-if="tender.data.conditions.docs.isFree"
+        v-if="item.data.conditions.docs.isFree"
         label="مبلغ اسناد"
         label-value="رایگان"
       />
       <VLabel
         v-else
         label="مبلغ اسناد"
-        :label-value="tender.data.conditions.docs.price | numberToStringFa"
+        :label-value="item.data.conditions.docs.price | numberToStringFa"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="نحوه تهیه اسناد"
-        :label-value="tender.data.conditions.docs.collectType"
+        :label-value="item.data.conditions.docs.collectType"
       />
     </v-col>
     <v-col cols="12" sm="6" class="py-0">
       <VLabel
         label="شرکت اشخاص حقیقی"
         :label-value="
-          tender.data.conditions.participateRealPerson ? 'دارد' : 'ندارد'
+          item.data.conditions.participateRealPerson ? 'دارد' : 'ندارد'
         "
       />
     </v-col>
     <v-col cols="12" class="py-0">
       <VLabel
         label="شرایط متقاضی"
-        :label-value="tender.data.conditions.askerInfo"
+        :label-value="item.data.conditions.askerInfo"
       />
     </v-col>
     <v-col cols="12">
@@ -75,7 +75,7 @@ export default {
   mixins: [UtilityMixin],
   components: { VLabel },
   computed: {
-    ...mapGetters("tender", ["tender"]),
+    ...mapGetters("tender", ["item"]),
     routeIsPreview() {
       return this.$route.path.includes("preview");
     },

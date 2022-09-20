@@ -238,7 +238,7 @@ export default {
       getAllCategoriesAsync: `service/category/${serviceTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     setEditableInquiryData() {
-      Object.assign(this.editableInquiry, this.inquiry);
+      Object.assign(this.editableInquiry, this.item);
       this.fromDate = this.calculateFromDate;
       this.endDay = this.remainingDays;
     },

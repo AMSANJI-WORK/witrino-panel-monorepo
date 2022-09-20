@@ -67,9 +67,7 @@ export default {
       ];
     },
     requestList() {
-      return this.$store.getters[
-        `${this.activeService}/${this.activeService}List`
-      ];
+      return this.$store.getters[`${this.activeService}/list`];
     },
     pagination() {
       return this.$store.getters[

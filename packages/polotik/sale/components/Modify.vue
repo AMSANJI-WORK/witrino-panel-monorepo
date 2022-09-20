@@ -353,7 +353,7 @@ export default {
     }),
 
     setEditableSaleData() {
-      Object.assign(this.editableSale, this.sale);
+      Object.assign(this.editableSale, this.item);
       const {
         price: { priceType },
       } = this.editableSale.data;

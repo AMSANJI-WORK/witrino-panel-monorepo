@@ -274,7 +274,7 @@ export default {
       getAllCategoriesAsync: `service/category/${serviceTypes.GET_ALL_CATEGORIES_ASYNC}`,
     }),
     setData() {
-      Object.assign(this.editableBarter, this.barter);
+      Object.assign(this.editableBarter, this.item);
       this.endDay = this.remainingDays;
       this.fromDate = this.calculateFromDate;
     },

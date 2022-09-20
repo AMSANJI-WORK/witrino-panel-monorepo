@@ -1,9 +1,9 @@
 const getters = {
-  barterList(state) {
-    return state.barterList;
+  list(state) {
+    return state.list;
   },
-  barter(state) {
-    return state.barter;
+  item(state) {
+    return state.item;
   },
 };
 export default getters;

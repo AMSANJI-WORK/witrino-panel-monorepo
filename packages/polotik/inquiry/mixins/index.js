@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import moment from "moment-jalaali";
 
-import { mapActions, mapGetters  } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import Types from "@packages/polotik/inquiry/store/modules/root/types";
 const InquiryMixin = {
   data() {
@@ -34,7 +34,7 @@ const InquiryMixin = {
     };
   },
   computed: {
-    ...mapGetters("inquiry",["inquiry"]),
+    ...mapGetters("inquiry", ["item"]),
     currentUserId() {
       return Cookies.get("user-id");
     },
@@ -77,10 +77,10 @@ const InquiryMixin = {
     },
   },
   methods: {
-    ...mapActions("inquiry",{
-      createInquiryAsync: Types.CREATE_INQUIRY_ASYNC,
-      updateInquiryAsync: Types.UPDATE_INQUIRY_ASYNC,
-      getAnInquiryAsync: Types.GET_ONE_INQUIRY_ASYNC,
+    ...mapActions("inquiry", {
+      createInquiryAsync: Types.CREATE_ASYNC,
+      updateInquiryAsync: Types.UPDATE_ASYNC,
+      getAnInquiryAsync: Types.GET_ONE_ASYNC,
     }),
   },
 };

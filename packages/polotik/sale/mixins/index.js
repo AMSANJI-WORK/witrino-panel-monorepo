@@ -46,7 +46,7 @@ const SaleMixin = {
     };
   },
   computed: {
-    ...mapGetters("sale", ["sale"]),
+    ...mapGetters("sales", ["item"]),
     currentUserId() {
       return Cookies.get("user-id");
     },
@@ -87,10 +87,10 @@ const SaleMixin = {
     },
   },
   methods: {
-    ...mapActions("sale", {
-      createSaleAsync: Types.CREATE_SALE_ASYNC,
-      updateSaleAsync: Types.UPDATE_SALE_ASYNC,
-      getASaleAsync: Types.GET_ONE_SALE_ASYNC,
+    ...mapActions("sales", {
+      createSaleAsync: Types.CREATE_ASYNC,
+      updateSaleAsync: Types.UPDATE_ASYNC,
+      getASaleAsync: Types.GET_ONE_ASYNC,
     }),
   },
 };

@@ -3,7 +3,7 @@
     <v-col cols="12" class="py-0">
       <div class="d-flex flex-wrap" style="width: 100%">
         <v-image-item-stepper
-          v-for="(image, index) in tender.data.gallery"
+          v-for="(image, index) in item.data.gallery"
           :key="index"
           :data-source="image"
           :data-index="index"
@@ -11,7 +11,7 @@
       </div>
     </v-col>
     <v-col cols="12" class="py-0 mt-10">
-      <VLabel label="توضیحات" :label-value="tender.description" />
+      <VLabel label="توضیحات" :label-value="item.description" />
     </v-col>
     <v-col cols="12">
       <div
@@ -43,9 +43,9 @@ export default {
     gallery(newValue) {},
   },
   computed: {
-    ...mapGetters("tender", ["tender"]),
+    ...mapGetters("tender", ["item"]),
     gallery() {
-      return this.tender.data.gallery;
+      return this.item.data.gallery;
     },
     routeIsPreview() {
       return this.$route.path.includes("preview");
