@@ -7,9 +7,9 @@ const CONFIG = {
 };
 export default {
   uploadFile(file) {
-    return UserClient.post(`${Source}`, file, CONFIG);
+    return UserClient.post(Source, file, CONFIG);
   },
   deleteFile(fileSrc) {
-    return UserClient.delete(`${fileSrc}`);
+    return UserClient.delete(fileSrc);
   },
 };
