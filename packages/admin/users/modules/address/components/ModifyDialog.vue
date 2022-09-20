@@ -118,7 +118,7 @@
 
 <script>
 import Cookies from "js-cookie";
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";;
 import ZoneMixin from "@packages/zone/mixin/zone";
 import UserAddressMixin from "@packages/admin/users/modules/address/mixins/address";
 import ModifyLocation from "./ModifyLocation.vue";
@@ -126,7 +126,7 @@ export default {
   components: {
     ModifyLocation,
   },
-  mixins: [UserAddressMixin, ZoneMixin, FormMixin],
+  mixins: [UserAddressMixin, ZoneMixin, fromRules],
   props: {
     editedId: {
       types: Number,

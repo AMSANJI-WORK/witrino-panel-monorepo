@@ -56,12 +56,14 @@ import RoleMixin from "../mixins/modify";
 import { roleTypes } from "../store/types";
 import DisableDialog from "./DialogDisable.vue";
 import DialogModify from "./DialogModify.vue";
+import loadingFormRole from "../mixins/loading";
+
 export default {
   components: {
     DisableDialog,
     DialogModify,
   },
-  mixins: [TableMixin, RoleMixin],
+  mixins: [TableMixin, RoleMixin, loadingFormRole],
   data: () => ({
     dialogDisable: false,
     dialogModify: false,

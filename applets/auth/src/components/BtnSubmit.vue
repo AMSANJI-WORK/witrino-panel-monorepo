@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";;
 export default {
-  mixins: [FormMixin],
+  mixins: [fromRules],
 };
 </script>
 

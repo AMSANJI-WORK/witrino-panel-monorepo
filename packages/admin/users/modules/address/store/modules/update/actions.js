@@ -1,12 +1,12 @@
 import { userTypes } from "@packages/admin/users/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const baseRepository = RepositoryFactory.get("base");
 
 export default {
   async [userTypes.UPDATE_USER_ADDRESS_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.updateUserAddress(
+      const { data } = await baseRepository.updateUserAddress(
         payload.id,
         payload
       );

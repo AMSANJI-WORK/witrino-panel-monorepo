@@ -66,13 +66,14 @@
 
 <script>
 import RoleMixin from "../mixins/modify";
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";
+import loadingFormRole from "../mixins/loading";
 import PermissionSelector from "./PermissionSelector.vue";
 export default {
   components: {
     PermissionSelector,
   },
-  mixins: [RoleMixin, FormMixin],
+  mixins: [RoleMixin, fromRules, loadingFormRole],
   props: {
     hasActivator: {
       type: Boolean,

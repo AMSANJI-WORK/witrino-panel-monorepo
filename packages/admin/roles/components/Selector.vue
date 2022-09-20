@@ -35,12 +35,13 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";
+import loadingFormRole from "../mixins/loading";
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("admin/role");
 import { roleTypes } from "@packages/admin/roles/store/types";
 export default {
-  mixins: [FormMixin],
+  mixins: [fromRules, loadingFormRole],
   props: {
     value: {
       type: [Array, null],

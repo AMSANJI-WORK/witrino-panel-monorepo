@@ -10,6 +10,9 @@ export default {
   components: {
     List,
   },
+  created() {
+    console.dir(this.$store.getters);
+  },
 };
 </script>
 

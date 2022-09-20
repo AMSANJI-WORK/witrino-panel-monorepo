@@ -11,7 +11,9 @@ export default {
     state.roleList = [...state.roleList, payload];
   },
   [roleTypes.UPDATE_ROLE](state, payload) {
-    const targetIndex = state.roleList.findIndex((role) => role.id == payload.id);
+    const targetIndex = state.roleList.findIndex(
+      (role) => role.id == payload.id
+    );
     Object.assign(state.roleList[targetIndex], payload);
   },
   [roleTypes.DELETE_ROLE](state, payload) {

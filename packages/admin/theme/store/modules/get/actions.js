@@ -1,12 +1,12 @@
 import { themeTypes } from "@packages/admin/theme/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const baseRepository = RepositoryFactory.get("base");
 
 export default {
   async [themeTypes.GET_ALL_THEME_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
-      const { data } = await adminRepository.getTheme(payload);
+      const { data } = await baseRepository.getTheme(payload);
       commit(`admin/theme/${themeTypes.SET_THEME_LIST}`, data.data, {
         root: true,
       });
@@ -21,7 +21,7 @@ export default {
   async [themeTypes.GET_ONE_THEME_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.getTheme(payload);
+      const { data } = await baseRepository.getTheme(payload);
       commit(`admin/theme/${themeTypes.SET_THEME}`, data.data[0], {
         root: true,
       });

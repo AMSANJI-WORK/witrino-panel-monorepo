@@ -169,16 +169,18 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";
 import RoleSelector from "@packages/admin/roles/components/Selector.vue";
 import ModifyAvatar from "./ModifyFormAvatar.vue";
 import UserMixin from "@packages/admin/users/mixins/modify";
+import loadingFormUser from "../mixins/loading";
+
 export default {
   components: {
     ModifyAvatar,
     RoleSelector,
   },
-  mixins: [FormMixin, UserMixin],
+  mixins: [fromRules, UserMixin, loadingFormUser],
   data: () => ({
     showPass: false,
     genders: [

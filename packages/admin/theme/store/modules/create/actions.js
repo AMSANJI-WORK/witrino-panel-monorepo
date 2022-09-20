@@ -1,11 +1,11 @@
 import { themeTypes } from "@packages/admin/theme/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const baseRepository = RepositoryFactory.get("base");
 export default {
   async [themeTypes.CREATE_THEME_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.createTheme(payload);
+      const { data } = await baseRepository.createTheme(payload);
       commit(`admin/theme/${themeTypes.CRAETE_THEME}`, data.data[0], {
         root: true,
       });

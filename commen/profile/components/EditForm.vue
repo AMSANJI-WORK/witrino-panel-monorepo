@@ -134,14 +134,14 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";;
 import ProfileMixin from "@packages/profile/mixins/edit";
 import ModifyAvatar from "@packages/admin/users/components/ModifyFormAvatar.vue";
 export default {
   components: {
     ModifyAvatar,
   },
-  mixins: [FormMixin, ProfileMixin],
+  mixins: [fromRules, ProfileMixin],
   data: () => ({
     genders: [
       {

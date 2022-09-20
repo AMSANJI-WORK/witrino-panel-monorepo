@@ -4,6 +4,9 @@ import deleteModule from "./delete";
 import updateModule from "./update";
 import disableModule from "./disable";
 import getModule from "./get";
+import loading from "@commen/loading/modules/form/store";
+import pagination from "@commen/pagination/witrino/store";
+
 export default {
   create: createModule,
   delete: deleteModule,
@@ -11,4 +14,6 @@ export default {
   disable: disableModule,
   get: getModule,
   address,
+  loading,
+  pagination,
 };

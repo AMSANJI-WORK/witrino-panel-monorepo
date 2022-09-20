@@ -31,11 +31,11 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";;
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters } = createNamespacedHelpers("admin/service");
 export default {
-  mixins: [FormMixin],
+  mixins: [fromRules],
   props: {
     value: {
       type: [Array, null],

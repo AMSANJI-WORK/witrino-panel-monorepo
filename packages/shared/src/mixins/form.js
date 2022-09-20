@@ -1,6 +1,6 @@
 import { mapGetters } from "vuex";
 //rules.required
-const FormMixin = {
+const fromRules = {
   data() {
     return {
       rules: {
@@ -18,4 +18,4 @@ const FormMixin = {
   },
 };
 
-export default FormMixin;
+export default fromRules;

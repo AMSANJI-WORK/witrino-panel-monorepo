@@ -1,13 +1,13 @@
 import router from "@witrino/router";
 import { themeTypes } from "@packages/admin/theme/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const baseRepository = RepositoryFactory.get("base");
 
 export default {
   async [themeTypes.UPDATE_THEME_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.updateTheme(payload.id, payload);
+      const { data } = await baseRepository.updateTheme(payload.id, payload);
       commit(`admin/theme/${themeTypes.UPDATE_THEME}`, data.data[0], {
         root: true,
       });

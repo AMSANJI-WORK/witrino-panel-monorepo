@@ -1,12 +1,12 @@
 import { planTypes } from "@packages/admin/plan/store/types";
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const baseRepository = RepositoryFactory.get("base");
 
 export default {
   async [planTypes.GET_ALL_PLAN_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_TABLE_LOADING", {}, { root: true });
-      const { data } = await adminRepository.getPlan(payload);
+      const { data } = await baseRepository.getPlan(payload);
       commit(`admin/plan/${planTypes.SET_PLAN_LIST}`, data.data, {
         root: true,
       });
@@ -21,7 +21,7 @@ export default {
   async [planTypes.GET_ONE_PLAN_ASYNC]({ commit }, payload) {
     try {
       commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
-      const { data } = await adminRepository.getPlan(payload);
+      const { data } = await baseRepository.getPlan(payload);
       commit(`admin/plan/${planTypes.SET_PLAN}`, data.data[0], {
         root: true,
       });

@@ -62,9 +62,11 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import TableMixin from "@shared/mixins/table";
+import loadingFormUser from "../mixins/loading";
+
 import { userTypes } from "../store/types";
 export default {
-  mixins: [TableMixin],
+  mixins: [TableMixin, loadingFormUser],
   data: () => ({
     dialogDisable: false,
     headerDataTableClass: "blue lighten-4",

@@ -1,5 +1,5 @@
 import RepositoryFactory from "@witrino/repositories/factory";
-const adminRepository = RepositoryFactory.get("admin");
+const baseRepository = RepositoryFactory.get("base");
 export default {
   namespaced: true,
   state: () => ({
@@ -30,7 +30,7 @@ export default {
   actions: {
     async SET_PERMISSIONS_ASYNC({ commit }) {
       try {
-        const { data } = await adminRepository.getPermission();
+        const { data } = await baseRepository.get("Permission", {});
         commit("SET_PERMISSIONS", data);
       } catch (error) {
         console.log(error);
