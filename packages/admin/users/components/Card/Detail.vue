@@ -1,42 +1,42 @@
 <template>
   <v-sheet class="transparent d-flex flex-wrap px-sm-10 mx-sm-10 mx-auto">
     <v-col cols="12" md="6" class="py-1">
-      <v-label label="شروع همکاری" :labelValue="user.create_at | hireDate">
+      <v-label label="شروع همکاری" :labelValue="item.create_at | hireDate">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1">mdi-calendar-month</v-icon>
         </template>
       </v-label>
     </v-col>
     <v-col cols="12" md="6" class="py-1"
-      ><v-label label="شماره همراه" :labelValue="user.mobile">
+      ><v-label label="شماره همراه" :labelValue="item.mobile">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1 mdi-rotate-270">mdi-phone-in-talk</v-icon>
         </template>
       </v-label>
     </v-col>
     <v-col cols="12" md="6" class="py-1">
-      <v-label label="جنسیت" :labelValue="user.jensiat | gender">
+      <v-label label="جنسیت" :labelValue="item.jensiat | gender">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1">mdi-gender-male</v-icon>
         </template>
       </v-label>
     </v-col>
     <v-col cols="12" md="6" class="py-1">
-      <v-label label="ایمیل" :labelValue="user.email">
+      <v-label label="ایمیل" :labelValue="item.email">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1">mdi-email</v-icon>
         </template>
       </v-label>
     </v-col>
     <v-col cols="12" md="6" class="py-1">
-      <v-label label="نام پدر" :labelValue="user.father_name">
+      <v-label label="نام پدر" :labelValue="item.father_name">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1">mdi-human-cane</v-icon>
         </template>
       </v-label>
     </v-col>
     <v-col cols="12" md="6" class="py-1">
-      <v-label label="تلفن ثابت" :labelValue="user.phone">
+      <v-label label="تلفن ثابت" :labelValue="item.phone">
         <template #icon>
           <v-icon class="ml-sm-4 ml-1">mdi-phone-classic</v-icon>
         </template>

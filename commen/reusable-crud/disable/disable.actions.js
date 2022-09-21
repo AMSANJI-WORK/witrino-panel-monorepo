@@ -8,11 +8,13 @@ import RepositoryFactory from "@witrino/repositories/factory";
 const baseRepository = RepositoryFactory.get("base");
 
 export default {
-  async [DISABLE_ASYNC]({ commit }, { service, id, updated_id }) {
+  async [DISABLE_ASYNC]({ commit }, { service, payload }) {
     try {
       commit("loading/TOGGLE_TABLE_LOADING");
-      await baseRepository.disable(service, id, { updated_id });
-      commit(DISABLE_SUCCESS, id);
+      await baseRepository.disable(service, payload.id, {
+        updated_id: payload.updated_id,
+      });
+      commit(DISABLE_SUCCESS, payload.id);
     } catch (error) {
       console.log(error);
       commit(DISABLE_FAILURE, error);

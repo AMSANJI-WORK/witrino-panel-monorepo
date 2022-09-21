@@ -1,12 +1,8 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
 const getters = {
   userRoleId(state) {
-    return state.user.roles.map((role) => role.id);
+    return state.item.roles.map((role) => role.id);
   },
-  userList(state) {
-    return state.userList;
-  },
-  user(state) {
-    return state.user;
-  },
+  ...gettersCommen,
 };
 export default getters;

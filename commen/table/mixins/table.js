@@ -1,25 +1,23 @@
-import { mapGetters } from "vuex";
 import Cookies from "js-cookie";
-const TableMixin = {
+const mixinTable = {
   data: () => ({
     editedId: -1,
   }),
   computed: {
-    ...mapGetters("shared/loading", ["tableLoading"]),
     currentUserId() {
       return Cookies.get("userId") ?? null;
     },
   },
   methods: {
-    tableHeader(headerDataTableClass) {
+    tableHeader(dataTableClassHeader) {
       let [rowOne, ...rows] = this.headers;
       rowOne = {
         ...rowOne,
-        class: `${headerDataTableClass} rounded-tr-lg`,
+        class: `${dataTableClassHeader} rounded-tr-lg`,
       };
       rows = rows.map((item) => ({
         ...item,
-        class: headerDataTableClass,
+        class: dataTableClassHeader,
       }));
       rows[rows.length - 1].class += " rounded-tl-lg";
       return [rowOne, ...rows];
@@ -27,4 +25,4 @@ const TableMixin = {
   },
 };
 
-export default TableMixin;
+export default mixinTable;

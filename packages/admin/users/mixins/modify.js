@@ -23,7 +23,7 @@ const UserMixin = {
     },
   }),
   computed: {
-    ...mapGetters("admin/user", ["user", "userList", "userRoleId"]),
+    ...mapGetters("admin/user", ["item", "list", "userRoleId"]),
     checkRoutePass() {
       return this.$route.fullPath.includes("edit");
     },
@@ -44,23 +44,32 @@ const UserMixin = {
   },
   methods: {
     ...mapActions("admin/user", {
-      createUser: `create/${userTypes.CREATE_USER_ASYNC}`,
-      updateUser: `update/${userTypes.UPDATE_USER_ASYNC}`,
-      getUser: `get/${userTypes.GET_ONE_USER_ASYNC}`,
-      getAllUser: `get/${userTypes.GET_ALL_USER_ASYNC}`,
+      createUser: userTypes.CREATE_ASYNC,
+      updateUser: userTypes.UPDATE_ASYNC,
+      getUser: userTypes.GET_ONE_ASYNC,
+      getAllUser: userTypes.GET_ALL_ASYNC,
     }),
     setUserInfo() {
-      Object.assign(this.editableUser, this.user);
+      Object.assign(this.editableUser, this.item);
     },
     getUserInfo() {
       if (this.targetUserId)
-        this.getUser({ id: this.targetUserId }).then(() => this.setUserInfo());
+        this.getUser({
+          service: "User",
+          payload: { id: this.targetUserId },
+        }).then(() => this.setUserInfo());
       else if (this.currentUserId && !this.$route.path.includes("create"))
-        this.getUser({ id: this.currentUserId }).then(() => this.setUserInfo());
+        this.getUser({
+          service: "User",
+          payload: { id: this.currentUserId },
+        }).then(() => this.setUserInfo());
     },
   },
   created() {
-    if (this.userList.length == 0) this.getAllUser();
+    if (this.list.length == 0)
+      this.getAllUser({
+        service: "User",
+      });
     this.getUserInfo();
   },
 };

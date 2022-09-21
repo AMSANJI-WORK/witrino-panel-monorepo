@@ -46,7 +46,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import TableMixin from "@shared/mixins/table";
+import mixinTable from "@commen/table/mixins/table";
 import { planTypes } from "@packages/admin/plan/store/types";
 import DisableDialog from "@packages/admin/roles/components/DialogDisable.vue";
 import Cookies from "js-cookie";
@@ -54,7 +54,7 @@ export default {
   components: {
     DisableDialog,
   },
-  mixins: [TableMixin],
+  mixins: [mixinTable],
   data: () => ({
     dialogDisable: false,
     headerDataTableClass: "blue lighten-4",

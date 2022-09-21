@@ -1,3 +1,3 @@
-const paginationSet = "paginationSet";
-const paginationReset = "paginationReset";
-export { paginationReset, paginationSet };
+const PAGINATION_SET = "PAGINATION_SET";
+const PAGINATION_RESET = "paginationReset";
+export { PAGINATION_RESET, PAGINATION_SET };

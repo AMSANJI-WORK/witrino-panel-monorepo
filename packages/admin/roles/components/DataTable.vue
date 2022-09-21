@@ -51,7 +51,7 @@
 <script>
 import moment from "moment-jalaali";
 import { mapActions, mapGetters } from "vuex";
-import TableMixin from "@shared/mixins/table";
+import mixinTable from "@commen/table/mixins/table";
 import RoleMixin from "../mixins/modify";
 import { roleTypes } from "../store/types";
 import DisableDialog from "./DialogDisable.vue";
@@ -63,7 +63,7 @@ export default {
     DisableDialog,
     DialogModify,
   },
-  mixins: [TableMixin, RoleMixin, loadingFormRole],
+  mixins: [mixinTable, RoleMixin, loadingFormRole],
   data: () => ({
     dialogDisable: false,
     dialogModify: false,

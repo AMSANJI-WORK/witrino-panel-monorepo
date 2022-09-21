@@ -1,4 +1,4 @@
-import * as type from "./types";
+import * as TYPES from "./types";
 export default {
   namespaced: true,
   state: () => ({
@@ -10,13 +10,14 @@ export default {
     },
   },
   mutations: {
-    [type.paginationSet](state, payload) {
+    [TYPES.PAGINATION_SET](state, payload) {
+      console.log(payload);
       state.pagination.total = payload.total;
       state.pagination.perPage = payload.perPage;
       state.pagination.totalPages = payload.totalPages;
       state.pagination.currentPage = payload.currentPage;
     },
-    [type.paginationReset](state) {
+    [TYPES.PAGINATION_RESET](state) {
       Object.assign(state.pagination, {
         perPage: 20,
         currentPage: 1,

@@ -4,7 +4,7 @@
     dense
     class="rounded-lg"
     multiple
-    :items="serviceList"
+    :items="list"
     small-chips
     item-text="title"
     item-value="id"
@@ -43,7 +43,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["serviceList"]),
+    ...mapGetters(["list"]),
   },
   methods: {
     updateValue(value) {

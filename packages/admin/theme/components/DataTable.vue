@@ -5,10 +5,19 @@
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
     :footer-props="{
-      showCurrentPage: true,
-      itemsPerPageText: 'تعداد آیتم به اضای هر صفحه',
+      'show-current-page': true,
+      'items-per-page-options': [20],
+      'disable-items-per-page': true,
+      pageText: ``,
+      pagination: {
+        page: this.pagination.currentPage,
+        itemsPerPage: this.pagination.perPage,
+        pageCount: this.pagination.totalPages,
+        pageStart: this.pagination.currentPage,
+        pageStop: this.pagination.totalPages,
+        itemsLength: this.pagination.total,
+      },
     }"
-  >
     <template v-slot:footer.page-text="item">
       {{ item | pageText }}
     </template>
@@ -29,10 +38,10 @@
 <script>
 import moment from "moment-jalaali";
 import { mapActions, mapGetters } from "vuex";
-import TableMixin from "@shared/mixins/table";
+import mixinTable from "@commen/table/mixins/table";
 import { themeTypes } from "@packages/admin/theme/store/types";
 export default {
-  mixins: [TableMixin],
+  mixins: [mixinTable],
   data: () => ({
     dialogDisable: false,
     dialogModify: false,

@@ -1,10 +1,12 @@
-import * as createTypes from "./create/create.types";
-import * as deleteTypes from "./delete/delete.types";
-import * as updateTypes from "./update/update.types";
-import * as getTypes from "./get/get.types";
+import * as typesCreate from "./create/create.types";
+import * as typesDelete from "./delete/delete.types";
+import * as typesUpdate from "./update/update.types";
+import * as typesGet from "./get/get.types";
+import * as typesDisable from "./disable/disable.types";
 export default {
-  ...createTypes,
-  ...deleteTypes,
-  ...getTypes,
-  ...updateTypes,
+  ...typesCreate,
+  ...typesDelete,
+  ...typesUpdate,
+  ...typesGet,
+  ...typesDisable,
 };

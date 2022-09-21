@@ -1,6 +1,5 @@
 import { UPDATE_ASYNC, UPDATE_SUCCESS, UPDATE_FAILURE } from "./update.types";
 
-import RepositoryFactory from "@polotik/repositories/factory";
 import RepositoryFactory from "@witrino/repositories/factory";
 const baseRepository = RepositoryFactory.get("base");
 export default {

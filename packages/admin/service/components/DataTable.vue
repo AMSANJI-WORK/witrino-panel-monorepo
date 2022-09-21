@@ -1,19 +1,30 @@
 <template>
   <v-data-table
-    :items="serviceList"
+    :items="list"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
     :footer-props="{
-      showCurrentPage: true,
-      itemsPerPageText: 'تعداد آیسرویس به اضای هر صفحه',
+      'show-current-page': true,
+      'items-per-page-options': [20],
+      'disable-items-per-page': true,
+      pageText: ``,
+      pagination: {
+        page: this.pagination.currentPage,
+        itemsPerPage: this.pagination.perPage,
+        pageCount: this.pagination.totalPages,
+        pageStart: this.pagination.currentPage,
+        pageStop: this.pagination.totalPages,
+        itemsLength: this.pagination.total,
+      },
     }"
   >
-    <template v-slot:footer.page-text="item">
-      {{ item | pageText }}
-    </template>
     <template v-slot:item.record="{ item }">
       {{ getRecordIndex(item.id) }}
+    </template>
+    <template #footer.prepend>
+      <span class="pr-2">{{ `نتایج : ${pagination.total}` }}</span>
+      <v-spacer></v-spacer>
     </template>
     <template v-slot:no-data> داده ای موجود نیست </template>
     <template v-slot:loading> در حال دریافت اطلاعات ... </template>
@@ -21,11 +32,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import TableMixin from "@shared/mixins/table";
-import { serviceTypes } from "@packages/admin/service/store/types";
+import { mapGetters } from "vuex";
+import { TYPES } from "@packages/admin/service/store/types";
+import LoadingFormService from "../mixins/loading";
+import mixinTable from "@commen/table/mixins/table";
 export default {
-  mixins: [TableMixin],
+  mixins: [mixinTable, LoadingFormService],
   data: () => ({
     dialogDisable: false,
     dialogModify: false,
@@ -42,25 +54,20 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/service", ["service", "serviceList"]),
+    ...mapGetters("admin/service", ["item", "list"]),
+    ...mapGetters("admin/service/pagination", ["pagination"]),
   },
-  filters: {
-    pageText({ pageStart = -1, itemsLength = 0 }) {
-      return `${pageStart} از ${itemsLength}`;
-    },
-  },
+  filters: {},
   methods: {
-    ...mapActions("admin/service", {
-      getAllService: `get/${serviceTypes.GET_ALL_SERVICE_ASYNC}`,
-    }),
+    dataGetAll(payload) {
+      this.$store.dispatch(`admin/service/${TYPES.GET_ALL_ASYNC}`, payload);
+    },
     getRecordIndex(targetId) {
-      return (
-        this.serviceList.map((service) => service.id).indexOf(targetId) + 1
-      );
+      return this.list.map((service) => service.id).indexOf(targetId) + 1;
     },
   },
   created() {
-    if (this.serviceList.length == 0) this.getAllService();
+    if (this.list.length == 0) this.dataGetAll({ service: "Service" });
   },
 };
 </script>

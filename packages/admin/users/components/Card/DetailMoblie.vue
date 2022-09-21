@@ -6,15 +6,15 @@
     <v-sheet class="d-flex flex-column justify-center">
       <v-sheet class="d-flex flex-column align-center">
         <v-btn
-          :color="user.is_active | activeColor"
+          :color="item.is_active | activeColor"
           class="my-2 white--text"
           x-small
         >
-          {{ user.is_active | activeToFa }}
+          {{ item.is_active | activeToFa }}
           <v-icon right> mdi-label </v-icon>
         </v-btn>
         <h5 class="text-center font-weight-regular mb-5">
-          {{ user.full_name }}
+          {{ item.full_name }}
         </h5>
       </v-sheet>
     </v-sheet>
@@ -41,7 +41,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("admin/user", ["user"]),
+    ...mapGetters("admin/user", ["item"]),
   },
 };
 </script>

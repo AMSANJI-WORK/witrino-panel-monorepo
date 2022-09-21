@@ -215,14 +215,14 @@ export default {
         ...this.editableUser,
         updated_id: this.currentUserId,
       };
-      this.updateUser(this.editableUser);
+      this.updateUser({ service: "User", payload: { ...this.editableUser } });
     },
     create() {
       this.editableUser = {
         ...this.editableUser,
         created_id: this.currentUserId,
       };
-      this.createUser(this.editableUser);
+      this.createUser({ service: "User", payload: { ...this.editableUser } });
     },
     submit() {
       if (this.validateFrom)

@@ -1,9 +1,5 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
 const getters = {
-  serviceList(state) {
-    return state.serviceList;
-  },
-  service(state) {
-    return state.service;
-  },
+  ...gettersCommen,
 };
 export default getters;

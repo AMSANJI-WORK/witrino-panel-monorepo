@@ -1,12 +1,22 @@
 <template>
   <v-data-table
-    :items="userList"
+    :items="list"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
     :footer-props="{
-      showCurrentPage: true,
-      itemsPerPageText: 'تعداد آیتم به اضای هر صفحه',
+      'show-current-page': true,
+      'items-per-page-options': [10],
+      'disable-items-per-page': true,
+      pageText: ``,
+      pagination: {
+        page: this.pagination.currentPage,
+        itemsPerPage: this.pagination.perPage,
+        pageCount: this.pagination.totalPages,
+        pageStart: this.pagination.currentPage,
+        pageStop: this.pagination.totalPages,
+        itemsLength: this.pagination.total,
+      },
     }"
   >
     <template v-slot:top>
@@ -31,9 +41,7 @@
         </v-card>
       </v-dialog>
     </template>
-    <template v-slot:footer.page-text="item">
-      {{ item | pageText }}
-    </template>
+
     <template v-slot:item.record="{ item }">
       {{ getRecordIndex(item.id) }}
     </template>
@@ -54,6 +62,10 @@
         mdi-eye
       </v-icon>
     </template>
+    <template #footer.prepend>
+      <span class="pr-2">{{ `نتایج : ${pagination.total}` }}</span>
+      <v-spacer></v-spacer>
+    </template>
     <template v-slot:no-data> داده ای موجود نیست </template>
     <template v-slot:loading> در حال دریافت اطلاعات ... </template>
   </v-data-table>
@@ -61,12 +73,12 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import TableMixin from "@shared/mixins/table";
+import mixinTable from "@commen/table/mixins/table";
 import loadingFormUser from "../mixins/loading";
 
 import { userTypes } from "../store/types";
 export default {
-  mixins: [TableMixin, loadingFormUser],
+  mixins: [mixinTable, loadingFormUser],
   data: () => ({
     dialogDisable: false,
     headerDataTableClass: "blue lighten-4",
@@ -89,7 +101,8 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/user", ["userList"]),
+    ...mapGetters("admin/user", ["list"]),
+    ...mapGetters("admin/user/pagination", { pagination: "pagination" }),
   },
   filters: {
     pageText({ pageStart = -1, itemsLength = 0 }) {
@@ -98,26 +111,32 @@ export default {
   },
   methods: {
     ...mapActions("admin/user", {
-      getAllUser: `get/${userTypes.GET_ALL_USER_ASYNC}`,
-      deleteUser: `delete/${userTypes.DELETE_USER_ASYNC}`,
-      disableUser: `disable/${userTypes.DISABLE_USER_ASYNC}`,
+      getAllUser: userTypes.GET_ALL_ASYNC,
+      deleteUser: userTypes.DELETE_ASYNC,
+      disableUser: userTypes.DISABLE_ASYNC,
     }),
     getRecordIndex(targetId) {
-      return this.userList.map((user) => user.id).indexOf(targetId) + 1;
+      return this.list.map((user) => user.id).indexOf(targetId) + 1;
     },
     disableItem(targetId) {
       this.editedId = targetId;
       this.dialogDisable = true;
     },
+    changePagination(e) {
+      console.log(e);
+    },
     disableItemConfirm() {
       this.disableUser({
-        id: this.editedId,
-        updated_id: this.currentUserId,
+        service: "User",
+        payload: {
+          id: this.editedId,
+          updated_id: this.currentUserId,
+        },
       }).then(() => (this.dialogDisable = !this.dialogDisable));
     },
   },
   created() {
-    if (this.userList.length == 0) this.getAllUser();
+    if (this.list.length == 0) this.getAllUser({ service: "User" });
   },
 };
 </script>
