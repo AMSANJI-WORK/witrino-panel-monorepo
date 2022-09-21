@@ -2,7 +2,7 @@ import * as TYPES from "./types";
 export default {
   namespaced: true,
   state: () => ({
-    pagination: { perPage: 20, currentPage: 1, totalPages: 1, total: 1 },
+    pagination: { perPage: 10, currentPage: 1, totalPages: 1, total: 1 },
   }),
   getters: {
     pagination(state) {

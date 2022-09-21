@@ -136,7 +136,14 @@ export default {
     },
   },
   created() {
-    if (this.list.length == 0) this.getAllUser({ service: "User" });
+    if (this.list.length == 0)
+      this.getAllUser({
+        service: "User",
+        payload: {
+          max_no: this.pagination.perPage,
+          from_page: this.pagination.currentPage,
+        },
+      });
   },
 };
 </script>
