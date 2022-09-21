@@ -24,14 +24,16 @@
 
 <script>
 import { mapActions } from "vuex";
-import fromRules from "@commen/form/mixins/rules";;
+import fromRules from "@commen/form/mixins/rules";
 import { authTypes } from "@applets/auth/src/store/type";
 import BtnSubmit from "@applets/auth/src/components/BtnSubmit.vue";
+import loadingFormAuth from "../../mixins/loading";
+
 export default {
   components: {
     BtnSubmit,
   },
-  mixins: [fromRules],
+  mixins: [fromRules, loadingFormAuth],
   data() {
     return {
       forgetPassFrom: {

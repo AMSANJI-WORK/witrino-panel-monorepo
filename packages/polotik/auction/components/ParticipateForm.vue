@@ -181,7 +181,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      auction: "auction/auction",
+      item: "auction/item",
     }),
     auctionId() {
       return this.$route.params.id;
@@ -193,7 +193,7 @@ export default {
       return this.$refs.participateAuctionForm;
     },
     settings() {
-      return this.auction.data.auctionInfo.settings;
+      return this.item.data.auctionInfo.settings;
     },
   },
   methods: {

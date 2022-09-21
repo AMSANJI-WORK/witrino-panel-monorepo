@@ -25,7 +25,6 @@ const AuctionModifyMixin = {
   },
   computed: {
     ...mapGetters("auction", ["item", "step"]),
-    ...mapGetters("upload", { uploadedImages: "successUploadedImages" }),
     auctionId() {
       return this.$route.params.id;
     },
@@ -41,8 +40,7 @@ const AuctionModifyMixin = {
       return this.$route.path.includes("edit") ? "ثبت ویرایش" : "ثبت نهایی";
     },
     submitBtnColor() {
-      if (this.$route.path.includes("edit")) return "yellow darken-4";
-      return "success";
+      return this.$route.path.includes("edit") ? "yellow darken-4" : "success";
     },
   },
   methods: {
@@ -65,8 +63,7 @@ const AuctionModifyMixin = {
         this.getAnAuctionAsync(this.auctionId);
     },
     submitFormAction() {
-      if (this.$route.path.includes("edit")) this.edit();
-      this.create();
+      return this.$route.path.includes("edit") ? this.edit() : this.create();
     },
     submit() {
       this.submitFormAction();

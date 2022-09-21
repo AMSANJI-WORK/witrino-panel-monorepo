@@ -3,9 +3,7 @@ const TenderStepperMixin = {
   watch: {
     isDataSourceUpdated: {
       handler(newValue) {
-        if (newValue !== undefined) {
-          this.isEditPage();
-        }
+        if (newValue !== undefined) this.isEditPage();
       },
       immediate: true,
     },

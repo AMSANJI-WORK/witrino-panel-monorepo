@@ -9,7 +9,7 @@
     />
     <AppHeader />
     <AppMobileSubHeader />
-    <v-main class="bg--color">
+    <v-main class="w-primary-secondary">
       <v-container>
         <v-row>
           <v-col class="d-lg-block d-none" cols="3">

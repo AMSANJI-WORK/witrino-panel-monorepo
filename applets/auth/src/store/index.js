@@ -22,20 +22,19 @@ export default {
     [authTypes.SET_AUTHORIZE_DATA](state, payload) {
       const {
         data: { access_token, id, refresh_token },
-        message,
       } = payload;
 
       state.access_token = access_token;
       state.refresh_token = refresh_token;
       state.id = id;
-      
+
       defaultClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
       userClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
       daynamicClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
 
       Cookies.set("access_token", access_token);
       Cookies.set("refresh_token", refresh_token);
-      Cookies.set("userId", JSON.stringify(id));
+      Cookies.set("userId", id);
     },
     [authTypes.REMOVE_AUTHORIZE_DATA](state) {
       state.access_token = null;

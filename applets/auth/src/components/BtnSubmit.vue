@@ -13,9 +13,10 @@
 </template>
 
 <script>
-import fromRules from "@commen/form/mixins/rules";;
+import fromRules from "@commen/form/mixins/rules";
+import loadingFormAuth from "../mixins/loading";
 export default {
-  mixins: [fromRules],
+  mixins: [fromRules, loadingFormAuth],
 };
 </script>
 

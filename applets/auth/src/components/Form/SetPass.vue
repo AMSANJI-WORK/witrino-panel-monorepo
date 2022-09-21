@@ -40,14 +40,16 @@
 <script>
 import Cookies from "js-cookie";
 import { mapActions } from "vuex";
-import fromRules from "@commen/form/mixins/rules";;
+import fromRules from "@commen/form/mixins/rules";
 import BtnSubmit from "@applets/auth/src/components/BtnSubmit.vue";
 import { authTypes } from "@applets/auth/src/store/type";
+import loadingFormAuth from "../../mixins/loading";
+
 export default {
   components: {
     BtnSubmit,
   },
-  mixins: [fromRules],
+  mixins: [fromRules, loadingFormAuth],
   data: () => ({
     confirmPass: "",
     show: { pass: false, confirmPass: false },

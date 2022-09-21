@@ -10,14 +10,14 @@ export default {
   actions: {
     async [authTypes.AUTH_FORGET_PASS_ASYNC]({ commit }, payload) {
       try {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("auth/loading/TOGGLE_FORM_LOADING", {}, { root: true });
         const { data } = await authRepository.forgetPassword(payload);
         commit(authTypes.AUTH_FORGET_PASS_SUCCESS, data);
       } catch (error) {
         console.log(error);
         commit(authTypes.AUTH_FORGET_PASS_FAILURE, error);
       } finally {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("auth/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       }
     },
   },

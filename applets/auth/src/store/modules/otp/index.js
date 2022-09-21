@@ -12,13 +12,13 @@ export default {
   actions: {
     async [authTypes.AUTH_OTP_VALIDATE_ASYNC]({ commit }, payload) {
       try {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("auth/loading/TOGGLE_FORM_LOADING", {}, { root: true });
         const data = await authRepository.otp(payload);
         commit(authTypes.AUTH_OTP_VALIDATE_SUCCESS, data);
       } catch (error) {
         commit(authTypes.AUTH_OTP_VALIDATE_FAILURE, error);
       } finally {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("auth/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       }
     },
     async [authTypes.AUTH_OTP_RESEND_ASYNC]({ commit, state }, payload) {
