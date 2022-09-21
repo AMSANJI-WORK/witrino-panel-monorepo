@@ -3,7 +3,6 @@ import {
   GET_ALL_ASYNC,
   GET_ALL_SUCCESS,
   GET_ALL_FAILURE,
-  CHANGE_PAGE_PAGINATION,
   GET_ONE_ASYNC,
   GET_ONE_SUCCESS,
   GET_ONE_FAILURE,
@@ -57,9 +56,5 @@ export default {
     } finally {
       setTimeout(() => commit(loadingType), 1000);
     }
-  },
-  [CHANGE_PAGE_PAGINATION]({ commit, dispatch }, payload) {
-    commit(CHANGE_PAGE_PAGINATION, payload);
-    dispatch(GET_ALL_ASYNC);
   },
 };
