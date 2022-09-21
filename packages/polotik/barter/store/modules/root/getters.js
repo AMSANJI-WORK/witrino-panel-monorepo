@@ -1,9 +1,6 @@
+import gettersCommen from "@commen/request/store/root/root.getters";
+
 const getters = {
-  list(state) {
-    return state.list;
-  },
-  item(state) {
-    return state.item;
-  },
+  ...gettersCommen,
 };
 export default getters;

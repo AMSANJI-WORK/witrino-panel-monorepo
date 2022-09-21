@@ -12,7 +12,7 @@ const saleRoutes = {
       },
       {
         text: "حراجی",
-        to: "/sale",
+        to: "/sales",
       },
     ],
   },
@@ -25,7 +25,6 @@ const saleRoutes = {
         breadCrumb: [
           {
             text: "لیست آگهی ها",
-            to: "/sale/list",
           },
         ],
       },
