@@ -1,6 +1,6 @@
 const state = () => ({
-  zoneList: [],
-  zone: {
+  list: [],
+  item: {
     id: null,
     is_deleted: null,
     created_at: null,

@@ -31,7 +31,7 @@ const UserMixin = {
       return this.$route.params.id ?? null;
     },
     currentUserId() {
-      return Cookies.get("userId") ?? null;
+      return JSON.parse(localStorage.getItem("userId"));
     },
     submitBtnColor() {
       if (this.checkRoutePass) return "yellow darken-3";

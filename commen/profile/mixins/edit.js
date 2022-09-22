@@ -1,9 +1,6 @@
-// import Cookies from "js-cookie";
-// import moment from "moment-jalaali";
-
 import { mapActions, mapGetters } from "vuex";
 import { userTypes } from "@packages/admin/users/store/types";
-import Cookies from "js-cookie";
+import { userAddressTypes } from "@packages/admin/users/modules/address/store/types";
 const ProfileMixin = {
   data: () => ({
     editableUser: {
@@ -26,54 +23,54 @@ const ProfileMixin = {
     },
   }),
   computed: {
-    ...mapGetters("admin/user", ["user", "userList", "userRoleId"]),
+    ...mapGetters("admin/user", ["item", "list", "userRoleId"]),
     checkRoutePass() {
       return this.$route.fullPath.includes("edit");
     },
     currentUserId() {
-      return Cookies.get("userId") ?? null;
+      return JSON.parse(localStorage.getItem("userId"));
     },
     submitBtnColor() {
-      if (this.checkRoutePass) return "yellow darken-3";
-      return "light-blue";
+      return this.checkRoutePass ? "yellow darken-3" : "light-blue";
     },
     submitBtnText() {
-      if (this.checkRoutePass) return "اعمال تغییرات";
-      return "ثبت اطلاعات";
+      return this.checkRoutePass ? "اعمال تغییرات" : "ثبت اطلاعات";
     },
   },
   methods: {
     ...mapActions("admin/user", {
-      updateUser: `update/${userTypes.UPDATE_USER_ASYNC}`,
-      getUser: `get/${userTypes.GET_ONE_USER_ASYNC}`,
-      getAllUser: `get/${userTypes.GET_ALL_USER_ASYNC}`,
-      getAllUserAddress: `address/get/${userTypes.GET_ALL_USER_ADDRESS_ASYNC}`,
+      updateUser: `${userTypes.UPDATE_ASYNC}`,
+      getUser: `${userTypes.GET_ONE_ASYNC}`,
+      getAllUserAddress: `address/${userAddressTypes.GET_ALL_ASYNC}`,
     }),
     getUserInfo() {
       if (this.currentUserId)
-        this.getUser({ id: this.currentUserId }).then(() =>
-          Object.assign(this.editableUser, this.user)
-        );
+        this.getUser({
+          service: "User",
+          payload: { id: this.currentUserId },
+        }).then(() => Object.assign(this.editableUser, this.item));
     },
   },
   created() {
-    if (this.userList.length == 0) this.getAllUser();
     this.getUserInfo();
-    this.getAllUserAddress({
-      form_vars: [
-        {
-          name: "Param_WithWhere",
-          value: "1",
-          valueType: [
-            {
-              field: "user_id",
-              operator: "=",
-              value: this.currentUserId,
-            },
-          ],
-        },
-      ],
-    });
+    // this.getAllUserAddress({
+    //   service: "Address",
+    //   payload: {
+    //     form_vars: [
+    //       {
+    //         name: "Param_WithWhere",
+    //         value: "1",
+    //         valueType: [
+    //           {
+    //             field: "user_id",
+    //             operator: "=",
+    //             value: this.currentUserId,
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    // });
   },
 };
 export default ProfileMixin;

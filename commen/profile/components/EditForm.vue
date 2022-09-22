@@ -134,14 +134,15 @@
 </template>
 
 <script>
-import fromRules from "@commen/form/mixins/rules";;
-import ProfileMixin from "@packages/profile/mixins/edit";
+import ProfileMixin from "../mixins/edit";
+import fromRules from "@commen/form/mixins/rules";
+import loadingFormUser from "@packages/admin/users/mixins/loading";
 import ModifyAvatar from "@packages/admin/users/components/ModifyFormAvatar.vue";
 export default {
   components: {
     ModifyAvatar,
   },
-  mixins: [fromRules, ProfileMixin],
+  mixins: [fromRules, ProfileMixin, loadingFormUser],
   data: () => ({
     genders: [
       {
@@ -171,7 +172,7 @@ export default {
         ...this.editableUser,
         updated_id: this.currentUserId,
       };
-      this.updateUser(this.editableUser);
+      this.updateUser({ service: "User", payload: { ...this.editableUser } });
     },
     submit() {
       if (this.validateFrom) this.update();

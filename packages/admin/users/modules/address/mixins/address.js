@@ -1,21 +1,19 @@
-import { createNamespacedHelpers } from "vuex";
-const { mapActions, mapGetters } =
-  createNamespacedHelpers("admin/user/address");
-import { userTypes } from "@packages/admin/users/store/types";
+import { mapGetters, mapActions } from "vuex";
+import { userAddressTypes } from "@packages/admin/users/modules/address/store/types";
 const UserAddressMixin = {
   data() {
     return {};
   },
   computed: {
-    ...mapGetters(["userAddress", "userAddressList"]),
+    ...mapGetters("admin/user/address", ["item", "list"]),
   },
   methods: {
-    ...mapActions({
-      updateUserAddress: `update/${userTypes.UPDATE_USER_ADDRESS_ASYNC}`,
-      getOneUserAddress: `get/${userTypes.GET_ONE_USER_ADDRESS_ASYNC}`,
-      getAllUserAddress: `get/${userTypes.GET_ALL_USER_ADDRESS_ASYNC}`,
-      createUserAddress: `create/${userTypes.CREATE_USER_ADDRESS_ASYNC}`,
-      disableUserAddress: `disable/${userTypes.DISABLE_USER_ADDRESS_ASYNC}`,
+    ...mapActions("admin/user/address", {
+      updateUserAddress: userAddressTypes.UPDATE_ASYNC,
+      getOneUserAddress: userAddressTypes.GET_ONE_ASYNC,
+      getAllUserAddress: userAddressTypes.GET_ALL_ASYNC,
+      createUserAddress: userAddressTypes.CREATE_ASYNC,
+      disableUserAddress: userAddressTypes.DISABLE_ASYNC,
     }),
   },
 };

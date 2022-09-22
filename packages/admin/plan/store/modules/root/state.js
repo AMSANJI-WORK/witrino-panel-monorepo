@@ -1,6 +1,6 @@
 const state = () => ({
-  planList: [],
-  plan: {
+  list: [],
+  item: {
     id: null,
     is_deleted: null,
     created_at: null,

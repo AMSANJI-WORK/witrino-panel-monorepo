@@ -13,27 +13,24 @@
 </template>
 
 <script>
-import ModifyTabs from "@packages/profile/components/Tabs.vue";
+import ModifyTabs from "../components/Tabs.vue";
 import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
+import ZoneMixin from "@commen/zone/mixin/zone";
 export default {
+  mixins: [ZoneMixin],
   components: {
     ModifyTabs,
     SectionDivider,
   },
-  computed: {
-    zoneList() {
-      return this.$store.getters["shared/zone/zoneList"];
-    },
-  },
-  methods: {
-    getAllZone() {
-      this.$store.dispatch("shared/zone/get/GET_ALL_ZONE_ASYNC", {
-        max_no: "1277",
-      });
-    },
-  },
+
   created() {
-    if (this.zoneList.length == 0) this.getAllZone();
+    if (this.zoneList.length == 0)
+      this.getAllZone({
+        service: "Zone",
+        payload: {
+          max_no: "1277",
+        },
+      });
   },
 };
 </script>

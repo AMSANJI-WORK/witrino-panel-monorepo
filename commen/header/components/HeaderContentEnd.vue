@@ -38,14 +38,13 @@
 
 <script>
 import ChangePanelDropDown from "./ChangePanelDropDown.vue";
-import Cookies from "js-cookie";
 export default {
   components: {
     ChangePanelDropDown,
   },
   computed: {
     userId() {
-      return Cookies.get("userId");
+      return JSON.parse(localStorage.getItem("userId"));
     },
     routeActive() {
       return this.$route.matched[0].path;

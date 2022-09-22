@@ -8,14 +8,14 @@
         class="d-flex flex-sm-wrap flex-column justify-center align-center"
       >
         <h5 class="text-center mx-3 font-weight-medium">
-          {{ user.full_name }}
+          {{ item.full_name }}
         </h5>
         <v-btn
-          :color="user.is_activated | activeColor"
+          :color="item.is_activated | activeColor"
           class="my-2 white--text"
           x-small
         >
-          {{ user.is_activated | activeToFa }}
+          {{ item.is_activated | activeToFa }}
           <v-icon right> mdi-label </v-icon>
         </v-btn>
       </v-sheet>
@@ -58,7 +58,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("admin/user", ["user"]),
+    ...mapGetters("admin/user", ["item"]),
   },
 };
 </script>

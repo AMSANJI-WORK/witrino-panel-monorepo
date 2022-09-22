@@ -174,7 +174,7 @@ import RoleSelector from "@packages/admin/roles/components/Selector.vue";
 import ModifyAvatar from "./ModifyFormAvatar.vue";
 import UserMixin from "@packages/admin/users/mixins/modify";
 import loadingFormUser from "../mixins/loading";
-
+let service = "User";
 export default {
   components: {
     ModifyAvatar,
@@ -215,14 +215,14 @@ export default {
         ...this.editableUser,
         updated_id: this.currentUserId,
       };
-      this.updateUser({ service: "User", payload: { ...this.editableUser } });
+      this.updateUser({ service, payload: { ...this.editableUser } });
     },
     create() {
       this.editableUser = {
         ...this.editableUser,
         created_id: this.currentUserId,
       };
-      this.createUser({ service: "User", payload: { ...this.editableUser } });
+      this.createUser({ service, payload: { ...this.editableUser } });
     },
     submit() {
       if (this.validateFrom)

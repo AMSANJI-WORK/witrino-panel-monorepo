@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     addressLocation() {
-      return this.$store.getters["admin/user/address/userAddress"];
+      return this.$store.getters["admin/user/address/item"];
     },
     markerLatLng: {
       get() {

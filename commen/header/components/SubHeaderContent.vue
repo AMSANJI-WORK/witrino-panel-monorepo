@@ -1,6 +1,6 @@
 <template>
   <v-sheet elevation="0" class="transparent d-flex" width="100%">
-    <change-panel-drop-down />
+    <ChangePanelDropDown />
     <v-spacer></v-spacer>
     <v-btn dark icon :ripple="false">
       <v-badge dot overlap left color="error" offset-x="10" offset-y="10">
@@ -37,7 +37,6 @@
 
 <script>
 import ChangePanelDropDown from "./ChangePanelDropDown.vue";
-import Cookies from "js-cookie";
 
 export default {
   components: {
@@ -45,7 +44,7 @@ export default {
   },
   computed: {
     userId() {
-      return Cookies.get("userId");
+      return JSON.parse(localStorage.getItem("userId"));
     },
     routeActive() {
       return this.$route.matched[0].path;

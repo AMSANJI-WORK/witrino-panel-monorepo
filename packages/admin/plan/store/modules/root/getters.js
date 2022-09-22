@@ -1,10 +1,7 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
+
 const getters = {
-  planList(state) {
-    return state.planList;
-  },
-  plan(state) {
-    return state.plan;
-  },
+  ...gettersCommen,
   planDetails(state) {
     return state.plan.details;
   },

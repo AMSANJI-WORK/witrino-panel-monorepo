@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="planList"
+    :items="list"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
@@ -49,12 +49,12 @@ import { mapActions, mapGetters } from "vuex";
 import mixinTable from "@commen/table/mixins/table";
 import { planTypes } from "@packages/admin/plan/store/types";
 import DisableDialog from "@packages/admin/roles/components/DialogDisable.vue";
-import Cookies from "js-cookie";
+import loadingFormPlan from "@packages/admin/plan/mixins/loading";
 export default {
   components: {
     DisableDialog,
   },
-  mixins: [mixinTable],
+  mixins: [mixinTable, loadingFormPlan],
   data: () => ({
     dialogDisable: false,
     headerDataTableClass: "blue lighten-4",
@@ -63,7 +63,7 @@ export default {
         text: "ردیف",
         align: "start",
         sortable: false,
-        value: "record",
+        value: "id",
       },
       { text: "نام پلن", value: "title", sortable: false },
       { text: "توضیحات", value: "description", sortable: false },
@@ -75,9 +75,9 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/plan", ["planList"]),
+    ...mapGetters("admin/plan", ["list"]),
     currentUserId() {
-      return Cookies.get("userId") ?? null;
+      return JSON.parse(localStorage.getItem("userId"));
     },
   },
   filters: {
@@ -87,12 +87,12 @@ export default {
   },
   methods: {
     ...mapActions("admin/plan", {
-      getAllPlan: `get/${planTypes.GET_ALL_PLAN_ASYNC}`,
-      deletePlan: `delete/${planTypes.DELETE_PLAN_ASYNC}`,
-      disablePlan: `disable/${planTypes.DISABLE_PLAN_ASYNC}`,
+      getAllPlan: planTypes.GET_ALL_ASYNC,
+      deletePlan: planTypes.DELETE_ASYNC,
+      disablePlan: planTypes.DISABLE_ASYNC,
     }),
     getRecordIndex(targetId) {
-      return this.planList.map((plan) => plan.id).indexOf(targetId) + 1;
+      return this.list.map((plan) => plan.id).indexOf(targetId) + 1;
     },
     disableItem(targetId) {
       this.editedId = targetId;
@@ -100,13 +100,16 @@ export default {
     },
     disableItemConfirm() {
       this.disablePlan({
-        id: this.editedId,
-        updated_id: this.currentUserId,
+        service: "Plan",
+        payload: {
+          id: this.editedId,
+          updated_id: this.currentUserId,
+        },
       }).then(() => (this.dialogDisable = !this.dialogDisable));
     },
   },
   created() {
-    if (this.planList.length == 0) this.getAllPlan();
+    if (this.list.length == 0) this.getAllPlan({ service: "Plan" });
   },
 };
 </script>

@@ -1,7 +1,7 @@
 const state = () => ({
   editedId: -1,
-  userAddressList: [],
-  userAddress: {
+  list: [],
+  item: {
     id: null,
     is_deleted: null,
     created_at: null,

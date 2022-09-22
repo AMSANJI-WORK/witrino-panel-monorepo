@@ -1,9 +1,6 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
+
 const getters = {
-  zoneList(state) {
-    return state.zoneList.filter((zone) => zone.parent_id);
-  },
-  zone(state) {
-    return state.zone;
-  },
+  ...gettersCommen,
 };
 export default getters;

@@ -5,7 +5,7 @@ const mixinTable = {
   }),
   computed: {
     currentUserId() {
-      return Cookies.get("userId") ?? null;
+      return JSON.parse(localStorage.getItem("userId")) ?? null;
     },
   },
   methods: {

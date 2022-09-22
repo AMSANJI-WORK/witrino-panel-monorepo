@@ -2,7 +2,7 @@
   <v-sheet class="transparent">
     <v-item-group mandatory>
       <v-col
-        v-for="address in userAddressList"
+        v-for="address in list"
         :key="address.id"
         cols="12"
         class="pa-0"
@@ -87,11 +87,10 @@
 </template>
 
 <script>
-import Cookies from "js-cookie";
 import CardLocation from "./CardLocation.vue";
 import { mapActions, mapGetters } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
-import { userTypes } from "@packages/admin/users/store/types";
+import { userAddressTypes } from "../store/types";
 import DialogDisable from "@packages/admin/roles/components/DialogDisable.vue";
 import CreateCard from "./CreateCard.vue";
 import ModifyDialog from "./ModifyDialog.vue";
@@ -116,14 +115,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("admin/user/address", ["userAddress", "userAddressList"]),
+    ...mapGetters("admin/user/address", ["item", "list"]),
     userId() {
-      return Cookies.get("userId") ?? null;
+      return JSON.parse(localStorage.getItem("userId"));
     },
   },
   methods: {
     ...mapActions("admin/user/address", {
-      disableUserAddress: `disable/${userTypes.DISABLE_USER_ADDRESS_ASYNC}`,
+      disableUserAddress: `${userAddressTypes.DISABLE_ASYNC}`,
     }),
     onDialogsClose() {
       this.editedId = -1;
@@ -139,14 +138,19 @@ export default {
       this.deleteId = targetId;
       this.dialogDisable = true;
     },
-    async disableItemConfirm() {
-      await this.disableUserAddress({
-        id: this.deleteId,
-        updated_id: this.userId,
-      });
-
-      this.dialogDisable = !this.dialogDisable;
-      this.deleteId = -1;
+    disableItemConfirm() {
+      this.disableUserAddress({
+        service: "Address",
+        payload: {
+          id: this.deleteId,
+          updated_id: this.userId,
+        },
+      }).then(() =>
+        this.$nextTick(() => {
+          this.dialogDisable = !this.dialogDisable;
+          this.deleteId = -1;
+        })
+      );
     },
   },
 };

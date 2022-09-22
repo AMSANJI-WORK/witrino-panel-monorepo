@@ -1,10 +1,7 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
+
 const getters = {
-  userAddressList(state) {
-    return state.userAddressList;
-  },
-  userAddress(state) {
-    return state.userAddress;
-  },
+  ...gettersCommen,
   editedId(state) {
     return state.editedId;
   },

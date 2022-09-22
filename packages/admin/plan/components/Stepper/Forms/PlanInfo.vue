@@ -69,12 +69,13 @@
 </template>
 
 <script>
-import fromRules from "@commen/form/mixins/rules";;
+import fromRules from "@commen/form/mixins/rules";
 import PlanMixin from "@packages/admin/plan/mixins/modify";
 import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 import ServiceSelector from "@packages/admin/service/components/Selector.vue";
+import loadingFormPlan from "@packages/admin/plan/mixins/loading";
 export default {
-  mixins: [PlanMixin, fromRules],
+  mixins: [PlanMixin, fromRules, loadingFormPlan],
   components: {
     ServiceSelector,
     PriceInput,

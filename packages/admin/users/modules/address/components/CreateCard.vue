@@ -2,7 +2,7 @@
   <v-card-text
     class="pa-1 grey lighten-3 d-flex align-center justify-center rounded-lg"
   >
-    {{ userAddressList.length | isZero }}
+    {{ list.length | isZero }}
     <v-btn
       color="grey"
       dark
@@ -32,7 +32,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("admin/user/address", ["userAddressList"]),
+    ...mapGetters("admin/user/address", ["list"]),
   },
 };
 </script>

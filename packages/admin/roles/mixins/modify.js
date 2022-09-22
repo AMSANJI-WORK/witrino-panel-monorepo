@@ -14,15 +14,15 @@ const RoleMixin = {
   computed: {
     ...mapGetters("admin/role", ["role", "roleList"]),
     userId() {
-      return Cookies.get("userId");
+      return JSON.parse(localStorage.getItem("userId"));
     },
   },
   methods: {
     ...mapActions("admin/role", {
-      createRole: `create/${roleTypes.CREATE_ROLE_ASYNC}`,
-      updateRole: `update/${roleTypes.UPDATE_ROLE_ASYNC}`,
-      getRole: `get/${roleTypes.GET_ONE_ROLE_ASYNC}`,
-      getAllRole: `get/${roleTypes.GET_ALL_ROLE_ASYNC}`,
+      createRole: roleTypes.CREATE_ASYNC,
+      updateRole: roleTypes.UPDATE_ASYNC,
+      getRole: roleTypes.GET_ONE_ASYNC,
+      getAllRole: roleTypes.GET_ALL_ASYNC,
     }),
   },
 };

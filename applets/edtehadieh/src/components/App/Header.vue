@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     userId() {
-      return Cookies.get("userId");
+      return JSON.parse(localStorage.getItem("userId"));
     },
   },
   data() {

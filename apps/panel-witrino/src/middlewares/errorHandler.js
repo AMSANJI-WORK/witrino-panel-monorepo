@@ -10,7 +10,6 @@ function responseErrorHandler(error) {
       else store.dispatch("auth/refreshtoken/AUTH_REFRSH_TOKEN_ASYNC");
       break;
     case 403:
-      router.push("/403");
       store.dispatch("shared/message/SHOW_ERROR_MESSAGES", data);
       break;
     case 404:

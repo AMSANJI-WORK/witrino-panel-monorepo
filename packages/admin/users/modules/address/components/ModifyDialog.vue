@@ -117,16 +117,17 @@
 </template>
 
 <script>
-import Cookies from "js-cookie";
-import fromRules from "@commen/form/mixins/rules";;
-import ZoneMixin from "@packages/zone/mixin/zone";
-import UserAddressMixin from "@packages/admin/users/modules/address/mixins/address";
 import ModifyLocation from "./ModifyLocation.vue";
+import fromRules from "@commen/form/mixins/rules";
+import ZoneMixin from "@commen/zone/mixin/zone";
+import loadingFormUserAddress from "../mixins/loading";
+import UserAddressMixin from "../mixins/address";
+let service = "Address";
 export default {
   components: {
     ModifyLocation,
   },
-  mixins: [UserAddressMixin, ZoneMixin, fromRules],
+  mixins: [UserAddressMixin, ZoneMixin, fromRules, loadingFormUserAddress],
   props: {
     editedId: {
       types: Number,
@@ -198,7 +199,9 @@ export default {
       return "ثبت اطلاعات";
     },
     userId() {
-      return Cookies.get("userId") ?? this.$route.query.userId;
+      return (
+        JSON.parse(localStorage.getItem("userId")) ?? this.$route.query.userId
+      );
     },
   },
   methods: {
@@ -210,16 +213,22 @@ export default {
     },
     create() {
       this.createUserAddress({
-        ...this.modifyDto,
-        user_id: this.userId,
-        created_id: this.userId,
+        service,
+        payload: {
+          ...this.modifyDto,
+          user_id: this.userId,
+          created_id: this.userId,
+        },
       }).then(() => this.$nextTick(() => this.cancel()));
     },
     update() {
       this.updateUserAddress({
-        ...this.modifyDto,
-        user_id: this.userId,
-        updated_id: this.userId,
+        service,
+        payload: {
+          ...this.modifyDto,
+          user_id: this.userId,
+          updated_id: this.userId,
+        },
       }).then(() => this.$nextTick(() => this.cancel()));
     },
     save() {
@@ -229,8 +238,11 @@ export default {
     },
     getUserAddressData() {
       if (this.editedId != -1)
-        this.getOneUserAddress({ id: this.editedId }).then(() => {
-          this.modifyDto = Object.assign({}, this.userAddress);
+        this.getOneUserAddress({
+          service,
+          payload: { id: this.editedId },
+        }).then(() => {
+          this.modifyDto = Object.assign({}, this.item);
         });
     },
   },

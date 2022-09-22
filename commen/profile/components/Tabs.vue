@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import EditForm from "@packages/profile/components/EditForm.vue";
+import EditForm from "../components/EditForm.vue";
 import Address from "@packages/admin/users/modules/address/components/Address.vue";
 export default {
   components: {

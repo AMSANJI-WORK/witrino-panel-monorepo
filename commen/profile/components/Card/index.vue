@@ -11,7 +11,7 @@
         class="px-md-12 rounded-lg ml-3 d-sm-flex d-none"
         link
         large
-        :to="`/profile/${userId}/edit`"
+        to="edit"
       >
         <v-icon class="ml-1">mdi-pencil</v-icon>
         ویرایش
@@ -23,7 +23,7 @@
         large
         color="yellow darken-3"
         class="px-md-12 rounded-lg ml-3 d-flex d-sm-none"
-        :to="`/profile/${userId}/edit`"
+        to="edit"
       >
         <v-icon class="ml-1">mdi-pencil</v-icon>
         ویرایش

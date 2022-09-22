@@ -4,19 +4,17 @@
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
+    :page="pagination.currentPage"
+    :server-items-length="pagination.total"
+    @update:page="changePage"
+    loading-text="در حال دریافت اطلاعات ..."
+    no-results-text="هیچ داده ای یافت نشد ..."
+    no-data-text="داده ای موجود نیست ..."
     :footer-props="{
       'show-current-page': true,
       'items-per-page-options': [10],
       'disable-items-per-page': true,
-      pageText: ``,
-      pagination: {
-        page: this.pagination.currentPage,
-        itemsPerPage: this.pagination.perPage,
-        pageCount: this.pagination.totalPages,
-        pageStart: this.pagination.currentPage,
-        pageStop: this.pagination.totalPages,
-        itemsLength: this.pagination.total,
-      },
+      'page-text': `صفحه ${pagination.currentPage} از ${pagination.totalPages} `,
     }"
   >
     <template v-slot:top>
@@ -42,9 +40,6 @@
       </v-dialog>
     </template>
 
-    <template v-slot:item.record="{ item }">
-      {{ getRecordIndex(item.id) }}
-    </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon small color="red" @click="disableItem(item.id)">
         mdi-delete
@@ -63,11 +58,11 @@
       </v-icon>
     </template>
     <template #footer.prepend>
-      <span class="pr-2">{{ `نتایج : ${pagination.total}` }}</span>
+      <v-sheet class="pr-2 text-body-2">{{
+        `نتایج : ${pagination.total}`
+      }}</v-sheet>
       <v-spacer></v-spacer>
     </template>
-    <template v-slot:no-data> داده ای موجود نیست </template>
-    <template v-slot:loading> در حال دریافت اطلاعات ... </template>
   </v-data-table>
 </template>
 
@@ -75,8 +70,8 @@
 import { mapActions, mapGetters } from "vuex";
 import mixinTable from "@commen/table/mixins/table";
 import loadingFormUser from "../mixins/loading";
-
 import { userTypes } from "../store/types";
+const service = "User";
 export default {
   mixins: [mixinTable, loadingFormUser],
   data: () => ({
@@ -87,7 +82,7 @@ export default {
         text: "ردیف",
         align: "start",
         sortable: false,
-        value: "record",
+        value: "id",
       },
       { text: "نام کاربر", value: "full_name" },
       { text: "کد ملی", value: "national_no" },
@@ -104,11 +99,7 @@ export default {
     ...mapGetters("admin/user", ["list"]),
     ...mapGetters("admin/user/pagination", { pagination: "pagination" }),
   },
-  filters: {
-    pageText({ pageStart = -1, itemsLength = 0 }) {
-      return `${pageStart} از ${itemsLength}`;
-    },
-  },
+  filters: {},
   methods: {
     ...mapActions("admin/user", {
       getAllUser: userTypes.GET_ALL_ASYNC,
@@ -122,12 +113,19 @@ export default {
       this.editedId = targetId;
       this.dialogDisable = true;
     },
-    changePagination(e) {
-      console.log(e);
+    changePage(e) {
+      this.pagination.currentPage = e;
+      this.getAllUser({
+        service,
+        payload: {
+          max_no: this.pagination.perPage,
+          from_page: this.pagination.currentPage,
+        },
+      });
     },
     disableItemConfirm() {
       this.disableUser({
-        service: "User",
+        service,
         payload: {
           id: this.editedId,
           updated_id: this.currentUserId,
@@ -138,7 +136,7 @@ export default {
   created() {
     if (this.list.length == 0)
       this.getAllUser({
-        service: "User",
+        service,
         payload: {
           max_no: this.pagination.perPage,
           from_page: this.pagination.currentPage,

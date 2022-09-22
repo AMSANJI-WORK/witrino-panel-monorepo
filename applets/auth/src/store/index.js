@@ -21,20 +21,18 @@ export default {
   mutations: {
     [authTypes.SET_AUTHORIZE_DATA](state, payload) {
       const {
-        data: { access_token, id, refresh_token },
+        data: { access_token, id = null, refresh_token },
       } = payload;
 
       state.access_token = access_token;
       state.refresh_token = refresh_token;
       state.id = id;
-
       defaultClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
       userClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
       daynamicClient.defaults.headers.Authorization = `Bearer ${state.access_token}`;
-
       Cookies.set("access_token", access_token);
       Cookies.set("refresh_token", refresh_token);
-      Cookies.set("userId", id);
+      if (id) localStorage.setItem("userId", JSON.stringify(id));
     },
     [authTypes.REMOVE_AUTHORIZE_DATA](state) {
       state.access_token = null;
@@ -42,7 +40,7 @@ export default {
       state.id = null;
       Cookies.remove("access_token");
       Cookies.remove("refresh_token");
-      Cookies.remove("userId");
+      localStorage.getItem("userId");
     },
   },
 };

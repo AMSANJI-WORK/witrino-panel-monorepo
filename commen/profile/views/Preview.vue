@@ -23,11 +23,14 @@ export default {
   },
   methods: {
     ...mapActions({
-      getUser: `admin/user/get/${userTypes.GET_ONE_USER_ASYNC}`,
+      getUser: `admin/user/${userTypes.GET_ONE_ASYNC}`,
     }),
   },
   created() {
-    this.getUser({ id: this.$route.params.userId });
+    this.getUser({
+      service: "User",
+      payload: { id: this.$route.params.userId },
+    });
   },
 };
 </script>

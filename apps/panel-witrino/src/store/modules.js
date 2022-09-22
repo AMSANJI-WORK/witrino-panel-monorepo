@@ -4,6 +4,7 @@ import admin from "@applets/admin/src/store";
 import namayande from "@applets/namayande/src/store";
 import edtehadieh from "@applets/edtehadieh/src/store";
 import supervisor from "@applets/supervisor/src/store";
+import profile from "@commen/profile/store";
 export default {
   auth,
   admin,
@@ -11,4 +12,5 @@ export default {
   namayande,
   edtehadieh,
   supervisor,
+  profile,
 };
