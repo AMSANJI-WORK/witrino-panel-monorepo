@@ -4,9 +4,17 @@
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
+    :page="pagination.currentPage"
+    :server-items-length="pagination.total"
+    @update:page="changePage"
+    loading-text="در حال دریافت اطلاعات ..."
+    no-results-text="هیچ داده ای یافت نشد ..."
+    no-data-text="داده ای موجود نیست ..."
     :footer-props="{
-      showCurrentPage: true,
-      itemsPerPageText: 'تعداد آیتم به اضای هر صفحه',
+      'show-current-page': true,
+      'items-per-page-options': [10],
+      'disable-items-per-page': true,
+      'page-text': `صفحه ${pagination.currentPage} از ${pagination.totalPages} `,
     }"
   >
     <template v-slot:top>
@@ -39,8 +47,12 @@
         mdi-eye
       </v-icon>
     </template>
-    <template v-slot:no-data> داده ای موجود نیست </template>
-    <template v-slot:loading> در حال دریافت اطلاعات ... </template>
+    <template #footer.prepend>
+      <v-sheet class="pr-2 text-body-2">{{
+        `نتایج : ${pagination.total}`
+      }}</v-sheet>
+      <v-spacer></v-spacer>
+    </template>
   </v-data-table>
 </template>
 
@@ -76,6 +88,7 @@ export default {
   }),
   computed: {
     ...mapGetters("admin/plan", ["list"]),
+    ...mapGetters("admin/plan/pagination", { pagination: "pagination" }),
     currentUserId() {
       return JSON.parse(localStorage.getItem("userId"));
     },
@@ -91,9 +104,17 @@ export default {
       deletePlan: planTypes.DELETE_ASYNC,
       disablePlan: planTypes.DISABLE_ASYNC,
     }),
-    getRecordIndex(targetId) {
-      return this.list.map((plan) => plan.id).indexOf(targetId) + 1;
+    changePage(e) {
+      this.pagination.currentPage = e;
+      this.getAllUser({
+        service,
+        payload: {
+          max_no: this.pagination.perPage,
+          from_page: this.pagination.currentPage,
+        },
+      });
     },
+
     disableItem(targetId) {
       this.editedId = targetId;
       this.dialogDisable = true;

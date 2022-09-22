@@ -106,9 +106,6 @@ export default {
       deleteUser: userTypes.DELETE_ASYNC,
       disableUser: userTypes.DISABLE_ASYNC,
     }),
-    getRecordIndex(targetId) {
-      return this.list.map((user) => user.id).indexOf(targetId) + 1;
-    },
     disableItem(targetId) {
       this.editedId = targetId;
       this.dialogDisable = true;
