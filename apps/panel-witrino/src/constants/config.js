@@ -16,7 +16,7 @@ export const ThemesColorbuisness = Object.freeze({
   "blue-darken-5": "#001E52",
   "light-blue": "#5492FE",
 });
-export const ThemesColorEdtehadieh = Object.freeze({
+export const ThemesColorsyndicate = Object.freeze({
   "light-red": "#FF4D6D",
   "lighten-green": "#02C39A",
   "lemon-green": "#D0FF0B",

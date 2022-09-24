@@ -36,7 +36,7 @@ export default {
         },
         {
           text: "پنل اتحادیه",
-          route: "/edtehadieh/home",
+          route: "/syndicate/home",
         },
         {
           text: "پنل سوپر وایزر",

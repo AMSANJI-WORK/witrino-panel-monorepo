@@ -4,7 +4,7 @@ import ThemeRoutes from "@applets/admin/modules/theme/router";
 import PlansRoutes from "@applets/admin/modules/plan/router";
 import DashboardRoutes from "@applets/admin/src/modules/Dashboard/router";
 import { ProfileRoutes } from "@commen/profile/router";
-export const adminPanelRoutes = [
+export const AdminPanelRoutes = [
   {
     path: "/admin",
     redirect: "/admin/home",

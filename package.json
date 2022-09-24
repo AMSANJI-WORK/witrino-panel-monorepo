@@ -14,7 +14,7 @@
   "workspaces": [
     "applets/admin/modules/*",
     "applets/agent/modules/*",
-    "applets/edtehadieh/modules/*",
+    "applets/syndicate/modules/*",
     "applets/commen/*",
     "applets/buisness/modules/*",
     "applets/operator/modules/*",

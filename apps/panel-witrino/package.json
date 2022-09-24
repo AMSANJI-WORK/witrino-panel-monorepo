@@ -10,7 +10,7 @@
   "dependencies": {
     "admin": "*",
     "auth": "*",
-    "edtehadieh": "*",
+    "syndicate": "*",
     "buisness": "*",
     "operator": "*",
     "supervisor": "*",
