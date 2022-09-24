@@ -49,14 +49,13 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["roleList"]),
+    ...mapGetters({ roleList: "list" }),
   },
   methods: {
     ...mapActions({
-      getAllRole: `get/${roleTypes.GET_ALL_ROLE_ASYNC}`,
+      getAllRole: roleTypes.GET_ALL_ASYNC,
     }),
     updateValue(value) {
-      console.log(value);
       this.$emit("input", value);
     },
   },

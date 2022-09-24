@@ -1,10 +1,12 @@
-import RepositoryFactory from "@witrino/repositories/factory";
-const baseRepository = RepositoryFactory.get("base");
+import { getActions, getMutations } from "@commen/reusable-crud/get/get.module";
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
+import loading from "@commen/loading/modules/form/store";
+import pagination from "@commen/pagination/witrino/store";
 export default {
   namespaced: true,
   state: () => ({
-    permissionList: [],
-    permission: {
+    list: [],
+    item: {
       id: null,
       is_deleted: null,
       created_at: null,
@@ -16,25 +18,16 @@ export default {
     },
   }),
   getters: {
-    permissionList: (state) => state.permissionList,
-    permission: (state) => state.permission,
+    ...gettersCommen,
   },
   mutations: {
-    SET_PERMISSIONS(state, payload) {
-      state.permissionList = [...payload.data.data];
-    },
-    SET_PERMISSION(state, payload) {
-      Object.assign(state.permission, payload);
-    },
+    ...getMutations,
   },
   actions: {
-    async SET_PERMISSIONS_ASYNC({ commit }) {
-      try {
-        const { data } = await baseRepository.get("Permission", {});
-        commit("SET_PERMISSIONS", data);
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    ...getActions,
+  },
+  modules: {
+    loading,
+    pagination,
   },
 };

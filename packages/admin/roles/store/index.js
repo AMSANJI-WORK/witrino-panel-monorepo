@@ -1,4 +1,4 @@
-import { getters, mutations, state } from "./modules/root";
+import { getters, mutations, state, actions } from "./modules/root";
 import modules from "./modules";
 export default {
   namespaced: true,
@@ -6,4 +6,5 @@ export default {
   getters,
   mutations,
   modules,
+  actions,
 };

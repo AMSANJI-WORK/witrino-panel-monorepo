@@ -86,7 +86,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/role", ["roleList"]),
+    ...mapGetters("admin/role", { roleList: "list" }),
   },
 
   filters: {
@@ -99,9 +99,9 @@ export default {
   },
   methods: {
     ...mapActions("admin/role", {
-      getAllRole: `get/${roleTypes.GET_ALL_ROLE_ASYNC}`,
-      deleteRole: `delete/${roleTypes.DELETE_ROLE_ASYNC}`,
-      disableRole: `disable/${roleTypes.DISABLE_ROLE_ASYNC}`,
+      getAllRole: roleTypes.GET_ALL_ASYNC,
+      deleteRole: roleTypes.DELETE_ASYNC,
+      disableRole: roleTypes.DISABLE_ASYNC,
     }),
     getRecordIndex(targetId) {
       return this.roleList.map((role) => role.id).indexOf(targetId) + 1;
@@ -116,13 +116,16 @@ export default {
     },
     disableItemConfirm() {
       this.disableRole({
-        id: this.editedId,
-        updated_id: this.userId,
+        service: "Role",
+        payload: {
+          id: this.editedId,
+          updated_id: this.userId,
+        },
       }).then(() => (this.dialogDisable = !this.dialogDisable));
     },
   },
   created() {
-    if (this.roleList.length == 0) this.getAllRole();
+    if (this.roleList.length == 0) this.getAllRole({ service: "Role" });
   },
 };
 </script>

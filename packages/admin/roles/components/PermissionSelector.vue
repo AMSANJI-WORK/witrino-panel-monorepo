@@ -47,18 +47,19 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["permissionList"]),
+    ...mapGetters({ permissionList: "list" }),
   },
   methods: {
     ...mapActions({
-      setPermissionsAsync: "SET_PERMISSIONS_ASYNC",
+      permissionGetAll: "GET_ALL_ASYNC",
     }),
     updateValue(value) {
       this.$emit("input", value);
     },
   },
   created() {
-    if (this.permissionList.length == 0) this.setPermissionsAsync();
+    if (this.permissionList.length == 0)
+      this.permissionGetAll({ service: "Permission" });
   },
 };
 </script>

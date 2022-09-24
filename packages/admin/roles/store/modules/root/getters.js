@@ -1,9 +1,5 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
 const getters = {
-  roleList(state) {
-    return state.roleList;
-  },
-  role(state) {
-    return state.role;
-  },
+  ...gettersCommen,
 };
 export default getters;

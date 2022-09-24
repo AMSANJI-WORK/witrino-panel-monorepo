@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import { mapActions, mapGetters } from "vuex";
 import { roleTypes } from "../store/types";
 const RoleMixin = {
@@ -12,7 +11,7 @@ const RoleMixin = {
     },
   }),
   computed: {
-    ...mapGetters("admin/role", ["role", "roleList"]),
+    ...mapGetters("admin/role", { role: "item", roleList: "list" }),
     userId() {
       return JSON.parse(localStorage.getItem("userId"));
     },

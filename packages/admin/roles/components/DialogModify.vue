@@ -69,6 +69,7 @@ import RoleMixin from "../mixins/modify";
 import fromRules from "@commen/form/mixins/rules";
 import loadingFormRole from "../mixins/loading";
 import PermissionSelector from "./PermissionSelector.vue";
+let service = "Role";
 export default {
   components: {
     PermissionSelector,
@@ -121,19 +122,25 @@ export default {
       if (this.$refs.role.validate()) {
         this.editedId == -1
           ? this.createRole({
-              ...this.editableRole,
-              created_id: this.userId,
+              service,
+              payload: {
+                ...this.editableRole,
+                created_id: this.userId,
+              },
             }).then(() => this.$nextTick(() => this.cancel()))
           : this.updateRole({
-              id: this.editedId,
-              update_id: this.userId,
-              ...this.editableRole,
+              service,
+              payload: {
+                id: this.editedId,
+                update_id: this.userId,
+                ...this.editableRole,
+              },
             }).then(() => this.$nextTick(() => this.cancel()));
       }
     },
     getRoleData() {
       if (this.editedId != -1)
-        this.getRole({ id: this.editedId }).then(() =>
+        this.getRole({ service, payload: { id: this.editedId } }).then(() =>
           Object.assign(this.editableRole, this.role)
         );
     },
