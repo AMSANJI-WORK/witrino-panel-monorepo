@@ -5,7 +5,7 @@ import ComplaintRoutes from "@applets/syndicate/src/modules/Complaint/router";
 import InspectorRoutes from "@applets/syndicate/src/modules/Inspector/router";
 import ArchiveRoutes from "@applets/syndicate/src/modules/Archive/router";
 import MessagesRoutes from "@applets/syndicate/src/modules/Messages/router";
-import { ProfileRoutes } from "@commen/profile/router";
+import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const syndicatePanelRoutes = [
   {

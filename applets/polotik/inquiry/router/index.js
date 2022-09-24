@@ -59,7 +59,7 @@ const inquiryRoutes = {
     {
       path: ":id/request",
       name: "inquiry-request-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetInquriry,
       meta: {
         breadCrumb: [
@@ -72,7 +72,7 @@ const inquiryRoutes = {
     {
       path: ":id/outcome",
       name: "inquiry-follow-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetInquriry,
       meta: {
         breadCrumb: [

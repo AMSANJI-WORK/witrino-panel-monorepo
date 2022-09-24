@@ -4,7 +4,7 @@ import admin from "@applets/admin/src/store";
 import buisness from "@applets/buisness/src/store";
 import syndicate from "@applets/syndicate/src/store";
 import supervisor from "@applets/supervisor/src/store";
-import profile from "@commen/profile/store";
+import profile from "@applets/commen/profile/store";
 export default {
   auth,
   admin,

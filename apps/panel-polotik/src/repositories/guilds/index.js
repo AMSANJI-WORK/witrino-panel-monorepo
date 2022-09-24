@@ -1,4 +1,4 @@
-import request from "@commen/request/repositories";
+import request from "@applets/polotik/commen/request/repositories";
 import service from "./service";
 export default {
   ...request,

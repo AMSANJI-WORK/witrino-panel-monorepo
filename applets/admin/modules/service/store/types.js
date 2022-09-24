@@ -1,4 +1,4 @@
-import * as typesGet from "@commen/reusable-crud/get/get.types";
+import * as typesGet from "@applets/commen/reusable-crud/get/get.types";
 export const TYPES = {
   ...typesGet,
 };

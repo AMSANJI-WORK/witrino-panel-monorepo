@@ -1,5 +1,5 @@
 import DashboardRoutes from "@applets/operator/src/modules/Dashboard/router";
-import { ProfileRoutes } from "@commen/profile/router";
+import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const OperatorPanelRoutes = [
   {

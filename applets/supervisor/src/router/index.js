@@ -1,5 +1,5 @@
 import DashboardRoutes from "@applets/supervisor/src/modules/Dashboard/router";
-import { ProfileRoutes } from "@commen/profile/router";
+import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const SupervisorPanelRoutes = [
   {

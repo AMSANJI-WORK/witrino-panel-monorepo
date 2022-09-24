@@ -1,5 +1,5 @@
-import { getActions, getMutations } from "@commen/reusable-crud/get/get.module";
-import gettersCommen from "@commen/reusable-crud/root/root.getters";
+import { getActions, getMutations } from "@applets/commen/reusable-crud/get/get.module";
+import gettersCommen from "@applets/commen/reusable-crud/root/root.getters";
 import loading from "@commen/loading/modules/form/store";
 import pagination from "@commen/pagination/witrino/store";
 export default {

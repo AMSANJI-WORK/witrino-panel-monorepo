@@ -20,7 +20,7 @@ const auctionRoutes = {
     {
       path: ":id/request",
       name: "auction-request-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetAuction,
       meta: {
         breadCrumb: [
@@ -33,7 +33,7 @@ const auctionRoutes = {
     {
       path: ":id/outcome",
       name: "auction-follow-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetAuction,
       meta: {
         breadCrumb: [

@@ -8,7 +8,7 @@
         <notification>
           <template v-slot:cardTilte>
             <v-chip small class="white p-red-primary--text"
-              ><v-icon color="p-red-primary"small class="mx-1">mdi-bell-outline</v-icon>
+              ><v-icon color="p-red-primary" small class="mx-1">mdi-bell-outline</v-icon>
               توضیحات مناقصه</v-chip
             >
           </template>
@@ -29,7 +29,7 @@
 import tenderLoadingMixin from "@applets/polotik/tender/mixins/loading";
 import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
-import RequestFilters from "@commen/request/components/Filters.vue";
+import RequestFilters from "@applets/polotik/commen/request/components/Filters.vue";
 export default {
   mixins: [tenderLoadingMixin],
   components: {

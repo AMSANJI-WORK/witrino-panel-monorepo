@@ -20,7 +20,7 @@ const barterRoutes = {
     {
       path: ":id/request",
       name: "barter-request-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetBarter,
       meta: {
         breadCrumb: [
@@ -33,7 +33,7 @@ const barterRoutes = {
     {
       path: ":id/outcome",
       name: "barter-follow-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetBarter,
       meta: {
         breadCrumb: [

@@ -31,7 +31,7 @@
 import auctionLoadingMixin from "@applets/polotik/auction/mixins/loading";
 import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import Notification from "@commen/card/components/Notification.vue";
-import RequestFilters from "@commen/request/components/Filters.vue";
+import RequestFilters from "@applets/polotik/commen/request/components/Filters.vue";
 
 export default {
   mixins: [auctionLoadingMixin],

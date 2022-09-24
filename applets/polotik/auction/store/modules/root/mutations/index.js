@@ -1,7 +1,7 @@
-import { createMutations } from "@commen/request/store/create/create.module";
-import { deleteMutations } from "@commen/request/store/delete/delete.module";
-import { getMutations } from "@commen/request/store/get/get.module";
-import { updateMutations } from "@commen/request/store/update/update.module";
+import { createMutations } from "@applets/polotik/commen/request/store/create/create.module";
+import { deleteMutations } from "@applets/polotik/commen/request/store/delete/delete.module";
+import { getMutations } from "@applets/polotik/commen/request/store/get/get.module";
+import { updateMutations } from "@applets/polotik/commen/request/store/update/update.module";
 import setStepData from "./setStepData";
 export default {
   ...getMutations,
