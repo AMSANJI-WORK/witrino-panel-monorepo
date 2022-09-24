@@ -8,14 +8,14 @@ import num2persian from "./plugins/num.to.persian";
 import datepiker from "./plugins/datepiker";
 import "@commen/assets/styles/scss/base.scss";
 
-import auctionModule from "@packages/polotik/auction";
-import tenderModule from "@packages/polotik/tender";
-import AuthModule from "@packages/polotik/auth";
-import barterModule from "@packages/polotik/barter";
-import inquiryModule from "@packages/polotik/inquiry";
-import homeModule from "@packages/polotik/home";
-import saleModule from "@packages/polotik/sale";
-import serviceModule from "@packages/polotik/service";
+import auctionModule from "@applets/polotik/auction";
+import tenderModule from "@applets/polotik/tender";
+import AuthModule from "@applets/polotik/auth";
+import barterModule from "@applets/polotik/barter";
+import inquiryModule from "@applets/polotik/inquiry";
+import homeModule from "@applets/polotik/home";
+import saleModule from "@applets/polotik/sale";
+import serviceModule from "@applets/polotik/service";
 import { registerModules } from "./register-modules";
 
 registerModules({

@@ -12,7 +12,7 @@ const router = new VueRouter({
     {
       path: "/logout",
       name: "logout",
-      component: () => import("@packages/polotik/home/views/Logout.vue"),
+      component: () => import("@applets/polotik/home/views/Logout.vue"),
       beforeEnter: (to, from, next) => {
         store.commit(`auth/LOGOUT`);
         window.location.href = "https://witrino.com/user";
@@ -23,7 +23,7 @@ const router = new VueRouter({
       path: "/",
       name: "root",
       redirect: "/home",
-      component: () => import("@packages/polotik/Home/Views/Dashboard.vue"),
+      component: () => import("@applets/polotik/Home/Views/Dashboard.vue"),
       meta: {
         breadCrumb: [
           {

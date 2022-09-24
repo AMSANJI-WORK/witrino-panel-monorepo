@@ -1,6 +1,6 @@
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("service");
-import servicesTypes from "@packages/polotik/service/store/types";
+import servicesTypes from "@applets/polotik/service/store/types";
 const ServicesMixin = {
   watch: {
     categories: {
