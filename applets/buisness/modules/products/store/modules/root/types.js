@@ -1,4 +1,4 @@
-import * as getTypes from "@applets/business/src/modules/Profile/store/get/types";
+import * as getTypes from "@applets/buisness/src/modules/Profile/store/get/types";
 export default {
   ...getTypes,
 };

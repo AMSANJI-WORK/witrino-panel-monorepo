@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Inventory from "@applets/business/src/modules/Stock/components/Inventory.vue";
+import Inventory from "@applets/buisness/src/modules/Stock/components/Inventory.vue";
 import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 export default {
     components: { Inventory, SectionDivider },

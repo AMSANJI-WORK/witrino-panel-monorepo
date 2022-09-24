@@ -16,7 +16,7 @@
     "applets/agent/modules/*",
     "applets/edtehadieh/modules/*",
     "applets/commen/*",
-    "applets/business/modules/*",
+    "applets/buisness/modules/*",
     "applets/operator/modules/*",
     "applets/supervisor/modules/*",
     "applets/polotik/*",

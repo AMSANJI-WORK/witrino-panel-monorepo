@@ -1,6 +1,6 @@
 import { mapActions, mapGetters } from "vuex";
-import { userTypes } from "@packages/admin/users/store/types";
-import { userAddressTypes } from "@packages/admin/users/modules/address/store/types";
+import { userTypes } from "@applets/admin/modules/users/store/types";
+import { userAddressTypes } from "@applets/admin/modules/users/modules/address/store/types";
 const ProfileMixin = {
   data: () => ({
     editableUser: {

@@ -32,7 +32,7 @@ export default {
         },
         {
           text: "پنل کسب و کار",
-          route: "/business/home",
+          route: "/buisness/home",
         },
         {
           text: "پنل اتحادیه",

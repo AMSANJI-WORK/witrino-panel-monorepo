@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import List from "@applets/business/src/modules/Stock/components/Supply/List.vue";
+import List from "@applets/buisness/src/modules/Stock/components/Supply/List.vue";
 export default {
     components: {
         List,

@@ -61,9 +61,7 @@
           :visible-divider="false"
         />
       </v-col>
-      <v-col cols="12" :class="`${colCommenClass} pr-4`">
-        <UploadImage />
-      </v-col>
+
       <v-col cols="12" :class="`${colCommenClass}`" class="d-flex">
         <v-spacer class="d-none d-md-block"></v-spacer>
         <v-btn color="primary" class="px-10 rounded-lg d-none d-md-block"
@@ -77,11 +75,9 @@
   </v-sheet>
 </template>
 <script>
-import UploadImage from "@shared/modules/Upload/components/UploadImage.vue";
 import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 export default {
   components: {
-    UploadImage,
     SectionDivider,
   },
   data() {

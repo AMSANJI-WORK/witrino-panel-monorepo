@@ -2,26 +2,26 @@ export default Object.freeze([
   {
     title: "داشبورد",
     icon: "mdi-view-dashboard-outline",
-    route: "/business/home",
+    route: "/buisness/home",
     visible: true,
   },
   {
     title: "محصولات",
     icon: "mdi-package-variant-closed",
     disabled: true,
-    route: "/business/product",
+    route: "/buisness/product",
     visible: true,
   },
   {
     title: "فروش",
-    route: "/business/sell/list",
+    route: "/buisness/sell/list",
     disabled: true,
     icon: "mdi-package-variant",
     visible: true,
   },
   {
     title: "نمایندگی ها",
-    route: "/business/branch/list",
+    route: "/buisness/branch/list",
     disabled: true,
     icon: "mdi-account-search-outline",
     visible: true,
@@ -34,21 +34,21 @@ export default Object.freeze([
     child: [
       {
         title: "انبارداری",
-        route: "/business/stock/supply",
+        route: "/buisness/stock/supply",
 
         visible: true,
         disabled: true,
       },
       {
         title: "موجودی انبار",
-        route: "/business/stock/inventory",
+        route: "/buisness/stock/inventory",
 
         visible: true,
         disabled: true,
       },
       {
         title: "محصول ورودی و خروجی",
-        route: "/business/stock/input-output-product",
+        route: "/buisness/stock/input-output-product",
 
         visible: true,
         disabled: true,
@@ -63,14 +63,14 @@ export default Object.freeze([
     child: [
       {
         title: "گزارش کلی",
-        route: "/business/financial/totalReport/list",
+        route: "/buisness/financial/totalReport/list",
 
         visible: true,
         disabled: true,
       },
       {
         title: "تراکنش ها",
-        route: "/business/financial/transaction/list",
+        route: "/buisness/financial/transaction/list",
 
         visible: true,
         disabled: true,

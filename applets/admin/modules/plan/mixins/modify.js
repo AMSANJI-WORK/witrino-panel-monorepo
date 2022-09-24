@@ -1,4 +1,4 @@
-import { serviceTypes } from "@applets/admin/modules/service/store/types";
+import { TYPES as serviceTypes } from "@applets/admin/modules/service/store/types";
 import { planTypes } from "@applets/admin/modules/plan/store/types";
 import { mapActions, mapGetters, mapMutations } from "vuex";
 const PlanMixin = {
