@@ -1,11 +1,11 @@
 import { mapGetters, mapActions } from "vuex";
 import { userAddressTypes } from "@packages/admin/users/modules/address/store/types";
 const UserAddressMixin = {
-  data() {
-    return {};
-  },
   computed: {
-    ...mapGetters("admin/user/address", ["item", "list"]),
+    ...mapGetters("admin/user/address", {
+      address: "item",
+      addressList: "list",
+    }),
   },
   methods: {
     ...mapActions("admin/user/address", {

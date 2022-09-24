@@ -13,6 +13,12 @@
   },
   "workspaces": [
     "packages/admin/*",
+    "applets/admin/modules/*",
+    "applets/agent/modules/*",
+    "applets/edtehadieh/modules/*",
+    "applets/namayande/modules/*",
+    "applets/operator/modules/*",
+    "applets/supervisor/modules/*",
     "packages/polotik/*",
     "packages/shared/*",
     "commen/*",

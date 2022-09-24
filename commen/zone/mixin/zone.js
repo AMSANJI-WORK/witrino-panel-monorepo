@@ -9,11 +9,7 @@ const ZoneMixin = {
   },
   methods: {
     ...mapActions("shared/zone", {
-      updateZone: zoneTypes.UPDATE_ASYNC,
-      getOneZone: zoneTypes.GET_ALL_ASYNC,
-      getAllZone: zoneTypes.GET_ONE_ASYNC,
-      createZone: zoneTypes.CREATE_ASYNC,
-      disableZone: zoneTypes.DELETE_ASYNC,
+      getAllZone: zoneTypes.GET_ALL_ASYNC,
     }),
   },
 };

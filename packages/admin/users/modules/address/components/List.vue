@@ -1,12 +1,7 @@
 <template>
   <v-sheet class="transparent">
     <v-item-group mandatory>
-      <v-col
-        v-for="address in list"
-        :key="address.id"
-        cols="12"
-        class="pa-0"
-      >
+      <v-col v-for="address in addressList" :key="address.id" cols="12" class="pa-0">
         <v-item v-slot="{ active, toggle }">
           <v-slide-y-transition>
             <v-card elevation="4" class="rounded-lg my-3">
@@ -115,14 +110,17 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("admin/user/address", ["item", "list"]),
+    ...mapGetters("admin/user/address", {
+      address: "item",
+      addressList: "list",
+    }),
     userId() {
       return JSON.parse(localStorage.getItem("userId"));
     },
   },
   methods: {
     ...mapActions("admin/user/address", {
-      disableUserAddress: `${userAddressTypes.DISABLE_ASYNC}`,
+      disableUserAddress: userAddressTypes.DISABLE_ASYNC,
     }),
     onDialogsClose() {
       this.editedId = -1;

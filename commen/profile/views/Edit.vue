@@ -22,7 +22,6 @@ export default {
     ModifyTabs,
     SectionDivider,
   },
-
   created() {
     if (this.zoneList.length == 0)
       this.getAllZone({

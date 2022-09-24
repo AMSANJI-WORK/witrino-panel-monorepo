@@ -18,7 +18,7 @@
           :elevation="hover ? 3 : 1"
         >
           <v-card-title class="py-0">
-            <v-avatar size="60" tile>
+            <v-avatar size="40" tile>
               <component :is="dataSource.icon"></component>
             </v-avatar>
             <div class="mr-3">
