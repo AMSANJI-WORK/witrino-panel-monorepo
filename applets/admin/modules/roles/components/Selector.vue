@@ -39,7 +39,7 @@ import fromRules from "@commen/form/mixins/rules";
 import loadingFormRole from "../mixins/loading";
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("admin/role");
-import { roleTypes } from "@packages/admin/roles/store/types";
+import { roleTypes } from "../store/types";
 export default {
   mixins: [fromRules, loadingFormRole],
   props: {
@@ -60,7 +60,7 @@ export default {
     },
   },
   created() {
-    if (this.roleList.length == 0) this.getAllRole();
+    if (this.roleList.length == 0) this.getAllRole({ service: "Role" });
   },
 };
 </script>

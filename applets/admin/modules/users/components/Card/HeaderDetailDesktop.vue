@@ -4,16 +4,16 @@
       <img :src="require('@commen/assets/image/png/card-branch-avatar.png')" />
     </v-avatar>
     <v-sheet>
-      <h4 class="font-weight-regular mb-5">{{ item.full_name }}</h4>
+      <h4 class="font-weight-regular mb-5">{{ user.full_name }}</h4>
     </v-sheet>
     <v-spacer></v-spacer>
     <v-sheet class="transparent d-flex flex-column align-content-start">
       <v-col>
         <v-btn
-          :color="item.is_active | activeColor"
+          :color="user.is_active | activeColor"
           class="my-2 px-md-8 white--text"
           x-small
-          >{{ item.is_active | activeToFa }}</v-btn
+          >{{ user.is_active | activeToFa }}</v-btn
         >
       </v-col>
       <v-col class="my-4"> </v-col>
@@ -25,7 +25,7 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters("admin/user", ["item"]),
+    ...mapGetters("admin/user", { user: "item" }),
   },
   filters: {
     activeToFa(value) {

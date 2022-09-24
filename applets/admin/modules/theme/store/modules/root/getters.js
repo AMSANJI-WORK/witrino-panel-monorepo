@@ -1,9 +1,5 @@
+import gettersCommen from "@commen/reusable-crud/root/root.getters";
 const getters = {
-  themeList(state) {
-    return state.themeList;
-  },
-  theme(state) {
-    return state.theme;
-  },
+  ...gettersCommen,
 };
 export default getters;

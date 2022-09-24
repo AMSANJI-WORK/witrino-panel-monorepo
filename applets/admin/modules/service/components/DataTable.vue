@@ -33,7 +33,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { TYPES } from "@packages/admin/service/store/types";
+import { TYPES } from "../store/types";
 import LoadingFormService from "../mixins/loading";
 import mixinTable from "@commen/table/mixins/table";
 export default {

@@ -4,9 +4,17 @@
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
+    :page="pagination.currentPage"
+    :server-items-length="pagination.total"
+    @update:page="changePage"
+    loading-text="در حال دریافت اطلاعات ..."
+    no-results-text="هیچ داده ای یافت نشد ..."
+    no-data-text="داده ای موجود نیست ..."
     :footer-props="{
-      showCurrentPage: true,
-      itemsPerPageText: 'تعداد آیتم به اضای هر صفحه',
+      'show-current-page': true,
+      'items-per-page-options': [10],
+      'disable-items-per-page': true,
+      'page-text': `صفحه ${pagination.currentPage} از ${pagination.totalPages} `,
     }"
   >
     <template v-slot:top>
@@ -21,12 +29,7 @@
         :edited-id="editedId"
       />
     </template>
-    <template v-slot:footer.page-text="item">
-      {{ item | pageText }}
-    </template>
-    <template v-slot:item.record="{ item }">
-      {{ getRecordIndex(item.id) }}
-    </template>
+
     <template v-slot:item.created_at="{ item }">
       {{ item.created_at | hireDate }}
     </template>
@@ -43,8 +46,12 @@
         mdi-pencil
       </v-icon>
     </template>
-    <template v-slot:no-data> داده ای موجود نیست </template>
-    <template v-slot:loading> در حال دریافت اطلاعات ... </template>
+    <template #footer.prepend>
+      <v-sheet class="pr-2 text-body-2">{{
+        `نتایج : ${pagination.total}`
+      }}</v-sheet>
+      <v-spacer></v-spacer>
+    </template>
   </v-data-table>
 </template>
 
@@ -57,7 +64,7 @@ import { roleTypes } from "../store/types";
 import DisableDialog from "./DialogDisable.vue";
 import DialogModify from "./DialogModify.vue";
 import loadingFormRole from "../mixins/loading";
-
+let service = "Role";
 export default {
   components: {
     DisableDialog,
@@ -73,7 +80,7 @@ export default {
         text: "ردیف",
         align: "start",
         sortable: false,
-        value: "record",
+        value: "id",
       },
       { text: "نام سطح", value: "name" },
       { text: "نام انگلیسی", value: "name_en" },
@@ -86,7 +93,10 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/role", { roleList: "list" }),
+    ...mapGetters("admin/role", {
+      roleList: "list",
+      pagination: "pagination/pagination",
+    }),
   },
 
   filters: {
@@ -103,8 +113,15 @@ export default {
       deleteRole: roleTypes.DELETE_ASYNC,
       disableRole: roleTypes.DISABLE_ASYNC,
     }),
-    getRecordIndex(targetId) {
-      return this.roleList.map((role) => role.id).indexOf(targetId) + 1;
+    changePage(e) {
+      this.pagination.currentPage = e;
+      this.getAllRole({
+        service,
+        payload: {
+          max_no: this.pagination.perPage,
+          from_page: this.pagination.currentPage,
+        },
+      });
     },
     editItem(targetId) {
       this.editedId = targetId;
@@ -116,7 +133,7 @@ export default {
     },
     disableItemConfirm() {
       this.disableRole({
-        service: "Role",
+        service,
         payload: {
           id: this.editedId,
           updated_id: this.userId,
@@ -125,7 +142,7 @@ export default {
     },
   },
   created() {
-    if (this.roleList.length == 0) this.getAllRole({ service: "Role" });
+    if (this.roleList.length == 0) this.getAllRole({ service });
   },
 };
 </script>

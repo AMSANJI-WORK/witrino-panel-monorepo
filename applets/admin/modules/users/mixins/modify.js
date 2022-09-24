@@ -1,6 +1,5 @@
 import { mapActions, mapGetters } from "vuex";
 import { userTypes } from "../store/types";
-import Cookies from "js-cookie";
 const UserMixin = {
   data: () => ({
     editableUser: {
@@ -23,7 +22,11 @@ const UserMixin = {
     },
   }),
   computed: {
-    ...mapGetters("admin/user", ["item", "list", "userRoleId"]),
+    ...mapGetters("admin/user", {
+      user: "item",
+      userList: "list",
+      userRoleId: "userRoleId",
+    }),
     checkRoutePass() {
       return this.$route.fullPath.includes("edit");
     },
@@ -50,7 +53,7 @@ const UserMixin = {
       getAllUser: userTypes.GET_ALL_ASYNC,
     }),
     setUserInfo() {
-      Object.assign(this.editableUser, this.item);
+      Object.assign(this.editableUser, this.user);
     },
     getUserInfo() {
       if (this.targetUserId)
@@ -66,7 +69,7 @@ const UserMixin = {
     },
   },
   created() {
-    if (this.list.length == 0)
+    if (this.userList.length == 0)
       this.getAllUser({
         service: "User",
       });

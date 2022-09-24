@@ -170,9 +170,9 @@
 
 <script>
 import fromRules from "@commen/form/mixins/rules";
-import RoleSelector from "@packages/admin/roles/components/Selector.vue";
+import RoleSelector from "@applets/admin/modules/roles/components/Selector.vue";
 import ModifyAvatar from "./ModifyFormAvatar.vue";
-import UserMixin from "@packages/admin/users/mixins/modify";
+import UserMixin from "../mixins/modify";
 import loadingFormUser from "../mixins/loading";
 let service = "User";
 export default {

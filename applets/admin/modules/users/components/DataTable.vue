@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="list"
+    :items="userList"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
@@ -96,10 +96,11 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/user", ["list"]),
-    ...mapGetters("admin/user/pagination", { pagination: "pagination" }),
+    ...mapGetters("admin/user", {
+      userList: "list",
+      pagination: "pagination/pagination",
+    }),
   },
-  filters: {},
   methods: {
     ...mapActions("admin/user", {
       getAllUser: userTypes.GET_ALL_ASYNC,
@@ -131,7 +132,7 @@ export default {
     },
   },
   created() {
-    if (this.list.length == 0)
+    if (this.userList.length == 0)
       this.getAllUser({
         service,
         payload: {

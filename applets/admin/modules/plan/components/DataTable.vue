@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="list"
+    :items="planList"
     :loading="tableLoading"
     class="elevation-1 rounded-lg"
     :headers="tableHeader(headerDataTableClass)"
@@ -24,12 +24,7 @@
         :disableItem="disableItem"
       />
     </template>
-    <template v-slot:footer.page-text="item">
-      {{ item | pageText }}
-    </template>
-    <template v-slot:item.record="{ item }">
-      {{ getRecordIndex(item.id) }}
-    </template>
+
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon small color="red" @click="disableItem(item.id)">
         mdi-delete
@@ -59,9 +54,10 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import mixinTable from "@commen/table/mixins/table";
-import { planTypes } from "@packages/admin/plan/store/types";
-import DisableDialog from "@packages/admin/roles/components/DialogDisable.vue";
-import loadingFormPlan from "@packages/admin/plan/mixins/loading";
+import { planTypes } from "@applets/admin/modules/plan/store/types";
+import DisableDialog from "@applets/admin/modules/roles/components/DialogDisable.vue";
+import loadingFormPlan from "@applets/admin/modules/plan/mixins/loading";
+let service = "Plan";
 export default {
   components: {
     DisableDialog,
@@ -87,15 +83,12 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters("admin/plan", ["list"]),
-    ...mapGetters("admin/plan/pagination", { pagination: "pagination" }),
+    ...mapGetters("admin/plan", {
+      planList: "list",
+      pagination: "pagination/pagination",
+    }),
     currentUserId() {
       return JSON.parse(localStorage.getItem("userId"));
-    },
-  },
-  filters: {
-    pageText({ pageStart = -1, itemsLength = 0 }) {
-      return `${pageStart} از ${itemsLength}`;
     },
   },
   methods: {
@@ -106,7 +99,7 @@ export default {
     }),
     changePage(e) {
       this.pagination.currentPage = e;
-      this.getAllUser({
+      this.getAllPlan({
         service,
         payload: {
           max_no: this.pagination.perPage,
@@ -121,7 +114,7 @@ export default {
     },
     disableItemConfirm() {
       this.disablePlan({
-        service: "Plan",
+        service,
         payload: {
           id: this.editedId,
           updated_id: this.currentUserId,
@@ -130,7 +123,7 @@ export default {
     },
   },
   created() {
-    if (this.list.length == 0) this.getAllPlan({ service: "Plan" });
+    if (this.planList.length == 0) this.getAllPlan({ service });
   },
 };
 </script>
