@@ -31,8 +31,8 @@ export default {
           route: "/admin/home",
         },
         {
-          text: "پنل نماینده",
-          route: "/namayande/home",
+          text: "پنل کسب و کار",
+          route: "/business/home",
         },
         {
           text: "پنل اتحادیه",

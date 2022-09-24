@@ -1,5 +1,5 @@
 import { mapGetters, mapActions } from "vuex";
-import { userAddressTypes } from "@packages/admin/users/modules/address/store/types";
+import { userAddressTypes } from "@applets/admin/modules/users/modules/address/store/types";
 const UserAddressMixin = {
   computed: {
     ...mapGetters("admin/user/address", {

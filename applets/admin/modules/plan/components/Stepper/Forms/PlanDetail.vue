@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import PlanMixin from "@packages/admin/plan/mixins/modify";
-import ThemeService from "@packages/admin/plan/components/Stepper/Forms/Services/Theme.vue";
+import PlanMixin from "@applets/admin/modules/plan/mixins/modify";
+import ThemeService from "@applets/admin/modules/plan/components/Stepper/Forms/Services/Theme.vue";
 export default {
   mixins: [PlanMixin],
   components: {

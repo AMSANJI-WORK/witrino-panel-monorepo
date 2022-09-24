@@ -1,8 +1,8 @@
-import user from "@packages/admin/users/repositories";
-import role from "@packages/admin/roles/repositories";
-import theme from "@packages/admin/theme/repositories";
-import service from "@packages/admin/service/repositories";
-import plan from "@packages/admin/plan/repositories";
+import user from "@applets/admin/modules/users/repositories";
+import role from "@applets/admin/modules/roles/repositories";
+import theme from "@applets/admin/modules/theme/repositories";
+import service from "@applets/admin/modules/service/repositories";
+import plan from "@applets/admin/modules/plan/repositories";
 export default {
   ...role,
   ...user,

@@ -70,10 +70,10 @@
 
 <script>
 import fromRules from "@commen/form/mixins/rules";
-import PlanMixin from "@packages/admin/plan/mixins/modify";
+import PlanMixin from "@applets/admin/modules/plan/mixins/modify";
 import PriceInput from "@commen/reusable-inputs/components/Price.vue";
-import ServiceSelector from "@packages/admin/service/components/Selector.vue";
-import loadingFormPlan from "@packages/admin/plan/mixins/loading";
+import ServiceSelector from "@applets/admin/modules/service/components/Selector.vue";
+import loadingFormPlan from "@applets/admin/modules/plan/mixins/loading";
 export default {
   mixins: [PlanMixin, fromRules, loadingFormPlan],
   components: {

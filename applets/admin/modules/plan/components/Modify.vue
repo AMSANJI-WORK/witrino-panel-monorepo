@@ -110,7 +110,7 @@ import FormPlanInfo from "./Stepper/Forms/PlanInfo.vue";
 import FormPlanDetail from "./Stepper/Forms/PlanDetail.vue";
 import ButtonNext from "./Stepper/ButtonNext.vue";
 import ButtonBack from "./Stepper/ButtonBack.vue";
-import PlanMixin from "@packages/admin/plan/mixins/modify";
+import PlanMixin from "@applets/admin/modules/plan/mixins/modify";
 
 export default {
   mixins: [PlanMixin],
@@ -135,9 +135,10 @@ export default {
   },
   methods: {},
   created() {
-    this.getAllService();
-    if (this.selectedPlanId) this.getPlan({ id: this.selectedPlanId });
-    if (this.planList.length == 0) this.getAllPlan();
+    this.getAllService({ service: "Service" });
+    if (this.selectedPlanId)
+      this.getPlan({ service: "Plan", payload: { id: this.selectedPlanId } });
+    if (this.planList.length == 0) this.getAllPlan({ service: "Plan" });
   },
 };
 </script>

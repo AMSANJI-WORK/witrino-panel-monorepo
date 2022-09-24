@@ -2,7 +2,7 @@ export default Object.freeze([
     {
         title: "داشبورد",
         icon: "mdi-view-dashboard-outline",
-        route: "/namayande/home",
+        route: "/business/home",
         
         visible: true,
     },
@@ -10,13 +10,13 @@ export default Object.freeze([
         title: "محصولات",
         icon: "mdi-package-variant-closed",
         
-        route: "/namayande/product",
+        route: "/business/product",
         visible: true,
         disabled: false,
     },
     {
         title: "فروش",
-        route: "/namayande/sell/list",
+        route: "/business/sell/list",
         
         icon: "mdi-package-variant",
         visible: true,
@@ -24,7 +24,7 @@ export default Object.freeze([
     },
     {
         title: "نمایندگی ها",
-        route: "/namayande/branch/list",
+        route: "/business/branch/list",
         
         icon: "mdi-account-search-outline",
         visible: true,
@@ -38,21 +38,21 @@ export default Object.freeze([
         child: [
             {
                 title: "انبارداری",
-                route: "/namayande/stock/supply",
+                route: "/business/stock/supply",
                 
                 visible: true,
                 disabled: false,
             },
             {
                 title: "موجودی انبار",
-                route: "/namayande/stock/inventory",
+                route: "/business/stock/inventory",
                 
                 visible: true,
                 disabled: false,
             },
             {
                 title: "محصول ورودی و خروجی",
-                route: "/namayande/stock/input-output-product",
+                route: "/business/stock/input-output-product",
                 
                 visible: true,
                 disabled: false,
@@ -67,14 +67,14 @@ export default Object.freeze([
         child: [
             {
                 title: "گزارش کلی",
-                route: "/namayande/financial/totalReport/list",
+                route: "/business/financial/totalReport/list",
                 
                 visible: true,
                 disabled: false,
             },
             {
                 title: "تراکنش ها",
-                route: "/namayande/financial/transaction/list",
+                route: "/business/financial/transaction/list",
                 
                 visible: true,
                 disabled: false,

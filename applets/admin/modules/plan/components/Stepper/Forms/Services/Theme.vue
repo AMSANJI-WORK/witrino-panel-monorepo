@@ -15,8 +15,8 @@
 
 <script>
 import PriceInput from "@commen/reusable-inputs/components/Price.vue";
-import SelectorTheme from "@packages/admin/theme/components/Selector.vue";
-import { planTypes } from "@packages/admin/plan/store/types";
+import SelectorTheme from "@applets/admin/modules/theme/components/Selector.vue";
+import { planTypes } from "@applets/admin/modules/plan/store/types";
 import { mapMutations } from "vuex";
 export default {
   components: {

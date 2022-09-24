@@ -86,7 +86,7 @@ import CardLocation from "./CardLocation.vue";
 import { mapActions, mapGetters } from "vuex";
 import VLabel from "@commen/label/components/Label.vue";
 import { userAddressTypes } from "../store/types";
-import DialogDisable from "@packages/admin/roles/components/DialogDisable.vue";
+import DialogDisable from "@applets/admin/modules/roles/components/DialogDisable.vue";
 import CreateCard from "./CreateCard.vue";
 import ModifyDialog from "./ModifyDialog.vue";
 
