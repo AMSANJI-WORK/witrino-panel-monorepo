@@ -32,11 +32,11 @@ export default {
         },
         {
           text: "پنل کسب و کار",
-          route: "/business/home",
+          route: "/buisness/home",
         },
         {
           text: "پنل اتحادیه",
-          route: "/edtehadieh/home",
+          route: "/syndicate/home",
         },
         {
           text: "پنل سوپر وایزر",

@@ -4,14 +4,14 @@ export default [
     name: "financial",
     redirect: "financial/totalReport/list",
     component: () =>
-      import("@applets/business/src/modules/Financial/views/index.vue"),
+      import("@applets/buisness/src/modules/Financial/views/index.vue"),
     children: [
       {
         path: "totalReport/list",
         name: "financial-totalReport-list-page",
         component: () =>
           import(
-            "@applets/business/src/modules/Financial/views/TotalReport/List.vue"
+            "@applets/buisness/src/modules/Financial/views/TotalReport/List.vue"
           ),
       },
     ],

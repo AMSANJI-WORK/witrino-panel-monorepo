@@ -39,7 +39,7 @@
 import { mapActions } from "vuex";
 import inquiryLoadingMixin from "@applets/polotik/inquiry/mixins/loading";
 import fromRules from "@commen/form/mixins/rules";
-import OFFER_TYPES from "@commen/offer/polotik/store/types";
+import OFFER_TYPES from "@applets/polotik/commen/offer/polotik/store/types";
 import PriceInput from "@commen/reusable-inputs/components/Price.vue";
 
 export default {

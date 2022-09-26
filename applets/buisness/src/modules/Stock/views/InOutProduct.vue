@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import InOutProduct from "@applets/business/src/modules/Stock/components/InOutProduct/index.vue";
+import InOutProduct from "@applets/buisness/src/modules/Stock/components/InOutProduct/index.vue";
 export default {
     components: {
         InOutProduct,

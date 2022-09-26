@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Modify from "@applets/business/src/modules/Sell/components/Modify.vue";
+import Modify from "@applets/buisness/src/modules/Sell/components/Modify.vue";
 import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
 
 export default {

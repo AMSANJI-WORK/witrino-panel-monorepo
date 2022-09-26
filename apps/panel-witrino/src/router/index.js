@@ -1,12 +1,12 @@
 import Vue from "vue";
 import PublicRoutes from "./public";
 import VueRouter from "vue-router";
-import { AuthRoutes } from "@applets/auth/src/router";
 import { SharedRoutes } from "@shared/router";
 import { AdminPanelRoutes } from "@applets/admin/src/router";
+import { AuthRoutes } from "@applets/auth/src/router";
 import { SupervisorPanelRoutes } from "@applets/supervisor/src/router";
-import { BusinessPanelRoutes } from "@applets/buisness/src/router";
-import { EdtehadiehPanelRoutes } from "@applets/edtehadieh/src/router";
+import { BuisnessPanelRoutes } from "@applets/buisness/src/router";
+import { syndicatePanelRoutes } from "@applets/syndicate/src/router";
 import { OperatorPanelRoutes } from "@applets/operator/src/router";
 import { AgentPanelRoutes } from "@applets/agent/src/router";
 
@@ -26,12 +26,12 @@ const router = new VueRouter({
         breadCrumb: [],
       },
     },
-    ...BusinessPanelRoutes,
-    ...EdtehadiehPanelRoutes,
+    ...AdminPanelRoutes,
+    ...BuisnessPanelRoutes,
+    ...syndicatePanelRoutes,
     ...SupervisorPanelRoutes,
     ...OperatorPanelRoutes,
     ...AgentPanelRoutes,
-    ...AdminPanelRoutes,
     ...SharedRoutes,
   ],
 });

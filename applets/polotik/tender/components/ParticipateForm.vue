@@ -146,7 +146,7 @@ import StepperMixin from "@applets/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
 import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
 import PriceInput from "@commen/reusable-inputs/components/Price.vue";
-import OFFER_TYPES from "@commen/offer/polotik/store/types";
+import OFFER_TYPES from "@applets/polotik/commen/offer/polotik/store/types";
 export default {
   components: {
     PriceInput,

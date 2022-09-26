@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import RequestFilters from "@commen/request/components/Filters.vue";
+import RequestFilters from "@applets/polotik/commen/request/components/Filters.vue";
 import barterLoadingMixin from "@applets/polotik/barter/mixins/loading";
 import PageListSkeleton from "@commen/loading/modules/skeleton/components/PageList/Skeleton.vue";
 import PagesDescription from "@applets/polotik/barter/components/PagesDescription.vue";

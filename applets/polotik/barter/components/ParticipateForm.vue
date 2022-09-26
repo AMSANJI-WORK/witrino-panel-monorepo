@@ -29,7 +29,7 @@
 
 <script>
 import barterLoadingMixin from "@applets/polotik/barter/mixins/loading";
-import OFFER_TYPES from "@commen/offer/polotik/store/types";
+import OFFER_TYPES from "@applets/polotik/commen/offer/polotik/store/types";
 import fromRules from "@commen/form/mixins/rules";
 
 import { mapActions } from "vuex";

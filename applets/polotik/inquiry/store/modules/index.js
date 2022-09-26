@@ -4,7 +4,7 @@ import pagination from "@commen/pagination/polotik/store";
 import paginationSelfItem from "@commen/pagination/polotik/store";
 import paginationSelfOffered from "@commen/pagination/polotik/store";
 import upload from "@commen/upload/polotik/store";
-import request from '@commen/offer/polotik/store';
+import request from '@applets/polotik/commen/offer/polotik/store';
 export default {
   upload,
   request,

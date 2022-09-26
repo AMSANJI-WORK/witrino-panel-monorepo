@@ -7,23 +7,23 @@ export default [
       breadCrumb: [
         {
           text: "انبار",
-          to: "/business/stock",
+          to: "/buisness/stock",
         },
       ],
     },
     component: () =>
-      import("@applets/business/src/modules/Stock/views/index.vue"),
+      import("@applets/buisness/src/modules/Stock/views/index.vue"),
     children: [
       {
         path: "inventory",
         name: "stock-inventory-page",
         component: () =>
-          import("@applets/business/src/modules/Stock/views/Inventory.vue"),
+          import("@applets/buisness/src/modules/Stock/views/Inventory.vue"),
         meta: {
           breadCrumb: [
             {
               text: "موجودی انبار",
-              to: "/business/stock/inventory",
+              to: "/buisness/stock/inventory",
             },
           ],
         },
@@ -32,12 +32,12 @@ export default [
         path: "supply",
         name: "stock-supply-page",
         component: () =>
-          import("@applets/business/src/modules/Stock/views/Supply.vue"),
+          import("@applets/buisness/src/modules/Stock/views/Supply.vue"),
         meta: {
           breadCrumb: [
             {
               text: "انبارداری",
-              to: "/business/stock/supply",
+              to: "/buisness/stock/supply",
             },
           ],
         },
@@ -46,7 +46,7 @@ export default [
         path: "input-output-product",
         name: "stock-input-output-product-page",
         component: () =>
-          import("@applets/business/src/modules/Stock/views/InOutProduct.vue"),
+          import("@applets/buisness/src/modules/Stock/views/InOutProduct.vue"),
         meta: {
           breadCrumb: [
             {

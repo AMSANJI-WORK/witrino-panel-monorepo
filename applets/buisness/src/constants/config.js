@@ -7,7 +7,7 @@ export const ConfigMock = Object.freeze({
   // baseURL: 'https://polotik.com/api',
   baseURL: `/api`,
 });
-export const ThemesColorBusiness =  Object.freeze({
+export const ThemesColorbuisness =  Object.freeze({
   red: "#F55861",
   secondary: "#C7C7C7",
   dark: "#393939",

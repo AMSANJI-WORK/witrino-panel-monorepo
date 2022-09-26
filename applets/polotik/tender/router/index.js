@@ -20,7 +20,7 @@ const tenderRoutes = {
     {
       path: ":id/request",
       name: "tender-request-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetTender,
       meta: {
         breadCrumb: [
@@ -33,7 +33,7 @@ const tenderRoutes = {
     {
       path: ":id/outcome",
       name: "tender-follow-page",
-      component: () => import("@commen/offer/polotik/views/Offer.vue"),
+      component: () => import("@applets/polotik/commen/offer/polotik/views/Offer.vue"),
       beforeEnter: resetTender,
       meta: {
         breadCrumb: [

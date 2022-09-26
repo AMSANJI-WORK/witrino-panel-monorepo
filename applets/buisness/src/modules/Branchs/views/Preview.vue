@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BranchDetail from "@applets/business/src/modules/Branchs/components/Detail/index.vue";
+import BranchDetail from "@applets/buisness/src/modules/Branchs/components/Detail/index.vue";
 export default {
     components: {
         BranchDetail,

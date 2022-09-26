@@ -7,18 +7,18 @@ export default [
       breadCrumb: [
         {
           text: "فروش",
-          to: "/business/sell",
+          to: "/buisness/sell",
         },
       ],
     },
     component: () =>
-      import("@applets/business/src/modules/Sell/views/index.vue"),
+      import("@applets/buisness/src/modules/Sell/views/index.vue"),
     children: [
       {
         path: "list",
         name: "sell-list-page",
         component: () =>
-          import("@applets/business/src/modules/Sell/views/List.vue"),
+          import("@applets/buisness/src/modules/Sell/views/List.vue"),
         meta: {
           breadCrumb: [
             {

@@ -1,10 +1,10 @@
 import DashboardRoutes from "@applets/buisness/modules/dashboard/router";
-import { ProfileRoutes } from "@commen/profile/router";
+import { ProfileRoutes } from "@applets/commen/profile/router";
 
-export const BusinessPanelRoutes = [
+export const BuisnessPanelRoutes = [
   {
-    path: "/business",
-    redirect: "/business/home",
+    path: "/buisness",
+    redirect: "/buisness/home",
     component: () => import("../../modules/dashboard/views/index.vue"),
     meta: {
       breadCrumb: [
@@ -14,7 +14,7 @@ export const BusinessPanelRoutes = [
         },
         {
           text: "کسب و کار",
-          to: "/business",
+          to: "/buisness",
         },
       ],
     },
