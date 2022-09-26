@@ -1,8 +1,8 @@
-import auth from "@packages/polotik/auth/repositories";
-import home from "@packages/polotik/home/repositories";
+import auth from "@applets/polotik/auth/repositories";
+import home from "@applets/polotik/home/repositories";
+import upload from "@commen/upload/polotik/repositories";
 import city from "./city";
 import guilds from "./guilds";
-import upload from "./upload";
 const repositories = new Map(
   Object.entries({
     auth,

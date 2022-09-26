@@ -18,7 +18,7 @@
               color="orange darken-2"
               dark
               class="my-7 font-weight-bold"
-              @click="$router.go(-1)"
+              @click="$router.push('/')"
               >بازگشت به صفحه قبل</v-btn
             >
           </div>

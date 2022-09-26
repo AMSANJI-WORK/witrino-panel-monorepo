@@ -1,15 +1,16 @@
 import Vue from "vue";
 import PublicRoutes from "./public";
 import VueRouter from "vue-router";
-import { AuthRoutes } from "@applets/auth/src/router";
 import { SharedRoutes } from "@shared/router";
 import { AdminPanelRoutes } from "@applets/admin/src/router";
+import { AuthRoutes } from "@applets/auth/src/router";
 import { SupervisorPanelRoutes } from "@applets/supervisor/src/router";
-import { NamayandePanelRoutes } from "@applets/namayande/src/router";
-import { EdtehadiehPanelRoutes } from "@applets/edtehadieh/src/router";
+import { BuisnessPanelRoutes } from "@applets/buisness/src/router";
+import { SyndicatePanelRoutes } from "@applets/syndicate/src/router";
 import { OperatorPanelRoutes } from "@applets/operator/src/router";
 import { AgentPanelRoutes } from "@applets/agent/src/router";
-import { ProfileRoutes } from "@packages/profile/router";
+import { UserPanelRoutes } from "@applets/user/src/router/index";
+import { InspectorPanelRoutes } from "@applets/inspector/src/router/index";
 
 Vue.use(VueRouter);
 
@@ -24,24 +25,18 @@ const router = new VueRouter({
       redirect: "/admin",
       component: () => import("@witrino/App.vue"),
       meta: {
-        breadCrumb: [
-          {
-            text: "ویترینو",
-            to: "/",
-          },
-        ],
+        breadCrumb: [],
       },
-      children: [
-        ...NamayandePanelRoutes,
-        ...EdtehadiehPanelRoutes,
-        ...SupervisorPanelRoutes,
-        ...OperatorPanelRoutes,
-        ...AgentPanelRoutes,
-        ...AdminPanelRoutes,
-        ...SharedRoutes,
-        ...ProfileRoutes,
-      ],
     },
+    ...UserPanelRoutes,
+    ...InspectorPanelRoutes,
+    ...AdminPanelRoutes,
+    ...BuisnessPanelRoutes,
+    ...SyndicatePanelRoutes,
+    ...SupervisorPanelRoutes,
+    ...OperatorPanelRoutes,
+    ...AgentPanelRoutes,
+    ...SharedRoutes,
   ],
 });
 

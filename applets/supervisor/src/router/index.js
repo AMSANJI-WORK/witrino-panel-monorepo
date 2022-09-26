@@ -1,23 +1,21 @@
-import DashboardRoutes from "@applets/supervisor/src/modules/Dashboard/router";
+import DashboardRoutes from "@applets/supervisor/modules/dashboard/router";
+import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const SupervisorPanelRoutes = [
   {
     path: "/supervisor",
     redirect: "/supervisor/home",
-    component: () =>
-      import("@applets/supervisor/src/modules/Dashboard/views/index.vue"),
-    meta: {
-      breadCrumb: [
-        {
-          text: "ویترینو",
-          to: "/supervisor/home",
-        },
-        {
-          text: "سوپروایزر",
-          disabled: true,
-        },
-      ],
-    },
-    children: [...DashboardRoutes],
+    component: () => import("@applets/supervisor/src/layouts/Defualt.vue"),
+    breadCrumb: [
+      {
+        text: "ویترینو",
+        to: "/",
+      },
+      {
+        text: "سوپروایزر",
+        to: "/supervisor/home",
+      },
+    ],
+    children: [...DashboardRoutes, ...ProfileRoutes],
   },
 ];

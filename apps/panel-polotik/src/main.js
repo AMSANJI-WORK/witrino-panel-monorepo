@@ -7,6 +7,7 @@ import toast from "./plugins/toast";
 import num2persian from "./plugins/num.to.persian";
 import datepiker from "./plugins/datepiker";
 import "@commen/assets/styles/scss/base.scss";
+import { ModulesPolotik } from "./register-modules";
 
 new Vue({
   toast,
@@ -15,5 +16,6 @@ new Vue({
   vuetify,
   datepiker,
   num2persian,
+  ModulesPolotik,
   render: (h) => h(App),
 }).$mount("#app");

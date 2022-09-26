@@ -1,3 +1,4 @@
+import loading from "@commen/loading/modules/form/store";
 import refreshtoken from "./refresh-token";
 import forgetpass from "./forget-pass";
 import register from "./register";
@@ -13,4 +14,5 @@ export default {
   register,
   forgetpass,
   refreshtoken,
+  loading,
 };

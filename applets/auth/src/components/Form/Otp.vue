@@ -47,12 +47,13 @@ import Timer from "@applets/auth/src/components/Timer.vue";
 import { createNamespacedHelpers } from "vuex";
 import BtnSubmit from "@applets/auth/src/components/BtnSubmit.vue";
 const { mapActions, mapState } = createNamespacedHelpers("auth/otp");
+import loadingFormAuth from "../../mixins/loading";
 
 import {
   AUTH_OTP_VALIDATE_ASYNC,
   AUTH_OTP_RESEND_ASYNC,
 } from "@applets/auth/src/store/modules/otp/types";
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";
 
 import Cookies from "js-cookie";
 
@@ -61,7 +62,7 @@ export default {
     Timer,
     BtnSubmit,
   },
-  mixins: [FormMixin],
+  mixins: [fromRules, loadingFormAuth],
   data() {
     return {
       showResendBtn: false,

@@ -1,0 +1,28 @@
+const state = () => ({
+  list: [],
+  item: {
+    id: null,
+    is_deleted: null,
+    created_at: null,
+    updated_at: null,
+    created_id: null,
+    updated_id: null,
+    ip: null,
+    is_viewed: null,
+    is_active: null,
+    is_suggested: null,
+    is_confirmed: null,
+    business_id: null,
+    category_id: null,
+    title: null,
+    description: null,
+    product_no: null,
+    score: null,
+    custom: null,
+    tags: null,
+    image_gallery: null,
+    image_avatar: null,
+    video_gallery: null,
+  },
+});
+export default state;

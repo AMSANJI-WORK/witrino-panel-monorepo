@@ -12,8 +12,14 @@
     "papp:build": "cd ./apps/panel-polotik && npm run build"
   },
   "workspaces": [
-    "packages/admin/*",
-    "packages/polotik/*",
+    "applets/admin/modules/*",
+    "applets/agent/modules/*",
+    "applets/syndicate/modules/*",
+    "applets/commen/*",
+    "applets/buisness/modules/*",
+    "applets/operator/modules/*",
+    "applets/supervisor/modules/*",
+    "applets/polotik/*",
     "packages/shared/*",
     "commen/*",
     "packages/*",

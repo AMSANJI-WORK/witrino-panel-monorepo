@@ -1,5 +1,5 @@
+import offer from "@applets/polotik/commen/offer/polotik/repositories";
 import category from "./category";
-import offer from "./offer";
 import unit from "./unit";
 export default {
   ...category,

@@ -2,16 +2,22 @@
   "name": "shared",
   "version": "0.0.0",
   "dependencies": {
+    "section-divider": "*",
+    "reusable-inputs": "*",
+    "commen-profile": "*",
     "bread-crumbs": "*",
-    "card": "*",
+    "pagination": "*",
+    "request": "*",
+    "loading": "*",
+    "upload": "*",
+    "drawer": "*",
     "assets": "*",
     "header": "*",
+    "label": "*",
     "icons": "*",
     "zone": "*",
-    "label": "*",
     "form": "*",
-    "pagination": "*",
-    "loading": "*",
-    "section-divider": "*"
+    "card": "*",
+    "offer": "*"
   }
 }

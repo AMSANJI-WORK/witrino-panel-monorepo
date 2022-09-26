@@ -35,16 +35,17 @@
 </template>
 
 <script>
-import FormMixin from "@shared/mixins/form";
+import fromRules from "@commen/form/mixins/rules";
 import { mapActions } from "vuex";
 import { authTypes } from "@applets/auth/src/store/type";
 import BtnSubmit from "@applets/auth/src/components/BtnSubmit.vue";
+import loadingFormAuth from "../../mixins/loading";
 
 export default {
   components: {
     BtnSubmit,
   },
-  mixins: [FormMixin],
+  mixins: [fromRules, loadingFormAuth],
   data() {
     return {
       registerform: {

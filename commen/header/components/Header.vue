@@ -1,10 +1,10 @@
 <template>
-  <v-app-bar app :dark="dark" :color="color">
+  <v-app-bar app v-bind="$attrs" dark>
     <v-container class="pa-0 fill-height">
       <slot name="header-title" />
       <v-spacer></v-spacer>
-      <slot name="header-end" v-if="hasSlotEnd" />
-      <HeaderContentEnd v-else />
+      <slot name="header-end" />
+      <HeaderContentEnd v-if="!$slots['header-end']" />
     </v-container>
   </v-app-bar>
 </template>
@@ -12,14 +12,7 @@
 <script>
 import HeaderContentEnd from "./HeaderContentEnd.vue";
 export default {
-  props: {
-    color: { type: String, default: "p-dark-primary" },
-    dark: {
-      type: Boolean,
-      default: true,
-    },
-    hasSlotEnd: Boolean,
-  },
+  inheritAttrs: false,
   components: {
     HeaderContentEnd,
   },

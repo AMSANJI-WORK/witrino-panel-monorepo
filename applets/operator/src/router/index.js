@@ -1,23 +1,24 @@
-import DashboardRoutes from "@applets/operator/src/modules/Dashboard/router";
+import DashboardRoutes from "@applets/operator/modules/dashboard/router";
+import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const OperatorPanelRoutes = [
   {
     path: "/operator",
     redirect: "/operator/home",
     component: () =>
-      import("@applets/operator/src/modules/Dashboard/views/index.vue"),
+      import("@applets/operator/modules/dashboard/views/index.vue"),
     meta: {
       breadCrumb: [
         {
           text: "ویترینو",
-          to: "/operator/home",
+          to: "/",
         },
         {
           text: "اپراتور",
-          disabled: true,
+          to: "/operator/home",
         },
       ],
     },
-    children: [...DashboardRoutes],
+    children: [...DashboardRoutes, ...ProfileRoutes],
   },
 ];

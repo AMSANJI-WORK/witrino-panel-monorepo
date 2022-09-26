@@ -36,7 +36,7 @@ export default {
   actions: {
     async [authTypes.AUTH_REGISTER_ASYNC]({ commit }, payload) {
       try {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("auth/loading/TOGGLE_FORM_LOADING", {}, { root: true });
         const { data } = await authRepository.register(payload);
         commit(authTypes.AUTH_REGISTER_SUCCESS, data);
         Vue.$toast.info(data.message);
@@ -44,7 +44,7 @@ export default {
         console.log(error);
         commit(authTypes.AUTH_REGISTER_FAILURE, error);
       } finally {
-        commit("shared/loading/TOGGLE_FORM_LOADING", {}, { root: true });
+        commit("auth/loading/TOGGLE_FORM_LOADING", {}, { root: true });
       }
     },
   },

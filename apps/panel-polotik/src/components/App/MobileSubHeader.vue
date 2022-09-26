@@ -23,14 +23,4 @@
   </v-app-bar>
 </template>
 
-<script>
-import navigation from "@polotik/constants/data";
-
-export default {
-  methods: {
-    toggleDrawer() {
-      navigation.drawer = !navigation.drawer;
-    },
-  },
-};
-</script>
+<script></script>

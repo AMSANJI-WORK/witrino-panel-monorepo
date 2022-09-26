@@ -42,7 +42,7 @@ export default Object.freeze([
       },
       {
         title: "حراجی",
-        route: "/sale",
+        route: "/sales",
         role: "user",
         visible: true,
         disabled: false,

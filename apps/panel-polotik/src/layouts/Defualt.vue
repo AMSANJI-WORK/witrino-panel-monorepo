@@ -1,13 +1,25 @@
 <template>
   <v-app>
-    <AppMobileDrawer />
+    <AppMobileDrawer
+      active-class-list-group="p-green-primary--text"
+      active-class-list-item="p-green-primary--text  boreder--bold"
+      :menu-items="menuItems"
+      :drawer-section-top="DrawerCardTop"
+      :navigation="navigation"
+    />
     <AppHeader />
     <AppMobileSubHeader />
     <v-main class="bg--color">
       <v-container>
         <v-row>
           <v-col class="d-lg-block d-none" cols="3">
-            <AppDrawer />
+            <AppDrawerDesktop
+              active-class-list-group="p-green-primary--text"
+              active-class-list-item="p-green-primary--text  boreder--bold"
+              :menu-items="menuItems"
+              :drawer-section-top="DrawerCardTop"
+              :padding-top="0"
+            />
             <AppUserBox />
           </v-col>
 
@@ -32,19 +44,28 @@
 
 <script>
 import AppHeader from "@polotik/components/App/Header.vue";
-import AppDrawer from "@polotik/components/App/Drawer.vue";
-import AppMobileDrawer from "@polotik/components/App/MobileDrawer.vue";
+import AppDrawerDesktop from "@commen/drawer/components/Desktop.vue";
+import AppMobileDrawer from "@commen/drawer/components/Mobile.vue";
 import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
 import AppMobileSubHeader from "@polotik/components/App/MobileSubHeader.vue";
 import AppUserBox from "@polotik/components/App/UserBox.vue";
+import menuItems from "@polotik/constants/menu";
+import navigation from "@polotik/constants/data";
 export default {
   components: {
     AppHeader,
-    AppDrawer,
+    AppDrawerDesktop,
     AppMobileDrawer,
     AppBreadcrumbs,
     AppMobileSubHeader,
     AppUserBox,
+  },
+  data() {
+    return {
+      menuItems,
+      navigation,
+      DrawerCardTop: () => import("@polotik/components/App/DrawerCardTop.vue"),
+    };
   },
 };
 </script>

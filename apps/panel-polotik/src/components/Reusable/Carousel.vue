@@ -4,30 +4,45 @@
       v-if="gallery.length > 0"
       hide-delimiters
       style="border-radius: 8px"
-      height="420"
     >
-      <carousel-item
-        v-for="(image, index) in gallery"
-        :data-source="image"
-        :key="index"
-      />
+      <v-carousel-item eager v-for="(image, index) in gallery" :key="index">
+        <v-img
+          :src="getImageBySrc(image.src)"
+          height="100%"
+          style="object-fit: cover"
+          eager
+        >
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-linear
+                color="yellow darken-4"
+                indeterminate
+                rounded
+                height="6"
+              ></v-progress-linear>
+            </v-row>
+          </template>
+        </v-img>
+      </v-carousel-item>
     </v-carousel>
     <v-img
       v-else
       max-height="350"
+      style="object-fit: cover"
       :src="require('@commen/assets/image/png/image-default.png')"
     />
   </v-col>
 </template>
 
 <script>
-import CarouselItem from "@polotik/components/Reusable/CarouselItem.vue";
 export default {
   props: {
     gallery: Array,
   },
-  components: {
-    CarouselItem,
+  methods: {
+    getImageBySrc(image) {
+      return import.meta.env.VITE_BASE_URL + image;
+    },
   },
 };
 </script>

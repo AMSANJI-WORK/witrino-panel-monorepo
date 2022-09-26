@@ -1,0 +1,158 @@
+<template>
+  <v-data-table
+    :items="productList"
+    :loading="tableLoading"
+    class="elevation-1 rounded-lg"
+    :headers="tableHeader(headerDataTableClass)"
+    :page="pagination.currentPage"
+    :server-items-length="pagination.total"
+    @update:page="changePage"
+    loading-text="در حال دریافت اطلاعات ..."
+    no-results-text="هیچ داده ای یافت نشد ..."
+    no-data-text="داده ای موجود نیست ..."
+    :footer-props="{
+      'show-current-page': true,
+      'items-per-page-options': [10],
+      'disable-items-per-page': true,
+      'page-text': `صفحه ${pagination.currentPage} از ${pagination.totalPages} `,
+    }"
+  >
+    <template v-slot:top>
+      <v-dialog v-model="dialogDelete" max-width="500px">
+        <v-card>
+          <v-card-title class="text-h5"
+            >آیا از حذف این داده اطمینان دارید ؟</v-card-title
+          >
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="blue darken-1"
+              text
+              @click="dialogDisable = !dialogDisable"
+              >انصراف</v-btn
+            >
+            <v-btn color="blue darken-1" text @click="disableItemConfirm"
+              >بله</v-btn
+            >
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </template>
+    <template v-slot:item.image_avatar="{ item }">
+      <v-avatar size="60" color="transparent" tile class="my-1 rounded-lg">
+        <img :src="item.image_avatar" />
+      </v-avatar>
+    </template>
+    <template v-slot:[`item.actions`]="{ item }">
+      <v-icon small color="red" @click="disableItem(item.id)">
+        mdi-delete
+      </v-icon>
+      <v-icon
+        small
+        color="yellow darken-3"
+        class="mx-2"
+        @click="$router.push(`${item.id}/edit`)"
+      >
+        mdi-pencil
+      </v-icon>
+
+      <v-icon small color="blue" @click="$router.push(`${item.id}/preview`)">
+        mdi-eye
+      </v-icon>
+    </template>
+    <template #footer.prepend>
+      <v-sheet class="pr-2 text-body-2">{{
+        `نتایج : ${pagination.total}`
+      }}</v-sheet>
+      <v-spacer></v-spacer>
+    </template>
+  </v-data-table>
+</template>
+
+<script>
+import loadingFormProduct from "../mixins/loading";
+import mixinTable from "@commen/table/mixins/table";
+import { mapActions, mapGetters } from "vuex";
+import { productTypes } from "../store/types";
+
+const service = "Product";
+
+export default {
+  mixins: [mixinTable, loadingFormProduct],
+  data: () => ({
+    dialog: false,
+    dialogDelete: false,
+    headerDataTableClass: "w-primary-blue-darken-4",
+    headers: [
+      {
+        text: "ردیف",
+        align: "start",
+        sortable: false,
+        value: "id",
+      },
+
+      { text: "نام محصول", value: "title" },
+      { text: "کد کالا", value: "product_no" },
+      { text: "توضیحات محصول", value: "description" },
+      {
+        text: "تصویر محصول",
+        value: "image_avatar",
+        sortable: false,
+      },
+      {
+        text: "عملیات",
+        value: "actions",
+        sortable: false,
+      },
+    ],
+  }),
+  computed: {
+    ...mapGetters("buisness/product", {
+      productList: "list",
+      pagination: "pagination/pagination",
+    }),
+  },
+  methods: {
+    ...mapActions("buisness/product", {
+      productGetAll: productTypes.GET_ALL_ASYNC,
+      productDisable: productTypes.DISABLE_ASYNC,
+    }),
+    disableItem(targetId) {
+      this.editedId = targetId;
+      this.dialogDisable = true;
+    },
+    changePage(e) {
+      this.pagination.currentPage = e;
+      this.productGetAll({
+        service,
+        payload: {
+          max_no: this.pagination.perPage,
+          from_page: this.pagination.currentPage,
+        },
+      });
+    },
+    disableItemConfirm() {
+      this.productDisable({
+        service,
+        payload: {
+          id: this.editedId,
+          updated_id: this.currentUserId,
+        },
+      }).then(() => (this.dialogDisable = !this.dialogDisable));
+    },
+  },
+  created() {
+    if (this.productList.length == 0)
+      this.productGetAll({
+        service,
+        payload: {
+          max_no: this.pagination.perPage,
+          from_page: this.pagination.currentPage,
+        },
+      });
+  },
+};
+</script>
+
+<style lang="scss" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="d-sm-inline-flex my-2 pr-sm-4 transparent">
+  <v-sheet class="d-flex flex-wrap my-2 pr-sm-4 transparent">
     <slot name="icon" />
     <label for="title" class="mr-1 text-sm-body-1 text-no-wrap text-caption"
       >{{ label }} :
