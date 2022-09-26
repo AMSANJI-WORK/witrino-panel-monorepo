@@ -1,7 +1,7 @@
 import DashboardRoutes from "@applets/syndicate/modules/dashboard/router";
 import { ProfileRoutes } from "@applets/commen/profile/router";
 
-export const syndicatePanelRoutes = [
+export const SyndicatePanelRoutes = [
   {
     path: "/syndicate",
     redirect: "/syndicate/home",

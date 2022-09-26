@@ -1,4 +1,5 @@
 import DashboardRoutes from "@applets/buisness/modules/dashboard/router";
+import ProductRoutes from "@applets/buisness/modules/product/router";
 import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const BuisnessPanelRoutes = [
@@ -18,6 +19,6 @@ export const BuisnessPanelRoutes = [
         },
       ],
     },
-    children: [...DashboardRoutes, ...ProfileRoutes],
+    children: [...DashboardRoutes, ...ProfileRoutes, ...ProductRoutes],
   },
 ];

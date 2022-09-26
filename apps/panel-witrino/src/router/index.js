@@ -6,9 +6,11 @@ import { AdminPanelRoutes } from "@applets/admin/src/router";
 import { AuthRoutes } from "@applets/auth/src/router";
 import { SupervisorPanelRoutes } from "@applets/supervisor/src/router";
 import { BuisnessPanelRoutes } from "@applets/buisness/src/router";
-import { syndicatePanelRoutes } from "@applets/syndicate/src/router";
+import { SyndicatePanelRoutes } from "@applets/syndicate/src/router";
 import { OperatorPanelRoutes } from "@applets/operator/src/router";
 import { AgentPanelRoutes } from "@applets/agent/src/router";
+import { UserPanelRoutes } from "@applets/user/src/router/index";
+import { InspectorPanelRoutes } from "@applets/inspector/src/router/index";
 
 Vue.use(VueRouter);
 
@@ -26,9 +28,11 @@ const router = new VueRouter({
         breadCrumb: [],
       },
     },
+    ...UserPanelRoutes,
+    ...InspectorPanelRoutes,
     ...AdminPanelRoutes,
     ...BuisnessPanelRoutes,
-    ...syndicatePanelRoutes,
+    ...SyndicatePanelRoutes,
     ...SupervisorPanelRoutes,
     ...OperatorPanelRoutes,
     ...AgentPanelRoutes,

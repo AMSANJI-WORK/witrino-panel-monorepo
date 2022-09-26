@@ -104,7 +104,6 @@ export default {
   methods: {
     ...mapActions("admin/user", {
       getAllUser: userTypes.GET_ALL_ASYNC,
-      deleteUser: userTypes.DELETE_ASYNC,
       disableUser: userTypes.DISABLE_ASYNC,
     }),
     disableItem(targetId) {

@@ -8,7 +8,6 @@ export default Object.freeze([
   {
     title: "محصولات",
     icon: "mdi-package-variant-closed",
-    disabled: true,
     route: "/buisness/product",
     visible: true,
   },

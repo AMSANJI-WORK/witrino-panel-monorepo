@@ -7,15 +7,23 @@
         <v-icon color="gray">mdi-bell-outline</v-icon>
       </v-badge>
     </v-btn>
-    <v-btn
-      icon
-      dark
-      link
-      :to="`${routeActive}/profile/${userId}`"
-      :ripple="false"
-    >
-      <v-icon color="gray">mdi-account-outline</v-icon>
-    </v-btn>
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          v-bind="attrs"
+          v-on="on"
+          icon
+          dark
+          link
+          :to="`${routeActive}/profile/${userId}`"
+          :ripple="false"
+        >
+          <v-icon color="gray">mdi-account-outline</v-icon>
+        </v-btn>
+      </template>
+      <span class="text-caption white--text">پروفایل</span>
+    </v-tooltip>
+
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-btn

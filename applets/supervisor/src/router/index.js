@@ -6,9 +6,16 @@ export const SupervisorPanelRoutes = [
     path: "/supervisor",
     redirect: "/supervisor/home",
     component: () => import("@applets/supervisor/src/layouts/Defualt.vue"),
-    meta: {
-      breadCrumb: [],
-    },
+    breadCrumb: [
+      {
+        text: "ویترینو",
+        to: "/",
+      },
+      {
+        text: "سوپروایزر",
+        to: "/supervisor/home",
+      },
+    ],
     children: [...DashboardRoutes, ...ProfileRoutes],
   },
 ];

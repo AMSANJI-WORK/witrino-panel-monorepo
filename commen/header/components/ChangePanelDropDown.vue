@@ -50,16 +50,24 @@ export default {
           text: "پنل اپراتور",
           route: "/operator/home",
         },
+        {
+          text: "پنل کاربر",
+          route: "/user/home",
+        },
+        {
+          text: "پنل بازرس",
+          route: "/inspector/home",
+        },
       ],
     };
   },
   methods: {
     changePanel(selectedRoute) {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push(selectedRoute);
-      }, 500);
-      this.loading = false;
+      // this.loading = true;
+      // setTimeout(() => {
+      this.$router.push(selectedRoute);
+      // }, 500);
+      // this.loading = false;
     },
     changeItem(e) {
       e.route != this.$route.path ? this.changePanel(e.route) : "";
