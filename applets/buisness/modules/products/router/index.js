@@ -4,7 +4,7 @@ export default [
     name: "product",
     redirect: "product/list",
     component: () =>
-      import("@applets/buisness/src/modules/Products/views/index.vue"),
+      import("@applets/buisness/modules/products/views/index.vue"),
     meta: {
       breadCrumb: [
         {
@@ -18,7 +18,7 @@ export default [
         path: "list",
         name: "product-list-page",
         component: () =>
-          import("@applets/buisness/src/modules/Products/views/List.vue"),
+          import("@applets/buisness/modules/products/views/List.vue"),
         meta: {
           breadCrumb: [
             {
@@ -31,7 +31,7 @@ export default [
         path: ":id/edit",
         name: "product-edit-page",
         component: () =>
-          import("@applets/buisness/src/modules/Products/views/Edit.vue"),
+          import("@applets/buisness/modules/products/views/Edit.vue"),
         meta: {
           breadCrumb: [
             {
@@ -44,7 +44,7 @@ export default [
         path: "create",
         name: "product-create-page",
         component: () =>
-          import("@applets/buisness/src/modules/Products/views/Create.vue"),
+          import("@applets/buisness/modules/products/views/Create.vue"),
         meta: {
           breadCrumb: [
             {

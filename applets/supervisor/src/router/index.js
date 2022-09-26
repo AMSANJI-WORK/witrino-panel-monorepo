@@ -1,4 +1,4 @@
-import DashboardRoutes from "@applets/supervisor/src/modules/Dashboard/router";
+import DashboardRoutes from "@applets/supervisor/modules/dashboard/router";
 import { ProfileRoutes } from "@applets/commen/profile/router";
 
 export const SupervisorPanelRoutes = [
