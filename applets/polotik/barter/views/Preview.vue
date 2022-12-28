@@ -14,7 +14,7 @@
 
 <script>
 import barterLoadingMixin from "@applets/polotik/barter/mixins/loading";
-import PagePreviewSkeletonTypeFirst from "@commen/loading/modules/skeleton/components/PageList/SkeletonTypeFirst.vue";
+import PagePreviewSkeletonTypeFirst from "@applets/commen/loading/modules/skeleton/components/PageList/SkeletonTypeFirst.vue";
 import PagesDescription from "@applets/polotik/barter/components/PagesDescription.vue";
 import PreviewForm from "@applets/polotik/barter/components/Preview.vue";
 export default {

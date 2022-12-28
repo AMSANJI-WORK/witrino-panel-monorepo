@@ -73,7 +73,7 @@
 
 <script>
 import tenderLoadingMixin from "@applets/polotik/tender/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import ServicesMixin from "@polotik/mixins/base/service";
 import StepperMixin from "@applets/polotik/tender/mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
@@ -83,7 +83,7 @@ import CategoryService from "@applets/polotik/service/components/Category.vue";
 import CityService from "@applets/polotik/service/components/City.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 
 export default {
   components: {

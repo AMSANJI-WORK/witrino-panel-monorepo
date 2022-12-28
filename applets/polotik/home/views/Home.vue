@@ -56,10 +56,10 @@
 <script>
 import Cookies from "js-cookie";
 import FacilitiesData from "@applets/polotik/Home/mock/facilities";
-import Notification from "@commen/card/components/Notification.vue";
-import CardInfoDashboard from "@commen/card/components/Dashboard.vue";
+import Notification from "@applets/commen/card/components/Notification.vue";
+import CardInfoDashboard from "@applets/commen/card/components/Dashboard.vue";
 import Facilities from "@applets/polotik/Home/components/Facilities.vue";
-import PolotikDashBoardSkeleton from "@commen/loading/modules/skeleton/components/Dashboard/Polotik.vue";
+import PolotikDashBoardSkeleton from "@applets/commen/loading/modules/skeleton/components/Dashboard/Polotik.vue";
 export default {
   components: {
     PolotikDashBoardSkeleton,

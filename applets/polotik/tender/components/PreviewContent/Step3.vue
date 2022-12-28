@@ -41,7 +41,7 @@
 <script>
 import moment from "moment-jalaali";
 import { mapMutations, mapGetters } from "vuex";
-import VLabel from "@commen/label/components/Label.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
 export default {
   components: { VLabel },
   computed: {

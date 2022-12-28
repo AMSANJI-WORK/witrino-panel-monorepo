@@ -29,7 +29,7 @@
       v-else
       max-height="350"
       style="object-fit: cover"
-      :src="require('@commen/assets/image/png/image-default.png')"
+      :src="require('@applets/commen/assets/image/png/image-default.png')"
     />
   </v-col>
 </template>

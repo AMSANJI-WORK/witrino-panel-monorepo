@@ -35,7 +35,7 @@
 <script>
 import CardHeader from "./Header.vue";
 import CardDetail from "./Detail.vue";
-import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
+import SectionDivider from "@applets/commen/section-divider/components/SectionDivider.vue";
 export default {
   components: {
     CardDetail,

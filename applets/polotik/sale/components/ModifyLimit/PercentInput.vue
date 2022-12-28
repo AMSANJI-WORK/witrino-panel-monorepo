@@ -15,7 +15,7 @@
 
 <script>
 import saleLoadingMixin from "@applets/polotik/sale/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 
 import UtilityMixin from "@shared/mixins/utility";
 export default {

@@ -2,7 +2,7 @@ import { SET_DASHBOARD, GET_DASHBOARD_DATA } from "./types";
 import RepositoryFactory from "@polotik/repositories/factory";
 const homeRepository = RepositoryFactory.get("home");
 import boxTopData from "../../home/mock/boxTop";
-import skeletonLoading from "@commen/loading/modules/skeleton/store";
+import skeletonLoading from "@applets/commen/loading/modules/skeleton/store";
 export default {
   namespaced: true,
   modules: {

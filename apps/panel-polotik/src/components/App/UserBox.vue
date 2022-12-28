@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 .user-box {
-  background: url(@commen/assets/image/svg/UserBoxBackground.svg) no-repeat;
+  background: url(@applets/commen/assets/image/svg/UserBoxBackground.svg) no-repeat;
   background-size: cover;
   color: #fff;
 }

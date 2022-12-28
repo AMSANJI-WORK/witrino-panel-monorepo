@@ -9,7 +9,6 @@
       "@packages/*": ["packages/*"],
       "@witrino/*": ["apps/panel-witrino/src/*"],
       "@polotik/*": ["apps/panel-polotik/src/*"],
-      "@commen/*": ["commen/*"]
     }
   },
   "include": ["./**/*.js", "./**/*.vue", "./**/*.json", "./**/*.scss"],

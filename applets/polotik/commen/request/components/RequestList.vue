@@ -48,7 +48,7 @@
 
 <script>
 import Product from "./One.vue";
-import PageListSkeletonMenu from "@commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
+import PageListSkeletonMenu from "@applets/commen/loading/modules/skeleton/components/PageList/SkeletonMenu.vue";
 import CommenMixin from "../mixins/commen";
 
 export default {

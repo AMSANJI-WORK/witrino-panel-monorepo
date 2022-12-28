@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import Err404 from "@commen/icons/components/Err404.vue";
-import Err404Moblie from "@commen/icons/components/ErrMoblie404.vue";
+import Err404 from "@applets/commen/icons/components/Err404.vue";
+import Err404Moblie from "@applets/commen/icons/components/ErrMoblie404.vue";
 import DefualtLayout from "@applets/polotik/auth/layout/Defualt.vue";
-import SetPermissionAvatar from "@commen/icons/components/polotik/SetPermissionAvatar.vue";
+import SetPermissionAvatar from "@applets/commen/icons/components/polotik/SetPermissionAvatar.vue";
 export default {
   components: {
     Err404,

@@ -140,12 +140,12 @@
 
 <script>
 import tenderLoadingMixin from "@applets/polotik/tender/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@applets/polotik/tender/mixins/stepper";
 import { mapGetters, mapState, mapActions } from "vuex";
-import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 import OFFER_TYPES from "@applets/polotik/commen/offer/polotik/store/types";
 export default {
   components: {

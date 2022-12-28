@@ -15,7 +15,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 export default {
   mixins: [fromRules],
   props: {

@@ -101,12 +101,12 @@
 
 <script>
 import auctionLoadingMixin from "@applets/polotik/auction/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@applets/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 
 export default {
   components: {

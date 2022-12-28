@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Err403 from "@commen/icons/components/Err403.vue";
-import Err403Moblie from "@commen/icons/components/ErrMoblie403.vue";
+import Err403 from "@applets/commen/icons/components/Err403.vue";
+import Err403Moblie from "@applets/commen/icons/components/ErrMoblie403.vue";
 export default {
   components: {
     Err403,

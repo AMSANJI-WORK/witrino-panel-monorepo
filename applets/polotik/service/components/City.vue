@@ -25,7 +25,7 @@
 import { mapGetters, mapActions } from "vuex";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import serviceTypes from "@applets/polotik/service/store/types";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 
 export default {
   inheritAttrs: false,

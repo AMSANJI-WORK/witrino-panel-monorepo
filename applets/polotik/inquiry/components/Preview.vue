@@ -80,7 +80,7 @@
 import inquiryLoadingMixin from "@applets/polotik/inquiry/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
 import InquiryMixin from "@applets/polotik/inquiry/mixins/index";
-import VLabel from "@commen/label/components/Label.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import ParticipateForm from "./ParticipateForm.vue";
 import { mapGetters } from "vuex";

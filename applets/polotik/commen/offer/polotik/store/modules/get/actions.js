@@ -1,7 +1,7 @@
 import * as TYPES from "./types";
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");
-import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
+import { setLoadingTypes } from "@applets/commen/loading/modules/skeleton/utils";
 export default {
   async [TYPES.GET_ALL_OFFER_ASYNC]({ commit, getters }, payload) {
     let loadingType = setLoadingTypes.pageListOffers(getters.offers.length);

@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import Err403 from "@commen/icons/components/Err403.vue";
-import Err403Moblie from "@commen/icons/components/ErrMoblie403.vue";
+import Err403 from "@applets/commen/icons/components/Err403.vue";
+import Err403Moblie from "@applets/commen/icons/components/ErrMoblie403.vue";
 import DefualtLayout from "@applets/polotik/auth/layout/Defualt.vue";
-import SetPermissionAvatar from "@commen/icons/components/polotik/SetPermissionAvatar.vue";
+import SetPermissionAvatar from "@applets/commen/icons/components/polotik/SetPermissionAvatar.vue";
 export default {
   components: {
     Err403,

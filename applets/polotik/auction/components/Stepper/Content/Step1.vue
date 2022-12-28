@@ -77,7 +77,7 @@
 
 <script>
 import auctionLoadingMixin from "@applets/polotik/auction/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 
 import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/service";

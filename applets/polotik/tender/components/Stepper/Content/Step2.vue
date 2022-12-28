@@ -100,12 +100,12 @@
 
 <script>
 import tenderLoadingMixin from "@applets/polotik/tender/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import StepperMixin from "@applets/polotik/tender/mixins/stepper";
 import UtilityMixin from "@shared/mixins/utility";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 
 export default {
   components: {

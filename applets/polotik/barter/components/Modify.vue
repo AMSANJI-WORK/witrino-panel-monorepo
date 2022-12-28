@@ -190,15 +190,15 @@ import { mapActions } from "vuex";
 import serviceTypes from "@applets/polotik/service/store/types";
 import BarterMixin from "@applets/polotik/barter/mixins";
 import barterLoadingMixin from "@applets/polotik/barter/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
-import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
+import fromRules from "@applets/commen/form/mixins/rules";
+import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";
 import ServicesMixin from "@polotik/mixins/base/service";
 import UtilityMixin from "@shared/mixins/utility";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import CategoryService from "@applets/polotik/service/components/Category.vue";
 import CityService from "@applets/polotik/service/components/City.vue";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 
 export default {
   mixins: [

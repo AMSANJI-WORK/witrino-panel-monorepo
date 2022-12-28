@@ -35,7 +35,7 @@
 
 <script>
 import { mapMutations, mapGetters } from "vuex";
-import VLabel from "@commen/label/components/Label.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
 import VImageItemStepper from "@polotik/components/Reusable/VImageItemStepper.vue";
 export default {
   components: { VLabel, VImageItemStepper },

@@ -44,9 +44,9 @@
 
 <script>
 import AppHeader from "@polotik/components/App/Header.vue";
-import AppDrawerDesktop from "@commen/drawer/components/Desktop.vue";
-import AppMobileDrawer from "@commen/drawer/components/Mobile.vue";
-import AppBreadcrumbs from "@commen/breadcrumbs/components/Breadcrumbs.vue";
+import AppDrawerDesktop from "@applets/commen/drawer/components/Desktop.vue";
+import AppMobileDrawer from "@applets/commen/drawer/components/Mobile.vue";
+import AppBreadcrumbs from "@applets/commen/breadcrumbs/components/Breadcrumbs.vue";
 import AppMobileSubHeader from "@polotik/components/App/MobileSubHeader.vue";
 import AppUserBox from "@polotik/components/App/UserBox.vue";
 import menuItems from "@polotik/constants/menu";

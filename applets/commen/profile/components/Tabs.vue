@@ -29,7 +29,7 @@
 
 <script>
 import EditForm from "../components/EditForm.vue";
-import Address from "@applets/admin/modules/users/modules/address/components/Address.vue";
+import Address from "@applets/witrino/admin/modules/users/modules/address/components/Address.vue";
 export default {
   components: {
     EditForm,

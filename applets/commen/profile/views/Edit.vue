@@ -14,8 +14,8 @@
 
 <script>
 import ModifyTabs from "../components/Tabs.vue";
-import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
-import ZoneMixin from "@commen/zone/mixin/zone";
+import SectionDivider from "@applets/commen/section-divider/components/SectionDivider.vue";
+import ZoneMixin from "@applets/commen/zone/mixin/zone";
 export default {
   mixins: [ZoneMixin],
   components: {

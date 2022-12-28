@@ -8,7 +8,7 @@ import {
   //   GET_ONE_CATEGORY_FAILURE,
 } from "./types";
 import RepositoryFactory from "@polotik/repositories/factory";
-import formLoading from "@commen/loading/modules/form/store";
+import formLoading from "@applets/commen/loading/modules/form/store";
 
 const guildsRepository = RepositoryFactory.get("guilds");
 

@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      MassageIcon: () => import("@commen/icons/components/polotik/Massage.vue"),
+      MassageIcon: () => import("@applets/commen/icons/components/polotik/Massage.vue"),
     };
   },
 };

@@ -35,8 +35,8 @@
 
 <script>
 import navigation from "@polotik/constants/data";
-import Logo from "@commen/icons/components/polotik/Logo.vue";
-import AppHeader from "@commen/header/components/Header.vue";
+import Logo from "@applets/commen/icons/components/polotik/Logo.vue";
+import AppHeader from "@applets/commen/header/components/Header.vue";
 
 export default {
   components: {

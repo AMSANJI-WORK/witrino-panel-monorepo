@@ -53,7 +53,7 @@
 import { mapGetters } from "vuex";
 import saleLoadingMixin from "@applets/polotik/sale/mixins/loading";
 import UtilityMixin from "@shared/mixins/utility";
-import VLabel from "@commen/label/components/Label.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import moment from "moment-jalaali";
 

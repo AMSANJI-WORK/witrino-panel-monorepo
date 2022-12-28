@@ -34,10 +34,10 @@
 <script>
 import auctionLoadingMixin from "@applets/polotik/auction/mixins/loading";
 import StepperMixin from "@applets/polotik/auction/mixins/stepper";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
-import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
+import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";
 export default {
   components: { VFieldSpace, VStepperLevelBtn, UploadImage },
   mixins: [auctionLoadingMixin, fromRules, StepperMixin],

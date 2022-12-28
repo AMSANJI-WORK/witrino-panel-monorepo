@@ -1,6 +1,6 @@
 import shared from "@shared/repositories";
 import base from './base';
-import auth from "@applets/auth/src/repositories";
+import auth from "@applets/witrino/auth/src/repositories";
 const repositories = new Map(
   Object.entries({
     ...shared,

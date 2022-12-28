@@ -104,7 +104,7 @@
 <script>
 import moment from "moment-jalaali";
 import tenderLoadingMixin from "@applets/polotik/tender/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import UtilityMixin from "@shared/mixins/utility";
 import StepperMixin from "@applets/polotik/tender/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";

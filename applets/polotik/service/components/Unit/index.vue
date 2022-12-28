@@ -11,7 +11,7 @@
 import UtilityMixin from "@shared/mixins/utility";
 import { mapActions, mapGetters } from "vuex";
 import serviceTypes from "@applets/polotik/service/store/types";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 export default {
   inheritAttrs: false,

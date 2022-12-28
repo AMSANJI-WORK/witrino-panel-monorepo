@@ -42,9 +42,9 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import SetPermissionAvatar from "@commen/icons/components/polotik/SetPermissionAvatar.vue";
-import SetPermissionMobile from "@commen/icons/components/polotik/SetPermissionMobile.vue";
-import SetPermission from "@commen/icons/components/polotik/SetPermission.vue";
+import SetPermissionAvatar from "@applets/commen/icons/components/polotik/SetPermissionAvatar.vue";
+import SetPermissionMobile from "@applets/commen/icons/components/polotik/SetPermissionMobile.vue";
+import SetPermission from "@applets/commen/icons/components/polotik/SetPermission.vue";
 export default {
   components: {
     SetPermissionAvatar,
@@ -98,7 +98,7 @@ export default {
   font-size: 18px;
 }
 .set-permission-background {
-  background-image: url(@commen/assets/image/svg/SetPermissionImg.svg);
+  background-image: url(@applets/commen/assets/image/svg/SetPermissionImg.svg);
   min-height: 479px;
   background-position: center;
 }

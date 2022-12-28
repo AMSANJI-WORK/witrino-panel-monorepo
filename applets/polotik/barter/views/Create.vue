@@ -7,7 +7,7 @@
 
 <script>
 import ModifyBarter from "@applets/polotik/barter/components/Modify.vue";
-import Notification from "@commen/card/components/Notification.vue";
+import Notification from "@applets/commen/card/components/Notification.vue";
 import PagesDescription from "@applets/polotik/barter/components/PagesDescription.vue";
 export default {
   components: {

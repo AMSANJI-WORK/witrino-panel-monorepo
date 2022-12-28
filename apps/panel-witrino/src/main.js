@@ -8,7 +8,7 @@ import num2persian from "./plugins/num.to.persian";
 import vueApexCharts from "./plugins/apex.chart";
 import datepiker from "./plugins/datepiker";
 import { lmap, lmarker, ltilelayer } from "./plugins/map";
-import "@commen/assets/styles/scss/base.scss";
+import "@applets/commen/assets/styles/scss/base.scss";
 
 import VJsf from "@koumoul/vjsf";
 import "@koumoul/vjsf/dist/main.css";

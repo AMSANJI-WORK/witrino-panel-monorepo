@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Notification from "@commen/card/components/Notification.vue";
+import Notification from "@applets/commen/card/components/Notification.vue";
 export default {
   components: { Notification },
   computed: {

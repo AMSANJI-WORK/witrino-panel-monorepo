@@ -153,14 +153,14 @@ import ServicesMixin from "@polotik/mixins/base/service";
 import UtilityMixin from "@shared/mixins/utility";
 import { mapActions } from "vuex";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
-import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
+import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";
 import CategoryService from "@applets/polotik/service/components/Category.vue";
 import CityService from "@applets/polotik/service/components/City.vue";
 import UnitService from "@applets/polotik/service/components/Unit/index.vue";
 import UnitServiceSelector from "@applets/polotik/service/components/Unit/Selector.vue";
 import UnitServiceInput from "@applets/polotik/service/components/Unit/Input.vue";
 import serviceTypes from "@applets/polotik/service/store/types";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 
 export default {
   mixins: [

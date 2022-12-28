@@ -99,8 +99,8 @@
 import moment from "moment-jalaali";
 import Cookies from "js-cookie";
 import UtilityMixin from "@shared/mixins/utility";
-import VLabel from "@commen/label/components/Label.vue";
-import OfferMenuSkeleton from "@commen/loading/modules/skeleton/components/OfferMenu.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
+import OfferMenuSkeleton from "@applets/commen/loading/modules/skeleton/components/OfferMenu.vue";
 
 export default {
   mixins: [UtilityMixin],

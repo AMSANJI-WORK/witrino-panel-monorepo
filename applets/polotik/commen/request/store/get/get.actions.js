@@ -7,7 +7,7 @@ import {
   GET_ONE_SUCCESS,
   GET_ONE_FAILURE,
 } from "./get.types";
-import { setLoadingTypes } from "@commen/loading/modules/skeleton/utils";
+import { setLoadingTypes } from "@applets/commen/loading/modules/skeleton/utils";
 
 import RepositoryFactory from "@polotik/repositories/factory";
 const guildsRepository = RepositoryFactory.get("guilds");

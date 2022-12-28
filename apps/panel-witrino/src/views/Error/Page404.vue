@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import Err404 from "@commen/icons/components/Err404.vue";
-import Err404Moblie from "@commen/icons/components/ErrMoblie404.vue";
+import Err404 from "@applets/commen/icons/components/Err404.vue";
+import Err404Moblie from "@applets/commen/icons/components/ErrMoblie404.vue";
 export default {
   components: {
     Err404,

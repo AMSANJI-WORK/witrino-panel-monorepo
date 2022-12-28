@@ -6,7 +6,7 @@ import vuetify from "./plugins/vuetify";
 import toast from "./plugins/toast";
 import num2persian from "./plugins/num.to.persian";
 import datepiker from "./plugins/datepiker";
-import "@commen/assets/styles/scss/base.scss";
+import "@applets/commen/assets/styles/scss/base.scss";
 import { ModulesPolotik } from "./register-modules";
 
 new Vue({

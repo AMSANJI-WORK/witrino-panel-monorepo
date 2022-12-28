@@ -97,7 +97,7 @@ import UtilityMixin from "@shared/mixins/utility";
 import barterLoadingMixin from "@applets/polotik/barter/mixins/loading";
 import BarterMixin from "@applets/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";
-import VLabel from "@commen/label/components/Label.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import serviceTypes from "@applets/polotik/service/store/types";
 export default {

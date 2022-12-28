@@ -59,7 +59,7 @@
 <script>
 import UtilityMixin from "@shared/mixins/utility";
 import { mapGetters, mapMutations } from "vuex";
-import VLabel from "@commen/label/components/Label.vue";
+import VLabel from "@applets/commen/label/components/Label.vue";
 export default {
   mixins: [UtilityMixin],
   components: { VLabel },

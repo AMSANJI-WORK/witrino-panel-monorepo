@@ -268,7 +268,7 @@ import UtilityMixin from "@shared/mixins/utility";
 import ServicesMixin from "@polotik/mixins/base/service";
 import serviceTypes from "@applets/polotik/service/store/types";
 import { mapActions } from "vuex";
-import UploadImage from "@commen/upload/polotik/components/UploadImage.vue";
+import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import CategoryService from "@applets/polotik/service/components/Category.vue";
 import CityService from "@applets/polotik/service/components/City.vue";
@@ -280,8 +280,8 @@ import LimitPriceInput from "@applets/polotik/sale/components/ModifyLimit/PriceI
 import LimitPercentInput from "@applets/polotik/sale/components/ModifyLimit/PercentInput.vue";
 import VSelectInputNoData from "@polotik/components/Reusable/VSelectInputNoData.vue";
 import VSelectInputSelection from "@polotik/components/Reusable/VSelectInputSelection.vue";
-import fromRules from "@commen/form/mixins/rules";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import fromRules from "@applets/commen/form/mixins/rules";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 
 export default {
   mixins: [SaleMixin, fromRules, saleLoadingMixin, ServicesMixin, UtilityMixin],

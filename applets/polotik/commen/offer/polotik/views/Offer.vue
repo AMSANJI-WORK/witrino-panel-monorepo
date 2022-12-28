@@ -13,7 +13,7 @@
 
 <script>
 import OfferPage from "../components/page.vue";
-import OfferSkeleton from "@commen/loading/modules/skeleton/components/Offer.vue";
+import OfferSkeleton from "@applets/commen/loading/modules/skeleton/components/Offer.vue";
 export default {
   components: {
     OfferPage,

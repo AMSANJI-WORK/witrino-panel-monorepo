@@ -135,9 +135,9 @@
 
 <script>
 import ProfileMixin from "../mixins/edit";
-import fromRules from "@commen/form/mixins/rules";
-import loadingFormUser from "@applets/admin/modules/users/mixins/loading";
-import ModifyAvatar from "@applets/admin/modules/users/components/ModifyFormAvatar.vue";
+import fromRules from "@applets/commen/form/mixins/rules";
+import loadingFormUser from "@applets/witrino/admin/modules/users/mixins/loading";
+import ModifyAvatar from "@applets/witrino/admin/modules/users/components/ModifyFormAvatar.vue";
 export default {
   components: {
     ModifyAvatar,

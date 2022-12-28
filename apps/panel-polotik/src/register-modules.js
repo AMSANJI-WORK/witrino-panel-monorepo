@@ -1,6 +1,6 @@
 import router from "./router";
 import store from "./store";
-import { registerModules } from "@commen/module-registeration/register-modules";
+import { registerModules } from "@applets/commen/module-registeration/register-modules";
 import auctionModule from "@applets/polotik/auction";
 import tenderModule from "@applets/polotik/tender";
 import AuthModule from "@applets/polotik/auth";

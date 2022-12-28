@@ -13,8 +13,8 @@
 
 <script>
 import { mapActions } from "vuex";
-import { userTypes } from "@applets/admin/modules/users/store/types";
-import SectionDivider from "@commen/section-divider/components/SectionDivider.vue";
+import { userTypes } from "@applets/witrino/admin/modules/users/store/types";
+import SectionDivider from "@applets/commen/section-divider/components/SectionDivider.vue";
 import Card from "../components/Card/index.vue";
 export default {
   components: {

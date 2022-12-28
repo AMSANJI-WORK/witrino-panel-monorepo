@@ -38,9 +38,9 @@
 <script>
 import { mapActions } from "vuex";
 import inquiryLoadingMixin from "@applets/polotik/inquiry/mixins/loading";
-import fromRules from "@commen/form/mixins/rules";
+import fromRules from "@applets/commen/form/mixins/rules";
 import OFFER_TYPES from "@applets/polotik/commen/offer/polotik/store/types";
-import PriceInput from "@commen/reusable-inputs/components/Price.vue";
+import PriceInput from "@applets/commen/reusable-inputs/components/Price.vue";
 
 export default {
   mixins: [inquiryLoadingMixin, fromRules],
