@@ -6,7 +6,7 @@ This is a monorepo web app with Vue 2 in Vite.
 
 ## Polotik App
 
-panel.polotik.com/set-permission?token=asd&page=home
+http://panel.polotik.com/set-permission?token=asd&page=home
 
 ## Witrino App
 
