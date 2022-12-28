@@ -12,13 +12,14 @@
     "papp:build": "cd ./apps/panel-polotik && npm run build"
   },
   "workspaces": [
-    "applets/admin/modules/*",
-    "applets/agent/modules/*",
-    "applets/syndicate/modules/*",
+    "applets/witrino/admin/modules/*",
+    "applets/witrino/agent/modules/*",
+    "applets/witrino/syndicate/modules/*",
+    "applets/witrino/buisness/modules/*",
+    "applets/witrino/operator/modules/*",
+    "applets/witrino/supervisor/modules/*",
     "applets/commen/*",
-    "applets/buisness/modules/*",
-    "applets/operator/modules/*",
-    "applets/supervisor/modules/*",
+    "applets/witrino/*",
     "applets/polotik/*",
     "applets/*",
     "apps/*"

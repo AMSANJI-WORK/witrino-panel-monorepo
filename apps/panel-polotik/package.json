@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "sale": "*",
-    "shared": "*",
+    "commen-modules-deps": "*",
     "tender": "*",
     "auction": "*",
     "barter": "*",
