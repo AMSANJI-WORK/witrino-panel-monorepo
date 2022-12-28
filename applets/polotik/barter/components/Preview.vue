@@ -93,7 +93,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import barterLoadingMixin from "@applets/polotik/barter/mixins/loading";
 import BarterMixin from "@applets/polotik/barter/mixins";
 import ParticipateForm from "./ParticipateForm.vue";

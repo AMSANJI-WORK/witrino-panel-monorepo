@@ -17,7 +17,7 @@
 import saleLoadingMixin from "@applets/polotik/sale/mixins/loading";
 import fromRules from "@applets/commen/form/mixins/rules";
 
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 export default {
   mixins: [saleLoadingMixin, UtilityMixin, fromRules],
   props: {

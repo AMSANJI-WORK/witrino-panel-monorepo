@@ -76,7 +76,7 @@ import tenderLoadingMixin from "@applets/polotik/tender/mixins/loading";
 import fromRules from "@applets/commen/form/mixins/rules";
 import ServicesMixin from "@polotik/mixins/base/service";
 import StepperMixin from "@applets/polotik/tender/mixins/stepper";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import VStepperLevelBtn from "@polotik/components/Reusable/VStepperLevelBtn.vue";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";
 import CategoryService from "@applets/polotik/service/components/Category.vue";

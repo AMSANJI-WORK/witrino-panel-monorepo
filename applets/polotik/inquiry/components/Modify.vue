@@ -150,7 +150,7 @@ import moment from "moment-jalaali";
 import inquiryLoadingMixin from "@applets/polotik/inquiry/mixins/loading";
 import InquiryMixin from "@applets/polotik/inquiry/mixins";
 import ServicesMixin from "@polotik/mixins/base/service";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import { mapActions } from "vuex";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";
 import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";

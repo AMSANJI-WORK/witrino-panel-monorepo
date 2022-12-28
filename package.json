@@ -20,9 +20,6 @@
     "applets/operator/modules/*",
     "applets/supervisor/modules/*",
     "applets/polotik/*",
-    "packages/shared/*",
-    "commen/*",
-    "packages/*",
     "applets/*",
     "apps/*"
   ],

@@ -28,7 +28,7 @@
 import boxTopData from "../mock/boxTop";
 import SectionDivider from "@applets/commen/section-divider/components/SectionDivider.vue";
 import CardInfoDashboard from "@applets/commen/card/components/Dashboard.vue";
-import TableBtnCreate from "@shared/components/Reusable/TableBtnCreate.vue";
+import TableBtnCreate from "@applets/commen/table/components/BtnCreate.vue";
 import DataTable from "./DataTable.vue";
 export default {
   components: {

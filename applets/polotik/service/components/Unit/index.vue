@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import { mapActions, mapGetters } from "vuex";
 import serviceTypes from "@applets/polotik/service/store/types";
 import fromRules from "@applets/commen/form/mixins/rules";

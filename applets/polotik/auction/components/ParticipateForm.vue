@@ -141,7 +141,7 @@
 import { mapActions, mapGetters } from "vuex";
 import fromRules from "@applets/commen/form/mixins/rules";
 import auctionLoadingMixin from "@applets/polotik/auction/mixins/loading";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import StepperMixin from "@applets/polotik/auction/mixins/stepper";
 import UploadImage from "@applets/commen/upload/polotik/components/UploadImage.vue";
 import OFFER_TYPES from "@applets/polotik/commen/offer/polotik/store/types";

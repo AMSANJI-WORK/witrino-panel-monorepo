@@ -1,7 +1,6 @@
 import Vue from "vue";
 import PublicRoutes from "./public";
 import VueRouter from "vue-router";
-import { SharedRoutes } from "@shared/router";
 import { AdminPanelRoutes } from "@applets/witrino/admin/src/router";
 import { AuthRoutes } from "@applets/witrino/auth/src/router";
 import { SupervisorPanelRoutes } from "@applets/witrino/supervisor/src/router";
@@ -36,7 +35,6 @@ const router = new VueRouter({
     ...SupervisorPanelRoutes,
     ...OperatorPanelRoutes,
     ...AgentPanelRoutes,
-    ...SharedRoutes,
   ],
 });
 

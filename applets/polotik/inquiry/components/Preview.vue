@@ -78,7 +78,7 @@
 
 <script>
 import inquiryLoadingMixin from "@applets/polotik/inquiry/mixins/loading";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import InquiryMixin from "@applets/polotik/inquiry/mixins/index";
 import VLabel from "@applets/commen/label/components/Label.vue";
 import Carousel from "@polotik/components/Reusable/Carousel.vue";

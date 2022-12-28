@@ -1,5 +1,5 @@
 {
-  "name": "shared",
+  "name": "commen-modules-deps",
   "version": "0.0.0",
   "dependencies": {
     "section-divider": "*",
@@ -18,6 +18,9 @@
     "zone": "*",
     "form": "*",
     "card": "*",
-    "offer": "*"
+    "offer": "*",
+    "commen-store-modules": "*",
+    "commen-mixins": "*",
+    "table": "*"
   }
 }

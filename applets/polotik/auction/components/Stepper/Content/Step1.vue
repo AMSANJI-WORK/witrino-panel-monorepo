@@ -79,7 +79,7 @@
 import auctionLoadingMixin from "@applets/polotik/auction/mixins/loading";
 import fromRules from "@applets/commen/form/mixins/rules";
 
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import ServicesMixin from "@polotik/mixins/base/service";
 import StepperMixin from "@applets/polotik/auction/mixins/stepper";
 import VFieldSpace from "@polotik/components/Reusable/VFieldSpace.vue";

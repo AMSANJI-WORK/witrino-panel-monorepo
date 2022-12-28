@@ -264,7 +264,7 @@
 import moment from "moment-jalaali";
 import SaleMixin from "@applets/polotik/sale/mixins";
 import saleLoadingMixin from "@applets/polotik/sale/mixins/loading";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 import ServicesMixin from "@polotik/mixins/base/service";
 import serviceTypes from "@applets/polotik/service/store/types";
 import { mapActions } from "vuex";

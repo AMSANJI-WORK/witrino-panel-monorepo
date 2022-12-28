@@ -1,4 +1,4 @@
-import shared from "@shared/store";
+import shared from "@applets/commen/store";
 import auth from "@applets/witrino/auth/src/store";
 import admin from "@applets/witrino/admin/src/store";
 import buisness from "@applets/witrino/buisness/src/store";

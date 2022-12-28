@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 export default {
   inheritAttrs: false,
   mixins: [UtilityMixin],

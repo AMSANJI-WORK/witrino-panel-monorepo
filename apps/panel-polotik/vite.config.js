@@ -13,7 +13,6 @@ export default getClientConfiguration({
   resolve: {
     alias: {
       "@polotik": fileURLToPath(new URL("./src", import.meta.url)),
-      "@shared": path.resolve(__dirname, "../../packages/shared/src"),
       "@applets": path.resolve(__dirname, "../../applets"),
       "@witrino": path.resolve(__dirname, "../panel-witrino/src"),
     },

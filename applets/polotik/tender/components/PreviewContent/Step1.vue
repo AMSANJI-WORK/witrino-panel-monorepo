@@ -56,7 +56,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import VLabel from "@applets/commen/label/components/Label.vue";
-import UtilityMixin from "@shared/mixins/utility";
+import UtilityMixin from "@applets/commen/mixins/utility.js";
 
 export default {
   mixins: [UtilityMixin],
