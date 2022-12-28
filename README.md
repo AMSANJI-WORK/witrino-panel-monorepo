@@ -46,7 +46,7 @@ npm run papp:build
 ### Compile Witrino App and Minify for Production
 
 ```sh
-npm run wapp:dev
+npm run wapp:build
 ```
 
 ### Run and see Dependencies graph
